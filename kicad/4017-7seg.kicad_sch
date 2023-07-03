@@ -1053,7 +1053,8 @@
     (uuid fcbdcd21-02e6-4ee6-a43c-7742fdcd0747)
   )
 
-  (text "TODO: non-global labels to appease ERC" (at 180.975 107.315 0)
+  (text "TODO: non-global labels to appease ERC\n\nBOM ADDITION: 36"
+    (at 176.53 109.855 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 3b4dbcc0-686e-4f20-93e1-f73773628242)
   )

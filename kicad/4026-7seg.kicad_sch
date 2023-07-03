@@ -427,8 +427,8 @@
     (uuid fb80d026-3cc7-4854-986a-6ecfa08559a9)
   )
 
-  (text "KNOWN ISSUES:\n* no easy reset\n* starts at 0, not 1"
-    (at 154.305 121.285 0)
+  (text "KNOWN ISSUES:\n* no easy reset\n* starts at 0, not 1\n\nBOM ADDITION: 2"
+    (at 153.67 127.635 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 09690512-6477-4168-86c3-080805663590)
   )

@@ -494,6 +494,11 @@
     (uuid fdd4c8fc-7b2d-4c9d-9d03-501906292678)
   )
 
+  (text "KNOWN ISSUES:\n* non-digit output\n\nBOM ADDITION: 7" (at 151.13 107.95 0)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid 48da1d32-e6ad-4f45-9652-278571fa1726)
+  )
+
   (hierarchical_label "OSC" (shape input) (at 113.03 80.645 180)
     (effects (font (size 1.27 1.27)) (justify right))
     (uuid 8a768b5a-49d5-49a2-9094-e7a18f49a44c)
