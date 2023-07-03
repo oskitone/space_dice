@@ -381,9 +381,9 @@
   )
 
   (no_connect (at 142.24 108.585) (uuid 69934738-b5f7-4876-8d37-889a83e213d2))
-  (no_connect (at 142.24 103.505) (uuid 69934738-b5f7-4876-8d37-889a83e213d2))
-  (no_connect (at 142.24 98.425) (uuid 69934738-b5f7-4876-8d37-889a83e213d2))
-  (no_connect (at 142.24 100.965) (uuid 69934738-b5f7-4876-8d37-889a83e213d2))
+  (no_connect (at 142.24 103.505) (uuid 69934738-b5f7-4876-8d37-889a83e213d3))
+  (no_connect (at 142.24 98.425) (uuid 69934738-b5f7-4876-8d37-889a83e213d4))
+  (no_connect (at 142.24 100.965) (uuid 69934738-b5f7-4876-8d37-889a83e213d5))
 
   (wire (pts (xy 111.125 83.185) (xy 111.125 92.075))
     (stroke (width 0) (type default) (color 0 0 0 0))

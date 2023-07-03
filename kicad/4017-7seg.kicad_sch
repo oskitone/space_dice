@@ -596,9 +596,9 @@
 
   (no_connect (at 207.645 93.98) (uuid 1ced5472-90bf-4251-8b79-8a1090ab3400))
   (no_connect (at 115.57 100.33) (uuid c6828a1d-551b-4e1b-a3b9-57f359486ebf))
-  (no_connect (at 115.57 95.25) (uuid c6828a1d-551b-4e1b-a3b9-57f359486ebf))
-  (no_connect (at 115.57 90.17) (uuid c6828a1d-551b-4e1b-a3b9-57f359486ebf))
-  (no_connect (at 115.57 92.71) (uuid c6828a1d-551b-4e1b-a3b9-57f359486ebf))
+  (no_connect (at 115.57 95.25) (uuid c6828a1d-551b-4e1b-a3b9-57f359486ec0))
+  (no_connect (at 115.57 90.17) (uuid c6828a1d-551b-4e1b-a3b9-57f359486ec1))
+  (no_connect (at 115.57 92.71) (uuid c6828a1d-551b-4e1b-a3b9-57f359486ec2))
 
   (wire (pts (xy 147.955 138.43) (xy 158.75 138.43))
     (stroke (width 0) (type default) (color 0 0 0 0))
@@ -1051,6 +1051,11 @@
   (wire (pts (xy 137.795 74.93) (xy 142.875 74.93))
     (stroke (width 0) (type default) (color 0 0 0 0))
     (uuid fcbdcd21-02e6-4ee6-a43c-7742fdcd0747)
+  )
+
+  (text "TODO: non-global labels to appease ERC" (at 180.975 107.315 0)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid 3b4dbcc0-686e-4f20-93e1-f73773628242)
   )
 
   (global_label "D" (shape input) (at 158.75 74.93 0) (fields_autoplaced)
