@@ -544,6 +544,11 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 09690512-6477-4168-86c3-080805663590)
   )
+  (text "TODO: fix footprint!\n\n10 A\n9  B\n7  C\n5  D\n4  E\n2  F\n1  G\n\n6  DP\n3  COM\n8  COM"
+    (at 210.82 107.95 0)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid ab43117f-4d57-4193-b4dc-fb474ed11243)
+  )
 
   (hierarchical_label "OSC" (shape input) (at 111.125 90.805 180)
     (effects (font (size 1.27 1.27)) (justify right))

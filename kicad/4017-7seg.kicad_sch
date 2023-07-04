@@ -1058,6 +1058,11 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 3b4dbcc0-686e-4f20-93e1-f73773628242)
   )
+  (text "TODO: fix footprint!\n\n10 A\n9  B\n7  C\n5  D\n4  E\n2  F\n1  G\n\n6  DP\n3  COM\n8  COM"
+    (at 229.235 84.455 0)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid f45749b7-66ec-4fe6-be7f-fc819bd24dfa)
+  )
 
   (global_label "D" (shape input) (at 158.75 74.93 0) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left))

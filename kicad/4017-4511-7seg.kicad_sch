@@ -949,6 +949,11 @@
     (uuid f95826fa-304c-414e-99d1-bf42334edbd3)
   )
 
+  (text "TODO: fix footprint!\n\n10 A\n9  B\n7  C\n5  D\n4  E\n2  F\n1  G\n\n6  DP\n3  COM\n8  COM"
+    (at 234.95 83.185 0)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid a2701dad-6d65-40b3-a9ef-919c5e6ac73b)
+  )
   (text "TODO: non-global labels to appease ERC,\nresistor values?\n\nBOM: 22"
     (at 97.79 130.81 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
