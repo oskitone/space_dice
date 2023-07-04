@@ -1173,6 +1173,10 @@
     (stroke (width 0) (type default) (color 0 0 0 0))
     (uuid 2a9ff3d1-92b0-4583-8230-9357a432a3ac)
   )
+  (wire (pts (xy 111.125 175.895) (xy 113.665 175.895))
+    (stroke (width 0) (type default) (color 0 0 0 0))
+    (uuid 2ceda708-1025-4062-99dc-c29dd72b04df)
+  )
   (wire (pts (xy 208.28 71.755) (xy 213.36 71.755))
     (stroke (width 0) (type default) (color 0 0 0 0))
     (uuid 345a9ac1-be31-400b-9c5d-4af388112d4b)
@@ -1358,6 +1362,13 @@
     (effects (font (size 1.27 1.27)) (justify right))
     (uuid 142cfff5-6cc7-437e-956f-3e77101760cb)
     (property "Intersheet References" "${INTERSHEET_REFS}" (id 0) (at 169.0369 71.8344 0)
+      (effects (font (size 1.27 1.27)) (justify right) hide)
+    )
+  )
+  (global_label "OSC" (shape input) (at 111.125 175.895 180) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify right))
+    (uuid 1bfac3d4-30a3-4440-b55c-59dbcef23c4d)
+    (property "Intersheet References" "${INTERSHEET_REFS}" (id 0) (at 104.9019 175.9744 0)
       (effects (font (size 1.27 1.27)) (justify right) hide)
     )
   )
@@ -1830,12 +1841,29 @@
     )
   )
 
+  (sheet (at 113.665 172.72) (size 32.385 8.255) (fields_autoplaced)
+    (stroke (width 0.1524) (type solid) (color 0 0 0 0))
+    (fill (color 0 0 0 0.0000))
+    (uuid d7e265c6-74a5-4ab8-8f42-468a17464207)
+    (property "Sheet name" "4040-4511-7seg" (id 0) (at 113.665 172.0084 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheet file" "4040-4511-7seg.kicad_sch" (id 1) (at 113.665 181.5596 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (pin "OSC" input (at 113.665 175.895 180)
+      (effects (font (size 1.27 1.27)) (justify left))
+      (uuid a7f20766-d216-451a-a811-217b1627ab76)
+    )
+  )
+
   (sheet_instances
     (path "/" (page "1"))
     (path "/0e873ed4-b07e-4422-abd1-088111fbf0eb" (page "2"))
     (path "/d643006e-fc90-4aa4-b7c1-025566c22d1b" (page "3"))
     (path "/636ba12f-a29a-4310-8b6d-5d03e85e7f4b" (page "4"))
     (path "/572e8e18-8efd-4d03-b4ec-2103635368a8" (page "5"))
+    (path "/d7e265c6-74a5-4ab8-8f42-468a17464207" (page "6"))
   )
 
   (symbol_instances
@@ -1928,6 +1956,30 @@
     )
     (path "/572e8e18-8efd-4d03-b4ec-2103635368a8/2536f80f-f165-455a-a45e-247b3cdc0dc0"
       (reference "#PWR030") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/d7e265c6-74a5-4ab8-8f42-468a17464207/b5b08752-1bf9-47dd-8f5e-bbffeafcc11b"
+      (reference "#PWR031") (unit 1) (value "VCC") (footprint "")
+    )
+    (path "/d7e265c6-74a5-4ab8-8f42-468a17464207/f92d8623-28d8-42ff-8210-e91428b39fd6"
+      (reference "#PWR032") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/d7e265c6-74a5-4ab8-8f42-468a17464207/4bd2c78c-1a26-44e7-a767-df98efe0b08a"
+      (reference "#PWR033") (unit 1) (value "VCC") (footprint "")
+    )
+    (path "/d7e265c6-74a5-4ab8-8f42-468a17464207/9402d1cf-c1f5-4190-a794-bbf201308981"
+      (reference "#PWR034") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/d7e265c6-74a5-4ab8-8f42-468a17464207/8cc22d12-d209-4951-88c7-7c9e03e0a8fe"
+      (reference "#PWR035") (unit 1) (value "VCC") (footprint "")
+    )
+    (path "/d7e265c6-74a5-4ab8-8f42-468a17464207/ade49625-ceea-4be8-a807-317b3bcb4dee"
+      (reference "#PWR036") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/d7e265c6-74a5-4ab8-8f42-468a17464207/5f18a655-8bb8-4721-adb4-dbfee62095c4"
+      (reference "#PWR037") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/d7e265c6-74a5-4ab8-8f42-468a17464207/5d1ece4f-16b2-4534-ab83-fc6e091e8631"
+      (reference "#PWR038") (unit 1) (value "GND") (footprint "")
     )
     (path "/f254f8e4-0eca-46a4-a3de-477f70bd6ec4"
       (reference "BT1") (unit 1) (value "Battery") (footprint "Sparkfun_Connectors:1X02")
@@ -2153,6 +2205,15 @@
     )
     (path "/572e8e18-8efd-4d03-b4ec-2103635368a8/45d37540-2ff4-44e5-bbce-d7725404535d"
       (reference "U9") (unit 1) (value "D168K") (footprint "Display_7Segment:D1X8K")
+    )
+    (path "/d7e265c6-74a5-4ab8-8f42-468a17464207/ecc03da4-0122-4318-ac70-7cab3552f7b1"
+      (reference "U10") (unit 1) (value "4511") (footprint "")
+    )
+    (path "/d7e265c6-74a5-4ab8-8f42-468a17464207/f6a5914e-e13e-48ef-bf86-e48050cc7beb"
+      (reference "U11") (unit 1) (value "D168K") (footprint "Display_7Segment:D1X8K")
+    )
+    (path "/d7e265c6-74a5-4ab8-8f42-468a17464207/3902b78c-6f85-4486-bbec-8ab2b339caba"
+      (reference "U12") (unit 1) (value "4040") (footprint "")
     )
   )
 )
