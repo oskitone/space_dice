@@ -2245,8 +2245,8 @@
     (path "/79094860-9de1-4089-9ad1-fb708c7e674c"
       (reference "U1") (unit 5) (value "HEF4093B") (footprint "Package_DIP:DIP-14_W7.62mm_LongPads")
     )
-    (path "/0e873ed4-b07e-4422-abd1-088111fbf0eb/3236c999-4abe-4f6e-a559-0908896e1c75"
-      (reference "U2") (unit 1) (value "D168K") (footprint "Display_7Segment:D1X8K")
+    (path "/0e873ed4-b07e-4422-abd1-088111fbf0eb/6ec0f380-9695-4ddf-95ab-360dae6e49fa"
+      (reference "U2") (unit 1) (value "TDSR-3163-G") (footprint "")
     )
     (path "/0e873ed4-b07e-4422-abd1-088111fbf0eb/513fb40a-98c5-4b19-8072-cc9f36278a11"
       (reference "U3") (unit 1) (value "4017") (footprint "")
@@ -2254,26 +2254,26 @@
     (path "/d643006e-fc90-4aa4-b7c1-025566c22d1b/dbcb6793-92bf-43de-b0f1-537c259b1827"
       (reference "U4") (unit 1) (value "4017") (footprint "")
     )
-    (path "/636ba12f-a29a-4310-8b6d-5d03e85e7f4b/58e81960-d936-43ba-a75d-3f96bcdc87fe"
-      (reference "U5") (unit 1) (value "D168K") (footprint "Display_7Segment:D1X8K")
+    (path "/636ba12f-a29a-4310-8b6d-5d03e85e7f4b/1a0cf0e2-1c16-4510-803e-46869db7e735"
+      (reference "U5") (unit 1) (value "TDSR-3163-G") (footprint "")
     )
     (path "/636ba12f-a29a-4310-8b6d-5d03e85e7f4b/c47263e3-11bb-4af0-a072-e1f816b3a21a"
       (reference "U6") (unit 1) (value "4026") (footprint "")
     )
+    (path "/572e8e18-8efd-4d03-b4ec-2103635368a8/f6038bd6-f401-43f4-a3e8-6679c7c37bba"
+      (reference "U7") (unit 1) (value "TDSR-3163-G") (footprint "")
+    )
     (path "/572e8e18-8efd-4d03-b4ec-2103635368a8/c9fe1e39-2bd5-4a0f-99ac-aeb6c70afb76"
-      (reference "U7") (unit 1) (value "4017") (footprint "")
+      (reference "U8") (unit 1) (value "4017") (footprint "")
     )
     (path "/572e8e18-8efd-4d03-b4ec-2103635368a8/38f29285-92f8-42b3-b93e-fd750c2b4d73"
-      (reference "U8") (unit 1) (value "4511") (footprint "")
+      (reference "U9") (unit 1) (value "4511") (footprint "")
     )
-    (path "/572e8e18-8efd-4d03-b4ec-2103635368a8/45d37540-2ff4-44e5-bbce-d7725404535d"
-      (reference "U9") (unit 1) (value "D168K") (footprint "Display_7Segment:D1X8K")
+    (path "/d7e265c6-74a5-4ab8-8f42-468a17464207/b74fe5b2-07e1-4274-b4b9-60de254ec8a3"
+      (reference "U10") (unit 1) (value "TDSR-3163-G") (footprint "")
     )
     (path "/d7e265c6-74a5-4ab8-8f42-468a17464207/ecc03da4-0122-4318-ac70-7cab3552f7b1"
-      (reference "U10") (unit 1) (value "4511") (footprint "")
-    )
-    (path "/d7e265c6-74a5-4ab8-8f42-468a17464207/ee1bf567-4739-450d-88df-029f7a0bb53b"
-      (reference "U11") (unit 1) (value "D168K") (footprint "Display_7Segment:D1X8K")
+      (reference "U11") (unit 1) (value "4511") (footprint "")
     )
     (path "/d7e265c6-74a5-4ab8-8f42-468a17464207/3902b78c-6f85-4486-bbec-8ab2b339caba"
       (reference "U12") (unit 1) (value "4040") (footprint "")
