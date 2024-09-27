@@ -1354,6 +1354,11 @@
     (uuid fd2d066c-2ff9-43c4-ab8e-a65d2b71b5c1)
   )
 
+  (text "TODO: could a binary-to-decimal\nchip be useful? Or from mux?\n\nCD4510+CD4029 can preset back to\narbitrary BCD..."
+    (at 158.75 147.955 0)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid 203eff38-5c86-45d7-8b0e-36659897a8dd)
+  )
   (text "DISPLAY IMPLENTATIONS" (at 113.03 96.52 0)
     (effects (font (size 1.27 1.27) (thickness 0.254) bold) (justify left bottom))
     (uuid c027c6b5-6791-4b10-8e87-ad4c94bde4b6)
