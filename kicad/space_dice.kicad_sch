@@ -3078,6 +3078,16 @@
 		)
 		(uuid "fd2d066c-2ff9-43c4-ab8e-a65d2b71b5c1")
 	)
+	(wire
+		(pts
+			(xy 111.76 187.96) (xy 115.57 187.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fec75174-96d1-4778-a43d-ecf243286734")
+	)
 	(global_label "OSC"
 		(shape input)
 		(at 175.26 64.77 180)
@@ -3091,6 +3101,28 @@
 		(uuid "142cfff5-6cc7-437e-956f-3e77101760cb")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 169.0369 64.8494 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "OSC"
+		(shape input)
+		(at 111.76 187.96 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "17ce65a8-5840-4def-9193-bcca36df7fe1")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 105.5369 188.0394 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5248,6 +5280,66 @@
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
 					(page "7")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 115.57 185.42)
+		(size 33.274 7.366)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "bf281fbb-b458-46c0-8938-ced8826deda0")
+		(property "Sheetname" "4510-4511-7seg"
+			(at 115.57 184.7084 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "4510-4511-7seg.kicad_sch"
+			(at 115.57 193.3706 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(property "Field2" ""
+			(at 115.57 185.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "OSC" input
+			(at 115.57 187.96 180)
+			(uuid "a9dd53d7-cfe9-490b-b914-e6f0ee3c78af")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(instances
+			(project "space_dice"
+				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
+					(page "8")
 				)
 			)
 		)
