@@ -1543,6 +1543,17 @@
 			(embedded_fonts no)
 		)
 	)
+	(text "KNOWN ISSUES:\n* probably weird counting\n* no easy reset\n* starts at 0, not 1\n* resistor values?\n\nTODO: non-global labels to appease ERC\n\nBOM: 10"
+		(exclude_from_sim no)
+		(at 130.81 126.492 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b7a57197-f266-4858-bd3d-7eb1f2ab9775")
+	)
 	(junction
 		(at 212.09 96.52)
 		(diameter 0)
