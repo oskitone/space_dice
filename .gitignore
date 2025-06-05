@@ -33,3 +33,5 @@ fp-info-cache
 *.csv
 
 \#auto_saved_files\#
+
+*.lck
