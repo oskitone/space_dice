@@ -1716,7 +1716,7 @@
 			(embedded_fonts no)
 		)
 	)
-	(text "Diode logic AND gate:\nOutput to RESET is low if any\nBCD pin is low, because VCC\nwill drain through the diode(s)\ninto low pin. But if they're\nall high, they block VCC's path\nand send it to RESET."
+	(text "Diode logic AND gate:\nOutput is low if any\nBCD pin is low, because VCC\nwill drain through the diode(s)\ninto low pin. But if they're\nall high, they block VCC's path\nand send it to output."
 		(exclude_from_sim no)
 		(at 141.478 123.952 0)
 		(effects
@@ -1727,7 +1727,18 @@
 		)
 		(uuid "2234f34a-b1da-4262-bcc6-fe614610b0ff")
 	)
-	(text "KNOWN ISSUES:\n* Preset at 1 and reset at 7 are\n  fixed and can't be changed by user\n* Diode logic untested and not\n  sure RESET+PRESET works like that\n\nTODO: non-global labels to appease ERC\n\nBOM: 13"
+	(text "BCD4 will always be 0\nbut it can't hurt to\nconnect them instead\nof using GND"
+		(exclude_from_sim no)
+		(at 118.11 87.376 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "2b9bbaf0-5b9c-4744-9b5c-8fd57dce43c4")
+	)
+	(text "KNOWN ISSUES:\n* Preset at 1 and reset at 7 are\n  fixed and can't be changed by user\n\nTODO: non-global labels to appease ERC\n\nBOM: 14"
 		(exclude_from_sim no)
 		(at 188.976 131.572 0)
 		(effects
@@ -1737,17 +1748,6 @@
 			(justify left bottom)
 		)
 		(uuid "3c0e614a-e8d1-4450-a18b-68bf740f6b94")
-	)
-	(text "Resetting seems more straightforward\nthan in CD4029?"
-		(exclude_from_sim no)
-		(at 54.102 136.144 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "aceb1d88-9bd6-4a12-b98a-641939976428")
 	)
 	(text "Preset to 1 BCD"
 		(exclude_from_sim no)
@@ -1759,17 +1759,6 @@
 			(justify right)
 		)
 		(uuid "b27cffc4-d645-4398-b965-08ff2af8c031")
-	)
-	(text "Explicitly use preset BCD\nwhen count is reset instead\nof using default 0."
-		(exclude_from_sim no)
-		(at 53.086 121.666 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "cd922afe-470c-4871-bee4-d3fb42d45028")
 	)
 	(text "Can probably swap\nwith CD4516"
 		(exclude_from_sim no)
@@ -1827,10 +1816,6 @@
 	(no_connect
 		(at 207.01 93.98)
 		(uuid "82793f01-f7b3-4882-9893-c181d46e3138")
-	)
-	(no_connect
-		(at 109.22 80.01)
-		(uuid "c7592d0c-8e62-4103-842d-c108b1be0988")
 	)
 	(no_connect
 		(at 109.22 85.09)
@@ -2005,16 +1990,6 @@
 			(type default)
 		)
 		(uuid "6b333c27-30b1-4e6c-bc11-4efa9d45a5b8")
-	)
-	(wire
-		(pts
-			(xy 62.23 114.3) (xy 69.85 114.3)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7247862c-7659-4faa-9200-1c9ae96a9e2a")
 	)
 	(wire
 		(pts
@@ -2238,16 +2213,6 @@
 	)
 	(wire
 		(pts
-			(xy 67.31 95.25) (xy 83.82 95.25)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d752e6af-6718-48f3-ae20-447c1633f384")
-	)
-	(wire
-		(pts
 			(xy 140.97 72.39) (xy 154.94 72.39)
 		)
 		(stroke
@@ -2305,6 +2270,28 @@
 			(type default)
 		)
 		(uuid "ecde7329-c304-4a65-8f81-514b990ba2fe")
+	)
+	(global_label "LOAD"
+		(shape input)
+		(at 146.05 135.89 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "3c6e2aa1-6e8f-4a07-bc7f-f1fd017ac50a")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 153.7524 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
 	)
 	(global_label "BCD2"
 		(shape input)
@@ -2372,7 +2359,7 @@
 			)
 		)
 	)
-	(global_label "PRESET"
+	(global_label "LOAD"
 		(shape input)
 		(at 77.47 92.71 180)
 		(fields_autoplaced yes)
@@ -2384,7 +2371,7 @@
 		)
 		(uuid "53496409-e888-4e8a-93ee-20eb63a3ae45")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 67.4697 92.71 0)
+			(at 69.7676 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2438,28 +2425,6 @@
 			)
 		)
 	)
-	(global_label "RESET"
-		(shape input)
-		(at 146.05 135.89 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "a1006f97-de16-4383-b84e-064b918271aa")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 154.7803 135.89 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "BCD3"
 		(shape input)
 		(at 111.76 133.35 180)
@@ -2482,9 +2447,9 @@
 			)
 		)
 	)
-	(global_label "RESET"
+	(global_label "BCD4"
 		(shape input)
-		(at 62.23 114.3 180)
+		(at 154.94 86.36 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2492,31 +2457,9 @@
 			)
 			(justify right)
 		)
-		(uuid "b1686f2c-9061-42af-9a95-c40ee81cdfa8")
+		(uuid "c12e011c-a689-4d1b-8166-906dd05838ea")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 53.4997 114.3 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "RESET"
-		(shape input)
-		(at 67.31 95.25 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "b8e13b4d-765e-4ac7-91ef-26c5710b3bee")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 58.5797 95.25 0)
+			(at 146.9353 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2539,28 +2482,6 @@
 		(uuid "d319fa55-bc36-43eb-96e8-05517b7e8968")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 117.2247 72.39 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "PRESET"
-		(shape input)
-		(at 69.85 114.3 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "dfe29ed2-b756-4d30-97bd-696583ab240b")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 79.8503 114.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2605,6 +2526,28 @@
 		(uuid "eb293354-1ed1-4ba2-95de-aa554554295c")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 117.2247 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "BCD4"
+		(shape input)
+		(at 109.22 80.01 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "fd2d9aaf-0ec7-46f6-b684-3c0993f7ae09")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 117.2247 80.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2906,73 +2849,6 @@
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c/bf281fbb-b458-46c0-8938-ced8826deda0"
 					(reference "#PWR063")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_name "GND_1")
-		(lib_id "power:GND")
-		(at 154.94 86.36 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "1f3c48ce-52fc-4c29-9c54-7c9feea78125")
-		(property "Reference" "#PWR064"
-			(at 148.59 86.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 151.638 86.36 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" ""
-			(at 154.94 86.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 154.94 86.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 154.94 86.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "444248bb-9207-41e6-afea-125a1ba46541")
-		)
-		(instances
-			(project "space_dice"
-				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c/bf281fbb-b458-46c0-8938-ced8826deda0"
-					(reference "#PWR064")
 					(unit 1)
 				)
 			)
@@ -4396,6 +4272,73 @@
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c/bf281fbb-b458-46c0-8938-ced8826deda0"
 					(reference "#PWR059")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "GND_1")
+		(lib_id "power:GND")
+		(at 83.82 95.25 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "e847e6ab-1371-45e9-b0e3-102ee80013bb")
+		(property "Reference" "#PWR067"
+			(at 77.47 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 80.518 95.25 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 83.82 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 83.82 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 83.82 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "2ca33247-84bb-4932-9c65-b2ed01648c3d")
+		)
+		(instances
+			(project "space_dice"
+				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c/bf281fbb-b458-46c0-8938-ced8826deda0"
+					(reference "#PWR067")
 					(unit 1)
 				)
 			)
