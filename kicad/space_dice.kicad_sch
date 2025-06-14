@@ -5936,6 +5936,56 @@
 			)
 		)
 	)
+	(sheet
+		(at 239.014 93.726)
+		(size 27.94 12.7)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "ed14144e-32d1-41a3-99ef-53c6ba9a14e9")
+		(property "Sheetname" "4051-4510"
+			(at 239.014 93.0144 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "4051-4510.kicad_sch"
+			(at 239.014 107.0106 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(property "Field2" ""
+			(at 239.014 93.726 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(instances
+			(project "space_dice"
+				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
+					(page "9")
+				)
+			)
+		)
+	)
 	(sheet_instances
 		(path "/"
 			(page "1")
