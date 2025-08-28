@@ -6506,6 +6506,17 @@
 		)
 		(uuid "0ae69ee7-6abf-42dc-8980-cc7973d249d4")
 	)
+	(text "RESISTOR NETWORKS:\n* 10k: 2 bussed to VCC, 1 to GND, 7 serial for MUX_VR\n* 330: 7 isolated for 7seg\n\n\n\nEHHHH, even w/ these optimizations, it won't fit.\nNow thinking to bring back discretes for simpler BOM."
+		(exclude_from_sim no)
+		(at 79.502 228.854 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "17e0fe0e-afd1-4501-a1aa-ccf57c550683")
+	)
 	(text "Decoupling capacitors, placed near\neach IC to reduce noisebetween chips."
 		(exclude_from_sim no)
 		(at 127.762 105.41 0)
@@ -6549,6 +6560,17 @@
 			(justify left top)
 		)
 		(uuid "56f9c550-07fb-4470-a5ed-272cabd0b93c")
+	)
+	(text "MAYBE: can be removed if needed"
+		(exclude_from_sim no)
+		(at 139.7 25.654 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "63db2d15-7685-40cb-ad85-e5845dee32f6")
 	)
 	(text "Truth table:\nD  C  B  A  Dec\n0  0  0  0  0\n0  0  0  1  1\n0  0  1  0  2\n0  0  1  1  3\n0  1  0  0  4\n0  1  0  1  5\n0  1  1  0  6\n0  1  1  1  7\n1  0  0  0  8"
 		(exclude_from_sim no)
@@ -6640,7 +6662,7 @@
 	)
 	(text "PIP_D is always low, so no LED"
 		(exclude_from_sim no)
-		(at 197.866 193.04 0)
+		(at 194.056 187.706 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -11503,7 +11525,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "Diode_SMD:D_SOD-523"
+		(property "Footprint" "Diode_THT:D_A-405_P2.54mm_Vertical_AnodeUp"
 			(at 44.45 102.235 0)
 			(effects
 				(font
@@ -13723,7 +13745,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "Diode_SMD:D_SOD-523"
+		(property "Footprint" "Diode_THT:D_A-405_P2.54mm_Vertical_AnodeUp"
 			(at 44.45 98.425 0)
 			(effects
 				(font
@@ -16049,7 +16071,6 @@
 	(symbol
 		(lib_id "Switch:SW_SPST")
 		(at 62.23 93.98 0)
-		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -16057,7 +16078,7 @@
 		(dnp no)
 		(uuid "d6ea2e11-66e3-49b6-a3dd-01cfdd63b84f")
 		(property "Reference" "SW2"
-			(at 62.23 100.33 0)
+			(at 62.23 87.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16065,7 +16086,7 @@
 			)
 		)
 		(property "Value" "SW_SPST"
-			(at 62.23 97.79 0)
+			(at 62.23 90.17 0)
 			(effects
 				(font
 					(size 1.27 1.27)
