@@ -9973,7 +9973,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "07e47ba9-8201-4c7a-8422-6dc05dc77433")
-		(property "Reference" "#PWR037"
+		(property "Reference" "#PWR041"
 			(at 293.37 135.89 0)
 			(effects
 				(font
@@ -10023,7 +10023,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "#PWR037")
+					(reference "#PWR041")
 					(unit 1)
 				)
 			)
@@ -10039,7 +10039,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "0ab57c5c-90dc-48fd-ba4d-d5f9fa36d8da")
-		(property "Reference" "#PWR031"
+		(property "Reference" "#PWR033"
 			(at 240.03 72.39 0)
 			(effects
 				(font
@@ -10089,7 +10089,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "#PWR031")
+					(reference "#PWR033")
 					(unit 1)
 				)
 			)
@@ -10173,7 +10173,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "0cb93a2b-4b23-4ef3-9ec6-9ebfb897baae")
-		(property "Reference" "#PWR018"
+		(property "Reference" "#PWR020"
 			(at 147.32 135.89 0)
 			(effects
 				(font
@@ -10223,7 +10223,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "#PWR018")
+					(reference "#PWR020")
 					(unit 1)
 				)
 			)
@@ -10312,7 +10312,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "11f6af18-a6fa-4056-a357-db17432c03bb")
-		(property "Reference" "#PWR014"
+		(property "Reference" "#PWR016"
 			(at 128.27 171.45 0)
 			(effects
 				(font
@@ -10362,7 +10362,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "#PWR014")
+					(reference "#PWR016")
 					(unit 1)
 				)
 			)
@@ -10378,7 +10378,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "1212e05e-7fd4-4220-b04c-0a5d7bc8680b")
-		(property "Reference" "#PWR030"
+		(property "Reference" "#PWR032"
 			(at 226.06 86.36 0)
 			(effects
 				(font
@@ -10428,7 +10428,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "#PWR030")
+					(reference "#PWR032")
 					(unit 1)
 				)
 			)
@@ -10589,7 +10589,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "21e3d99d-1ee2-49e6-a8d6-03e27b2fc4de")
-		(property "Reference" "#PWR017"
+		(property "Reference" "#PWR019"
 			(at 144.78 173.99 0)
 			(effects
 				(font
@@ -10639,7 +10639,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "#PWR017")
+					(reference "#PWR019")
 					(unit 1)
 				)
 			)
@@ -11230,7 +11230,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "2fad16dc-66ad-4001-908e-e9b4f02847da")
-		(property "Reference" "#PWR038"
+		(property "Reference" "#PWR042"
 			(at 331.47 99.06 0)
 			(effects
 				(font
@@ -11280,7 +11280,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "#PWR038")
+					(reference "#PWR042")
 					(unit 1)
 				)
 			)
@@ -11384,7 +11384,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3335bf3d-bf6e-4c74-9f95-658d0fb3e28f")
-		(property "Reference" "C5"
+		(property "Reference" "C6"
 			(at 237.49 69.8562 0)
 			(effects
 				(font
@@ -11438,7 +11438,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "C5")
+					(reference "C6")
 					(unit 1)
 				)
 			)
@@ -11455,7 +11455,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "354b8f3b-c145-4ddb-a58c-718766559907")
-		(property "Reference" "#PWR025"
+		(property "Reference" "#PWR027"
 			(at 204.47 50.8 0)
 			(effects
 				(font
@@ -11505,7 +11505,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "#PWR025")
+					(reference "#PWR027")
 					(unit 1)
 				)
 			)
@@ -11625,7 +11625,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "36440fc7-6b2a-4de9-ba86-43c9dd196e21")
-		(property "Reference" "#PWR027"
+		(property "Reference" "#PWR029"
 			(at 204.47 60.96 0)
 			(effects
 				(font
@@ -11675,7 +11675,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "#PWR027")
+					(reference "#PWR029")
 					(unit 1)
 				)
 			)
@@ -11760,7 +11760,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "3d59fc97-7dd7-4b37-b866-338cd882ee8e")
-		(property "Reference" "#PWR029"
+		(property "Reference" "#PWR031"
 			(at 226.06 71.12 0)
 			(effects
 				(font
@@ -11810,7 +11810,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "#PWR029")
+					(reference "#PWR031")
 					(unit 1)
 				)
 			)
@@ -11827,7 +11827,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "42fc71b6-4d22-4172-bf43-30c74cee3f5f")
-		(property "Reference" "#PWR013"
+		(property "Reference" "#PWR015"
 			(at 114.3 193.04 0)
 			(effects
 				(font
@@ -11877,7 +11877,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "#PWR013")
+					(reference "#PWR015")
 					(unit 1)
 				)
 			)
@@ -11894,7 +11894,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "46301214-a63a-4845-b5d0-ea37d380af46")
-		(property "Reference" "#PWR015"
+		(property "Reference" "#PWR017"
 			(at 125.73 149.86 0)
 			(effects
 				(font
@@ -11944,7 +11944,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "#PWR015")
+					(reference "#PWR017")
 					(unit 1)
 				)
 			)
@@ -11961,7 +11961,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "4bcde9fe-653f-4be9-9fc9-2abd7b44396f")
-		(property "Reference" "#PWR012"
+		(property "Reference" "#PWR014"
 			(at 114.3 185.42 0)
 			(effects
 				(font
@@ -12011,7 +12011,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "#PWR012")
+					(reference "#PWR014")
 					(unit 1)
 				)
 			)
@@ -12300,7 +12300,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "57097f00-6665-4f94-bba6-7ce7c13ced64")
-		(property "Reference" "#PWR032"
+		(property "Reference" "#PWR034"
 			(at 240.03 80.01 0)
 			(effects
 				(font
@@ -12350,7 +12350,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "#PWR032")
+					(reference "#PWR034")
 					(unit 1)
 				)
 			)
@@ -12431,7 +12431,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "612239bf-4734-4785-89a6-ba1f0c319126")
-		(property "Reference" "C3"
+		(property "Reference" "C4"
 			(at 116.84 182.8862 0)
 			(effects
 				(font
@@ -12485,7 +12485,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "C3")
+					(reference "C4")
 					(unit 1)
 				)
 			)
@@ -12956,7 +12956,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "723f4794-8f43-4356-b17a-62ac94798e1d")
-		(property "Reference" "#PWR020"
+		(property "Reference" "#PWR022"
 			(at 176.53 102.87 0)
 			(effects
 				(font
@@ -13006,7 +13006,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "#PWR020")
+					(reference "#PWR022")
 					(unit 1)
 				)
 			)
@@ -13159,7 +13159,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "76ef2d81-2764-40b4-8854-e7af501f2935")
-		(property "Reference" "#PWR023"
+		(property "Reference" "#PWR025"
 			(at 204.47 43.18 0)
 			(effects
 				(font
@@ -13209,7 +13209,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "#PWR023")
+					(reference "#PWR025")
 					(unit 1)
 				)
 			)
@@ -13226,7 +13226,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "7724b564-1696-4563-b6b8-af0b805fa47d")
-		(property "Reference" "#PWR022"
+		(property "Reference" "#PWR024"
 			(at 204.47 40.64 0)
 			(effects
 				(font
@@ -13276,7 +13276,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "#PWR022")
+					(reference "#PWR024")
 					(unit 1)
 				)
 			)
@@ -13957,6 +13957,73 @@
 		)
 	)
 	(symbol
+		(lib_name "GND_2")
+		(lib_id "power:GND")
+		(at 245.11 73.66 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "88bb6e2b-f8cd-4a38-9227-b48454eec80b")
+		(property "Reference" "#PWR036"
+			(at 245.11 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 245.11 77.978 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 245.11 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 245.11 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 245.11 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "fa962444-75e0-4638-a1b9-86a6a7556f3a")
+		)
+		(instances
+			(project "space_dice"
+				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
+					(reference "#PWR036")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_name "GND_1")
 		(lib_id "power:GND")
 		(at 332.74 59.69 0)
@@ -13967,7 +14034,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "895dd098-d539-4c9d-a194-5c1e337a8093")
-		(property "Reference" "#PWR039"
+		(property "Reference" "#PWR043"
 			(at 332.74 66.04 0)
 			(effects
 				(font
@@ -14017,7 +14084,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "#PWR039")
+					(reference "#PWR043")
 					(unit 1)
 				)
 			)
@@ -14171,6 +14238,72 @@
 	(symbol
 		(lib_name "VCC_2")
 		(lib_id "power:VCC")
+		(at 109.22 181.61 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "8e85f666-42c6-4fb5-b629-2c62aa935aec")
+		(property "Reference" "#PWR012"
+			(at 109.22 185.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "VCC"
+			(at 109.22 177.546 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 109.22 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 109.22 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"VCC\""
+			(at 109.22 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d83d86d1-87a4-4504-8ca0-0f8a6c644a0f")
+		)
+		(instances
+			(project "space_dice"
+				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
+					(reference "#PWR012")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "VCC_2")
+		(lib_id "power:VCC")
 		(at 270.51 54.61 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -14178,7 +14311,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "9049cdf7-a965-45e8-8006-c0a652602169")
-		(property "Reference" "#PWR034"
+		(property "Reference" "#PWR038"
 			(at 274.32 54.61 0)
 			(effects
 				(font
@@ -14228,7 +14361,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "#PWR034")
+					(reference "#PWR038")
 					(unit 1)
 				)
 			)
@@ -14528,7 +14661,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "9ebcbaf5-12ef-467e-b10a-bfd9593285a1")
-		(property "Reference" "C4"
+		(property "Reference" "C5"
 			(at 179.07 92.7162 0)
 			(effects
 				(font
@@ -14582,7 +14715,7 @@
 		(instances
 			(project ""
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "C4")
+					(reference "C5")
 					(unit 1)
 				)
 			)
@@ -14763,6 +14896,77 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C_Small")
+		(at 109.22 184.15 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "a91a8ff5-b89d-4132-b41a-bd04cf2a57e7")
+		(property "Reference" "C3"
+			(at 106.68 182.8862 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" ".1uF"
+			(at 106.68 185.4262 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm"
+			(at 109.22 184.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 109.22 184.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 109.22 184.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5144297b-aeb1-4fe2-8a96-1988323f9a47")
+		)
+		(pin "2"
+			(uuid "6648264b-2de5-4d58-a4f8-a43474649a34")
+		)
+		(instances
+			(project "space_dice"
+				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
+					(reference "C3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R_Small_US")
 		(at 127 92.71 90)
 		(mirror x)
@@ -14827,6 +15031,72 @@
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
 					(reference "R6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "GND_2")
+		(lib_id "power:GND")
+		(at 109.22 186.69 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "ab1028ad-9215-4595-b009-5a463bdc8037")
+		(property "Reference" "#PWR013"
+			(at 109.22 193.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 109.22 191.008 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 109.22 186.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 109.22 186.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 109.22 186.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "99b0bfc2-2ef7-4819-ac5e-ba5ff4360419")
+		)
+		(instances
+			(project "space_dice"
+				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
+					(reference "#PWR013")
 					(unit 1)
 				)
 			)
@@ -15200,7 +15470,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "b7c17613-8081-4513-a99b-082063b385a9")
-		(property "Reference" "#PWR016"
+		(property "Reference" "#PWR018"
 			(at 133.35 34.29 0)
 			(effects
 				(font
@@ -15250,7 +15520,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "#PWR016")
+					(reference "#PWR018")
 					(unit 1)
 				)
 			)
@@ -15439,7 +15709,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ba8e39f4-5e84-4731-884e-8188a86b5d0f")
-		(property "Reference" "#PWR036"
+		(property "Reference" "#PWR040"
 			(at 280.67 66.04 0)
 			(effects
 				(font
@@ -15489,7 +15759,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "#PWR036")
+					(reference "#PWR040")
 					(unit 1)
 				)
 			)
@@ -16140,7 +16410,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "d6c6796b-c630-4de8-9473-cbbc978a0a21")
-		(property "Reference" "C6"
+		(property "Reference" "C8"
 			(at 287.02 128.27 90)
 			(effects
 				(font
@@ -16193,7 +16463,7 @@
 		(instances
 			(project ""
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "C6")
+					(reference "C8")
 					(unit 1)
 				)
 			)
@@ -16479,7 +16749,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "e49ab340-cdeb-4f92-9d61-351d94fc772f")
-		(property "Reference" "#PWR024"
+		(property "Reference" "#PWR026"
 			(at 204.47 45.72 0)
 			(effects
 				(font
@@ -16529,7 +16799,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "#PWR024")
+					(reference "#PWR026")
 					(unit 1)
 				)
 			)
@@ -16600,6 +16870,73 @@
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
 					(reference "R13")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "VCC_2")
+		(lib_id "power:VCC")
+		(at 245.11 68.58 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "e61a19f0-28b4-46c4-8e57-882105423fba")
+		(property "Reference" "#PWR035"
+			(at 245.11 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "VCC"
+			(at 245.11 64.516 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 245.11 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 245.11 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"VCC\""
+			(at 245.11 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "2726b8e5-76ab-4a78-b739-4e53b24ad110")
+		)
+		(instances
+			(project "space_dice"
+				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
+					(reference "#PWR035")
 					(unit 1)
 				)
 			)
@@ -16689,7 +17026,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "eb396e81-7dd2-4d1a-9aba-9016d6685b30")
-		(property "Reference" "#PWR035"
+		(property "Reference" "#PWR039"
 			(at 280.67 38.1 0)
 			(effects
 				(font
@@ -16739,7 +17076,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "#PWR035")
+					(reference "#PWR039")
 					(unit 1)
 				)
 			)
@@ -16900,7 +17237,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "f0067dd9-377f-4c37-beb5-0c129fe820ea")
-		(property "Reference" "#PWR028"
+		(property "Reference" "#PWR030"
 			(at 226.06 38.1 0)
 			(effects
 				(font
@@ -16950,7 +17287,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "#PWR028")
+					(reference "#PWR030")
 					(unit 1)
 				)
 			)
@@ -17101,7 +17438,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "f29e5fbc-9c5d-4587-8bc8-a2c5ce163e49")
-		(property "Reference" "#PWR033"
+		(property "Reference" "#PWR037"
 			(at 274.32 52.07 0)
 			(effects
 				(font
@@ -17151,7 +17488,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "#PWR033")
+					(reference "#PWR037")
 					(unit 1)
 				)
 			)
@@ -17234,7 +17571,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "f76eea28-82fa-4921-bafb-4c69181c9fd7")
-		(property "Reference" "#PWR026"
+		(property "Reference" "#PWR028"
 			(at 214.63 53.34 0)
 			(effects
 				(font
@@ -17284,7 +17621,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "#PWR026")
+					(reference "#PWR028")
 					(unit 1)
 				)
 			)
@@ -17437,7 +17774,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "f8c3decb-935f-4993-b3d9-32fa00b7e34a")
-		(property "Reference" "#PWR019"
+		(property "Reference" "#PWR021"
 			(at 176.53 95.25 0)
 			(effects
 				(font
@@ -17487,7 +17824,77 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "#PWR019")
+					(reference "#PWR021")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 245.11 71.12 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "fe456846-d877-4df8-976d-abd21f220390")
+		(property "Reference" "C7"
+			(at 247.65 69.8562 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" ".1uF"
+			(at 247.65 72.3962 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm"
+			(at 245.11 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 245.11 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 245.11 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "4cca77cd-e750-4ac7-8f5c-6d5fe320e301")
+		)
+		(pin "2"
+			(uuid "48602223-e661-46b5-a39d-71f031e5b116")
+		)
+		(instances
+			(project "space_dice"
+				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
+					(reference "C7")
 					(unit 1)
 				)
 			)
@@ -17503,7 +17910,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "fefa2028-98c4-451c-98f4-a52220d667b6")
-		(property "Reference" "#PWR021"
+		(property "Reference" "#PWR023"
 			(at 214.63 38.1 0)
 			(effects
 				(font
@@ -17553,7 +17960,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "#PWR021")
+					(reference "#PWR023")
 					(unit 1)
 				)
 			)
