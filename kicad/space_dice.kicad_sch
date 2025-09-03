@@ -4611,7 +4611,7 @@
 					)
 				)
 			)
-			(property "Footprint" "Diode_SMD:D_SOD-523"
+			(property "Footprint" "kicad-legacy/kicad-footprints/Diode_SMD:D_SOD-523"
 				(at 0 -4.445 0)
 				(effects
 					(font
@@ -9911,7 +9911,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "LED_THT:LED_D3.0mm"
+		(property "Footprint" "kicad-official/LED_THT.pretty:LED_D3.0mm"
 			(at 102.87 158.75 0)
 			(effects
 				(font
@@ -10122,7 +10122,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
+		(property "Footprint" "kicad-official/Resistor_THT.pretty:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
 			(at 308.864 40.894 90)
 			(effects
 				(font
@@ -10257,7 +10257,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_Slide_SPDT_Straight_CK_OS102011MS2Q"
+		(property "Footprint" "kicad-official/Button_Switch_THT.pretty:SW_Slide_1P2T_CK_OS102011MS2Q"
 			(at 219.71 123.19 0)
 			(effects
 				(font
@@ -10461,7 +10461,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
+		(property "Footprint" "kicad-official/Resistor_THT.pretty:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
 			(at 320.294 90.424 90)
 			(effects
 				(font
@@ -10528,7 +10528,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "LED_THT:LED_D3.0mm"
+		(property "Footprint" "kicad-official/LED_THT.pretty:LED_D3.0mm"
 			(at 306.07 86.36 0)
 			(effects
 				(font
@@ -10673,7 +10673,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_DIP:DIP-16_W7.62mm_Socket_LongPads"
+		(property "Footprint" "kicad-official/Package_DIP.pretty:DIP-16_W7.62mm_Socket_LongPads"
 			(at 148.59 168.91 0)
 			(effects
 				(font
@@ -10786,7 +10786,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_DIP:DIP-16_W7.62mm_Socket_LongPads"
+		(property "Footprint" "kicad-official/Package_DIP.pretty:DIP-16_W7.62mm_Socket_LongPads"
 			(at 226.06 49.53 0)
 			(effects
 				(font
@@ -10898,7 +10898,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm"
+		(property "Footprint" "kicad-official/Capacitor_THT.pretty:C_Disc_D5.0mm_W2.5mm_P5.00mm"
 			(at 105.41 58.42 0)
 			(effects
 				(font
@@ -10968,7 +10968,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Potentiometer_THT:Potentiometer_Bourns_PTV09A-1_Single_Vertical"
+		(property "Footprint" "kicad-official/Potentiometer_THT.pretty:Potentiometer_Bourns_PTV09A-1_Single_Vertical"
 			(at 137.16 92.71 0)
 			(effects
 				(font
@@ -11040,7 +11040,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
+		(property "Footprint" "kicad-official/Resistor_THT.pretty:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
 			(at 181.61 176.53 0)
 			(effects
 				(font
@@ -11109,7 +11109,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
+		(property "Footprint" "kicad-official/Resistor_THT.pretty:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
 			(at 299.974 38.354 90)
 			(effects
 				(font
@@ -11178,7 +11178,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
+		(property "Footprint" "kicad-official/Resistor_THT.pretty:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
 			(at 181.61 146.05 0)
 			(effects
 				(font
@@ -11313,7 +11313,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "Diode_THT:D_A-405_P2.54mm_Vertical_AnodeUp"
+		(property "Footprint" "kicad-official/Diode_THT.pretty:D_A-405_P2.54mm_Vertical_AnodeUp"
 			(at 44.45 102.235 0)
 			(effects
 				(font
@@ -11402,7 +11402,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm"
+		(property "Footprint" "kicad-official/Capacitor_THT.pretty:C_Disc_D5.0mm_W2.5mm_P5.00mm"
 			(at 240.03 71.12 0)
 			(effects
 				(font
@@ -11536,7 +11536,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_DIP:DIP-14_W7.62mm_Socket_LongPads"
+		(property "Footprint" "kicad-official/Package_DIP.pretty:DIP-14_W7.62mm_Socket_LongPads"
 			(at 254 123.19 0)
 			(effects
 				(font
@@ -11708,7 +11708,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
+		(property "Footprint" "kicad-official/Resistor_THT.pretty:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
 			(at 71.12 99.06 0)
 			(effects
 				(font
@@ -12045,7 +12045,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_Slide_SPDT_Straight_CK_OS102011MS2Q"
+		(property "Footprint" "kicad-official/Button_Switch_THT.pretty:SW_Slide_1P2T_CK_OS102011MS2Q"
 			(at 219.71 143.51 0)
 			(effects
 				(font
@@ -12117,7 +12117,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
+		(property "Footprint" "kicad-official/Resistor_THT.pretty:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
 			(at 143.764 30.734 90)
 			(effects
 				(font
@@ -12449,7 +12449,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm"
+		(property "Footprint" "kicad-official/Capacitor_THT.pretty:C_Disc_D5.0mm_W2.5mm_P5.00mm"
 			(at 114.3 184.15 0)
 			(effects
 				(font
@@ -12583,7 +12583,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Display_7Segment:HDSP-7401"
+		(property "Footprint" "parts_cafe:TDSR-3163"
 			(at 317.5 33.02 0)
 			(effects
 				(font
@@ -12675,7 +12675,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
+		(property "Footprint" "kicad-official/Resistor_THT.pretty:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
 			(at 299.974 48.514 90)
 			(effects
 				(font
@@ -12742,7 +12742,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "LED_THT:LED_D3.0mm"
+		(property "Footprint" "kicad-official/LED_THT.pretty:LED_D3.0mm"
 			(at 102.87 163.83 0)
 			(effects
 				(font
@@ -12819,7 +12819,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "Diode_THT:D_A-405_P2.54mm_Vertical_AnodeUp"
+		(property "Footprint" "kicad-official/Diode_THT.pretty:D_A-405_P2.54mm_Vertical_AnodeUp"
 			(at 217.17 97.155 0)
 			(effects
 				(font
@@ -13039,7 +13039,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
+		(property "Footprint" "kicad-official/Resistor_THT.pretty:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
 			(at 308.864 51.054 90)
 			(effects
 				(font
@@ -13309,7 +13309,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
+		(property "Footprint" "kicad-official/Connector_PinHeader_2.54mm.pretty:PinHeader_1x02_P2.54mm_Vertical"
 			(at 299.72 128.27 0)
 			(effects
 				(font
@@ -13378,7 +13378,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
+		(property "Footprint" "kicad-official/Resistor_THT.pretty:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
 			(at 181.61 161.29 0)
 			(effects
 				(font
@@ -13448,7 +13448,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
+		(property "Footprint" "kicad-official/Resistor_THT.pretty:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
 			(at 116.586 160.274 90)
 			(effects
 				(font
@@ -13515,7 +13515,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "Diode_THT:D_A-405_P2.54mm_Vertical_AnodeUp"
+		(property "Footprint" "kicad-official/Diode_THT.pretty:D_A-405_P2.54mm_Vertical_AnodeUp"
 			(at 217.17 99.695 0)
 			(effects
 				(font
@@ -13602,7 +13602,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "Diode_THT:D_A-405_P2.54mm_Vertical_AnodeUp"
+		(property "Footprint" "kicad-official/Diode_THT.pretty:D_A-405_P2.54mm_Vertical_AnodeUp"
 			(at 44.45 98.425 0)
 			(effects
 				(font
@@ -13691,7 +13691,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_DIP:DIP-16_W7.62mm_Socket_LongPads"
+		(property "Footprint" "kicad-official/Package_DIP.pretty:DIP-16_W7.62mm_Socket_LongPads"
 			(at 280.67 46.99 0)
 			(effects
 				(font
@@ -13801,7 +13801,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "LED_THT:LED_D3.0mm"
+		(property "Footprint" "kicad-official/LED_THT.pretty:LED_D3.0mm"
 			(at 306.07 88.9 0)
 			(effects
 				(font
@@ -13878,7 +13878,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_DIP:DIP-14_W7.62mm_Socket_LongPads"
+		(property "Footprint" "kicad-official/Package_DIP.pretty:DIP-14_W7.62mm_Socket_LongPads"
 			(at 119.38 43.18 0)
 			(effects
 				(font
@@ -14116,7 +14116,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "LED_THT:LED_D3.0mm"
+		(property "Footprint" "kicad-official/LED_THT.pretty:LED_D3.0mm"
 			(at 102.87 161.29 0)
 			(effects
 				(font
@@ -14194,7 +14194,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
+		(property "Footprint" "kicad-official/Resistor_THT.pretty:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
 			(at 308.864 56.134 90)
 			(effects
 				(font
@@ -14395,7 +14395,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_DIP:DIP-16_W7.62mm_Socket_LongPads"
+		(property "Footprint" "kicad-official/Package_DIP.pretty:DIP-16_W7.62mm_Socket_LongPads"
 			(at 53.34 148.59 0)
 			(effects
 				(font
@@ -14507,7 +14507,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
+		(property "Footprint" "kicad-official/Resistor_THT.pretty:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
 			(at 319.786 87.884 90)
 			(effects
 				(font
@@ -14573,7 +14573,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_DIP:DIP-14_W7.62mm_Socket_LongPads"
+		(property "Footprint" "kicad-official/Package_DIP.pretty:DIP-14_W7.62mm_Socket_LongPads"
 			(at 45.72 187.96 0)
 			(effects
 				(font
@@ -14679,7 +14679,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm"
+		(property "Footprint" "kicad-official/Capacitor_THT.pretty:C_Disc_D5.0mm_W2.5mm_P5.00mm"
 			(at 176.53 93.98 0)
 			(effects
 				(font
@@ -14749,7 +14749,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
+		(property "Footprint" "kicad-official/Resistor_THT.pretty:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
 			(at 181.61 184.15 0)
 			(effects
 				(font
@@ -14817,7 +14817,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_DIP:DIP-14_W7.62mm_Socket_LongPads"
+		(property "Footprint" "kicad-official/Package_DIP.pretty:DIP-14_W7.62mm_Socket_LongPads"
 			(at 119.38 80.01 0)
 			(effects
 				(font
@@ -14924,7 +14924,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm"
+		(property "Footprint" "kicad-official/Capacitor_THT.pretty:C_Disc_D5.0mm_W2.5mm_P5.00mm"
 			(at 109.22 184.15 0)
 			(effects
 				(font
@@ -14994,7 +14994,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
+		(property "Footprint" "kicad-official/Resistor_THT.pretty:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
 			(at 127 92.71 0)
 			(effects
 				(font
@@ -15130,7 +15130,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
+		(property "Footprint" "kicad-official/Resistor_THT.pretty:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
 			(at 181.61 130.81 0)
 			(effects
 				(font
@@ -15264,7 +15264,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "LED_THT:LED_D3.0mm"
+		(property "Footprint" "kicad-official/LED_THT.pretty:LED_D3.0mm"
 			(at 102.87 156.21 0)
 			(effects
 				(font
@@ -15341,7 +15341,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "LED_THT:LED_D3.0mm"
+		(property "Footprint" "kicad-official/LED_THT.pretty:LED_D3.0mm"
 			(at 306.07 91.44 0)
 			(effects
 				(font
@@ -15554,7 +15554,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_DIP:DIP-14_W7.62mm_Socket_LongPads"
+		(property "Footprint" "kicad-official/Package_DIP.pretty:DIP-14_W7.62mm_Socket_LongPads"
 			(at 81.28 50.8 0)
 			(effects
 				(font
@@ -15791,7 +15791,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "Diode_THT:D_A-405_P2.54mm_Vertical_AnodeUp"
+		(property "Footprint" "kicad-official/Diode_THT.pretty:D_A-405_P2.54mm_Vertical_AnodeUp"
 			(at 217.17 102.235 0)
 			(effects
 				(font
@@ -15879,7 +15879,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
+		(property "Footprint" "kicad-official/Resistor_THT.pretty:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
 			(at 181.61 153.67 0)
 			(effects
 				(font
@@ -15949,7 +15949,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
+		(property "Footprint" "kicad-official/Resistor_THT.pretty:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
 			(at 116.586 155.194 90)
 			(effects
 				(font
@@ -16085,7 +16085,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm"
+		(property "Footprint" "kicad-official/Capacitor_THT.pretty:C_Disc_D5.0mm_W2.5mm_P5.00mm"
 			(at 105.41 100.33 0)
 			(effects
 				(font
@@ -16154,7 +16154,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
+		(property "Footprint" "kicad-official/Resistor_THT.pretty:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
 			(at 117.094 162.814 90)
 			(effects
 				(font
@@ -16223,7 +16223,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
+		(property "Footprint" "kicad-official/Resistor_THT.pretty:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
 			(at 181.61 138.43 0)
 			(effects
 				(font
@@ -16292,7 +16292,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
+		(property "Footprint" "kicad-official/Resistor_THT.pretty:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
 			(at 320.294 85.344 90)
 			(effects
 				(font
@@ -16360,7 +16360,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
+		(property "Footprint" "kicad-official/Resistor_THT.pretty:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
 			(at 299.974 53.594 90)
 			(effects
 				(font
@@ -16428,7 +16428,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:CP_Radial_D7.5mm_P2.50mm"
+		(property "Footprint" "kicad-official/Capacitor_THT.pretty:CP_Radial_D7.5mm_P2.50mm"
 			(at 289.56 122.2248 0)
 			(effects
 				(font
@@ -16494,7 +16494,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_PUSH_6mm"
+		(property "Footprint" "kicad-official/Button_Switch_THT.pretty:SW_PUSH_6mm"
 			(at 62.23 93.98 0)
 			(effects
 				(font
@@ -16563,7 +16563,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
+		(property "Footprint" "kicad-official/Resistor_THT.pretty:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
 			(at 117.094 157.734 90)
 			(effects
 				(font
@@ -16631,7 +16631,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
+		(property "Footprint" "kicad-official/Resistor_THT.pretty:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
 			(at 225.044 87.376 90)
 			(effects
 				(font
@@ -16833,7 +16833,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
+		(property "Footprint" "kicad-official/Resistor_THT.pretty:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
 			(at 181.61 168.91 0)
 			(effects
 				(font
@@ -16970,7 +16970,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_Slide_SPDT_Straight_CK_OS102011MS2Q"
+		(property "Footprint" "kicad-official/Button_Switch_THT.pretty:SW_Slide_1P2T_CK_OS102011MS2Q"
 			(at 219.71 133.35 0)
 			(effects
 				(font
@@ -17110,7 +17110,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "parts_cafe:Potentiometer_Piher_PT-6-V_Vertical-mirror"
+		(property "Footprint" "kicad-legacy/Potentiometers.pretty:Potentiometer_Triwood_RM-065"
 			(at 132.08 54.61 0)
 			(effects
 				(font
@@ -17182,7 +17182,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_Slide_SPDT_Angled_CK_OS102011MA1Q"
+		(property "Footprint" "kicad-official/Button_Switch_THT.pretty:SW_CuK_OS102011MA1QN1_SPDT_Angled"
 			(at 31.75 50.8 0)
 			(effects
 				(font
@@ -17387,7 +17387,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
+		(property "Footprint" "kicad-official/Connector_PinHeader_2.54mm.pretty:PinHeader_1x02_P2.54mm_Vertical"
 			(at 42.926 50.8 90)
 			(effects
 				(font
@@ -17654,7 +17654,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
+		(property "Footprint" "kicad-official/Resistor_THT.pretty:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
 			(at 299.974 43.434 90)
 			(effects
 				(font
@@ -17722,7 +17722,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
+		(property "Footprint" "kicad-official/Resistor_THT.pretty:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
 			(at 308.864 45.974 90)
 			(effects
 				(font
@@ -17858,7 +17858,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm"
+		(property "Footprint" "kicad-official/Capacitor_THT.pretty:C_Disc_D5.0mm_W2.5mm_P5.00mm"
 			(at 245.11 71.12 0)
 			(effects
 				(font

@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "parts_cafe")(type "KiCad")(uri "/Users/tommy/Dropbox/oskitone/parts_cafe/kicad")(options "")(descr ""))
+)
