@@ -6168,8 +6168,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_Potentiometer_US")
-		(at 137.16 107.95 270)
-		(mirror x)
+		(at 137.16 107.95 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6177,7 +6176,7 @@
 		(dnp no)
 		(uuid "29392ac3-4409-4e86-b98f-f24cd527b053")
 		(property "Reference" "RV3"
-			(at 134.874 102.87 90)
+			(at 130.302 101.854 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6186,7 +6185,7 @@
 			)
 		)
 		(property "Value" "100k"
-			(at 134.874 104.902 90)
+			(at 130.302 103.886 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6194,7 +6193,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "kicad-official/Potentiometer_THT.pretty:Potentiometer_Bourns_PTV09A-1_Single_Vertical"
+		(property "Footprint" "kicad-official/Potentiometer_THT.pretty:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical"
 			(at 137.16 107.95 0)
 			(effects
 				(font
@@ -7661,7 +7660,8 @@
 	)
 	(symbol
 		(lib_id "Device:R_Potentiometer_US")
-		(at 86.36 109.22 180)
+		(at 86.36 109.22 0)
+		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7669,7 +7669,7 @@
 		(dnp no)
 		(uuid "949199d3-28c3-443c-98ef-c6032b6d98b0")
 		(property "Reference" "RV1"
-			(at 77.978 107.95 0)
+			(at 77.978 108.712 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7677,14 +7677,14 @@
 			)
 		)
 		(property "Value" "100k"
-			(at 77.724 110.49 0)
+			(at 77.724 110.998 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "kicad-official/Potentiometer_THT.pretty:Potentiometer_Bourns_PTV09A-1_Single_Vertical"
+		(property "Footprint" "kicad-official/Potentiometer_THT.pretty:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical"
 			(at 86.36 109.22 0)
 			(effects
 				(font
@@ -9123,7 +9123,6 @@
 	(symbol
 		(lib_id "Device:R_Potentiometer_US")
 		(at 132.08 162.56 0)
-		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -9131,7 +9130,7 @@
 		(dnp no)
 		(uuid "e65a8834-6585-4f4d-89c6-31cb4b78c9c3")
 		(property "Reference" "RV2"
-			(at 136.652 167.132 0)
+			(at 137.668 155.956 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9139,14 +9138,14 @@
 			)
 		)
 		(property "Value" "10k log"
-			(at 136.906 169.418 0)
+			(at 137.922 158.242 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "kicad-official/Potentiometer_THT.pretty:Potentiometer_Bourns_PTV09A-1_Single_Vertical"
+		(property "Footprint" "kicad-official/Potentiometer_THT.pretty:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical"
 			(at 132.08 162.56 0)
 			(effects
 				(font
