@@ -5,8 +5,8 @@
 	(uuid "bcd0d850-a20d-42e1-b97f-b14f9222717c")
 	(paper "USLegal")
 	(title_block
-		(date "2025-09-07")
-		(rev "250907")
+		(date "2025-09-08")
+		(rev "250908")
 	)
 	(lib_symbols
 		(symbol "4xxx:4017"
@@ -2348,168 +2348,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Device:C_Polarized_Small"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 0.254)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "C"
-				(at 0.254 1.778 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Value" "C_Polarized_Small"
-				(at 0.254 -2.032 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Polarized capacitor, small symbol"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "cap capacitor"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "CP_*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "C_Polarized_Small_0_1"
-				(rectangle
-					(start -1.524 0.6858)
-					(end 1.524 0.3048)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -1.524 -0.3048)
-					(end 1.524 -0.6858)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.27 1.524) (xy -0.762 1.524)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.016 1.27) (xy -1.016 1.778)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "C_Polarized_Small_1_1"
-				(pin passive line
-					(at 0 2.54 270)
-					(length 1.8542)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -2.54 90)
-					(length 1.8542)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "Device:C_Small"
 			(pin_numbers
 				(hide yes)
@@ -2633,176 +2471,6 @@
 					(at 0 -2.54 90)
 					(length 2.032)
 					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "Device:D_Small_Filled"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 0.254)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "D"
-				(at -1.27 2.032 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Value" "D_Small_Filled"
-				(at -3.81 -2.032 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at 0 0 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Diode, small symbol, filled shape"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Sim.Device" "D"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Sim.Pins" "1=K 2=A"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "diode"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "TO-???* *_Diode_* *SingleDiode* D_*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "D_Small_Filled_0_1"
-				(polyline
-					(pts
-						(xy -0.762 0) (xy 0.762 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.762 -1.016) (xy -0.762 1.016)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -1.016) (xy -0.762 0) (xy 0.762 1.016) (xy 0.762 -1.016)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-			)
-			(symbol "D_Small_Filled_1_1"
-				(pin passive line
-					(at -2.54 0 0)
-					(length 1.778)
-					(name "K"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 0 180)
-					(length 1.778)
-					(name "A"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -4223,7 +3891,7 @@
 		)
 	)
 	(rectangle
-		(start 64.77 17.78)
+		(start 63.5 17.78)
 		(end 187.96 66.04)
 		(stroke
 			(width 0)
@@ -4271,7 +3939,7 @@
 		(uuid 8b54899f-2683-4ad9-8ea8-e5c2e73e4546)
 	)
 	(rectangle
-		(start 39.37 71.12)
+		(start 52.07 71.12)
 		(end 187.96 134.62)
 		(stroke
 			(width 0)
@@ -4328,7 +3996,7 @@
 	)
 	(text "Relaxation oscillator.\n\nFrequency is set by C2 and R2+RV3.\nHigher values = slower.\n\nThe other input pin controls on/off."
 		(exclude_from_sim no)
-		(at 129.032 75.692 0)
+		(at 140.716 76.454 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4336,17 +4004,6 @@
 			(justify left top)
 		)
 		(uuid "76e088f4-88a8-4d15-909f-cf542db1e3bc")
-	)
-	(text "RV1 and D1 drop voltage\ninto NAND input.\n\nTune RV1 to juuuusst\nbefore there's an audible\nchange in frequency.\n\nD1 prevents C1 from\nbeing a pull-down."
-		(exclude_from_sim no)
-		(at 44.958 108.204 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left top)
-		)
-		(uuid "8f73eaeb-4f4a-4257-be8f-5fa5b66aacb7")
 	)
 	(text "CD4040 counts CLOCK pulses\nand outputs the total on Q0-Q11,\na twelve digit a binary number:\n000000000000 to 111111111111\nuntil it either gets reset or\noverflows.\n\nEach Q is a successively slower\nversion of clock, which we can use\nfor audio and display control."
 		(exclude_from_sim no)
@@ -4392,7 +4049,7 @@
 		)
 		(uuid "d2ce7124-6d94-4c47-9f6a-d22405227c65")
 	)
-	(text "CD4017 normally counts from Q0 to Q9,\nbut here we reset at Q6 so it goes\nQ0 to Q5 then resets to Q0 and so on.\nEach Q pin lights one LED, and they\ncan all share a resistor."
+	(text "CD4017 normally counts from Q0 to Q9,\nbut here we reset at Q6 so it goes\nQ0 to Q5 then resets to Q0 and so on.\nEach Q pin lights one LED, and they\ncan all share a resistor.\n\nBefore CLK is available, the first\nLED will probably be light, though\nit could be any of them."
 		(exclude_from_sim no)
 		(at 202.184 135.89 0)
 		(effects
@@ -4405,7 +4062,7 @@
 	)
 	(text "TRIGGER + GLIDE/PITCH CONTROLS + CLOCK"
 		(exclude_from_sim no)
-		(at 45.72 76.2 0)
+		(at 58.42 76.2 0)
 		(effects
 			(font
 				(size 1.905 1.905)
@@ -4554,10 +4211,6 @@
 		(uuid "43f6df83-04f9-40aa-b6d6-de9eccb0592b")
 	)
 	(no_connect
-		(at 232.41 71.12)
-		(uuid "537c62d4-5f68-460b-ae5f-7c0884a1ec37")
-	)
-	(no_connect
 		(at 232.41 76.2)
 		(uuid "658866a5-92e9-49ed-b413-46007e183e36")
 	)
@@ -4580,6 +4233,10 @@
 	(no_connect
 		(at 232.41 53.34)
 		(uuid "c8776641-fcd2-4938-957a-880364d5d23c")
+	)
+	(no_connect
+		(at 232.41 78.74)
+		(uuid "dd311695-73df-40b3-882c-226354b0dd93")
 	)
 	(no_connect
 		(at 232.41 63.5)
@@ -4685,17 +4342,7 @@
 	)
 	(wire
 		(pts
-			(xy 67.31 88.9) (xy 67.31 87.63)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "193e9990-cd18-41b7-ae96-75b51813a956")
-	)
-	(wire
-		(pts
-			(xy 49.53 87.63) (xy 45.72 87.63)
+			(xy 69.85 92.71) (xy 62.23 92.71)
 		)
 		(stroke
 			(width 0)
@@ -5035,7 +4682,7 @@
 	)
 	(wire
 		(pts
-			(xy 45.72 87.63) (xy 45.72 86.36)
+			(xy 62.23 92.71) (xy 62.23 91.44)
 		)
 		(stroke
 			(width 0)
@@ -5235,16 +4882,6 @@
 	)
 	(wire
 		(pts
-			(xy 67.31 87.63) (xy 59.69 87.63)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b8f7c4e9-cc07-4241-9f4d-643a15982020")
-	)
-	(wire
-		(pts
 			(xy 283.21 118.11) (xy 288.29 118.11)
 		)
 		(stroke
@@ -5335,16 +4972,6 @@
 	)
 	(wire
 		(pts
-			(xy 74.93 92.71) (xy 71.12 92.71)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "cacaba9b-3997-423f-8576-8b1ee12e650e")
-	)
-	(wire
-		(pts
 			(xy 266.7 125.73) (xy 275.59 125.73)
 		)
 		(stroke
@@ -5372,16 +4999,6 @@
 			(type default)
 		)
 		(uuid "d13f4564-32db-4ddf-b75d-ed546b0ba2d9")
-	)
-	(wire
-		(pts
-			(xy 67.31 96.52) (xy 67.31 97.79)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d2d5cdd3-9251-45ae-808e-de75e7d1962d")
 	)
 	(wire
 		(pts
@@ -5709,7 +5326,7 @@
 	)
 	(global_label "INCREMENT_SLOW"
 		(shape input)
-		(at 232.41 78.74 0)
+		(at 232.41 71.12 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5719,7 +5336,7 @@
 		)
 		(uuid "8a6aa8d0-1451-48a1-bdc5-d9d0d4e58b57")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 251.9051 78.74 0)
+			(at 251.9051 71.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5870,7 +5487,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "042ff189-aced-4bca-b40f-f38e44247d37")
-		(property "Reference" "D5"
+		(property "Reference" "D4"
 			(at 275.59 124.46 0)
 			(effects
 				(font
@@ -5932,7 +5549,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "D5")
+					(reference "D4")
 					(unit 1)
 				)
 			)
@@ -5949,7 +5566,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "07e47ba9-8201-4c7a-8422-6dc05dc77433")
-		(property "Reference" "#PWR014"
+		(property "Reference" "#PWR013"
 			(at 154.94 179.07 0)
 			(effects
 				(font
@@ -5999,7 +5616,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "#PWR014")
+					(reference "#PWR013")
 					(unit 1)
 				)
 			)
@@ -6016,7 +5633,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "0872b6d1-75c5-429e-baf5-0db39bf34836")
-		(property "Reference" "#PWR013"
+		(property "Reference" "#PWR012"
 			(at 146.05 46.99 0)
 			(effects
 				(font
@@ -6066,7 +5683,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "#PWR013")
+					(reference "#PWR012")
 					(unit 1)
 				)
 			)
@@ -6082,7 +5699,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "0d226cd5-42e4-46a1-9ce2-16ca8896d781")
-		(property "Reference" "SW2"
+		(property "Reference" "SW1"
 			(at 80.264 163.068 0)
 			(effects
 				(font
@@ -6139,7 +5756,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "SW2")
+					(reference "SW1")
 					(unit 1)
 				)
 			)
@@ -6155,7 +5772,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "114dbb92-cb15-49b4-9c1b-901246407161")
-		(property "Reference" "#PWR017"
+		(property "Reference" "#PWR016"
 			(at 200.66 58.42 0)
 			(effects
 				(font
@@ -6205,7 +5822,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "#PWR017")
+					(reference "#PWR016")
 					(unit 1)
 				)
 			)
@@ -6221,7 +5838,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "11f6af18-a6fa-4056-a357-db17432c03bb")
-		(property "Reference" "#PWR023"
+		(property "Reference" "#PWR022"
 			(at 288.29 148.59 0)
 			(effects
 				(font
@@ -6271,7 +5888,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "#PWR023")
+					(reference "#PWR022")
 					(unit 1)
 				)
 			)
@@ -6288,7 +5905,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "16aaae35-e9e7-446a-b1b2-fedc2e51caf8")
-		(property "Reference" "#PWR015"
+		(property "Reference" "#PWR014"
 			(at 156.21 39.37 0)
 			(effects
 				(font
@@ -6338,76 +5955,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "#PWR015")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_Potentiometer_US")
-		(at 67.31 92.71 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "197435c1-7d11-406f-b8d6-93b3aead260d")
-		(property "Reference" "RV1"
-			(at 71.882 94.996 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "100k"
-			(at 72.136 97.282 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "kicad-legacy/Potentiometers.pretty:Potentiometer_Triwood_RM-065"
-			(at 67.31 92.71 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 67.31 92.71 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 67.31 92.71 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "faa2ac11-2a50-440f-8683-3156530cd828")
-		)
-		(pin "2"
-			(uuid "7ca0c030-a1a0-423a-8cd1-65006e893b5a")
-		)
-		(pin "3"
-			(uuid "e626d838-b3cd-4efb-9a8c-7390f3b044c3")
-		)
-		(instances
-			(project "space_dice"
-				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "RV1")
+					(reference "#PWR014")
 					(unit 1)
 				)
 			)
@@ -6423,7 +5971,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "1c8291c8-786d-47c7-be8a-fcd581bce2c0")
-		(property "Reference" "#PWR022"
+		(property "Reference" "#PWR021"
 			(at 254 160.02 0)
 			(effects
 				(font
@@ -6473,7 +6021,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "#PWR022")
+					(reference "#PWR021")
 					(unit 1)
 				)
 			)
@@ -6489,7 +6037,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "21db882b-d860-48cc-a7b5-5219ec3196d2")
-		(property "Reference" "#PWR020"
+		(property "Reference" "#PWR019"
 			(at 234.95 120.65 0)
 			(effects
 				(font
@@ -6539,76 +6087,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "#PWR020")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Polarized_Small")
-		(at 105.41 114.3 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "2765810a-de84-4c74-830f-50ecfd255c58")
-		(property "Reference" "C2"
-			(at 107.95 112.4838 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "1uF"
-			(at 107.95 115.0238 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "kicad-official/Capacitor_THT.pretty:C_Disc_D5.0mm_W2.5mm_P5.00mm"
-			(at 105.41 114.3 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 105.41 114.3 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Polarized capacitor, small symbol"
-			(at 105.41 114.3 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "6a9258bc-7056-4cb0-9f7a-e0c729d4bc79")
-		)
-		(pin "2"
-			(uuid "2ac6ea98-05bf-425a-9129-393790bee884")
-		)
-		(instances
-			(project "space_dice"
-				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "C2")
+					(reference "#PWR019")
 					(unit 1)
 				)
 			)
@@ -6697,7 +6176,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "29392ac3-4409-4e86-b98f-f24cd527b053")
-		(property "Reference" "RV4"
+		(property "Reference" "RV3"
 			(at 134.874 102.87 90)
 			(effects
 				(font
@@ -6753,7 +6232,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "RV4")
+					(reference "RV3")
 					(unit 1)
 				)
 			)
@@ -6934,72 +6413,6 @@
 		)
 	)
 	(symbol
-		(lib_name "GND_2")
-		(lib_id "power:GND")
-		(at 67.31 97.79 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "40688255-48e6-4a38-9247-d3c9416b9737")
-		(property "Reference" "#PWR02"
-			(at 67.31 104.14 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 67.31 102.108 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 67.31 97.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 67.31 97.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 67.31 97.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "6d373b24-c403-455d-94ba-be1ef3a6e903")
-		)
-		(instances
-			(project "space_dice"
-				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "#PWR02")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:LED")
 		(at 279.4 120.65 180)
 		(unit 1)
@@ -7008,7 +6421,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "47ae6fa7-a33a-4a14-a2d0-67fb8a800b71")
-		(property "Reference" "D3"
+		(property "Reference" "D2"
 			(at 275.59 119.38 0)
 			(effects
 				(font
@@ -7070,93 +6483,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "D3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:D_Small_Filled")
-		(at 77.47 92.71 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "4a662b6e-00fb-43d8-97a9-b7bc308bf9b8")
-		(property "Reference" "D1"
-			(at 77.47 86.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "1N4148"
-			(at 77.47 88.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "kicad-official/Diode_THT.pretty:D_A-405_P2.54mm_Vertical_AnodeUp"
-			(at 77.47 92.71 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 77.47 92.71 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Diode, small symbol, filled shape"
-			(at 77.47 92.71 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Device" "D"
-			(at 77.47 92.71 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Pins" "1=K 2=A"
-			(at 77.47 92.71 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "df75860c-9b78-4edd-b70e-bc01babdfeff")
-		)
-		(pin "2"
-			(uuid "e66d2fa9-4f5a-40c9-8931-bf421180edcf")
-		)
-		(instances
-			(project ""
-				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "D1")
+					(reference "D2")
 					(unit 1)
 				)
 			)
@@ -7172,7 +6499,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "4c66d560-b3e3-4346-88bf-5b5336e29569")
-		(property "Reference" "#PWR021"
+		(property "Reference" "#PWR020"
 			(at 254 114.3 0)
 			(effects
 				(font
@@ -7222,7 +6549,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "#PWR021")
+					(reference "#PWR020")
 					(unit 1)
 				)
 			)
@@ -7238,7 +6565,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "4f5314e8-5e59-4005-ac5c-f7a549be4293")
-		(property "Reference" "#PWR06"
+		(property "Reference" "#PWR05"
 			(at 86.36 130.81 0)
 			(effects
 				(font
@@ -7288,7 +6615,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "#PWR06")
+					(reference "#PWR05")
 					(unit 1)
 				)
 			)
@@ -7297,7 +6624,7 @@
 	(symbol
 		(lib_name "VCC_2")
 		(lib_id "power:VCC")
-		(at 45.72 86.36 0)
+		(at 62.23 91.44 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7305,7 +6632,7 @@
 		(dnp no)
 		(uuid "50afdfe7-6464-43f3-b0e0-2933668887e5")
 		(property "Reference" "#PWR01"
-			(at 45.72 90.17 0)
+			(at 62.23 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7314,7 +6641,7 @@
 			)
 		)
 		(property "Value" "VCC"
-			(at 45.72 82.296 0)
+			(at 62.23 87.376 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7322,7 +6649,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 45.72 86.36 0)
+			(at 62.23 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7331,7 +6658,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 45.72 86.36 0)
+			(at 62.23 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7340,7 +6667,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"VCC\""
-			(at 45.72 86.36 0)
+			(at 62.23 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7370,7 +6697,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "5655f151-c68d-42f8-af2a-3feb3d3d8b46")
-		(property "Reference" "#PWR010"
+		(property "Reference" "#PWR09"
 			(at 129.54 58.42 0)
 			(effects
 				(font
@@ -7420,7 +6747,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "#PWR010")
+					(reference "#PWR09")
 					(unit 1)
 				)
 			)
@@ -7436,7 +6763,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "5f5b2fb4-323f-480d-be4a-3162151b275b")
-		(property "Reference" "#PWR07"
+		(property "Reference" "#PWR06"
 			(at 100.33 48.26 0)
 			(effects
 				(font
@@ -7486,7 +6813,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "#PWR07")
+					(reference "#PWR06")
 					(unit 1)
 				)
 			)
@@ -7502,7 +6829,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "64025dd4-e943-45e3-a1a7-2ebf1f63e51d")
-		(property "Reference" "#PWR019"
+		(property "Reference" "#PWR018"
 			(at 219.71 92.71 0)
 			(effects
 				(font
@@ -7552,7 +6879,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "#PWR019")
+					(reference "#PWR018")
 					(unit 1)
 				)
 			)
@@ -7636,7 +6963,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "6b338f49-9231-4b04-a8ad-6c952c661151")
-		(property "Reference" "D7"
+		(property "Reference" "D6"
 			(at 275.59 129.54 0)
 			(effects
 				(font
@@ -7698,7 +7025,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "D7")
+					(reference "D6")
 					(unit 1)
 				)
 			)
@@ -7714,7 +7041,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "6f414091-ac42-44a1-9781-8d223f6ce6da")
-		(property "Reference" "#PWR04"
+		(property "Reference" "#PWR03"
 			(at 80.01 54.61 0)
 			(effects
 				(font
@@ -7764,7 +7091,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "#PWR04")
+					(reference "#PWR03")
 					(unit 1)
 				)
 			)
@@ -7847,7 +7174,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "724bf0e4-8beb-4fe9-9499-a91fcfd3c0c8")
-		(property "Reference" "#PWR016"
+		(property "Reference" "#PWR015"
 			(at 156.21 46.99 0)
 			(effects
 				(font
@@ -7897,7 +7224,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "#PWR016")
+					(reference "#PWR015")
 					(unit 1)
 				)
 			)
@@ -8152,7 +7479,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "8a7f70fd-44a2-42c3-902f-5db744e0abab")
-		(property "Reference" "D6"
+		(property "Reference" "D5"
 			(at 275.59 127 0)
 			(effects
 				(font
@@ -8214,7 +7541,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "D6")
+					(reference "D5")
 					(unit 1)
 				)
 			)
@@ -8341,7 +7668,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "949199d3-28c3-443c-98ef-c6032b6d98b0")
-		(property "Reference" "RV2"
+		(property "Reference" "RV1"
 			(at 77.978 107.95 0)
 			(effects
 				(font
@@ -8395,7 +7722,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "RV2")
+					(reference "RV1")
 					(unit 1)
 				)
 			)
@@ -8730,7 +8057,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "a6f0ce17-c80b-4124-a8f7-e055f3c2649f")
-		(property "Reference" "D2"
+		(property "Reference" "D1"
 			(at 275.59 116.84 0)
 			(effects
 				(font
@@ -8792,7 +8119,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "D2")
+					(reference "D1")
 					(unit 1)
 				)
 			)
@@ -8878,7 +8205,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "afb64737-af13-4395-bab2-5f32886145bf")
-		(property "Reference" "#PWR09"
+		(property "Reference" "#PWR08"
 			(at 129.54 30.48 0)
 			(effects
 				(font
@@ -8928,7 +8255,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "#PWR09")
+					(reference "#PWR08")
 					(unit 1)
 				)
 			)
@@ -8943,7 +8270,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "b060bd16-fe14-4fae-9c94-7b0d0994c726")
-		(property "Reference" "D4"
+		(property "Reference" "D3"
 			(at 275.59 121.92 0)
 			(effects
 				(font
@@ -9005,7 +8332,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "D4")
+					(reference "D3")
 					(unit 1)
 				)
 			)
@@ -9022,7 +8349,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b077479a-bfa4-4252-8ed5-afece272ecf1")
-		(property "Reference" "#PWR011"
+		(property "Reference" "#PWR010"
 			(at 132.08 179.07 0)
 			(effects
 				(font
@@ -9072,7 +8399,77 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "#PWR011")
+					(reference "#PWR010")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 105.41 114.3 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "b27c3d3c-2be5-44be-a7c6-668796fe42b9")
+		(property "Reference" "C2"
+			(at 107.95 113.0362 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" ".1uF"
+			(at 107.95 115.5762 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "kicad-official/Capacitor_THT.pretty:C_Disc_D5.0mm_W2.5mm_P5.00mm"
+			(at 105.41 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 105.41 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 105.41 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "f244f5d4-df45-4b16-8270-c29c28b03f0c")
+		)
+		(pin "2"
+			(uuid "f5ed5c8f-cecb-44b9-add5-f118c0e2bc07")
+		)
+		(instances
+			(project "space_dice"
+				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
+					(reference "C2")
 					(unit 1)
 				)
 			)
@@ -9194,7 +8591,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "ba34dae4-eab8-4dd5-9355-8dc9c34e2867")
-		(property "Reference" "#PWR018"
+		(property "Reference" "#PWR017"
 			(at 219.71 46.99 0)
 			(effects
 				(font
@@ -9244,7 +8641,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "#PWR018")
+					(reference "#PWR017")
 					(unit 1)
 				)
 			)
@@ -9261,7 +8658,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "c4bf82a3-3f48-4b75-8daf-6ef2356bce3d")
-		(property "Reference" "#PWR05"
+		(property "Reference" "#PWR04"
 			(at 90.17 57.15 0)
 			(effects
 				(font
@@ -9311,7 +8708,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "#PWR05")
+					(reference "#PWR04")
 					(unit 1)
 				)
 			)
@@ -9398,7 +8795,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "d41df2d9-42f1-4931-9247-d2d1e6612a62")
-		(property "Reference" "#PWR012"
+		(property "Reference" "#PWR011"
 			(at 146.05 39.37 0)
 			(effects
 				(font
@@ -9448,7 +8845,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "#PWR012")
+					(reference "#PWR011")
 					(unit 1)
 				)
 			)
@@ -9522,15 +8919,15 @@
 	)
 	(symbol
 		(lib_id "Switch:SW_SPST")
-		(at 54.61 87.63 0)
+		(at 74.93 92.71 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(uuid "d6ea2e11-66e3-49b6-a3dd-01cfdd63b84f")
-		(property "Reference" "SW1"
-			(at 54.61 81.28 0)
+		(property "Reference" "SW2"
+			(at 74.93 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9538,7 +8935,7 @@
 			)
 		)
 		(property "Value" "SW_SPST"
-			(at 54.61 83.82 0)
+			(at 74.93 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9546,7 +8943,7 @@
 			)
 		)
 		(property "Footprint" "kicad-official/Button_Switch_THT.pretty:SW_PUSH_6mm"
-			(at 54.61 87.63 0)
+			(at 74.93 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9555,7 +8952,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 54.61 87.63 0)
+			(at 74.93 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9564,7 +8961,7 @@
 			)
 		)
 		(property "Description" "Single Pole Single Throw (SPST) switch"
-			(at 54.61 87.63 0)
+			(at 74.93 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9581,7 +8978,7 @@
 		(instances
 			(project ""
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "SW1")
+					(reference "SW2")
 					(unit 1)
 				)
 			)
@@ -9667,7 +9064,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "e3ee4529-f685-477e-a25d-4a3c4eb139da")
-		(property "Reference" "#PWR03"
+		(property "Reference" "#PWR02"
 			(at 69.85 38.1 0)
 			(effects
 				(font
@@ -9717,7 +9114,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "#PWR03")
+					(reference "#PWR02")
 					(unit 1)
 				)
 			)
@@ -9733,7 +9130,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "e65a8834-6585-4f4d-89c6-31cb4b78c9c3")
-		(property "Reference" "RV3"
+		(property "Reference" "RV2"
 			(at 136.652 167.132 0)
 			(effects
 				(font
@@ -9787,7 +9184,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "RV3")
+					(reference "RV2")
 					(unit 1)
 				)
 			)
@@ -10012,7 +9409,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f2ebb19f-4e17-4ead-bf90-3a7e4ac63f74")
-		(property "Reference" "#PWR08"
+		(property "Reference" "#PWR07"
 			(at 105.41 124.46 0)
 			(effects
 				(font
@@ -10062,7 +9459,7 @@
 		(instances
 			(project "space_dice"
 				(path "/bcd0d850-a20d-42e1-b97f-b14f9222717c"
-					(reference "#PWR08")
+					(reference "#PWR07")
 					(unit 1)
 				)
 			)
