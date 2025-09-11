@@ -25,12 +25,13 @@ PCB_HOLE_POSITIONS = [
 ];
 PCB_HOLE_DIAMETER = 3.2;
 
-// TODO: differentiate side vs top actuator
+// TODO: differentiate side vs top actuator, no magic values
 PCB_SWITCH_POSITIONS = [
     get_translated_xy([97.5, 100.5]),
     get_translated_xy([120.15, 113.4]),
     get_translated_xy([99.35, 113.4]),
 ];
+PCB_SWITCH_Y = PCB_SWITCH_POSITIONS[0].y - 6.1; // magic
 
 // TODO: confirm vertical offshoot on test print
 PCB_POT_POSITIONS = [
@@ -174,5 +175,3 @@ module pcb(
         }
     }
 }
-
-pcb();
