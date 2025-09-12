@@ -1,3 +1,5 @@
+// TODO: update to latest PCB rev
+
 include <../../parts_cafe/openscad/ghost_cube.scad>;
 include <../../parts_cafe/openscad/led.scad>;
 include <../../parts_cafe/openscad/pot.scad>;
@@ -32,6 +34,10 @@ PCB_SWITCH_POSITIONS = [
     get_translated_xy([99.35, 113.4]),
 ];
 PCB_SWITCH_Y = PCB_SWITCH_POSITIONS[0].y - 6.1; // magic
+PCB_TOP_CONTROL_SWITCH_POSITONS = [
+    PCB_SWITCH_POSITIONS[1],
+    PCB_SWITCH_POSITIONS[2]
+];
 
 // TODO: confirm vertical offshoot on test print
 PCB_POT_POSITIONS = [

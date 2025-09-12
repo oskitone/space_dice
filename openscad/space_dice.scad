@@ -4,19 +4,13 @@ include <../../parts_cafe/openscad/speaker-AZ40R.scad>;
 
 use <../../scout/openscad/switch_clutch.scad>;
 
+include <enclosure.scad>;
 include <pcb.scad>;
 
-SCOUT_DEFAULT_GUTTER = 3.4;
-OUTER_GUTTER = 5;
-PCB_XY = 5;
-ALTOIDS_TIN_DIMENSIONS = [95,60,20];
-
 module space_dice(
-    width = ALTOIDS_TIN_DIMENSIONS.x,
-    length = ALTOIDS_TIN_DIMENSIONS.y,
-
-    // TODO: deal w/ 9v height
-    height = ALTOIDS_TIN_DIMENSIONS.z,
+    width = ENCLOSURE_DIMENSIONS.x,
+    length = ENCLOSURE_DIMENSIONS.y,
+    height = ENCLOSURE_DIMENSIONS.z,
 
     pcb_width = PCB_WIDTH,
     pcb_length = PCB_LENGTH,
@@ -35,13 +29,14 @@ module space_dice(
     switch_exposure = 2,
     control_clearance = .6,
 
+    control_width = CONTROL_WIDTH,
+    control_length = CONTROL_LENGTH,
+
     outer_gutter = OUTER_GUTTER,
     default_gutter = SCOUT_DEFAULT_GUTTER,
-    // label_gutter = 2,
 
     accessory_fillet = 1,
 
-    // pcb_component_to_outer_part_clearance = 2,
     pcb_bottom_clearance = PCB_BOTTOM_CLEARANCE,
 
     // pcb_post_hole_positions = [
@@ -68,13 +63,6 @@ module space_dice(
     available_width = width - outer_gutter * 2;
     available_length = length - outer_gutter * 2;
 
-    speaker_grill_size = (width - outer_gutter * 2 - default_gutter) / 3 * 2;
-
-    speaker_grill_position = [
-        outer_gutter,
-        length - speaker_grill_size - outer_gutter
-    ];
-
     pcb_position = [
         PCB_XY,
         PCB_XY,
@@ -99,6 +87,8 @@ module space_dice(
     enclosure_bottom_height = height / 2;
     enclosure_top_height = height - enclosure_bottom_height;
 
+    knob_diameter = CONTROL_WIDTH - control_clearance * 2;
+
     echo("Enclosure", width / 25.4, length / 25.4, height / 25.4);
     echo("PCB", pcb_width / 25.4, pcb_length / 25.4);
     echo("PCB bottom clearance", pcb_position.z - ENCLOSURE_FLOOR_CEILING);
@@ -121,8 +111,43 @@ module space_dice(
 
     if (show_enclosure_bottom || show_enclosure_top) {
         // TODO: you know
-        cube([width, length, ENCLOSURE_FLOOR_CEILING]);
+        // cube([width, length, ENCLOSURE_FLOOR_CEILING]);
         // cube([width, length, height]);
+
+        enclosure(
+            show_top = show_enclosure_top,
+            show_bottom = show_enclosure_bottom,
+
+            dimensions = [width, length, height],
+            bottom_height = enclosure_bottom_height,
+            top_height = enclosure_top_height,
+
+            control_clearance = control_clearance,
+
+            pcb_position = pcb_position,
+
+            speaker_position = speaker_position,
+
+            pcb_width = pcb_width,
+            pcb_length = pcb_length,
+
+            // pcb_post_hole_positions = pcb_post_hole_positions,
+
+            switch_clutch_grip_height = switch_clutch_grip_height,
+            switch_clutch_web_length_extension = switch_clutch_web_length_extension,
+
+            outer_gutter = outer_gutter,
+            default_gutter = default_gutter,
+
+            tolerance = tolerance,
+
+            outer_color = enclosure_outer_color,
+            cavity_color = enclosure_cavity_color,
+
+            show_dfm = !quick_preview,
+
+            quick_preview = quick_preview
+        );
     }
 
     translate(pcb_position) {
@@ -191,30 +216,20 @@ module space_dice(
         }
     }
 
-    // if (show_clearance) {
-    //     translate([
-    //         ENCLOSURE_WALL + SOCKET_INNER_HEIGHT + e,
-    //         10,
-    //         (ENCLOSURE_FLOOR_CEILING + enclosure_bottom_height + ENCLOSURE_LIP_HEIGHT) / 2
-    //     ]) rotate([0, -90, 0]) {
-    //         % socket();
-    //     }
-    // }
-
-    // if (show_print_test) {
-    //     print_test(quick_preview = quick_preview);
-    // }
+    if (show_print_test) {
+        print_test(quick_preview = quick_preview);
+    }
 }
 
 SHOW_ENCLOSURE_BOTTOM = true;
-SHOW_BATTERY = true;
+SHOW_BATTERY = 0;
 SHOW_PCB = true;
-SHOW_SWITCH_CLUTCH = true;
-SHOW_SPEAKER = true;
+SHOW_SWITCH_CLUTCH = 0;
+SHOW_SPEAKER = 0;
 SHOW_ENCLOSURE_TOP = true;
 SHOW_PRINT_TEST = false;
 
-SHOW_CLEARANCE = false;
+SHOW_CLEARANCE = 1;
 DEFAULT_TOLERANCE = .1;
 Y_ROTATION = 0;
 
@@ -236,6 +251,6 @@ space_dice(
     quick_preview = $preview
 );
 
-// middle
-// translate([ALTOIDS_TIN_DIMENSIONS.x / 2, -1, -1]) cube([100, 100, 100]);
+// right side
+// translate([ALTOIDS_TIN_DIMENSIONS.x * .8, -1, -1]) cube([100, 100, 100]);
 }
