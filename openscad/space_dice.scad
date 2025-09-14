@@ -1,8 +1,8 @@
 include <../../parts_cafe/openscad/battery-9v.scad>;
 include <../../parts_cafe/openscad/print_test.scad>;
 include <../../parts_cafe/openscad/speaker-AZ40R.scad>;
-
-use <../../scout/openscad/switch_clutch.scad>;
+include <../../parts_cafe/openscad/switch_clutch.scad>;
+include <../../parts_cafe/openscad/switch_clutch-angled.scad>;
 
 include <enclosure.scad>;
 include <pcb.scad>;
@@ -18,7 +18,7 @@ module space_dice(
     show_enclosure_bottom = true,
     show_battery = true,
     show_pcb = true,
-    show_switch_clutch = true,
+    show_switch_clutches = true,
     show_speaker = true,
     show_enclosure_top = true,
     show_print_test = false,
@@ -76,8 +76,8 @@ module space_dice(
     ];
 
     battery_position = [
-        width - ENCLOSURE_WALL - BATTERY_HEIGHT,
-        ENCLOSURE_WALL,
+        width - ENCLOSURE_WALL - BATTERY_HEIGHT - e,
+        ENCLOSURE_WALL + e,
         ENCLOSURE_FLOOR_CEILING + e
     ];
 
@@ -168,20 +168,17 @@ module space_dice(
         );
     }
 
-    if (show_switch_clutch) {
-        // boooo. this is from having two different SWITCHes w/ the same const names
-        SWITCH_BASE_WIDTH = 4.4;
-        SWITCH_BASE_LENGTH = 8.6;
-        SWITCH_ORIGIN = [SWITCH_BASE_WIDTH / 2, SWITCH_BASE_LENGTH - 6.36];
+    if (show_switch_clutches) {
+        // TODO: fix power clutch obstruction, component obstruction
 
         // HACK: lots of arbitrary values here to make Scout's clutch work.
-        // boooooooooooo
+        // Copied from higher_lower bahhhhh
         translate([
             pcb_position.x + SWITCH_ORIGIN.x + .15,
             pcb_position.y + PCB_SWITCH_Y + SWITCH_ORIGIN.y,
             0
         ]) {
-            switch_clutch(
+            switch_clutch_angled(
                 position = side_switch_position,
 
                 web_available_width = pcb_position.x - ENCLOSURE_WALL,
@@ -201,8 +198,42 @@ module space_dice(
                 outer_color = control_outer_color,
                 cavity_color = control_cavity_color,
 
-                quick_preview = quick_preview
+                quick_preview = 0
             );
+        }
+
+        z = pcb_position.z + PCB_HEIGHT;
+        overshoot = 1;
+
+        for (xy = PCB_TOP_CONTROL_SWITCH_POSITONS) {
+            translate([
+                pcb_position.x + xy.x,
+                pcb_position.y + xy.y,
+                z - e
+            ]) {
+                switch_clutch(
+                    base_height = height - z - ENCLOSURE_FLOOR_CEILING,
+                    base_width = control_width / 2 + overshoot * 2,
+                    base_length = control_width + SWITCH_ACTUATOR_TRAVEL + overshoot * 2,
+
+                    actuator_width = control_width / 2 - control_clearance * 2,
+                    actuator_length = control_width - SWITCH_ACTUATOR_TRAVEL
+                        - control_clearance * 2,
+                    actuator_height = ENCLOSURE_FLOOR_CEILING + 2,
+
+                    position = side_switch_position,
+
+                    fillet = accessory_fillet,
+
+                    color = control_outer_color,
+                    cavity_color = control_cavity_color,
+
+                    debug = false,
+
+                    clearance = control_clearance,
+                    tolerance = tolerance
+                );
+            }
         }
     }
 
@@ -222,14 +253,14 @@ module space_dice(
 }
 
 SHOW_ENCLOSURE_BOTTOM = true;
-SHOW_BATTERY = 0;
+SHOW_BATTERY = true;
 SHOW_PCB = true;
-SHOW_SWITCH_CLUTCH = 0;
-SHOW_SPEAKER = 0;
+SHOW_SWITCH_CLUTCHES = true;
+SHOW_SPEAKER = true;
 SHOW_ENCLOSURE_TOP = true;
 SHOW_PRINT_TEST = false;
 
-SHOW_CLEARANCE = 1;
+SHOW_CLEARANCE = false;
 DEFAULT_TOLERANCE = .1;
 Y_ROTATION = 0;
 
@@ -239,7 +270,7 @@ space_dice(
     show_enclosure_bottom = SHOW_ENCLOSURE_BOTTOM,
     show_battery = SHOW_BATTERY,
     show_pcb = SHOW_PCB,
-    show_switch_clutch = SHOW_SWITCH_CLUTCH,
+    show_switch_clutches = SHOW_SWITCH_CLUTCHES,
     show_speaker = SHOW_SPEAKER,
     show_enclosure_top = SHOW_ENCLOSURE_TOP,
     show_print_test = SHOW_PRINT_TEST,
@@ -251,6 +282,6 @@ space_dice(
     quick_preview = $preview
 );
 
-// right side
-// translate([ALTOIDS_TIN_DIMENSIONS.x * .8, -1, -1]) cube([100, 100, 100]);
+// INCR
+// translate([30, -1, -1]) cube([100, 100, 100]);
 }

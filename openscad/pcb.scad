@@ -6,8 +6,6 @@ include <../../parts_cafe/openscad/pot.scad>;
 include <../../parts_cafe/openscad/spst.scad>;
 include <../../parts_cafe/openscad/switch-OS102011MS2QN1.scad>;
 
-use <../../scout/openscad/switch_clutch.scad>;
-
 PCB_WIDTH = 60;
 PCB_LENGTH = 50;
 PCB_HEIGHT = 1.7;

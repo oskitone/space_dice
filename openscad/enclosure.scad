@@ -4,6 +4,7 @@ include <../../parts_cafe/openscad/enclosure.scad>;
 include <../../parts_cafe/openscad/flat_top_rectangular_pyramid.scad>;
 include <../../parts_cafe/openscad/pcb_mounting_columns.scad>;
 include <../../parts_cafe/openscad/ring.scad>;
+include <../../parts_cafe/openscad/switch_clutch_enclosure_engraving.scad>;
 
 include <pcb.scad>;
 
@@ -84,6 +85,9 @@ module enclosure(
     cavity_height = ENCLOSURE_FLOOR_CEILING + e * 2;
 
     speaker_cavity_diameter = SPEAKER_DIAMETER + tolerance * 2;
+
+    switch_window_width = control_width / 2;
+    switch_window_length = control_width;
 
     switch_clutch_aligner_length =
         SWITCH_CLUTCH_GRIP_LENGTH + SWITCH_ACTUATOR_TRAVEL
@@ -205,7 +209,11 @@ module enclosure(
     }
 
     module _speaker_fixture() {
-        translate(speaker_position) {
+        translate([
+            speaker_position.x,
+            speaker_position.y,
+            speaker_position.z - e,
+        ]) {
             speaker_fixture(
                 height = SPEAKER_HEIGHT + e,
                 wall = ENCLOSURE_INNER_WALL,
@@ -264,9 +272,6 @@ module enclosure(
 
         height = ENCLOSURE_FLOOR_CEILING + e * 2;
 
-        switch_window_width = control_width / 2;
-        switch_window_length = control_width;
-
         led_exposure_position = [
             (PCB_LED_POSITIONS[0].x + PCB_LED_POSITIONS[2].x) / 2,
             PCB_LED_POSITIONS[3].y
@@ -274,7 +279,7 @@ module enclosure(
 
         for (xy = PCB_POT_POSITIONS) {
             _translate(xy) {
-                _c(control_width, height);
+                _c(control_width + tolerance * 2, height);
             }
         }
 
@@ -289,7 +294,10 @@ module enclosure(
                 // finally, centered exposure to switch
                 [switch_window_width / -2, switch_window_length / -2]
             ) {
-                cube([switch_window_width, switch_window_length, height]);
+                actuator_window(
+                    dimensions = [switch_window_width, switch_window_length],
+                    tolerance = tolerance
+                );
             }
         }
 
@@ -306,7 +314,7 @@ module enclosure(
         // not the PCB. It's fine!
 
         labels = [
-            "OCT", "ADD", undef,
+            "OCT", "INCR", undef,
             "TONE", "DROP", "VOL",
         ];
 
@@ -330,6 +338,23 @@ module enclosure(
                     enclosure_height = dimensions.z
                 );
             }
+        }
+
+        for (i = [0, 1]) {
+            switch_clutch_enclosure_engraving(
+                labels = [
+                    ["Q0", "Q4"],
+                    ["Q6", "Q8"]
+                ][i],
+                actuator_window_dimensions = [switch_window_width, switch_window_length],
+                control_clearance = 0,
+                quick_preview = quick_preview,
+                position = [
+                    outer_gutter + i * (control_width + default_gutter),
+                    outer_gutter + ENCLOSURE_ENGRAVING_LENGTH
+                ],
+                enclosure_height = dimensions.z
+            );
         }
     }
 
