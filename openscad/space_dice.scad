@@ -1,13 +1,14 @@
 include <../../parts_cafe/openscad/battery-9v.scad>;
 include <../../parts_cafe/openscad/pcb_base.scad>;
 include <../../parts_cafe/openscad/speaker-AZ40R.scad>;
+include <../../parts_cafe/openscad/switch_clutch_fixture.scad>;
 
 PCB_WIDTH = 88.9;
 PCB_LENGTH = 76.2;
 EDGE_CUT_START_X = 94.615;
 EDGE_CUT_START_Y = 64.77;
 
-module space_dice(
+module base(
     gutter = 5,
     pcb_bottom_clearance = 10,
     tolerance = .1,
@@ -106,4 +107,103 @@ module space_dice(
     }
 }
 
-space_dice();
+module switch_clutches_and_fixture(
+    count = 3,
+    plot = 5.8,
+    fixture_width = 28,
+    fixture_length = 20,
+    fixture_height = 10,
+    screw_hole_distance = 21.59,
+    actuator_exposure = 4,
+    switch_clutch_base_height = 8,
+    clearance = [.2, .4, .4],
+    fillet = 1,
+    tolerance = .1,
+    debug = false
+) {
+    switches_width = plot * (count - 1) + SWITCH_BASE_WIDTH;
+
+    // clutch rests on switch, not PCB
+    switch_clutch_width = plot - clearance.x;
+    switch_clutch_base_length = max(
+        fixture_length - SWITCH_ACTUATOR_TRAVEL - fillet,
+        SWITCH_CLUTCH_MIN_BASE_LENGTH
+    );
+
+    window_width = switch_clutch_width * count + clearance.x * (count + 1);
+    x_gutter = (fixture_width - window_width) / 2;
+
+    actuator_length = max(
+        fixture_length - x_gutter * 2 - SWITCH_ACTUATOR_TRAVEL
+            - clearance.y * 2,
+        SWITCH_CLUTCH_MIN_ACTUATOR_LENGTH
+    );
+
+    window_length = actuator_length + SWITCH_ACTUATOR_TRAVEL
+        + clearance.y * 2;
+
+    translate([
+        SWITCH_ORIGIN.x - (switch_clutch_width - SWITCH_BASE_WIDTH) / 2
+            - (fixture_width - window_width) / 2
+            - clearance.x,
+        fixture_length / -2,
+        0
+    ]) {
+        switch_clutch_fixture(
+            width = fixture_width,
+            length = fixture_length,
+            height = fixture_height,
+
+            cavity_base_width = window_width,
+            cavity_base_length = fixture_length + 10,
+            cavity_base_height = switch_clutch_base_height + clearance.z,
+
+            window_width = window_width,
+            window_length = window_length,
+
+            fillet = fillet, $fn = 8,
+
+            include_screw_holes = true,
+            screw_hole_distance = screw_hole_distance,
+
+            tolerance = tolerance,
+
+            debug = debug
+        );
+    }
+
+    for (i = [0 : count - 1]) {
+        translate([
+            plot * i,
+            -SWITCH_ORIGIN.y - SWITCH_BASE_LENGTH / 2,
+            0
+        ]) {
+            switch_clutch(
+                base_height = switch_clutch_base_height,
+                base_width = switch_clutch_width - tolerance * 2,
+                base_length = switch_clutch_base_length,
+
+                actuator_width = switch_clutch_width - tolerance * 2,
+                actuator_length = actuator_length,
+                actuator_height = fixture_height - switch_clutch_base_height
+                    + actuator_exposure,
+
+                position = round($t * count) == i ? 1 : 0,
+
+                cavity_base_width = switch_clutch_width - tolerance * 2,
+
+                fillet = fillet, $fn = 6,
+
+                clearance = 0.4,
+                tolerance = tolerance,
+
+                debug = debug
+            );
+
+            % translate([0,0,-.01]) switch(position = round($t * count) == i ? 1 : 0);
+        }
+    }
+}
+
+base();
+translate([10, PCB_LENGTH + 25, 0]) switch_clutches_and_fixture(debug = 0);
