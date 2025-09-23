@@ -1,5 +1,6 @@
 include <../../parts_cafe/openscad/battery-9v.scad>;
 include <../../parts_cafe/openscad/pcb_base.scad>;
+include <../../parts_cafe/openscad/keys.scad>;
 include <../../parts_cafe/openscad/speaker-AZ40R.scad>;
 include <../../parts_cafe/openscad/switch_clutch_fixture.scad>;
 
@@ -7,6 +8,10 @@ PCB_WIDTH = 88.9;
 PCB_LENGTH = 76.2;
 EDGE_CUT_START_X = 94.615;
 EDGE_CUT_START_Y = 64.77;
+
+SPST_HEIGHT = 6;
+
+e = .015;
 
 module base(
     gutter = 5,
@@ -19,8 +24,6 @@ module base(
         BATTERY_LENGTH
     ]
 ) {
-    e = .015;
-
     speaker_fixture_diameter = get_speaker_fixture_diameter(tolerance);
 
     width = PCB_WIDTH + gutter * 3 + max(
@@ -205,5 +208,60 @@ module switch_clutches_and_fixture(
     }
 }
 
+// MAYBE: registration against SPST actuator, alignment fixtures for spacer/mount/SPST
+module button_key(
+    mount_size = NUT_DIAMETER,
+    height = NUT_DIAMETER / 2,
+    key_width = 30,
+    key_length = 15,
+    tolerance = .1
+) {
+    translate([mount_size / 2, key_length / 2, -e]) nut(
+        diameter = mount_size,
+        height = SPST_HEIGHT,
+        hole_diameter = SCREW_DIAMETER + tolerance * 2,
+        $fn = 12
+    );
+
+    key_full_width = mount_size + KEY_CANTILEVER_LENGTH + key_width + tolerance * 2;
+    fillet = min(
+        height,
+        key_length / 2
+    );
+    cantilever_width = key_length - fillet;
+
+    translate([key_full_width, 0, SPST_HEIGHT]) rotate([0, 0, 90])  keys(
+        count = 1,
+
+        natural_width = key_length,
+        natural_length = key_width,
+        natural_height = height,
+
+        front_fillet = fillet,
+        sides_fillet = fillet,
+
+        gutter = mount_size - cantilever_width,
+
+        cantilever_width = cantilever_width,
+        cantilever_length = KEY_CANTILEVER_LENGTH,
+        cantilever_height = KEY_CANTILEVER_HEIGHT,
+        cantilever_recession = 0,
+
+        mount_width = mount_size,
+        mount_length = mount_size,
+        mount_height = height,
+        mount_hole_xs = [mount_size / 2],
+
+        tolerance = tolerance,
+
+        accidental_color = "#444",
+        natural_color = "#fff",
+        natural_color_cavity = "#eee",
+
+        quick_preview = $preview
+    );
+}
+
 base();
 translate([10, PCB_LENGTH + 25, 0]) switch_clutches_and_fixture(debug = 0);
+translate([40, PCB_LENGTH + 18, 0]) button_key();
