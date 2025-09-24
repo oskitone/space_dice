@@ -1,6 +1,7 @@
 include <../../parts_cafe/openscad/battery-9v.scad>;
+include <../../parts_cafe/openscad/cap_blank.scad>;
 include <../../parts_cafe/openscad/pcb_base.scad>;
-include <../../parts_cafe/openscad/keys.scad>;
+include <../../parts_cafe/openscad/spst.scad>;
 include <../../parts_cafe/openscad/speaker-AZ40R.scad>;
 include <../../parts_cafe/openscad/switch_clutch_fixture.scad>;
 
@@ -211,55 +212,57 @@ module switch_clutches_and_fixture(
 // MAYBE: registration against SPST actuator, alignment fixtures for spacer/mount/SPST
 module button_key(
     mount_size = NUT_DIAMETER,
+    mount_height = 1,
     height = NUT_DIAMETER / 2,
-    key_width = 30,
-    key_length = 15,
-    tolerance = .1
+    cap_size = NUT_DIAMETER * 1.5,
+    actuator_cavity_height = .6,
+    actuator_cavity_x = 1,
+    tolerance = .1,
+    $fn = 12
 ) {
-    translate([mount_size / 2, key_length / 2, -e]) nut(
-        diameter = mount_size,
-        height = SPST_HEIGHT,
-        hole_diameter = SCREW_DIAMETER + tolerance * 2,
-        $fn = 12
-    );
+    translate([mount_size / 2, cap_size / 2, -e]) {
+        ring(
+            diameter = mount_size,
+            height = SPST_HEIGHT - actuator_cavity_height,
+            inner_diameter = SCREW_DIAMETER + tolerance * 2
+        );
+    }
 
-    key_full_width = mount_size + KEY_CANTILEVER_LENGTH + key_width + tolerance * 2;
-    fillet = min(
-        height,
-        key_length / 2
-    );
-    cantilever_width = key_length - fillet;
+    actuator_cavity_diameter = SPST_ACTUATOR_DIAMETER + tolerance * 2;
 
-    translate([key_full_width, 0, SPST_HEIGHT]) rotate([0, 0, 90])  keys(
-        count = 1,
+    translate([0, 0, SPST_HEIGHT - actuator_cavity_height]) {
+        difference() {
+            union() {
+                translate([mount_size / 2, cap_size / 2, 0]) {
+                    difference() {
+                        hull() {
+                            cylinder(d = mount_size, h = mount_height);
+                            translate([mount_size / 2 + e, mount_size / -2, 0]) {
+                                cube([e, mount_size, mount_height]);
+                            }
+                        }
 
-        natural_width = key_length,
-        natural_length = key_width,
-        natural_height = height,
+                        translate([0, 0, -e]) {
+                            cylinder(
+                                d = SCREW_DIAMETER + tolerance * 2,
+                                h = mount_height + e * 2
+                            );
+                        }
+                    }
+                }
+                translate([mount_size - e, cap_size / 2 - cap_size / 2, 0]) cap_blank(
+                    dimensions = [cap_size, cap_size, height],
+                    contact_dimensions = [cap_size * .75, cap_size * .75, height - mount_height],
+                    fillet = 1,
+                    brim_dimensions = [0, 0, 0]
+                );
+            }
 
-        front_fillet = fillet,
-        sides_fillet = fillet,
-
-        gutter = mount_size - cantilever_width,
-
-        cantilever_width = cantilever_width,
-        cantilever_length = KEY_CANTILEVER_LENGTH,
-        cantilever_height = KEY_CANTILEVER_HEIGHT,
-        cantilever_recession = 0,
-
-        mount_width = mount_size,
-        mount_length = mount_size,
-        mount_height = height,
-        mount_hole_xs = [mount_size / 2],
-
-        tolerance = tolerance,
-
-        accidental_color = "#444",
-        natural_color = "#fff",
-        natural_color_cavity = "#eee",
-
-        quick_preview = $preview
-    );
+            translate([mount_size + actuator_cavity_x, cap_size / 2 - actuator_cavity_diameter / 2, -e]) {
+                cube([cap_size, actuator_cavity_diameter, actuator_cavity_height + e]);
+            }
+        }
+    }
 }
 
 base();
