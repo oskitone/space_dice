@@ -58,7 +58,7 @@ module space_dice(
 
     quick_preview = true
 ) {
-    e = .00319;
+    e = .0319;
 
     available_width = width - outer_gutter * 2;
     available_length = length - outer_gutter * 2;
@@ -103,7 +103,7 @@ module space_dice(
     );
 
     if (show_battery) {
-        translate(battery_position) {
+        translate(battery_position) translate([0, 0, -e * 2]) {
             rotate([0, 90, 0]) rotate([0, 0, 90])
             % battery();
         }
@@ -150,7 +150,7 @@ module space_dice(
         );
     }
 
-    translate(pcb_position) {
+    translate(pcb_position) translate([0, 0, -e]) {
         pcb(
             show_board = show_pcb,
             show_silkscreen = false,
@@ -241,7 +241,7 @@ module space_dice(
         % translate([
             speaker_position.x,
             speaker_position.y,
-            speaker_position.z - e
+            speaker_position.z - e * 2
         ]) {
             speaker($fn = 120);
         }
