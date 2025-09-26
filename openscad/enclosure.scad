@@ -98,11 +98,10 @@ module enclosure(
 
     under_pcb_fixture_height = pcb_position.z - ENCLOSURE_FLOOR_CEILING;
 
-    // NOTE: right_panel_width is derived but should match control_width
     right_panel_width = dimensions.x
-        - pcb_position.x * 2 - default_gutter * 3
+        - outer_gutter * 2 - default_gutter * 3
         - control_width * 3;
-    right_panel_x = dimensions.x - pcb_position.x - right_panel_width;
+    right_panel_x = dimensions.x - outer_gutter - right_panel_width;
     right_panel_section_length = (dimensions.y
         - outer_gutter * 2 - default_gutter * 3) / 4;
     branding_length = right_panel_section_length;
@@ -233,7 +232,7 @@ module enclosure(
         );
 
         enclosure_engraving(
-            string = "SPACE ...",
+            string = "SPACE DICE",
             size = top_engraving_model_text_size,
             position = [
                 position.x,
@@ -306,9 +305,9 @@ module enclosure(
             labelI = rowI * 3 + columnI;
 
             xy = [
-                pcb_position.x + (control_width + default_gutter) * columnI
+                outer_gutter + (control_width + default_gutter) * columnI
                     + control_width / 2,
-                pcb_position.y + (control_length + default_gutter) * rowI
+                outer_gutter + (control_length + default_gutter) * rowI
                     + ENCLOSURE_ENGRAVING_LENGTH / 2,
             ];
 
@@ -334,8 +333,8 @@ module enclosure(
                 control_clearance = 0,
                 quick_preview = quick_preview,
                 position = [
-                    pcb_position.x + i * (control_width + default_gutter),
-                    pcb_position.y + ENCLOSURE_ENGRAVING_LENGTH
+                    outer_gutter + i * (control_width + default_gutter),
+                    outer_gutter + ENCLOSURE_ENGRAVING_LENGTH
                 ],
                 enclosure_height = dimensions.z
             );
