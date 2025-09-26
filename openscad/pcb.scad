@@ -19,8 +19,13 @@ function get_translated_xy(xy) = (
 
 // Copied from higher_lower.kicad_pcb
 PCB_HOLE_POSITIONS = [
+    get_translated_xy([145.3, 88.646]),
     get_translated_xy([114.1, 85.5052]),
-    get_translated_xy([142.05, 102]),
+    get_translated_xy([100.457, 124.587]),
+    get_translated_xy([103.7, 88.646]),
+    get_translated_xy([142.05, 101.1428]),
+    get_translated_xy([124.5, 88.646]),
+    get_translated_xy([145.3, 122.275]),
     get_translated_xy([134.9, 85.5052]),
 ];
 PCB_HOLE_DIAMETER = 3.2;
@@ -45,7 +50,7 @@ PCB_POT_POSITIONS = [
 ];
 
 // Switch is rotated 90deg, thus SPST_ORIGIN xy are swapped
-PCB_BUTTON_POSITION = get_translated_xy([153.5 - SPST_ORIGIN.y, 104.25 - SPST_ORIGIN.x]);
+PCB_BUTTON_POSITION = get_translated_xy([153.5 - SPST_ORIGIN.y, 103.3928 - SPST_ORIGIN.x]);
 
 PCB_LED_POSITIONS = [
     get_translated_xy([148.375 + 2.54 / 2, 126.2]),

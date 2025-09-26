@@ -39,11 +39,12 @@ module space_dice(
 
     pcb_bottom_clearance = PCB_BOTTOM_CLEARANCE,
 
-    // pcb_post_hole_positions = [
-    //     PCB_HOLE_POSITIONS[0],
-    //     PCB_HOLE_POSITIONS[2],
-    //     PCB_HOLE_POSITIONS[4],
-    // ],
+    pcb_post_hole_positions = [
+        PCB_HOLE_POSITIONS[0],
+        PCB_HOLE_POSITIONS[2],
+        PCB_HOLE_POSITIONS[3],
+        PCB_HOLE_POSITIONS[6],
+    ],
 
     tolerance = 0,
 
@@ -131,7 +132,7 @@ module space_dice(
             pcb_width = pcb_width,
             pcb_length = pcb_length,
 
-            // pcb_post_hole_positions = pcb_post_hole_positions,
+            pcb_post_hole_positions = pcb_post_hole_positions,
 
             switch_clutch_grip_height = switch_clutch_grip_height,
             switch_clutch_web_length_extension = switch_clutch_web_length_extension,
