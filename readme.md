@@ -2,6 +2,14 @@
 
 Work in progress!
 
+## Schematic
+
+![space dice prototype schematic](/kicad/space_dice.svg)
+
+## Known issues
+
+- Pot tab holes are wrong, unfixably small.
+
 ## 3D Models
 
 3D-printed models are written in OpenSCAD.
