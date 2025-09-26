@@ -67,7 +67,7 @@ module space_dice(
     available_length = length - outer_gutter * 2;
 
     pcb_position = [
-        PCB_XY,
+        (width - control_width * 4 - default_gutter * 3) / 2,
         PCB_XY,
         ENCLOSURE_FLOOR_CEILING + SPEAKER_HEIGHT + pcb_bottom_clearance
     ];
