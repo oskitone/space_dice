@@ -6122,7 +6122,7 @@
 		)
 		(uuid "2085aa57-02f1-47cb-829c-8d278fb7a1bd")
 	)
-	(text "NAND inverter here gives a small\nbut noticeable volume boost, tho\nits Schmitt trigger probably loses\nsome waveform complexity."
+	(text "NAND inverter here gives a small\nbut noticeable volume boost."
 		(exclude_from_sim no)
 		(at 243.078 129.794 0)
 		(effects
@@ -6133,9 +6133,9 @@
 		)
 		(uuid "3f60cfc6-fa8b-46e8-a4b9-98c33fd3fb81")
 	)
-	(text "Each AUDIO_ pin is a different octave, mixed together\nwith resistors. Switches act as volume control."
+	(text "Each AUDIO_ pin is a different octave. Because\nthere's no mixing resistors, the octaves\nmodulate each other."
 		(exclude_from_sim no)
-		(at 243.332 143.764 0)
+		(at 243.586 140.716 0)
 		(effects
 			(font
 				(size 1.27 1.27)
