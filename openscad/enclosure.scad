@@ -191,23 +191,6 @@ module enclosure(
         );
     }
 
-    module _switch_clutch_deobstruction_cavity(
-        width = 3 // NOTE: arbitrary
-    ) {
-        translate([
-            pcb_position.x - width,
-            switch_clutch_aligner_y - tolerance - e,
-            -e
-        ]) {
-            cube([
-                width,
-                switch_clutch_aligner_length
-                    + tolerance * 2 + e * 2,
-                dimensions.z + e * 2
-            ]);
-        }
-    }
-
     module _speaker_fixture() {
         translate([
             speaker_position.x,

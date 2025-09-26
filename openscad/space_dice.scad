@@ -1,8 +1,9 @@
 include <../../parts_cafe/openscad/battery-9v.scad>;
+include <../../parts_cafe/openscad/knob.scad>;
 include <../../parts_cafe/openscad/print_test.scad>;
 include <../../parts_cafe/openscad/speaker-AZ40R.scad>;
-include <../../parts_cafe/openscad/switch_clutch.scad>;
 include <../../parts_cafe/openscad/switch_clutch-angled.scad>;
+include <../../parts_cafe/openscad/switch_clutch.scad>;
 
 include <enclosure.scad>;
 include <pcb.scad>;
@@ -18,6 +19,7 @@ module space_dice(
     show_enclosure_bottom = true,
     show_battery = true,
     show_pcb = true,
+    show_knobs = true,
     show_switch_clutches = true,
     show_speaker = true,
     show_enclosure_top = true,
@@ -169,6 +171,35 @@ module space_dice(
         );
     }
 
+    if (show_knobs) {
+        knob_z_clearance = .4;
+        knob_z = pcb_position.z + PCB_HEIGHT + PTV09A_POT_BASE_HEIGHT_FROM_PCB + knob_z_clearance;
+        knob_brim_height = height - ENCLOSURE_FLOOR_CEILING - knob_z - knob_z_clearance;
+
+        for (xy = PCB_POT_POSITIONS) {
+            translate([
+                pcb_position.x + xy.x,
+                pcb_position.y + xy.y,
+                knob_z
+            ]) {
+                knob(
+                    diameter = knob_diameter,
+                    height = PTV09A_POT_ACTUATOR_HEIGHT - knob_z_clearance
+                        + ENCLOSURE_FLOOR_CEILING,
+                    fillet = accessory_fillet,
+                    dimple_y = knob_diameter / 2 / 2,
+                    round_bottom = false,
+                    brim_diameter = knob_diameter + 4,
+                    brim_height = knob_brim_height,
+                    color = "#FFFFFF",
+                    cavity_color = "#EEEEEE",
+                    tolerance = tolerance,
+                    $fn = quick_preview ? undef : 24
+                );
+            }
+        }
+    }
+
     if (show_switch_clutches) {
         // TODO: fix power clutch obstruction, component obstruction
 
@@ -256,6 +287,7 @@ module space_dice(
 SHOW_ENCLOSURE_BOTTOM = true;
 SHOW_BATTERY = true;
 SHOW_PCB = true;
+SHOW_KNOBS = true;
 SHOW_SWITCH_CLUTCHES = true;
 SHOW_SPEAKER = true;
 SHOW_ENCLOSURE_TOP = true;
@@ -271,6 +303,7 @@ space_dice(
     show_enclosure_bottom = SHOW_ENCLOSURE_BOTTOM,
     show_battery = SHOW_BATTERY,
     show_pcb = SHOW_PCB,
+    show_knobs = SHOW_KNOBS,
     show_switch_clutches = SHOW_SWITCH_CLUTCHES,
     show_speaker = SHOW_SPEAKER,
     show_enclosure_top = SHOW_ENCLOSURE_TOP,
@@ -285,4 +318,7 @@ space_dice(
 
 // INCR
 // translate([30, -1, -1]) cube([100, 100, 100]);
+
+// VOL
+// translate([55, -1, -1]) cube([100, 100, 100]);
 }
