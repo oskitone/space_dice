@@ -69,6 +69,14 @@ module enclosure(
     outer_gutter = 0,
     default_gutter = 0,
 
+    right_panel_width = 0,
+    branding_dimensions = [0,0],
+    button_cap_exposure_dimensions = [0,0],
+    speaker_grill_dimensions = [0,0],
+    branding_position = [0,0],
+    speaker_grill_position = [0,0],
+    button_cap_exposure_position = [0,0],
+
     tolerance = 0,
 
     outer_color = undef,
@@ -97,15 +105,6 @@ module enclosure(
             - switch_clutch_aligner_length / 2;
 
     under_pcb_fixture_height = pcb_position.z - ENCLOSURE_FLOOR_CEILING;
-
-    right_panel_width = dimensions.x
-        - outer_gutter * 2 - default_gutter * 3
-        - control_width * 3;
-    right_panel_x = dimensions.x - outer_gutter - right_panel_width;
-    right_panel_section_length = (dimensions.y
-        - outer_gutter * 2 - default_gutter * 3) / 4;
-    branding_length = right_panel_section_length;
-    speaker_grill_length = right_panel_section_length * 3 + default_gutter * 2;
 
     module _translate(xy1, xy2 = [0,0], xy3 = [0,0], xy4 = [0,0]) {
         translate([
@@ -212,18 +211,13 @@ module enclosure(
 
     module _top_branding_engraving(gutter = ENCLOSURE_ENGRAVING_GUTTER) {
         wordmark_length = right_panel_width * OSKITONE_LENGTH_WIDTH_RATIO;
-        placard_length = branding_length - wordmark_length - gutter;
-
-        position = [
-            right_panel_x + right_panel_width / 2,
-            dimensions.y - outer_gutter - branding_length
-        ];
+        placard_length = branding_dimensions.y - wordmark_length - gutter;
 
         enclosure_engraving(
             size = wordmark_length,
             position = [
-                position.x,
-                position.y + placard_length + gutter
+                branding_position.x +  + right_panel_width / 2,
+                branding_position.y + placard_length + gutter
                     + wordmark_length / 2
             ],
             bottom = false,
@@ -235,8 +229,8 @@ module enclosure(
             string = "SPACE DICE",
             size = top_engraving_model_text_size,
             position = [
-                position.x,
-                position.y + placard_length / 2
+                branding_position.x +  + right_panel_width / 2,
+                branding_position.y + placard_length / 2
             ],
             placard = [
                 right_panel_width,
@@ -289,6 +283,18 @@ module enclosure(
             [control_width / -2, control_length / -2]
         ) {
             cube([control_width, control_length, height]);
+        }
+
+        translate([
+            button_cap_exposure_position.x,
+            button_cap_exposure_position.y,
+            dimensions.z - height + e
+        ]) {
+            cube([
+                button_cap_exposure_dimensions.x,
+                button_cap_exposure_dimensions.y,
+                height
+            ]);
         }
     }
 
@@ -343,12 +349,14 @@ module enclosure(
 
     module _speaker_grill() {
         translate([
-            right_panel_x,
-            outer_gutter,
+            speaker_grill_position.x,
+            speaker_grill_position.y,
             dimensions.z - ENCLOSURE_ENGRAVING_DEPTH + e
         ]) {
             diagonal_grill(
-                right_panel_width, speaker_grill_length, ENCLOSURE_ENGRAVING_DEPTH
+                speaker_grill_dimensions.x,
+                speaker_grill_dimensions.y,
+                ENCLOSURE_ENGRAVING_DEPTH
             );
         }
     }

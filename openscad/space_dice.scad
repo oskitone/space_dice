@@ -1,4 +1,5 @@
 include <../../parts_cafe/openscad/battery-9v.scad>;
+include <../../parts_cafe/openscad/cap_blank.scad>;
 include <../../parts_cafe/openscad/knob.scad>;
 include <../../parts_cafe/openscad/print_test.scad>;
 include <../../parts_cafe/openscad/speaker-AZ40R.scad>;
@@ -20,6 +21,7 @@ module space_dice(
     show_battery = true,
     show_pcb = true,
     show_knobs = true,
+    show_button_cap = true,
     show_switch_clutches = true,
     show_speaker = true,
     show_enclosure_top = true,
@@ -36,6 +38,9 @@ module space_dice(
 
     outer_gutter = OUTER_GUTTER,
     default_gutter = SCOUT_DEFAULT_GUTTER,
+
+    button_cap_brim_xy_coverage = SCOUT_DEFAULT_GUTTER,
+    button_cap_brim_height = 1,
 
     accessory_fillet = 1,
 
@@ -92,6 +97,41 @@ module space_dice(
 
     knob_diameter = CONTROL_WIDTH - control_clearance * 2;
 
+    right_panel_width = width
+        - outer_gutter * 2 - default_gutter * 3
+        - control_width * 3;
+    right_panel_section_length =
+        (length - outer_gutter * 2 - default_gutter * 4) / (4 + 1);
+    branding_dimensions = [
+        right_panel_width,
+        (length - outer_gutter * 2) / 5
+    ];
+    speaker_grill_dimensions = [
+        right_panel_width,
+        (length - outer_gutter * 2) / 3
+    ];
+    button_cap_exposure_dimensions = [
+        right_panel_width, // TODO: control_clearance * 2,
+        (length - outer_gutter * 2)
+            - branding_dimensions.y
+            - speaker_grill_dimensions.y
+            - default_gutter * 2
+    ];
+
+    branding_position = [
+        width - outer_gutter - right_panel_width,
+        length - outer_gutter - branding_dimensions.y
+    ];
+    speaker_grill_position = [
+        width - outer_gutter - right_panel_width,
+        outer_gutter,
+    ];
+    button_cap_exposure_position = [
+        width - outer_gutter - right_panel_width,
+        outer_gutter +
+            speaker_grill_dimensions.y + default_gutter,
+    ];
+
     echo("Enclosure", width / 25.4, length / 25.4, height / 25.4);
     echo("PCB", pcb_width / 25.4, pcb_length / 25.4);
     echo("PCB bottom clearance", pcb_position.z - ENCLOSURE_FLOOR_CEILING);
@@ -113,10 +153,6 @@ module space_dice(
     }
 
     if (show_enclosure_bottom || show_enclosure_top) {
-        // TODO: you know
-        // cube([width, length, ENCLOSURE_FLOOR_CEILING]);
-        // cube([width, length, height]);
-
         enclosure(
             show_top = show_enclosure_top,
             show_bottom = show_enclosure_bottom,
@@ -138,6 +174,14 @@ module space_dice(
 
             switch_clutch_grip_height = switch_clutch_grip_height,
             switch_clutch_web_length_extension = switch_clutch_web_length_extension,
+
+            right_panel_width = right_panel_width,
+            branding_dimensions = branding_dimensions,
+            button_cap_exposure_dimensions = button_cap_exposure_dimensions,
+            speaker_grill_dimensions = speaker_grill_dimensions,
+            branding_position = branding_position,
+            speaker_grill_position = speaker_grill_position,
+            button_cap_exposure_position = button_cap_exposure_position,
 
             outer_gutter = outer_gutter,
             default_gutter = default_gutter,
@@ -195,6 +239,40 @@ module space_dice(
                     cavity_color = "#EEEEEE",
                     tolerance = tolerance,
                     $fn = quick_preview ? undef : 24
+                );
+            }
+        }
+    }
+
+    if (show_button_cap) {
+        button_cap_dimensions = [
+            button_cap_exposure_dimensions.x - control_clearance * 2,
+            button_cap_exposure_dimensions.y - control_clearance * 2,
+            8 // TODO: refine against switches and knobs
+        ];
+
+        translate([
+            button_cap_exposure_position.x + control_clearance,
+            button_cap_exposure_position.y + control_clearance,
+            height - ENCLOSURE_FLOOR_CEILING - button_cap_brim_height
+                - .4 // TODO: combine w/ pot clearance, here and below
+        ]) {
+            color(control_outer_color) {
+                cap_blank(
+                    dimensions = button_cap_dimensions,
+                    contact_dimensions = [
+                        button_cap_dimensions.x - outer_gutter,
+                        button_cap_dimensions.y - outer_gutter,
+                        button_cap_dimensions.z - button_cap_brim_height
+                            - .4 - ENCLOSURE_FLOOR_CEILING
+                    ],
+                    fillet = accessory_fillet,
+                    brim_dimensions = [
+                        button_cap_dimensions.x + button_cap_brim_xy_coverage,
+                        button_cap_dimensions.y + button_cap_brim_xy_coverage,
+                        button_cap_brim_height
+                    ],
+                    $fn = 12
                 );
             }
         }
@@ -288,6 +366,7 @@ SHOW_ENCLOSURE_BOTTOM = true;
 SHOW_BATTERY = true;
 SHOW_PCB = true;
 SHOW_KNOBS = true;
+SHOW_BUTTON_CAP = true;
 SHOW_SWITCH_CLUTCHES = true;
 SHOW_SPEAKER = true;
 SHOW_ENCLOSURE_TOP = true;
@@ -304,6 +383,7 @@ space_dice(
     show_battery = SHOW_BATTERY,
     show_pcb = SHOW_PCB,
     show_knobs = SHOW_KNOBS,
+    show_button_cap = SHOW_BUTTON_CAP,
     show_switch_clutches = SHOW_SWITCH_CLUTCHES,
     show_speaker = SHOW_SPEAKER,
     show_enclosure_top = SHOW_ENCLOSURE_TOP,
@@ -321,4 +401,7 @@ space_dice(
 
 // VOL
 // translate([55, -1, -1]) cube([100, 100, 100]);
+
+// button cap
+// translate([79, -1, -1]) cube([100, 100, 100]);
 }
