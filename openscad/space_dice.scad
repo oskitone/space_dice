@@ -17,6 +17,7 @@ module space_dice(
     pcb_width = PCB_WIDTH,
     pcb_length = PCB_LENGTH,
 
+    show_prototype_base = false,
     show_enclosure_bottom = true,
     show_battery = true,
     show_pcb = true,
@@ -152,50 +153,49 @@ module space_dice(
         }
     }
 
-    if (show_enclosure_bottom || show_enclosure_top) {
-        enclosure(
-            show_top = show_enclosure_top,
-            show_bottom = show_enclosure_bottom,
+    enclosure(
+        show_top = show_enclosure_top,
+        show_bottom = show_enclosure_bottom,
+        show_prototype_base = show_prototype_base,
 
-            dimensions = [width, length, height],
-            bottom_height = enclosure_bottom_height,
-            top_height = enclosure_top_height,
+        dimensions = [width, length, height],
+        bottom_height = enclosure_bottom_height,
+        top_height = enclosure_top_height,
 
-            control_clearance = control_clearance,
+        control_clearance = control_clearance,
 
-            pcb_position = pcb_position,
+        pcb_position = pcb_position,
 
-            speaker_position = speaker_position,
+        speaker_position = speaker_position,
 
-            pcb_width = pcb_width,
-            pcb_length = pcb_length,
+        pcb_width = pcb_width,
+        pcb_length = pcb_length,
 
-            pcb_post_hole_positions = pcb_post_hole_positions,
+        pcb_post_hole_positions = pcb_post_hole_positions,
 
-            switch_clutch_grip_height = switch_clutch_grip_height,
-            switch_clutch_web_length_extension = switch_clutch_web_length_extension,
+        switch_clutch_grip_height = switch_clutch_grip_height,
+        switch_clutch_web_length_extension = switch_clutch_web_length_extension,
 
-            right_panel_width = right_panel_width,
-            branding_dimensions = branding_dimensions,
-            button_cap_exposure_dimensions = button_cap_exposure_dimensions,
-            speaker_grill_dimensions = speaker_grill_dimensions,
-            branding_position = branding_position,
-            speaker_grill_position = speaker_grill_position,
-            button_cap_exposure_position = button_cap_exposure_position,
+        right_panel_width = right_panel_width,
+        branding_dimensions = branding_dimensions,
+        button_cap_exposure_dimensions = button_cap_exposure_dimensions,
+        speaker_grill_dimensions = speaker_grill_dimensions,
+        branding_position = branding_position,
+        speaker_grill_position = speaker_grill_position,
+        button_cap_exposure_position = button_cap_exposure_position,
 
-            outer_gutter = outer_gutter,
-            default_gutter = default_gutter,
+        outer_gutter = outer_gutter,
+        default_gutter = default_gutter,
 
-            tolerance = tolerance,
+        tolerance = tolerance,
 
-            outer_color = enclosure_outer_color,
-            cavity_color = enclosure_cavity_color,
+        outer_color = enclosure_outer_color,
+        cavity_color = enclosure_cavity_color,
 
-            show_dfm = !quick_preview,
+        show_dfm = !quick_preview,
 
-            quick_preview = quick_preview
-        );
-    }
+        quick_preview = quick_preview
+    );
 
     translate(pcb_position) translate([0, 0, -e]) {
         pcb(
@@ -362,6 +362,7 @@ module space_dice(
     }
 }
 
+SHOW_PROTOTYPE_BASE = false;
 SHOW_ENCLOSURE_BOTTOM = true;
 SHOW_BATTERY = true;
 SHOW_PCB = true;
@@ -379,6 +380,7 @@ Y_ROTATION = 0;
 rotate([0, Y_ROTATION, 0])
 difference() {
 space_dice(
+    show_prototype_base = SHOW_PROTOTYPE_BASE,
     show_enclosure_bottom = SHOW_ENCLOSURE_BOTTOM,
     show_battery = SHOW_BATTERY,
     show_pcb = SHOW_PCB,
