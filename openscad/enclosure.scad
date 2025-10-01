@@ -4,7 +4,6 @@ include <../../parts_cafe/openscad/enclosure.scad>;
 include <../../parts_cafe/openscad/flat_top_rectangular_pyramid.scad>;
 include <../../parts_cafe/openscad/pcb_mounting_columns.scad>;
 include <../../parts_cafe/openscad/ring.scad>;
-include <../../parts_cafe/openscad/rounded_xy_cube.scad>;
 include <../../parts_cafe/openscad/switch_clutch_enclosure_engraving.scad>;
 
 include <pcb.scad>;
@@ -34,7 +33,6 @@ CONTROL_LENGTH = CONTROL_WIDTH +
 module enclosure(
     show_top = true,
     show_bottom = true,
-    show_prototype_base = false,
 
     dimensions = [0,0,0],
     bottom_height = 0,
@@ -396,27 +394,15 @@ module enclosure(
         }
     }
 
-    if (show_bottom || show_prototype_base) {
+    if (show_bottom) {
         difference() {
             union() {
-                if (show_bottom) {
-                    _half(bottom_height, lip = true);
-                } else {
-                    color(outer_color) {
-                        rounded_xy_cube(
-                            [dimensions.x, dimensions.y, ENCLOSURE_FLOOR_CEILING],
-                            fillet
-                        );
-                    }
-                }
+                _half(bottom_height, lip = true);
 
                 color(outer_color) {
                     _speaker_fixture();
                     _bottom_pcb_fixtures();
-
-                    if (!show_prototype_base) {
-                        _switch_clutch_fixture(top = false);
-                    }
+                    _switch_clutch_fixture(top = false);
                 }
             }
 
