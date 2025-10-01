@@ -104,8 +104,6 @@ module enclosure(
             + SWITCH_BASE_LENGTH / 2
             - switch_clutch_aligner_length / 2;
 
-    under_pcb_fixture_height = pcb_position.z - ENCLOSURE_FLOOR_CEILING;
-
     module _translate(
         xy1, xy2 = [0,0], xy3 = [0,0], xy4 = [0,0],
         z = dimensions.z - ENCLOSURE_FLOOR_CEILING - e
@@ -193,40 +191,6 @@ module enclosure(
                     h =100
                 );
             }
-        }
-    }
-
-    module _top_pcb_fixtures(coverage_over_pcb = 3) {
-        z = pcb_position.z + PCB_HEIGHT;
-
-        width = ENCLOSURE_INNER_WALL;
-        height = dimensions.z - ENCLOSURE_FLOOR_CEILING - z + e;
-
-        front_y = ENCLOSURE_WALL - e;
-        back_y = pcb_position.y + PCB_LENGTH - coverage_over_pcb;
-
-        translate([
-            34.2 - width / 2, // NOTE: eyeballed to center-vs-components
-            front_y,
-            z
-        ]) {
-            cube([
-                width,
-                (pcb_position.y + coverage_over_pcb) - front_y,
-                height
-            ]);
-        }
-
-        translate([
-            pcb_position.x + PCB_POT_POSITIONS[2].x,
-            back_y,
-            z
-        ]) {
-            cube([
-                width,
-                (dimensions.y - ENCLOSURE_WALL + e) - back_y,
-                height
-            ]);
         }
     }
 
@@ -434,7 +398,7 @@ module enclosure(
 
     module _switch_clutch_fixture(
         width = ENCLOSURE_INNER_WALL,
-        height = under_pcb_fixture_height
+        height = ENCLOSURE_INNER_WALL
     ) {
         x = pcb_position.x;
         z = ENCLOSURE_FLOOR_CEILING - e;
@@ -488,10 +452,6 @@ module enclosure(
                     mirror([0, 0, 1]) {
                         _half(top_height, lip = false);
                     }
-                }
-
-                color(outer_color) {
-                    _top_pcb_fixtures();
                 }
             }
 
