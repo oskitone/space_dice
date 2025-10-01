@@ -428,14 +428,11 @@ module enclosure(
     }
 
     module _switch_clutch_fixture(
-        top = true,
         width = ENCLOSURE_INNER_WALL,
         height = under_pcb_fixture_height
     ) {
         x = pcb_position.x;
-        z = top
-            ? dimensions.z - ENCLOSURE_FLOOR_CEILING - height
-            : ENCLOSURE_FLOOR_CEILING - e;
+        z = ENCLOSURE_FLOOR_CEILING - e;
 
         translate([x, switch_clutch_aligner_y, z]) {
             cube([width, switch_clutch_aligner_length, height + e]);
@@ -468,7 +465,7 @@ module enclosure(
                 color(outer_color) {
                     _speaker_fixture();
                     _bottom_pcb_fixtures();
-                    _switch_clutch_fixture(top = false);
+                    _switch_clutch_fixture();
                 }
             }
 
@@ -490,7 +487,6 @@ module enclosure(
 
                 color(outer_color) {
                     _top_pcb_fixtures();
-                    _switch_clutch_fixture(top = true);
                 }
             }
 
