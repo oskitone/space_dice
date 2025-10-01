@@ -46,6 +46,7 @@ module space_dice(
 
     pcb_bottom_clearance = PCB_BOTTOM_CLEARANCE,
 
+    pcb_screw_hole_positions = [PCB_HOLE_POSITIONS[4]],
     pcb_post_hole_positions = [
         PCB_HOLE_POSITIONS[0],
         PCB_HOLE_POSITIONS[2],
@@ -78,7 +79,7 @@ module space_dice(
     ];
 
     speaker_position = [
-        pcb_position.x + pcb_width / 2,
+        pcb_position.x + pcb_screw_hole_positions[0].x / 2,
         pcb_position.y + pcb_length / 2,
         ENCLOSURE_FLOOR_CEILING
     ];
@@ -170,6 +171,7 @@ module space_dice(
             pcb_width = pcb_width,
             pcb_length = pcb_length,
 
+            pcb_screw_hole_positions = pcb_screw_hole_positions,
             pcb_post_hole_positions = pcb_post_hole_positions,
 
             switch_clutch_grip_height = switch_clutch_grip_height,
