@@ -26,9 +26,15 @@ Work in progress!
 | U2                | DIP-16_W7.62mm_Socket_LongPads                    | 1        | 4040        |
 | U3                | DIP-16_W7.62mm_Socket_LongPads                    | 1        | 4017        |
 
-## Known issues
+## Electronics TODO
 
-- Pot tab holes are wrong, unfixably small.
+- Fix pot footprints. Tab holes are too small too high.
+- BT1 and LS1 need polarity labels.
+- Reverse RV1 and RV3 rotations. Clockwise for higher pitch and for more decay.
+- Try reducing RV1 and RV3 values. 10k-50k?
+- LEDs have + on the wrong side.
+- Make LEDs sequence more compelling. Cycle like a clock from top right?
+- Confirm battery has enough room. Seems tight!
 
 ## 3D Models
 
