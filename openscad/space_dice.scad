@@ -92,7 +92,7 @@ module space_dice(
     switch_clutch_grip_height = height / 2;
         // - (pcb_position.z + PCB_HEIGHT + SWITCH_ACTUATOR_Z) * 2;
 
-    enclosure_bottom_height = height / 2;
+    enclosure_bottom_height = pcb_position.z - ENCLOSURE_LIP_HEIGHT + PCB_HEIGHT;
     enclosure_top_height = height - enclosure_bottom_height;
 
     knob_diameter = CONTROL_WIDTH - control_clearance * 2;
@@ -397,7 +397,7 @@ space_dice(
 );
 
 // INCR
-// translate([30, -1, -1]) cube([100, 100, 100]);
+// translate([35, -1, -1]) cube([100, 100, 100]);
 
 // VOL
 // translate([55, -1, -1]) cube([100, 100, 100]);

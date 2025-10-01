@@ -48,8 +48,6 @@ module enclosure(
     top_engraving_model_text_size =
         ENCLOSURE_ENGRAVING_TEXT_SIZE * .666,
 
-    lip_height = ENCLOSURE_LIP_HEIGHT,
-
     fillet = ENCLOSURE_FILLET,
     inner_chamfer = ENCLOSURE_INNER_CHAMFER,
 
@@ -106,37 +104,16 @@ module enclosure(
 
     under_pcb_fixture_height = pcb_position.z - ENCLOSURE_FLOOR_CEILING;
 
-    module _translate(xy1, xy2 = [0,0], xy3 = [0,0], xy4 = [0,0]) {
+    module _translate(
+        xy1, xy2 = [0,0], xy3 = [0,0], xy4 = [0,0],
+        z = dimensions.z - ENCLOSURE_FLOOR_CEILING - e
+    ) {
         translate([
             pcb_position.x + xy1.x + xy2.x + xy3.x + xy4.x,
             pcb_position.y + xy1.y + xy2.y + xy3.y + xy4.y,
-            dimensions.z - ENCLOSURE_FLOOR_CEILING - e
+            z
         ]) {
             children();
-        }
-    }
-
-    // TODO: extract as round_enclosure_exposure
-    // then add cube version too
-    module _c(
-        diameter,
-        height,
-        chamfer = chamfer,
-        $fn = quick_preview ? undef : HIDEF_ROUNDING
-    ) {
-        cylinder(
-            d = diameter,
-            h = height
-        );
-
-        if (show_dfm && chamfer > 0) {
-            translate([0, 0, height - chamfer]) {
-                cylinder(
-                    d1 = diameter,
-                    d2 = diameter + chamfer * 2,
-                    h = chamfer
-                );
-            }
         }
     }
 
@@ -161,7 +138,6 @@ module enclosure(
             height = height,
             add_lip = lip,
             remove_lip = !lip,
-            lip_height = lip_height,
             fillet = quick_preview ? 0 : fillet,
             inner_chamfer = quick_preview ? 0 : inner_chamfer,
             tolerance = tolerance * 1.5, // intentionally kinda loose
@@ -188,6 +164,40 @@ module enclosure(
             support_web_length = (pcb_position.z - ENCLOSURE_FLOOR_CEILING) / 2,
             quick_preview = quick_preview
         );
+    }
+
+    module _top_pcb_fixtures(coverage_over_pcb = 3) {
+        z = pcb_position.z + PCB_HEIGHT;
+
+        width = ENCLOSURE_INNER_WALL;
+        height = dimensions.z - ENCLOSURE_FLOOR_CEILING - z + e;
+
+        front_y = ENCLOSURE_WALL - e;
+        back_y = pcb_position.y + PCB_LENGTH - coverage_over_pcb;
+
+        translate([
+            34.2 - width / 2, // NOTE: eyeballed to center-vs-components
+            front_y,
+            z
+        ]) {
+            cube([
+                width,
+                (pcb_position.y + coverage_over_pcb) - front_y,
+                height
+            ]);
+        }
+
+        translate([
+            pcb_position.x + PCB_POT_POSITIONS[2].x,
+            back_y,
+            z
+        ]) {
+            cube([
+                width,
+                (dimensions.y - ENCLOSURE_WALL + e) - back_y,
+                height
+            ]);
+        }
     }
 
     module _speaker_fixture() {
@@ -243,11 +253,16 @@ module enclosure(
         );
     }
 
+    // TODO: chamfer cubic holes too
     module _top_exposures() {
         // Math in here uses PCB values instead of deriving based
         // on layout. They should be the same tho!
 
-        height = ENCLOSURE_FLOOR_CEILING + e * 2;
+        knob_hole_diameter = control_width + tolerance * 2;
+
+        z = pcb_position.z + PCB_HEIGHT + PTV09A_POT_BASE_HEIGHT_FROM_PCB;
+        knob_hole_height = dimensions.z - z + e;
+        knob_hole_chamfer_height = knob_hole_diameter / 2;
 
         led_exposure_position = [
             (PCB_LED_POSITIONS[0].x + PCB_LED_POSITIONS[2].x) / 2,
@@ -255,8 +270,29 @@ module enclosure(
         ];
 
         for (xy = PCB_POT_POSITIONS) {
-            _translate(xy) {
-                _c(control_width + tolerance * 2, height);
+            _translate(xy, z = z) {
+                cylinder(
+                    d = knob_hole_diameter,
+                    h = knob_hole_height
+                );
+
+                if (show_dfm && chamfer > 0) {
+                    translate([0, 0, -knob_hole_chamfer_height]) {
+                        cylinder(
+                            d1 = 0,
+                            d2 = knob_hole_diameter,
+                            h = knob_hole_chamfer_height
+                        );
+                    }
+
+                    translate([0, 0, knob_hole_height - chamfer]) {
+                        cylinder(
+                            d1 = knob_hole_diameter,
+                            d2 = knob_hole_diameter + chamfer * 2,
+                            h = chamfer
+                        );
+                    }
+                }
             }
         }
 
@@ -282,18 +318,18 @@ module enclosure(
             led_exposure_position,
             [control_width / -2, control_length / -2]
         ) {
-            cube([control_width, control_length, height]);
+            cube([control_width, control_length, ENCLOSURE_FLOOR_CEILING + e * 2]);
         }
 
         translate([
             button_cap_exposure_position.x,
             button_cap_exposure_position.y,
-            dimensions.z - height + e
+            dimensions.z - ENCLOSURE_FLOOR_CEILING - e
         ]) {
             cube([
                 button_cap_exposure_dimensions.x,
                 button_cap_exposure_dimensions.y,
-                height
+                ENCLOSURE_FLOOR_CEILING + e * 2
             ]);
         }
     }
@@ -423,6 +459,7 @@ module enclosure(
                 }
 
                 color(outer_color) {
+                    _top_pcb_fixtures();
                     _switch_clutch_fixture(top = true);
                 }
             }
