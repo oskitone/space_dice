@@ -46,9 +46,8 @@ module enclosure(
 
     speaker_position = [0,0,0],
 
-    // hehe, eyeballed
     top_engraving_model_text_size =
-        ENCLOSURE_ENGRAVING_TEXT_SIZE * .666,
+        SWITCH_CLUTCH_ENCLOSURE_ENGRAVING_SECONDARY_TEXT_SIZE,
 
     fillet = ENCLOSURE_FILLET,
     inner_chamfer = ENCLOSURE_INNER_CHAMFER,
@@ -366,7 +365,7 @@ module enclosure(
         }
     }
 
-    module _top_control_engraving() {
+    module _top_control_engraving(gutter = ENCLOSURE_ENGRAVING_GUTTER) {
         // And positioning here is instead done based on layout,
         // not the PCB. It's fine!
 
@@ -403,12 +402,16 @@ module enclosure(
                     ["Q0", "Q4"],
                     ["Q6", "Q8"]
                 ][i],
-                actuator_window_dimensions = [switch_window_width, switch_window_length],
-                control_clearance = 0,
+                width = control_width - switch_window_width - gutter,
+                length = switch_window_length,
+                label_gutter = gutter,
+                size = top_engraving_model_text_size,
                 quick_preview = quick_preview,
                 position = [
-                    outer_gutter + i * (control_width + default_gutter),
+                    outer_gutter + i * (control_width + default_gutter)
+                        + switch_window_width + gutter,
                     outer_gutter + ENCLOSURE_ENGRAVING_LENGTH
+                        + gutter
                 ],
                 enclosure_height = dimensions.z
             );
