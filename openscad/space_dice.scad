@@ -44,6 +44,7 @@ module space_dice(
 
     accessory_fillet = 1,
 
+    pcb_top_clearance = PCB_TOP_CLEARANCE,
     pcb_bottom_clearance = PCB_BOTTOM_CLEARANCE,
 
     pcb_screw_hole_positions = [PCB_HOLE_POSITIONS[4]],
@@ -145,6 +146,10 @@ module space_dice(
             114.3 - (speaker_position.y - pcb_position.y),
         ]
     );
+
+    minimum_height = pcb_position.z + PCB_HEIGHT + pcb_top_clearance
+        + ENCLOSURE_FLOOR_CEILING;
+    assert(height >= minimum_height, "Height is too low.");
 
     if (show_battery) {
         translate(battery_position) translate([0, 0, -e * 2]) {

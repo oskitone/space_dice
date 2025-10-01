@@ -34,9 +34,13 @@ Work in progress!
 - Try reducing RV1 and RV3 values. 10k-50k?
 - LEDs have + on the wrong side.
 - Make LEDs sequence more compelling. Cycle like a clock from top right?
-- Confirm battery has enough room. Seems tight!
 
-## 3D Models
+## 3D-Printing and soldering advice
+
+- Force bridging angles to be consistent.
+- All components need to be flush against PCB but _especially_ the big caps. Clearance inside the enclosure is _tight_.
+
+## 3D models
 
 3D-printed models are written in OpenSCAD.
 

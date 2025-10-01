@@ -20,11 +20,12 @@ PCB_XY = 5;
 
 ALTOIDS_TIN_DIMENSIONS = [95,60,20];
 
-// NOTE: Arbitrary height is for 9v and component clearance.
-// It's also effectively 1/4 ALTOIDS_TIN_DIMENSIONS.x
+// NOTE: Height is a nice arbitrary number and leaves
+// room for for 9v and component clearance.
 ENCLOSURE_DIMENSIONS = [
-    ALTOIDS_TIN_DIMENSIONS.x, ALTOIDS_TIN_DIMENSIONS.y,
-    24
+    ALTOIDS_TIN_DIMENSIONS.x,
+    ALTOIDS_TIN_DIMENSIONS.y,
+    25
 ];
 
 CONTROL_WIDTH = 17.4;

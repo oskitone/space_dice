@@ -61,8 +61,8 @@ PCB_LED_POSITIONS = [
     get_translated_xy([139.675 + 2.54 / 2, 118.35]),
 ];
 
-// ie, trimmed leads and solder joints on bottom
-PCB_BOTTOM_CLEARANCE = 2;
+PCB_BOTTOM_CLEARANCE = 2; // ie, trimmed leads and solder joints
+PCB_TOP_CLEARANCE = 12.2; // big cap height
 
 module pcb(
     show_board = true,
@@ -86,6 +86,7 @@ module pcb(
 
     side_switch_position = 0,
 
+    top_clearance = PCB_TOP_CLEARANCE,
     bottom_clearance = PCB_BOTTOM_CLEARANCE,
 
     hole_positions = PCB_HOLE_POSITIONS,
@@ -179,6 +180,10 @@ module pcb(
     }
 
     if (show_clearance) {
+        translate([e, e, height - e]) {
+            % ghost_cube([width - e * 2, length - e * 2, top_clearance + e]);
+        }
+
         translate([e, e, -bottom_clearance]) {
             % ghost_cube([width - e * 2, length - e * 2, bottom_clearance + e]);
         }
