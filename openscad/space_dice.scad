@@ -409,6 +409,9 @@ space_dice(
 // VOL
 // translate([55, -1, -1]) cube([100, 100, 100]);
 
+// pcb_mount_post
+// translate([52, -1, -1]) cube([100, 100, 100]);
+
 // button cap
 // translate([79, -1, -1]) cube([100, 100, 100]);
 }
