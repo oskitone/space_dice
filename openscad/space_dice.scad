@@ -6,6 +6,7 @@ include <../../parts_cafe/openscad/speaker-AZ40R.scad>;
 include <../../parts_cafe/openscad/switch_clutch-angled.scad>;
 include <../../parts_cafe/openscad/switch_clutch.scad>;
 
+include <button_lever.scad>;
 include <enclosure.scad>;
 include <pcb.scad>;
 
@@ -38,9 +39,6 @@ module space_dice(
 
     outer_gutter = OUTER_GUTTER,
     default_gutter = SCOUT_DEFAULT_GUTTER,
-
-    button_cap_brim_xy_coverage = SCOUT_DEFAULT_GUTTER,
-    button_cap_brim_height = 1,
 
     accessory_fillet = 1,
 
@@ -253,36 +251,23 @@ module space_dice(
     }
 
     if (show_button_cap) {
-        button_cap_dimensions = [
-            button_cap_exposure_dimensions.x - control_clearance * 2,
-            button_cap_exposure_dimensions.y - control_clearance * 2,
-            8 // TODO: refine against switches and knobs
-        ];
+        button_cap_brim_height = 1;
 
-        translate([
-            button_cap_exposure_position.x + control_clearance,
-            button_cap_exposure_position.y + control_clearance,
-            height - ENCLOSURE_FLOOR_CEILING - button_cap_brim_height
-                - .4 // TODO: combine w/ pot clearance, here and below
-        ]) {
-            color(control_outer_color) {
-                cap_blank(
-                    dimensions = button_cap_dimensions,
-                    contact_dimensions = [
-                        button_cap_dimensions.x - outer_gutter,
-                        button_cap_dimensions.y - outer_gutter,
-                        button_cap_dimensions.z - button_cap_brim_height
-                            - .4 - ENCLOSURE_FLOOR_CEILING
-                    ],
-                    fillet = accessory_fillet,
-                    brim_dimensions = [
-                        button_cap_dimensions.x + button_cap_brim_xy_coverage,
-                        button_cap_dimensions.y + button_cap_brim_xy_coverage,
-                        button_cap_brim_height
-                    ],
-                    $fn = 12
-                );
-            }
+        color(control_outer_color) {
+            button_lever(
+                screw_mount_position = [
+                    pcb_position.x + pcb_screw_hole_positions[0].x,
+                    pcb_position.y + pcb_screw_hole_positions[0].y
+                ],
+                button_cap_exposure_position = button_cap_exposure_position,
+                button_cap_exposure_dimensions = button_cap_exposure_dimensions,
+                control_clearance = control_clearance,
+                button_cap_brim_height = button_cap_brim_height,
+                fillet = accessory_fillet,
+                tolerance = tolerance,
+                mount_z = pcb_position.z + PCB_HEIGHT,
+                $fn = quick_preview ? undef : 12
+            );
         }
     }
 
