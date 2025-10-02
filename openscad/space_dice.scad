@@ -319,37 +319,69 @@ module space_dice(
             );
         }
 
-        z = pcb_position.z + PCB_HEIGHT;
-        overshoot = 1;
+        z = pcb_position.z + PCB_HEIGHT + SWITCH_BASE_HEIGHT;
+        overshoot = [0, 1];
+        base_width = control_width / 2 + overshoot.x * 2;
+        base_length = control_width + SWITCH_ACTUATOR_TRAVEL + overshoot.y * 2;
 
-        for (xy = PCB_TOP_CONTROL_SWITCH_POSITONS) {
+        for (i = [0 : len(PCB_TOP_CONTROL_SWITCH_POSITONS) - 1]) {
+            xy = PCB_TOP_CONTROL_SWITCH_POSITONS[i];
+
             translate([
                 pcb_position.x + xy.x,
                 pcb_position.y + xy.y,
                 z - e
             ]) {
-                switch_clutch(
-                    base_height = height - z - ENCLOSURE_FLOOR_CEILING,
-                    base_width = control_width / 2 + overshoot * 2,
-                    base_length = control_width + SWITCH_ACTUATOR_TRAVEL + overshoot * 2,
+                difference() {
+                    switch_clutch(
+                        base_width = SWITCH_CLUTCH_MIN_BASE_WIDTH,
+                        base_length = SWITCH_CLUTCH_MIN_BASE_LENGTH,
+                        base_height = height - z - ENCLOSURE_FLOOR_CEILING,
 
-                    actuator_width = control_width / 2 - control_clearance * 2,
-                    actuator_length = control_width - SWITCH_ACTUATOR_TRAVEL
-                        - control_clearance * 2,
-                    actuator_height = ENCLOSURE_FLOOR_CEILING + 2,
+                        plate_width = base_width,
+                        plate_length = base_length,
+                        plate_height = ENCLOSURE_FLOOR_CEILING,
 
-                    position = side_switch_position,
+                        actuator_width = control_width / 2 - control_clearance * 2,
+                        actuator_length = control_width - SWITCH_ACTUATOR_TRAVEL
+                            - control_clearance * 2,
+                        actuator_height = ENCLOSURE_FLOOR_CEILING + 2,
 
-                    fillet = accessory_fillet,
+                        position = 1,
 
-                    color = control_outer_color,
-                    cavity_color = control_cavity_color,
+                        cavity_base_height = -e,
+                        cavity_actuator_height = SWITCH_ACTUATOR_HEIGHT + e,
 
-                    debug = false,
+                        fillet = accessory_fillet,
 
-                    clearance = control_clearance,
-                    tolerance = tolerance
-                );
+                        color = control_outer_color,
+                        cavity_color = control_cavity_color,
+
+                        chamfer_cavity_top = false,
+
+                        clearance = control_clearance,
+                        tolerance = tolerance
+                    );
+
+                    // TODO: obviate
+                    if (i == 0) {
+                        translate([6.3, 8.7, -50]) {
+                            color(control_cavity_color) cylinder(
+                                d = 9,
+                                h = 100,
+                                $fn = 24
+                            );
+                        }
+
+                        translate([-1.9, 8.7, -50]) {
+                            color(control_cavity_color) cylinder(
+                                d = 4,
+                                h = 54,
+                                $fn = 24
+                            );
+                        }
+                    }
+                }
             }
         }
     }
@@ -404,7 +436,7 @@ space_dice(
 );
 
 // INCR
-// translate([35, -1, -1]) cube([100, 100, 100]);
+// translate([31, -1, -1]) cube([100, 100, 100]);
 
 // VOL
 // translate([55, -1, -1]) cube([100, 100, 100]);

@@ -38,8 +38,8 @@ PCB_SWITCH_POSITIONS = [
 ];
 PCB_SWITCH_Y = PCB_SWITCH_POSITIONS[0].y - 6.1; // magic
 PCB_TOP_CONTROL_SWITCH_POSITONS = [
+    PCB_SWITCH_POSITIONS[2],
     PCB_SWITCH_POSITIONS[1],
-    PCB_SWITCH_POSITIONS[2]
 ];
 
 // TODO: confirm vertical offshoot on test print
@@ -62,7 +62,10 @@ PCB_LED_POSITIONS = [
 ];
 
 PCB_BOTTOM_CLEARANCE = 2; // ie, trimmed leads and solder joints
-PCB_TOP_CLEARANCE = 12.2; // big cap height
+PCB_BIG_CAP_HEIGHT = 12.2;
+PCB_SOCKETED_IC_HEIGHT = 8; // TODO
+PCB_TOP_CLEARANCES = [PCB_BIG_CAP_HEIGHT, PCB_SOCKETED_IC_HEIGHT];
+PCB_TOP_CLEARANCE = max(PCB_BIG_CAP_HEIGHT, PCB_SOCKETED_IC_HEIGHT);
 
 module pcb(
     show_board = true,
@@ -86,7 +89,7 @@ module pcb(
 
     side_switch_position = 0,
 
-    top_clearance = PCB_TOP_CLEARANCE,
+    top_clearances = PCB_TOP_CLEARANCES,
     bottom_clearance = PCB_BOTTOM_CLEARANCE,
 
     hole_positions = PCB_HOLE_POSITIONS,
@@ -152,7 +155,7 @@ module pcb(
     if (show_switches) {
         for (xy = switch_positions) {
             translate([xy.x, xy.y, height - e]) {
-                # switch();
+                % switch(position = 1);
             }
         }
     }
@@ -160,7 +163,7 @@ module pcb(
     if (show_leds) {
         for (xy = led_positions) {
             _translate(xy) {
-                # led_3mm();
+                % led_3mm();
             }
         }
     }
@@ -168,20 +171,22 @@ module pcb(
     if (show_pots) {
         for (xy = pot_positions) {
             _translate(xy) {
-                # pot();
+                % pot();
             }
         }
     }
 
     if (show_button) {
         _translate(button_position) {
-            # spst();
+            % spst();
         }
     }
 
     if (show_clearance) {
         translate([e, e, height - e]) {
-            % ghost_cube([width - e * 2, length - e * 2, top_clearance + e]);
+            for (height = top_clearances) {
+                % ghost_cube([width - e * 2, length - e * 2, height + e]);
+            }
         }
 
         translate([e, e, -bottom_clearance]) {
