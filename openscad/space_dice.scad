@@ -223,6 +223,7 @@ module space_dice(
     }
 
     if (show_knobs) {
+        knob_brim_coverage = 1; // NOTE: eyeballed against side switch_clutch
         knob_z_clearance = .4;
         knob_z = pcb_position.z + PCB_HEIGHT + PTV09A_POT_BASE_HEIGHT_FROM_PCB + knob_z_clearance;
         knob_brim_height = height - ENCLOSURE_FLOOR_CEILING - knob_z - knob_z_clearance;
@@ -240,7 +241,7 @@ module space_dice(
                     fillet = accessory_fillet,
                     dimple_y = knob_diameter / 2 / 2,
                     round_bottom = false,
-                    brim_diameter = knob_diameter + 4,
+                    brim_diameter = CONTROL_WIDTH + knob_brim_coverage,
                     brim_height = knob_brim_height,
                     color = "#FFFFFF",
                     cavity_color = "#EEEEEE",
