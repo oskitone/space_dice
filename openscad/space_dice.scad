@@ -294,6 +294,8 @@ module space_dice(
 
                 grip_height = switch_clutch_grip_height,
 
+                switch_actuator_width = 4,
+
                 fillet = accessory_fillet,
                 side_overexposure = switch_exposure,
                 tolerance = tolerance * 2, // NOTE: intentionally loose
