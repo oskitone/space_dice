@@ -37,6 +37,7 @@ module space_dice(
     control_clearance = .6,
 
     lever_thickness = 1, // TODO: thicken
+    knob_brim_coverage = 0, // HACK: for PCB_POT_Y_NUDGE
 
     control_width = CONTROL_WIDTH,
     control_length = CONTROL_LENGTH,

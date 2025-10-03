@@ -42,11 +42,15 @@ PCB_TOP_CONTROL_SWITCH_POSITONS = [
     PCB_SWITCH_POSITIONS[1],
 ];
 
+// Pot footprints on PCB are wrong. When soldered, shafts are slightly too low.
+// TODO: fix, of course
+PCB_POT_Y_NUDGE = (6.3 - 5) / 2;
+
 // TODO: confirm vertical offshoot on test print
 PCB_POT_POSITIONS = [
-    get_translated_xy([101.2 + PTV09A_POT_ORIGIN.x, 96.2 + PTV09A_POT_ORIGIN.y]),
-    get_translated_xy([142.8 + PTV09A_POT_ORIGIN.x, 96.2 + PTV09A_POT_ORIGIN.y]),
-    get_translated_xy([122 + PTV09A_POT_ORIGIN.x, 96.2 + PTV09A_POT_ORIGIN.y]),
+    get_translated_xy([101.2 + PTV09A_POT_ORIGIN.x, 96.2 + PTV09A_POT_ORIGIN.y + PCB_POT_Y_NUDGE]),
+    get_translated_xy([142.8 + PTV09A_POT_ORIGIN.x, 96.2 + PTV09A_POT_ORIGIN.y + PCB_POT_Y_NUDGE]),
+    get_translated_xy([122 + PTV09A_POT_ORIGIN.x, 96.2 + PTV09A_POT_ORIGIN.y + PCB_POT_Y_NUDGE]),
 ];
 
 // Switch is rotated 90deg, thus SPST_ORIGIN xy are swapped
