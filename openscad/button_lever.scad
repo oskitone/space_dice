@@ -3,9 +3,13 @@ include <../../parts_cafe/openscad/spst.scad>;
 
 include <enclosure.scad>;
 
+BUTTON_LEVER_MOUNT_DIAMETER = 7; // NOTE: eyeballed against PCB components
+BUTTON_LEVER_ENCLOSURE_Z_CLEARANCE = .2;
+
 function get_button_lever_cap_z(button_cap_brim_height) = (
     ENCLOSURE_DIMENSIONS.z - ENCLOSURE_FLOOR_CEILING
-        - button_cap_brim_height - SCREW_HEAD_HEIGHT
+        - button_cap_brim_height
+        - BUTTON_LEVER_ENCLOSURE_Z_CLEARANCE
 );
 
 module button_lever(
@@ -17,13 +21,18 @@ module button_lever(
     button_cap_brim_xy_coverage = SCOUT_DEFAULT_GUTTER,
     fillet,
     tolerance = 0,
-    mount_diameter = SPST_BASE_DIMENSIONS.x,
+    mount_diameter = BUTTON_LEVER_MOUNT_DIAMETER,
+    cantilever_height = 1,
     mount_z,
+    spst_actuator_cavity_depth = 1,
+    spst_clearance = .2,
     part_separation = $preview ? 0 : 1
 ) {
     e = .0235;
 
-    mount_height = SPST_ACTUATOR_HEIGHT_OFF_PCB;
+    mount_height = SPST_ACTUATOR_HEIGHT_OFF_PCB
+        + spst_clearance - spst_actuator_cavity_depth;
+    cantilever_width = 8.45; // TODO: derive
 
     actuator_z = mount_z + mount_height;
     cap_z = get_button_lever_cap_z(button_cap_brim_height);
@@ -48,7 +57,7 @@ module button_lever(
     translate([
         button_cap_exposure_position.x + control_clearance,
         button_cap_exposure_position.y + control_clearance,
-        cap_z + part_separation * 2
+        cap_z + part_separation * 1
     ]) {
         cap_blank(
             dimensions = button_cap_dimensions,
@@ -62,100 +71,88 @@ module button_lever(
         );
     }
     
-    // TODO: DRY
-    difference() {
-        union() {
-            translate([
-                button_cap_exposure_position.x,
-                screw_mount_position.y - mount_diameter / 2,
-                cap_z + part_separation * 2
-            ]) {
-                translate([-width_to_mount_center, 0, 0]) {
-                    cube([
-                        width_to_mount_center,
-                        mount_diameter,
-                        button_cap_brim_height
-                    ]);
-                }
-            }
-
-            translate([
-                screw_mount_position.x,
-                screw_mount_position.y,
-                cap_z + part_separation * 2
-            ]) {
-                cylinder(
-                    d = mount_diameter,
-                    h = button_cap_brim_height
-                );
-            }
-
-            translate([
-                screw_mount_position.x,
-                screw_mount_position.y,
-                actuator_z + part_separation * 1
-            ]) {
-                cylinder(
-                    d = mount_diameter,
-                    h = actuator_height
-                );
-            }
-
-            translate([
-                screw_mount_position.x + 8.4, // TODO: derive
-                screw_mount_position.y,
-                actuator_z + part_separation * 1
-            ]) {
-                cylinder(
-                    d = mount_diameter,
-                    h = actuator_height
-                );
-            }
-
-            hull() {
-                translate([
-                    screw_mount_position.x,
-                    screw_mount_position.y,
-                    actuator_z + part_separation * 1
-                ]) {
-                    cylinder(
-                        d = mount_diameter,
-                        h = button_cap_brim_height
-                    );
-                }
-
-                translate([
-                    screw_mount_position.x + 8.4, // TODO: derive
-                    screw_mount_position.y,
-                    actuator_z + part_separation * 1
-                ]) {
-                    cylinder(
-                        d = mount_diameter,
-                        h = button_cap_brim_height
-                    );
-                }
-            }
-
-            translate([
-                screw_mount_position.x,
-                screw_mount_position.y,
-                mount_z
-            ]) {
-                cylinder(
-                    d = mount_diameter,
-                    h = mount_height
-                );
-            }
-        }
-
+    module _c(diameter, height, z) {
         translate([
             screw_mount_position.x,
             screw_mount_position.y,
-            -e
+            z
         ]) {
             cylinder(
-                d = SCREW_DIAMETER + tolerance * 2,
-                h = 100
+                d = diameter,
+                h = height
+            );
+        }
+    }
+
+    module _actuator_ends(height) {
+        _c(
+            mount_diameter,
+            height,
+            actuator_z + part_separation * 0
+        );
+
+        translate([cantilever_width, 0, 0]) {
+            _c(
+                mount_diameter,
+                height,
+                actuator_z + part_separation * 0
+            );
+        }
+    }
+
+    difference() {
+        union() {
+            translate([
+                button_cap_exposure_position.x - width_to_mount_center,
+                screw_mount_position.y - mount_diameter / 2,
+                cap_z + part_separation * 1
+            ]) {
+                cube([
+                    width_to_mount_center,
+                    mount_diameter,
+                    button_cap_brim_height
+                ]);
+            }
+
+            _c(
+                mount_diameter,
+                button_cap_brim_height,
+                cap_z + part_separation * 1
+            );
+
+            _actuator_ends(actuator_height);
+            hull() _actuator_ends(cantilever_height);
+
+            _c(
+                mount_diameter,
+                mount_height + e,
+                mount_z + part_separation * 0
+            );
+        }
+
+        _c(
+            SCREW_DIAMETER + tolerance * 2,
+            100,
+            -e
+        );
+
+        translate([
+            screw_mount_position.x - (mount_diameter / 2 + e),
+            screw_mount_position.y - (mount_diameter / 2 + e),
+            cap_z + button_cap_brim_height - SCREW_HEAD_HEIGHT + part_separation
+        ]) {
+            cube([
+                cantilever_width + e,
+                mount_diameter + e * 2,
+                SCREW_HEAD_HEIGHT + e
+            ]);
+        }
+
+        translate([cantilever_width, 0, 0]) {
+            _c(
+                SPST_ACTUATOR_DIAMETER + tolerance * 2,
+                spst_actuator_cavity_depth + e,
+                actuator_z - e + part_separation * 0
             );
         }
     }

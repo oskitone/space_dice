@@ -36,8 +36,8 @@ module space_dice(
     switch_exposure = 2,
     control_clearance = .6,
 
-    lever_thickness = 1, // TODO: thicken
-    knob_brim_coverage = 0, // HACK: for PCB_POT_Y_NUDGE
+    button_lever_thickness = 3,
+    knob_brim_coverage = -1, // HACK: for PCB_POT_Y_NUDGE
 
     control_width = CONTROL_WIDTH,
     control_length = CONTROL_LENGTH,
@@ -226,7 +226,6 @@ module space_dice(
     }
 
     if (show_knobs) {
-        knob_brim_coverage = 1; // NOTE: eyeballed against side switch_clutch
         knob_z_clearance = .4;
         knob_z = pcb_position.z + PCB_HEIGHT + PTV09A_POT_BASE_HEIGHT_FROM_PCB + knob_z_clearance;
         knob_brim_height = height - ENCLOSURE_FLOOR_CEILING - knob_z - knob_z_clearance;
@@ -265,7 +264,7 @@ module space_dice(
                 button_cap_exposure_position = button_cap_exposure_position,
                 button_cap_exposure_dimensions = button_cap_exposure_dimensions,
                 control_clearance = control_clearance,
-                button_cap_brim_height = lever_thickness,
+                button_cap_brim_height = button_lever_thickness,
                 fillet = accessory_fillet,
                 tolerance = tolerance,
                 mount_z = pcb_position.z + PCB_HEIGHT,
@@ -387,8 +386,8 @@ module space_dice(
 
     if (show_nuts_and_bolts) {
         screw_length = 3/4 * 25.4;
-        screw_z = get_button_lever_cap_z(lever_thickness)
-            + lever_thickness - screw_length;
+        screw_z = get_button_lever_cap_z(button_lever_thickness)
+            + button_lever_thickness - screw_length - SCREW_HEAD_HEIGHT;
 
         translate([
             pcb_position.x + pcb_screw_hole_position.x,
