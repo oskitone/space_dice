@@ -3,6 +3,11 @@ include <../../parts_cafe/openscad/spst.scad>;
 
 include <enclosure.scad>;
 
+function get_button_lever_cap_z(button_cap_brim_height) = (
+    ENCLOSURE_DIMENSIONS.z - ENCLOSURE_FLOOR_CEILING
+        - button_cap_brim_height - SCREW_HEAD_HEIGHT
+);
+
 module button_lever(
     screw_mount_position,
     button_cap_exposure_position,
@@ -21,9 +26,7 @@ module button_lever(
     mount_height = SPST_ACTUATOR_HEIGHT_OFF_PCB;
 
     actuator_z = mount_z + mount_height;
-    cap_z = ENCLOSURE_DIMENSIONS.z - ENCLOSURE_FLOOR_CEILING
-        - button_cap_brim_height - SCREW_HEAD_HEIGHT;
-        // - button_cap_brim_height - SCREW_HEAD_HEIGHT - .4; // TODO: combine w/ pot clearance
+    cap_z = get_button_lever_cap_z(button_cap_brim_height);
     actuator_height = cap_z - actuator_z;
 
     button_cap_dimensions = [

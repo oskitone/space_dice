@@ -1,6 +1,7 @@
 include <../../parts_cafe/openscad/battery-9v.scad>;
 include <../../parts_cafe/openscad/cap_blank.scad>;
 include <../../parts_cafe/openscad/knob.scad>;
+include <../../parts_cafe/openscad/nuts_and_bolts.scad>;
 include <../../parts_cafe/openscad/print_test.scad>;
 include <../../parts_cafe/openscad/speaker-AZ40R.scad>;
 include <../../parts_cafe/openscad/switch_clutch-angled.scad>;
@@ -25,6 +26,7 @@ module space_dice(
     show_button_cap = true,
     show_switch_clutches = true,
     show_speaker = true,
+    show_nuts_and_bolts = true,
     show_enclosure_top = true,
     show_print_test = false,
 
@@ -33,6 +35,8 @@ module space_dice(
     button_exposure = 3,
     switch_exposure = 2,
     control_clearance = .6,
+
+    lever_thickness = 1, // TODO: thicken
 
     control_width = CONTROL_WIDTH,
     control_length = CONTROL_LENGTH,
@@ -45,7 +49,7 @@ module space_dice(
     pcb_top_clearance = PCB_TOP_CLEARANCE,
     pcb_bottom_clearance = PCB_BOTTOM_CLEARANCE,
 
-    pcb_screw_hole_positions = [PCB_HOLE_POSITIONS[4]],
+    pcb_screw_hole_position = PCB_HOLE_POSITIONS[4],
     pcb_post_hole_positions = [
         PCB_HOLE_POSITIONS[0],
         PCB_HOLE_POSITIONS[2],
@@ -78,7 +82,7 @@ module space_dice(
     ];
 
     speaker_position = [
-        pcb_position.x + pcb_screw_hole_positions[0].x / 2,
+        pcb_position.x + pcb_screw_hole_position.x / 2,
         pcb_position.y + pcb_length / 2,
         ENCLOSURE_FLOOR_CEILING
     ];
@@ -174,7 +178,7 @@ module space_dice(
             pcb_width = pcb_width,
             pcb_length = pcb_length,
 
-            pcb_screw_hole_positions = pcb_screw_hole_positions,
+            pcb_screw_hole_positions = [pcb_screw_hole_position],
             pcb_post_hole_positions = pcb_post_hole_positions,
 
             switch_clutch_grip_height = switch_clutch_grip_height,
@@ -251,18 +255,16 @@ module space_dice(
     }
 
     if (show_button_cap) {
-        button_cap_brim_height = 1;
-
         color(control_outer_color) {
             button_lever(
                 screw_mount_position = [
-                    pcb_position.x + pcb_screw_hole_positions[0].x,
-                    pcb_position.y + pcb_screw_hole_positions[0].y
+                    pcb_position.x + pcb_screw_hole_position.x,
+                    pcb_position.y + pcb_screw_hole_position.y
                 ],
                 button_cap_exposure_position = button_cap_exposure_position,
                 button_cap_exposure_dimensions = button_cap_exposure_dimensions,
                 control_clearance = control_clearance,
-                button_cap_brim_height = button_cap_brim_height,
+                button_cap_brim_height = lever_thickness,
                 fillet = accessory_fillet,
                 tolerance = tolerance,
                 mount_z = pcb_position.z + PCB_HEIGHT,
@@ -382,6 +384,29 @@ module space_dice(
         }
     }
 
+    if (show_nuts_and_bolts) {
+        screw_length = 3/4 * 25.4;
+        screw_z = get_button_lever_cap_z(lever_thickness)
+            + lever_thickness - screw_length;
+
+        translate([
+            pcb_position.x + pcb_screw_hole_position.x,
+            pcb_position.y + pcb_screw_hole_position.y,
+            pcb_position.z - PCB_BOTTOM_CLEARANCE - PCB_MOUNT_POST_CEILING
+                - NUT_HEIGHT
+        ]) {
+            % nut();
+        }
+
+        % screws(
+            positions = [pcb_screw_hole_position],
+            pcb_position = pcb_position,
+            length = screw_length,
+            head_on_bottom = false,
+            z = screw_z
+        );
+    }
+
     if (show_print_test) {
         print_test(quick_preview = quick_preview);
     }
@@ -394,6 +419,7 @@ SHOW_KNOBS = true;
 SHOW_BUTTON_CAP = true;
 SHOW_SWITCH_CLUTCHES = true;
 SHOW_SPEAKER = true;
+SHOW_NUTS_AND_BOLTS = true;
 SHOW_ENCLOSURE_TOP = true;
 SHOW_PRINT_TEST = false;
 
@@ -411,6 +437,7 @@ space_dice(
     show_button_cap = SHOW_BUTTON_CAP,
     show_switch_clutches = SHOW_SWITCH_CLUTCHES,
     show_speaker = SHOW_SPEAKER,
+    show_nuts_and_bolts = SHOW_NUTS_AND_BOLTS,
     show_enclosure_top = SHOW_ENCLOSURE_TOP,
     show_print_test = SHOW_PRINT_TEST,
 
@@ -432,4 +459,7 @@ space_dice(
 
 // right panel
 // translate([79, -1, -1]) cube([100, 100, 100]);
+
+// button lever
+// translate([-1, -1, -1]) cube([100, 35, 100]);
 }
