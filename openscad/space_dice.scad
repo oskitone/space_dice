@@ -32,9 +32,11 @@ module space_dice(
 
     show_clearance = false,
 
+    // TODO: use and refine
     button_exposure = 3,
     switch_exposure = 2,
     control_clearance = .6,
+    control_z_clearance = .4,
 
     button_lever_thickness = 3,
     knob_brim_coverage = -1, // HACK: for PCB_POT_Y_NUDGE
@@ -226,9 +228,8 @@ module space_dice(
     }
 
     if (show_knobs) {
-        knob_z_clearance = .4;
-        knob_z = pcb_position.z + PCB_HEIGHT + PTV09A_POT_BASE_HEIGHT_FROM_PCB + knob_z_clearance;
-        knob_brim_height = height - ENCLOSURE_FLOOR_CEILING - knob_z - knob_z_clearance;
+        knob_z = pcb_position.z + PCB_HEIGHT + PTV09A_POT_BASE_HEIGHT_FROM_PCB + control_z_clearance;
+        knob_brim_height = height - ENCLOSURE_FLOOR_CEILING - knob_z - control_z_clearance;
 
         for (xy = PCB_POT_POSITIONS) {
             translate([
@@ -238,7 +239,8 @@ module space_dice(
             ]) {
                 knob(
                     diameter = knob_diameter,
-                    height = PTV09A_POT_ACTUATOR_HEIGHT - knob_z_clearance
+                    // TODO: parameterize
+                    height = PTV09A_POT_ACTUATOR_HEIGHT - control_z_clearance
                         + ENCLOSURE_FLOOR_CEILING,
                     fillet = accessory_fillet,
                     dimple_y = knob_diameter / 2 / 2,
@@ -311,7 +313,6 @@ module space_dice(
         overshoot = [0, 1];
         base_width = control_width / 2 + overshoot.x * 2;
         base_length = control_width + SWITCH_ACTUATOR_TRAVEL + overshoot.y * 2;
-        reduced_control_clearance = control_clearance / 2; // TODO: standardize, if keeping
 
         for (i = [0 : len(PCB_TOP_CONTROL_SWITCH_POSITONS) - 1]) {
             xy = PCB_TOP_CONTROL_SWITCH_POSITONS[i];
@@ -325,17 +326,19 @@ module space_dice(
                     switch_clutch(
                         base_width = SWITCH_CLUTCH_MIN_BASE_WIDTH,
                         base_length = SWITCH_CLUTCH_MIN_BASE_LENGTH,
-                        base_height = height - z - ENCLOSURE_FLOOR_CEILING,
+                        base_height = height - z - ENCLOSURE_FLOOR_CEILING
+                            - control_z_clearance,
 
                         plate_width = base_width,
                         plate_length = base_length,
                         plate_height = ENCLOSURE_FLOOR_CEILING,
 
                         actuator_width = control_width / 2
-                            - reduced_control_clearance * 2,
+                            - control_clearance * 2,
                         actuator_length = control_width - SWITCH_ACTUATOR_TRAVEL
-                            - reduced_control_clearance * 2,
-                        actuator_height = ENCLOSURE_FLOOR_CEILING + 2,
+                            - control_clearance * 2,
+                        actuator_height = ENCLOSURE_FLOOR_CEILING + switch_exposure
+                            + control_z_clearance,
 
                         position = 1,
 

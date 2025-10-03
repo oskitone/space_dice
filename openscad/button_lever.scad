@@ -6,6 +6,8 @@ include <enclosure.scad>;
 BUTTON_LEVER_MOUNT_DIAMETER = 7; // NOTE: eyeballed against PCB components
 BUTTON_LEVER_ENCLOSURE_Z_CLEARANCE = .2;
 
+// TODO: measure travel and shave it off bottom?
+
 function get_button_lever_cap_z(button_cap_brim_height) = (
     ENCLOSURE_DIMENSIONS.z - ENCLOSURE_FLOOR_CEILING
         - button_cap_brim_height
@@ -41,7 +43,7 @@ module button_lever(
     button_cap_dimensions = [
         button_cap_exposure_dimensions.x - control_clearance * 2,
         button_cap_exposure_dimensions.y - control_clearance * 2,
-        8 // TODO: refine against switches and knobs
+        8 // TODO: use button_exposure
     ];
 
     echo(cap_z, ENCLOSURE_DIMENSIONS.z, button_cap_dimensions.z);

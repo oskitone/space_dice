@@ -361,6 +361,7 @@ module enclosure(
         }
 
         for (i = [0, 1]) {
+            // TODO: try single digits, larger; or up/down arrows
             switch_clutch_enclosure_engraving(
                 labels = [
                     ["Q0", "Q4"],
