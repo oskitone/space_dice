@@ -116,7 +116,7 @@ module space_dice(
         (length - outer_gutter * 2) / 3
     ];
     button_cap_exposure_dimensions = [
-        right_panel_width, // TODO: control_clearance * 2,
+        right_panel_width,
         (length - outer_gutter * 2)
             - branding_dimensions.y
             - speaker_grill_dimensions.y
@@ -274,8 +274,6 @@ module space_dice(
     }
 
     if (show_switch_clutches) {
-        // TODO: fix power clutch obstruction, component obstruction
-
         // HACK: lots of arbitrary values here to make Scout's clutch work.
         // Copied from higher_lower bahhhhh
         translate([
@@ -311,6 +309,7 @@ module space_dice(
         overshoot = [0, 1];
         base_width = control_width / 2 + overshoot.x * 2;
         base_length = control_width + SWITCH_ACTUATOR_TRAVEL + overshoot.y * 2;
+        reduced_control_clearance = control_clearance / 2; // TODO: standardize, if keeping
 
         for (i = [0 : len(PCB_TOP_CONTROL_SWITCH_POSITONS) - 1]) {
             xy = PCB_TOP_CONTROL_SWITCH_POSITONS[i];
@@ -330,9 +329,10 @@ module space_dice(
                         plate_length = base_length,
                         plate_height = ENCLOSURE_FLOOR_CEILING,
 
-                        actuator_width = control_width / 2 - control_clearance * 2,
+                        actuator_width = control_width / 2
+                            - reduced_control_clearance * 2,
                         actuator_length = control_width - SWITCH_ACTUATOR_TRAVEL
-                            - control_clearance * 2,
+                            - reduced_control_clearance * 2,
                         actuator_height = ENCLOSURE_FLOOR_CEILING + 2,
 
                         position = 1,
@@ -347,7 +347,6 @@ module space_dice(
 
                         chamfer_cavity_top = false,
 
-                        clearance = control_clearance,
                         tolerance = tolerance
                     );
 
@@ -357,14 +356,6 @@ module space_dice(
                             color(control_cavity_color) cylinder(
                                 d = 9,
                                 h = 100,
-                                $fn = 24
-                            );
-                        }
-
-                        translate([-1.9, 8.7, -50]) {
-                            color(control_cavity_color) cylinder(
-                                d = 4,
-                                h = 54,
                                 $fn = 24
                             );
                         }
