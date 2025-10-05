@@ -33,12 +33,12 @@ module space_dice(
     show_clearance = false,
 
     // TODO: use and refine
-    button_exposure = 3,
+    button_exposed_height = 3,
     switch_exposure = 2,
     control_clearance = .6,
     control_z_clearance = .4,
 
-    button_lever_thickness = 3,
+    button_lever_arm_height = 3,
     knob_brim_coverage = -1, // HACK: for PCB_POT_Y_NUDGE
 
     control_width = CONTROL_WIDTH,
@@ -266,10 +266,12 @@ module space_dice(
                 button_cap_exposure_position = button_cap_exposure_position,
                 button_cap_exposure_dimensions = button_cap_exposure_dimensions,
                 control_clearance = control_clearance,
-                button_cap_brim_height = button_lever_thickness,
+                arm_height = button_lever_arm_height,
                 fillet = accessory_fillet,
                 tolerance = tolerance,
-                mount_z = pcb_position.z + PCB_HEIGHT,
+                actuator_mount_z = pcb_position.z + PCB_HEIGHT,
+                exposed_height = button_exposed_height,
+                exposure_fillet = outer_gutter,
                 $fn = quick_preview ? undef : 12
             );
         }
@@ -382,8 +384,8 @@ module space_dice(
 
     if (show_nuts_and_bolts) {
         screw_length = 3/4 * 25.4;
-        screw_z = get_button_lever_cap_z(button_lever_thickness)
-            + button_lever_thickness - screw_length - SCREW_HEAD_HEIGHT;
+        screw_z = get_button_lever_arm_z(button_lever_arm_height)
+            + button_lever_arm_height - screw_length - SCREW_HEAD_HEIGHT;
 
         translate([
             pcb_position.x + pcb_screw_hole_position.x,
