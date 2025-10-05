@@ -32,9 +32,11 @@ module space_dice(
 
     show_clearance = false,
 
-    // TODO: use and refine
-    button_exposed_height = 3,
-    switch_exposure = 2,
+    side_switch_exposed_width = 2,
+    top_switch_exposed_height = 4,
+    button_exposed_height = 6,
+    knob_exposed_height = 8,
+
     control_clearance = .6,
     control_z_clearance = .4,
 
@@ -229,7 +231,14 @@ module space_dice(
 
     if (show_knobs) {
         knob_z = pcb_position.z + PCB_HEIGHT + PTV09A_POT_BASE_HEIGHT_FROM_PCB + control_z_clearance;
-        knob_brim_height = height - ENCLOSURE_FLOOR_CEILING - knob_z - control_z_clearance;
+        knob_min_height = PTV09A_POT_ACTUATOR_HEIGHT - control_z_clearance
+            + ENCLOSURE_FLOOR_CEILING;
+        knob_height = height - knob_z + knob_exposed_height;
+
+        assert(
+            knob_height > knob_min_height,
+            "Knobs aren't tall enough to conceal pot shaft."
+        );
 
         for (xy = PCB_POT_POSITIONS) {
             translate([
@@ -239,14 +248,13 @@ module space_dice(
             ]) {
                 knob(
                     diameter = knob_diameter,
-                    // TODO: parameterize
-                    height = PTV09A_POT_ACTUATOR_HEIGHT - control_z_clearance
-                        + ENCLOSURE_FLOOR_CEILING,
+                    height = knob_height,
                     fillet = accessory_fillet,
                     dimple_y = knob_diameter / 2 / 2,
                     round_bottom = false,
                     brim_diameter = CONTROL_WIDTH + knob_brim_coverage,
-                    brim_height = knob_brim_height,
+                    brim_height =
+                        height - ENCLOSURE_FLOOR_CEILING - knob_z - control_z_clearance,
                     color = "#FFFFFF",
                     cavity_color = "#EEEEEE",
                     tolerance = tolerance,
@@ -301,7 +309,7 @@ module space_dice(
                 switch_actuator_width = 4,
 
                 fillet = accessory_fillet,
-                side_overexposure = switch_exposure,
+                side_overexposure = side_switch_exposed_width,
                 tolerance = tolerance * 2, // NOTE: intentionally loose
 
                 outer_color = control_outer_color,
@@ -339,8 +347,8 @@ module space_dice(
                             - control_clearance * 2,
                         actuator_length = control_width - SWITCH_ACTUATOR_TRAVEL
                             - control_clearance * 2,
-                        actuator_height = ENCLOSURE_FLOOR_CEILING + switch_exposure
-                            + control_z_clearance,
+                        actuator_height = ENCLOSURE_FLOOR_CEILING
+                            + top_switch_exposed_height + control_z_clearance,
 
                         position = 1,
 
