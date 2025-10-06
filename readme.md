@@ -34,6 +34,7 @@ Work in progress!
 - Try reducing RV1 and RV3 values. 10k-50k?
 - LEDs have + on the wrong side.
 - Make LEDs sequence more compelling. Cycle like a clock from top right?
+- Move tracks away from screw mounts so they can't be inadvertently stripped off.
 
 ## 3D-Printing and soldering advice
 

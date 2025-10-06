@@ -264,6 +264,9 @@ module space_dice(
     }
 
     if (show_button_cap) {
+        // TODO: tidy, if keeping
+        reduced_control_clearance = control_clearance / 2;
+
         color(control_outer_color) {
             button_lever(
                 screw_mount_position = [
@@ -272,7 +275,7 @@ module space_dice(
                 ],
                 exposure_position = button_cap_exposure_position,
                 exposure_dimensions = button_cap_exposure_dimensions,
-                control_clearance = control_clearance,
+                control_clearance = reduced_control_clearance,
                 arm_height = button_lever_arm_height,
                 fillet = accessory_fillet,
                 tolerance = tolerance,
@@ -391,6 +394,16 @@ module space_dice(
     }
 
     if (show_nuts_and_bolts) {
+        // TODO: Figure out ideal screw_length vs actuator_mount.
+        // 1/2" is too short and 3/4" is now too long.
+        // The simplest part has the actuator built into the button cap piece,
+        // obviating the screw entirely, but that will be annoying to print and
+        // offers no mechanical advantage.
+        // Another idea is to move spst_actuator_cavity_depth/cantilever around
+        // so the screw can be shorter and lower. Possible!
+        // A big idea is to reverse screw direction and move nut to enclosure
+        // top. Complex but most structurally stable.
+
         screw_length = 3/4 * 25.4;
         screw_z = get_button_lever_arm_z(button_lever_arm_height)
             - screw_length;
