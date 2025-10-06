@@ -361,6 +361,7 @@ module space_dice(
                         cavity_color = control_cavity_color,
 
                         chamfer_cavity_top = false,
+                        chamfer_cavity_entrance = true,
 
                         tolerance = tolerance
                     );
