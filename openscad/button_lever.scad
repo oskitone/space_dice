@@ -23,7 +23,7 @@ module button_lever(
     fillet,
     tolerance = 0,
     mount_diameter = BUTTON_LEVER_MOUNT_DIAMETER,
-    cantilever_height = 1,
+    cantilever_height = .8,
     actuator_mount_z,
     spst_actuator_cavity_depth = 1,
     spst_clearance = .2,
@@ -33,7 +33,8 @@ module button_lever(
 ) {
     e = .0235;
 
-    cantilever_width = PCB_XY + PCB_BUTTON_POSITION.x - screw_mount_position.x;
+    button_x = PCB_XY + PCB_BUTTON_POSITION.x;
+    cantilever_width = button_x - screw_mount_position.x;
 
     button_cap_arm_z = get_button_lever_arm_z(arm_height);
 
@@ -63,8 +64,8 @@ module button_lever(
     }
 
     module _button_cap_arm() {
-        width_to_mount_center =
-            button_cap_exposure_position.x - screw_mount_position.x;
+        width_to_actuator =
+            button_cap_exposure_position.x - button_x;
 
         translate([
             button_cap_exposure_position.x + control_clearance,
@@ -83,63 +84,59 @@ module button_lever(
             );
         }
 
-        difference() {
-            union() {
-                translate([
-                    button_cap_exposure_position.x - width_to_mount_center,
-                    screw_mount_position.y - mount_diameter / 2,
-                    0
-                ]) {
-                    cube([
-                        width_to_mount_center,
-                        mount_diameter,
-                        arm_height
-                    ]);
-                }
-
-                _c(
-                    mount_diameter,
-                    arm_height,
-                    0
-                );
-            }
-
-            translate([
-                screw_mount_position.x - (mount_diameter / 2 + e),
-                screw_mount_position.y - (mount_diameter / 2 + e),
-                min(
-                    arm_height - SCREW_HEAD_HEIGHT,
-                    cantilever_height
-                )
-            ]) {
-                cube([
-                    cantilever_width + e,
-                    mount_diameter + e * 2,
-                    100
-                ]);
-            }
+        translate([
+            button_cap_exposure_position.x - width_to_actuator,
+            screw_mount_position.y - mount_diameter / 2,
+            0
+        ]) {
+            cube([
+                width_to_actuator,
+                mount_diameter,
+                arm_height
+            ]);
         }
     }
 
+    // TODO: if keeping, reduce for DFM and screw height
     module _actuator_mount() {
         bottom_height = SPST_ACTUATOR_HEIGHT_OFF_PCB
             + spst_clearance - spst_actuator_cavity_depth;
         top_height = button_cap_arm_z - (actuator_mount_z + bottom_height);
 
-        module _ends(height) {
+        module _ends(height, half_width_actuator) {
             _c(mount_diameter, height);
 
-            # translate([cantilever_width, 0, 0]) {
-                _c(mount_diameter, height);
+            translate([cantilever_width, 0, 0]) {
+                difference() {
+                    _c(mount_diameter, height);
+
+                    if (half_width_actuator) {
+                        z = spst_actuator_cavity_depth + cantilever_height;
+
+                        translate([
+                            screw_mount_position.x + mount_diameter / -2 - e,
+                            screw_mount_position.y + mount_diameter / -2 - e,
+                            z
+                        ]) {
+                            cube([
+                                mount_diameter / 2 + e,
+                                mount_diameter + e * 2,
+                                top_height - z + e
+                            ]);
+                        }
+                    }
+                }
             }
         }
 
         difference() {
             translate([0, 0, bottom_height]) {
-                _ends(top_height);
+                _ends(top_height, true);
 
-                hull() {
-                    _ends(cantilever_height);
+                translate([0, 0, spst_actuator_cavity_depth]) {
+                    hull() {
+                        _ends(cantilever_height, false);
+                    }
                 }
             }
 

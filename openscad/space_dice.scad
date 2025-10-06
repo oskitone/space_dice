@@ -40,7 +40,7 @@ module space_dice(
     control_clearance = .6,
     control_z_clearance = .4,
 
-    button_lever_arm_height = 3,
+    button_lever_arm_height = 2,
     knob_brim_coverage = -1, // HACK: for PCB_POT_Y_NUDGE
 
     control_width = CONTROL_WIDTH,
@@ -393,7 +393,7 @@ module space_dice(
     if (show_nuts_and_bolts) {
         screw_length = 3/4 * 25.4;
         screw_z = get_button_lever_arm_z(button_lever_arm_height)
-            + button_lever_arm_height - screw_length - SCREW_HEAD_HEIGHT;
+            - screw_length;
 
         translate([
             pcb_position.x + pcb_screw_hole_position.x,
