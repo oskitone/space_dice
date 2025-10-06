@@ -95,7 +95,7 @@ module space_dice(
     battery_position = [
         width - ENCLOSURE_WALL - BATTERY_HEIGHT - e,
         ENCLOSURE_WALL + e,
-        ENCLOSURE_FLOOR_CEILING + e
+        ENCLOSURE_FLOOR_CEILING
     ];
 
     switch_clutch_grip_height = height / 2;
@@ -159,7 +159,7 @@ module space_dice(
     assert(height >= minimum_height, "Height is too low.");
 
     if (show_battery) {
-        translate(battery_position) translate([0, 0, -e * 2]) {
+        translate(battery_position) translate([0, 0, -e]) {
             rotate([0, 90, 0]) rotate([0, 0, 90])
             % battery();
         }

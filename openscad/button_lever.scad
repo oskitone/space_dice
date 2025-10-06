@@ -1,4 +1,6 @@
+include <../../parts_cafe/openscad/battery-9v.scad>;
 include <../../parts_cafe/openscad/chamfered_cube.scad>;
+include <../../parts_cafe/openscad/chamfered_xy_cube.scad>;
 include <../../parts_cafe/openscad/nuts_and_bolts.scad>;
 include <../../parts_cafe/openscad/spst.scad>;
 
@@ -36,13 +38,17 @@ module button_lever(
     button_x = PCB_XY + PCB_BUTTON_POSITION.x;
     cantilever_width = button_x - screw_mount_position.x;
 
+    battery_top_z = ENCLOSURE_FLOOR_CEILING + BATTERY_LENGTH; // yep
+
+    max_right_x = ENCLOSURE_DIMENSIONS.x - tolerance * 2
+        - ENCLOSURE_WALL;
+
     button_cap_arm_z = get_button_lever_arm_z(arm_height);
     button_cap_brim_xy_coverage = SCOUT_DEFAULT_GUTTER / 2;
-    button_cap_brim_right_extension = ENCLOSURE_DIMENSIONS.x
+    button_cap_brim_right_extension = max_right_x
         - button_cap_exposure_position.x
         - button_cap_exposure_dimensions.x
-        + control_clearance - tolerance * 2
-        - ENCLOSURE_WALL;
+        + control_clearance;
 
     button_cap_dimensions = [
         button_cap_exposure_dimensions.x - control_clearance * 2,
@@ -71,8 +77,15 @@ module button_lever(
     }
 
     module _button_cap_arm() {
-        width_to_actuator =
-            button_cap_exposure_position.x - button_x;
+        width_to_actuator = button_cap_exposure_position.x - button_x;
+        height_from_battery = button_cap_arm_z - battery_top_z;
+
+        fulcrum_position = [
+            button_cap_exposure_position.x + button_cap_exposure_dimensions.x,
+            button_cap_exposure_position.y + control_clearance
+                    - button_cap_brim_xy_coverage,
+            -height_from_battery
+        ];
 
         hull() {
             translate([
@@ -101,6 +114,15 @@ module button_lever(
                     arm_height
                 ], ENCLOSURE_INNER_CHAMFER);
             }
+        }
+
+        // TODO: DFM w/o print supports
+        translate(fulcrum_position) {
+            chamfered_xy_cube([
+                max_right_x - fulcrum_position.x,
+                button_cap_dimensions.y + button_cap_brim_xy_coverage * 2,
+                height_from_battery + ENCLOSURE_INNER_CHAMFER
+            ], ENCLOSURE_INNER_CHAMFER);
         }
 
         translate([
