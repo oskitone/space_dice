@@ -1,5 +1,4 @@
 include <../../parts_cafe/openscad/battery-9v.scad>;
-include <../../parts_cafe/openscad/cap_blank.scad>;
 include <../../parts_cafe/openscad/knob.scad>;
 include <../../parts_cafe/openscad/nuts_and_bolts.scad>;
 include <../../parts_cafe/openscad/print_test.scad>;
@@ -271,15 +270,15 @@ module space_dice(
                     pcb_position.x + pcb_screw_hole_position.x,
                     pcb_position.y + pcb_screw_hole_position.y
                 ],
-                button_cap_exposure_position = button_cap_exposure_position,
-                button_cap_exposure_dimensions = button_cap_exposure_dimensions,
+                exposure_position = button_cap_exposure_position,
+                exposure_dimensions = button_cap_exposure_dimensions,
                 control_clearance = control_clearance,
                 arm_height = button_lever_arm_height,
                 fillet = accessory_fillet,
                 tolerance = tolerance,
                 actuator_mount_z = pcb_position.z + PCB_HEIGHT,
                 exposed_height = button_exposed_height,
-                exposure_fillet = outer_gutter,
+                chamfer = accessory_fillet,
                 $fn = quick_preview ? undef : 12
             );
         }

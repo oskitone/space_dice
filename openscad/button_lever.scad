@@ -18,8 +18,8 @@ function get_button_lever_arm_z(arm_height) = (
 
 module button_lever(
     screw_mount_position,
-    button_cap_exposure_position,
-    button_cap_exposure_dimensions,
+    exposure_position,
+    exposure_dimensions,
     control_clearance,
     arm_height,
     fillet,
@@ -30,7 +30,7 @@ module button_lever(
     spst_actuator_cavity_depth = 1,
     spst_clearance = .2,
     exposed_height = 0,
-    exposure_fillet = 0,
+    chamfer = 0,
     part_separation = $preview ? 0 : 1
 ) {
     e = .0235;
@@ -43,24 +43,17 @@ module button_lever(
     max_right_x = ENCLOSURE_DIMENSIONS.x - tolerance * 2
         - ENCLOSURE_WALL;
 
-    button_cap_arm_z = get_button_lever_arm_z(arm_height);
-    button_cap_brim_xy_coverage = SCOUT_DEFAULT_GUTTER / 2;
-    button_cap_brim_right_extension = max_right_x
-        - button_cap_exposure_position.x
-        - button_cap_exposure_dimensions.x
+    arm_z = get_button_lever_arm_z(arm_height);
+    brim_xy_coverage = SCOUT_DEFAULT_GUTTER / 2;
+    brim_right_extension = max_right_x
+        - exposure_position.x
+        - exposure_dimensions.x
         + control_clearance;
 
-    button_cap_dimensions = [
-        button_cap_exposure_dimensions.x - control_clearance * 2,
-        button_cap_exposure_dimensions.y - control_clearance * 2,
-        ENCLOSURE_DIMENSIONS.z - button_cap_arm_z + exposed_height
-    ];
-
-    // TODO: Move contact to left side (affordance)
-    contact_dimensions = [
-        button_cap_dimensions.x - exposure_fillet,
-        button_cap_dimensions.y - exposure_fillet,
-        exposed_height
+    dimensions = [
+        exposure_dimensions.x - control_clearance * 2,
+        exposure_dimensions.y - control_clearance * 2,
+        ENCLOSURE_DIMENSIONS.z - arm_z + exposed_height
     ];
 
     module _c(diameter, height, z = 0) {
@@ -76,20 +69,20 @@ module button_lever(
         }
     }
 
-    module _button_cap_arm() {
-        width_to_actuator = button_cap_exposure_position.x - button_x;
-        height_from_battery = button_cap_arm_z - battery_top_z;
+    module _arm() {
+        width_to_actuator = exposure_position.x - button_x;
+        height_from_battery = arm_z - battery_top_z;
 
         fulcrum_position = [
-            button_cap_exposure_position.x + button_cap_exposure_dimensions.x,
-            button_cap_exposure_position.y + control_clearance
-                    - button_cap_brim_xy_coverage,
+            exposure_position.x + exposure_dimensions.x,
+            exposure_position.y + control_clearance
+                    - brim_xy_coverage,
             -height_from_battery
         ];
 
         hull() {
             translate([
-                button_cap_exposure_position.x - width_to_actuator,
+                exposure_position.x - width_to_actuator,
                 screw_mount_position.y - mount_diameter / 2,
                 0
             ]) {
@@ -101,16 +94,16 @@ module button_lever(
             }
 
             translate([
-                button_cap_exposure_position.x + control_clearance
-                    - button_cap_brim_xy_coverage,
-                button_cap_exposure_position.y + control_clearance
-                    - button_cap_brim_xy_coverage,
+                exposure_position.x + control_clearance
+                    - brim_xy_coverage,
+                exposure_position.y + control_clearance
+                    - brim_xy_coverage,
                 0
             ]) {
                 chamfered_cube([
-                    button_cap_dimensions.x + button_cap_brim_xy_coverage
-                        + button_cap_brim_right_extension,
-                    button_cap_dimensions.y + button_cap_brim_xy_coverage * 2,
+                    dimensions.x + brim_xy_coverage
+                        + brim_right_extension,
+                    dimensions.y + brim_xy_coverage * 2,
                     arm_height
                 ], ENCLOSURE_INNER_CHAMFER);
             }
@@ -120,26 +113,31 @@ module button_lever(
         translate(fulcrum_position) {
             chamfered_xy_cube([
                 max_right_x - fulcrum_position.x,
-                button_cap_dimensions.y + button_cap_brim_xy_coverage * 2,
+                dimensions.y + brim_xy_coverage * 2,
                 height_from_battery + ENCLOSURE_INNER_CHAMFER
             ], ENCLOSURE_INNER_CHAMFER);
         }
 
         translate([
-            button_cap_exposure_position.x + control_clearance,
-            button_cap_exposure_position.y + control_clearance,
+            exposure_position.x + control_clearance,
+            exposure_position.y + control_clearance,
             e
         ]) {
-            cap_blank(
-                dimensions = [
-                    button_cap_dimensions.x,
-                    button_cap_dimensions.y,
-                    button_cap_dimensions.z + e
-                ],
-                contact_dimensions = contact_dimensions,
-                fillet = fillet,
-                brim_dimensions = [0,0,0]
-            );
+            hull() {
+                rounded_cube([
+                    dimensions.x,
+                    dimensions.y,
+                    dimensions.z - exposed_height + fillet - e
+                ], fillet);
+
+                translate([chamfer, chamfer, dimensions.z - fillet * 2]) {
+                    rounded_cube_corners([
+                        (dimensions.x - chamfer * 2) / 2,
+                        dimensions.y - chamfer * 2,
+                        fillet
+                    ], fillet);
+                }
+            }
         }
     }
 
@@ -147,7 +145,7 @@ module button_lever(
     module _actuator_mount() {
         bottom_height = SPST_ACTUATOR_HEIGHT_OFF_PCB
             + spst_clearance - spst_actuator_cavity_depth;
-        top_height = button_cap_arm_z - (actuator_mount_z + bottom_height);
+        top_height = arm_z - (actuator_mount_z + bottom_height);
 
         module _ends(height, half_width_actuator) {
             _c(mount_diameter, height);
@@ -200,8 +198,8 @@ module button_lever(
 
     difference() {
         union() {
-            translate([0, 0, button_cap_arm_z + part_separation * 1]) {
-                _button_cap_arm();
+            translate([0, 0, arm_z + part_separation * 1]) {
+                _arm();
             }
 
             translate([0, 0, actuator_mount_z]) {
