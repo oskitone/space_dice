@@ -40,6 +40,7 @@ Work in progress!
 
 - Force bridging angles to be consistent.
 - All components need to be flush against PCB but _especially_ the big caps. Clearance inside the enclosure is _tight_.
+- Similarly, trim soldered leads on the PCB's bottom as close as possible. It's easy to accidentally short connections on assembly.
 
 ## 3D models
 

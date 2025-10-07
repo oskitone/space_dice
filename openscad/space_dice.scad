@@ -8,6 +8,7 @@ include <../../parts_cafe/openscad/switch_clutch.scad>;
 
 include <button_lever.scad>;
 include <enclosure.scad>;
+include <led_display.scad>;
 include <pcb.scad>;
 
 module space_dice(
@@ -25,6 +26,7 @@ module space_dice(
     show_button_cap = true,
     show_switch_clutches = true,
     show_speaker = true,
+    show_led_display = true,
     show_nuts_and_bolts = true,
     show_enclosure_top = true,
     show_print_test = false,
@@ -35,6 +37,7 @@ module space_dice(
     top_switch_exposed_height = 4,
     button_exposed_height = 6,
     knob_exposed_height = 8,
+    led_display_exposed_height = -ENCLOSURE_FLOOR_CEILING,
 
     control_clearance = .6,
     control_z_clearance = .4,
@@ -68,6 +71,8 @@ module space_dice(
 
     control_outer_color = "#FFFFFF",
     control_cavity_color = "#EEEEEE",
+
+    led_display_color = "#FFFFFFBB",
 
     side_switch_position = round($t),
     switch_clutch_web_length_extension = 4, // NOTE: eyeballed!
@@ -393,6 +398,27 @@ module space_dice(
         }
     }
 
+    if (show_led_display) {
+        exposure_position = [
+            outer_gutter + (control_width + default_gutter) * 2,
+            outer_gutter,
+            pcb_position.z + PCB_HEIGHT
+        ];
+
+        translate(exposure_position) {
+            led_display(
+                exposed_width = control_width,
+                exposed_length = control_length,
+                height = height + led_display_exposed_height
+                    - exposure_position.z,
+
+                tolerance = tolerance,
+                outer_color = led_display_color,
+                accent_color = enclosure_cavity_color
+            );
+        }
+    }
+
     if (show_nuts_and_bolts) {
         // TODO: Figure out ideal screw_length vs actuator_mount.
         // 1/2" is too short and 3/4" is now too long.
@@ -438,6 +464,7 @@ SHOW_KNOBS = true;
 SHOW_BUTTON_CAP = true;
 SHOW_SWITCH_CLUTCHES = true;
 SHOW_SPEAKER = true;
+SHOW_LED_DISPLAY = true;
 SHOW_NUTS_AND_BOLTS = true;
 SHOW_ENCLOSURE_TOP = true;
 SHOW_PRINT_TEST = false;
@@ -456,6 +483,7 @@ space_dice(
     show_button_cap = SHOW_BUTTON_CAP,
     show_switch_clutches = SHOW_SWITCH_CLUTCHES,
     show_speaker = SHOW_SPEAKER,
+    show_led_display = SHOW_LED_DISPLAY,
     show_nuts_and_bolts = SHOW_NUTS_AND_BOLTS,
     show_enclosure_top = SHOW_ENCLOSURE_TOP,
     show_print_test = SHOW_PRINT_TEST,
@@ -481,4 +509,7 @@ space_dice(
 
 // button lever
 // translate([-1, -1, -1]) cube([100, 35, 100]);
+
+// LED display
+// translate([55.3, -1, -1]) cube([100, 100, 100]);
 }

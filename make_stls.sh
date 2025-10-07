@@ -100,6 +100,7 @@ function run() {
     export_stl knobs
     export_stl button_cap
     export_stl switch_clutches
+    export_stl led_display
     export_stl enclosure_top
     export_stl print_test
     wait
