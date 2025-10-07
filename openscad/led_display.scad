@@ -1,19 +1,25 @@
+include <../../parts_cafe/openscad/chamfered_cube.scad>;
+include <../../parts_cafe/openscad/chamfered_xy_cube.scad>;
+include <../../parts_cafe/openscad/flat_top_rectangular_pyramid.scad>;
+
 include <enclosure.scad>;
 
 // TODO:
-// * tolerance
-// * fixtures against enclosure
 // * pips
 // * ceiling tests
 // * fillet
 
 module led_display(
-    exposed_width, exposed_length,
-    height,
+    exposed_width, exposed_length, exposed_height,
+
+    inner_height,
 
     ceiling_height = .6,
     wall = ENCLOSURE_INNER_WALL,
+
+    fillet = 0,
     tolerance = 0,
+
     outer_color = undef,
     accent_color = undef
 ) {
@@ -22,34 +28,71 @@ module led_display(
     rows = 3;
     columns = 2;
 
-    module _walls() {
-        _height = height - ceiling_height + e;
+    base_width = exposed_width + wall;
+    base_length = exposed_length + wall;
 
-        for (i = [0 : columns]) {
-            translate([
-                wall / -2 + (exposed_width / columns) * i,
-                wall / -2,
-                0
-            ]) {
-                cube([wall, exposed_length + wall, _height]);
-            }
+    non_inner_height = ENCLOSURE_FLOOR_CEILING + exposed_height;
+    total_height = inner_height + non_inner_height;
+
+    module _outer_base() {
+        translate([wall / -2, wall / -2, 0]) {
+            rounded_top_cube([base_width, base_length, inner_height], fillet);
         }
 
-        for (i = [0 : rows]) {
-            translate([
-                wall / -2,
-                wall / -2 + (exposed_length / rows) * i,
-                0
-            ]) {
-                cube([exposed_width + wall, wall, _height]);
-            }
+        translate([tolerance, tolerance, inner_height - fillet]) {
+            rounded_top_cube([
+                exposed_width - tolerance * 2,
+                exposed_length - tolerance * 2,
+                non_inner_height + fillet
+            ], fillet);
         }
     }
 
-    module _ceiling() {
-        translate([wall / -2, wall / -2, height - ceiling_height]) {
-            cube([exposed_width + wall, exposed_length + wall, ceiling_height]);
+    module _inner_cavities() {
+        module _cells(
+            bottom_dimensions,
+            top_dimensions,
+            height,
+            position
+        ) {
+            bottom_width = (bottom_dimensions.x - wall * (columns + 1)) / columns;
+            bottom_length = (bottom_dimensions.y - wall * (rows + 1)) / rows;
+
+            top_width = (top_dimensions.x - wall * (columns + 1)) / columns;
+            top_length = (top_dimensions.y - wall * (rows + 1)) / rows;
+
+            for (columnI = [0 : columns - 1], rowI = [0 : rows - 1]) {
+                translate([
+                    position.x + (bottom_width + wall) * columnI,
+                    position.y + (bottom_length + wall) * rowI,
+                    position.z
+                ]) {
+                    flat_top_rectangular_pyramid(
+                        top_width = top_width,
+                        top_length = top_length,
+                        bottom_width = bottom_width,
+                        bottom_length = bottom_length,
+                        height = height,
+                        top_weight_x = 1 - columnI / (columns - 1),
+                        top_weight_y = 1 - rowI / (rows - 1)
+                    );
+                }
+            }
         }
+
+        _cells(
+            [base_width, base_length, inner_height],
+            [exposed_width - tolerance * 2, exposed_length - tolerance * 2],
+            inner_height + e * 2,
+            [wall / 2, wall / 2, -e]
+        );
+
+        _cells(
+            [exposed_width - tolerance * 2, exposed_length - tolerance * 2],
+            [exposed_width - tolerance * 2, exposed_length - tolerance * 2],
+            non_inner_height - ceiling_height + e,
+            [wall + tolerance, wall + tolerance, inner_height - e]
+        );
     }
 
     module _HACK_deobstructions() {
@@ -72,11 +115,9 @@ module led_display(
 
     color(outer_color) {
         difference() {
-            union() {
-                _walls();
-                _ceiling();
-            }
+            _outer_base();
 
+            _inner_cavities();
             _HACK_deobstructions();
         }
     }

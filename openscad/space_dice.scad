@@ -37,7 +37,7 @@ module space_dice(
     top_switch_exposed_height = 4,
     button_exposed_height = 6,
     knob_exposed_height = 8,
-    led_display_exposed_height = -ENCLOSURE_FLOOR_CEILING,
+    led_display_exposed_height = 2,
 
     control_clearance = .6,
     control_z_clearance = .4,
@@ -72,7 +72,7 @@ module space_dice(
     control_outer_color = "#FFFFFF",
     control_cavity_color = "#EEEEEE",
 
-    led_display_color = "#FFFFFFBB",
+    led_display_color = "#FFFFFF44",
 
     side_switch_position = round($t),
     switch_clutch_web_length_extension = 4, // NOTE: eyeballed!
@@ -409,12 +409,14 @@ module space_dice(
             led_display(
                 exposed_width = control_width,
                 exposed_length = control_length,
-                height = height + led_display_exposed_height
+                exposed_height = led_display_exposed_height,
+                inner_height = height - ENCLOSURE_FLOOR_CEILING
                     - exposure_position.z,
-
+                fillet = accessory_fillet,
                 tolerance = tolerance,
                 outer_color = led_display_color,
-                accent_color = enclosure_cavity_color
+                accent_color = enclosure_cavity_color,
+                $fn = quick_preview ? undef : 12
             );
         }
     }

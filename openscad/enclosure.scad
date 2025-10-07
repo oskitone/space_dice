@@ -309,6 +309,7 @@ module enclosure(
             }
         }
 
+        // TODO: tolerance?
         _translate(
             led_exposure_position,
             [control_width / -2, control_length / -2]
