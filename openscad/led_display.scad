@@ -25,6 +25,7 @@ module led_display(
     tolerance = 0,
 
     outer_color = undef,
+    cavity_color = undef,
     accent_color = undef
 ) {
     e = .014;
@@ -72,7 +73,9 @@ module led_display(
                 tolerance + cell_length * rowI,
                 inner_height - fillet
             ]) {
-                _cap();
+                color(outer_color) {
+                    _cap();
+                }
             }
         }
 
@@ -82,14 +85,16 @@ module led_display(
                 tolerance + cell_length * rowI + cell_length / 2,
                 total_height - e
             ]) {
-                linear_extrude(height = mark_height + e) {
-                    dice_pips(
-                        count = columnI + (rows - rowI) * (rows - 1) - 1,
-                        diameter = pip_diameter,
-                        size = min(cell_width, cell_length) - wall * 2 - pip_diameter
-                            - gutter_from_fillet * 2,
-                        center = true
-                    );
+                color(accent_color) {
+                    linear_extrude(height = mark_height + e) {
+                        dice_pips(
+                            count = columnI + (rows - rowI) * (rows - 1) - 1,
+                            diameter = pip_diameter,
+                            size = min(cell_width, cell_length) - wall * 2 - pip_diameter
+                                - gutter_from_fillet * 2,
+                            center = true
+                        );
+                    }
                 }
             }
         }
@@ -153,20 +158,23 @@ module led_display(
         }
     }
 
-    color(outer_color) {
-        difference() {
-            union() {
+    difference() {
+        union() {
+            color(cavity_color) {
                 _inner_base();
-                _exposed_pip_cells();
             }
 
-            _HACK_deobstructions();
-
-            // DEBUG x
-            // translate([-2, -2, -2]) cube([base_width + 2, base_length / 2, total_height + 4]);
-
-            // DEBUG y
-            // translate([4.5, -2, -2]) cube([100, base_length + 2, total_height + 20]);
+            _exposed_pip_cells();
         }
+
+        color(cavity_color) {
+            _HACK_deobstructions();
+        }
+
+        // DEBUG x
+        // translate([-2, -2, -2]) cube([base_width + 2, base_length / 2, total_height + 4]);
+
+        // DEBUG y
+        // translate([4.5, -2, -2]) cube([100, base_length + 2, total_height + 20]);
     }
 }
