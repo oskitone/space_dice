@@ -81,9 +81,9 @@ module button_lever(
         }
     }
 
-    module _arm() {
+    module _arm(fulcrum_width = 4) {
         fulcrum_position = [
-            exposure_position.x + exposure_dimensions.x,
+            max_right_x - fulcrum_width,
             exposure_position.y + control_clearance
                     - brim_xy_coverage,
             -height_from_battery
@@ -130,7 +130,7 @@ module button_lever(
         // TODO: DFM w/o print supports
         translate(fulcrum_position) {
             chamfered_xy_cube([
-                max_right_x - fulcrum_position.x,
+                fulcrum_width,
                 dimensions.y + brim_xy_coverage * 2,
                 height_from_battery + ENCLOSURE_INNER_CHAMFER
             ], ENCLOSURE_INNER_CHAMFER);
