@@ -361,26 +361,29 @@ module enclosure(
             }
         }
 
-        for (i = [0, 1]) {
-            // TODO: try single digits, larger; or up/down arrows
-            switch_clutch_enclosure_engraving(
-                labels = [
-                    ["Q0", "Q4"],
-                    ["Q6", "Q8"]
-                ][i],
-                width = control_width - switch_window_width - gutter,
-                length = switch_window_length,
-                label_gutter = gutter,
-                size = top_engraving_model_text_size,
-                quick_preview = quick_preview,
-                position = [
-                    outer_gutter + i * (control_width + default_gutter)
-                        + switch_window_width + gutter,
-                    outer_gutter + ENCLOSURE_ENGRAVING_LENGTH
-                        + gutter
-                ],
-                enclosure_height = dimensions.z
-            );
+        placard_length = (switch_window_length - gutter) / 2;
+        arrow_size = control_width - switch_window_width - gutter;
+
+        for (controlI = [0, 1], directionI = [0, 1]) {
+            translate([
+                outer_gutter + switch_window_width + gutter
+                    + controlI * (control_width + default_gutter)
+                    + arrow_size / 2,
+                outer_gutter + ENCLOSURE_ENGRAVING_LENGTH + gutter
+                    + (placard_length - arrow_size) / 2
+                    + directionI * (placard_length + gutter)
+                    + arrow_size / 2,
+                dimensions.z - ENCLOSURE_ENGRAVING_DEPTH
+            ]) {
+                rotate([0, 0, (1 - directionI) * 180]) engraving(
+                    svg = "../misc/arrow.svg",
+                    resize = [arrow_size, arrow_size],
+                    bleed = quick_preview ? 0 : ENCLOSURE_ENGRAVING_BLEED,
+                    height = ENCLOSURE_ENGRAVING_DEPTH + e,
+                    center = true,
+                    chamfer =  0
+                );
+            }
         }
     }
 
