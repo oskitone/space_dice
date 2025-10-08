@@ -409,7 +409,7 @@ module space_dice(
             led_display(
                 exposed_width = control_width,
                 exposed_length = control_length,
-                exposed_height = led_display_exposed_height,
+                exposed_height = -LED_DISPLAY_MARK_HEIGHT,
                 inner_height = height - ENCLOSURE_FLOOR_CEILING
                     - exposure_position.z,
                 fillet = accessory_fillet,
@@ -513,5 +513,5 @@ space_dice(
 // translate([-1, -1, -1]) cube([100, 35, 100]);
 
 // LED display
-// translate([55.3, -1, -1]) cube([100, 100, 100]);
+// translate([51.2, -1, -1]) cube([100, 100, 100]);
 }

@@ -1,5 +1,6 @@
 include <../../parts_cafe/openscad/chamfered_cube.scad>;
 include <../../parts_cafe/openscad/chamfered_xy_cube.scad>;
+include <../../parts_cafe/openscad/dice_pips.scad>;
 include <../../parts_cafe/openscad/enclosure.scad>;
 include <../../parts_cafe/openscad/flat_top_rectangular_pyramid.scad>;
 
@@ -9,6 +10,8 @@ include <enclosure.scad>;
 // * ceiling tests
 // * confirm top wall vs fillet
 
+LED_DISPLAY_MARK_HEIGHT = .6;
+
 module led_display(
     exposed_width, exposed_length, exposed_height,
 
@@ -16,7 +19,7 @@ module led_display(
 
     ceiling_height = .6,
     wall = ENCLOSURE_INNER_WALL,
-    label_height = .6,
+    mark_height = LED_DISPLAY_MARK_HEIGHT,
 
     fillet = 0,
     tolerance = 0,
@@ -41,7 +44,10 @@ module led_display(
     cell_width = exposed_width / columns;
     cell_length = exposed_length / rows;
 
-    module _exposed_pip_cells() {
+    module _exposed_pip_cells(
+        pip_diameter = 1.4,
+        gutter_from_fillet = .4
+    ) {
         module _cap() {
             difference() {
                 rounded_top_cube([
@@ -76,12 +82,15 @@ module led_display(
                 tolerance + cell_length * rowI + cell_length / 2,
                 total_height - e
             ]) {
-                engraving(
-                    string = str(columnI + (rows - rowI) * (rows - 1) - 1),
-                    size = ENCLOSURE_ENGRAVING_TEXT_SIZE,
-                    height = label_height + e,
-                    center = true
-                );
+                linear_extrude(height = mark_height + e) {
+                    dice_pips(
+                        count = columnI + (rows - rowI) * (rows - 1) - 1,
+                        diameter = pip_diameter,
+                        size = min(cell_width, cell_length) - wall * 2 - pip_diameter
+                            - gutter_from_fillet * 2,
+                        center = true
+                    );
+                }
             }
         }
     }
