@@ -109,12 +109,12 @@ module enclosure(
             - switch_clutch_aligner_length / 2;
 
     module _translate(
-        xy1, xy2 = [0,0], xy3 = [0,0], xy4 = [0,0],
+        xy1, xy2 = [0,0], xy3 = [0,0], xy4 = [0,0], xy5 = [0,0],
         z = dimensions.z - ENCLOSURE_FLOOR_CEILING - e
     ) {
         translate([
-            pcb_position.x + xy1.x + xy2.x + xy3.x + xy4.x,
-            pcb_position.y + xy1.y + xy2.y + xy3.y + xy4.y,
+            pcb_position.x + xy1.x + xy2.x + xy3.x + xy4.x + xy5.x,
+            pcb_position.y + xy1.y + xy2.y + xy3.y + xy4.y + xy5.y,
             z
         ]) {
             children();
@@ -303,32 +303,41 @@ module enclosure(
                 // centered to switch base
                 [SWITCH_BASE_WIDTH / 2, SWITCH_BASE_LENGTH / 2],
 
-                // finally, centered exposure to switch
-                [switch_window_width / -2, switch_window_length / -2]
+                // centered exposure to switch
+                [switch_window_width / -2, switch_window_length / -2],
+
+                // finally, adjusted to tolerance
+                [-tolerance, -tolerance]
             ) {
                 actuator_window(
-                    dimensions = [switch_window_width, switch_window_length],
+                    dimensions = [
+                        switch_window_width + tolerance * 2,
+                        switch_window_length + tolerance * 2
+                    ],
                     tolerance = tolerance
                 );
             }
         }
 
-        // TODO: tolerance?
         _translate(
             led_exposure_position,
-            [control_width / -2, control_length / -2]
+            [control_width / -2 - tolerance, control_length / -2 - tolerance]
         ) {
-            cube([control_width, control_length, ENCLOSURE_FLOOR_CEILING + e * 2]);
+            cube([
+                control_width + tolerance * 2,
+                control_length + tolerance * 2,
+                ENCLOSURE_FLOOR_CEILING + e * 2
+            ]);
         }
 
         translate([
-            button_cap_exposure_position.x,
-            button_cap_exposure_position.y,
+            button_cap_exposure_position.x - tolerance,
+            button_cap_exposure_position.y - tolerance,
             dimensions.z - ENCLOSURE_FLOOR_CEILING - e
         ]) {
             cube([
-                button_cap_exposure_dimensions.x,
-                button_cap_exposure_dimensions.y,
+                button_cap_exposure_dimensions.x + tolerance * 2,
+                button_cap_exposure_dimensions.y + tolerance * 2,
                 ENCLOSURE_FLOOR_CEILING + e * 2
             ]);
         }
