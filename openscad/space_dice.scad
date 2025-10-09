@@ -307,6 +307,7 @@ module space_dice(
                 web_length_extension = switch_clutch_web_length_extension,
 
                 enclosure_height = height,
+                vertical_clearance = control_z_clearance,
 
                 // Negative here to make up for bigger tolerance below
                 x_clearance = -.2,
