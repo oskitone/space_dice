@@ -331,6 +331,9 @@ module space_dice(
         base_width = control_width / 2 + overshoot.x * 2;
         base_length = control_width + SWITCH_ACTUATOR_TRAVEL + overshoot.y * 2;
 
+        // TODO: tidy, if keeping
+        reduced_control_clearance = control_clearance / 2;
+
         for (i = [0 : len(PCB_TOP_CONTROL_SWITCH_POSITONS) - 1]) {
             xy = PCB_TOP_CONTROL_SWITCH_POSITONS[i];
 
@@ -351,9 +354,9 @@ module space_dice(
                         plate_height = ENCLOSURE_FLOOR_CEILING,
 
                         actuator_width = control_width / 2
-                            - control_clearance * 2,
+                            - reduced_control_clearance * 2,
                         actuator_length = control_width - SWITCH_ACTUATOR_TRAVEL
-                            - control_clearance * 2,
+                            - reduced_control_clearance * 2,
                         actuator_height = ENCLOSURE_FLOOR_CEILING
                             + top_switch_exposed_height + control_z_clearance,
 
