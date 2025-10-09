@@ -423,18 +423,10 @@ module space_dice(
     }
 
     if (show_nuts_and_bolts) {
-        // TODO: Figure out ideal screw_length vs actuator_mount.
-        // 1/2" is too short and 3/4" is now too long.
-        // The simplest part has the actuator built into the button cap piece,
-        // obviating the screw entirely, but that will be annoying to print and
-        // offers no mechanical advantage.
-        // Another idea is to move spst_actuator_cavity_depth/cantilever around
-        // so the screw can be shorter and lower. Possible!
-        // A big idea is to reverse screw direction and move nut to enclosure
-        // top. Complex but most structurally stable.
-
-        screw_length = 3/4 * 25.4;
-        screw_z = get_button_lever_arm_z(button_lever_arm_height)
+        screw_length = 1/2 * 25.4;
+        screw_z = pcb_position.z + PCB_HEIGHT
+            + BUTTON_LEVER_ACTUATOR_MOUNT_BOTTOM_HEIGHT
+            + BUTTON_LEVER_ACTUATOR_CANTILEVER_HEIGHT
             - screw_length;
 
         translate([

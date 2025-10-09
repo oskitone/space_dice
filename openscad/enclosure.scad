@@ -32,6 +32,8 @@ CONTROL_WIDTH = 17.4;
 CONTROL_LENGTH = CONTROL_WIDTH +
     ENCLOSURE_ENGRAVING_LENGTH + ENCLOSURE_ENGRAVING_GUTTER;
 
+PCB_MOUNT_POST_CEILING = 1;
+
 module enclosure(
     show_top = true,
     show_bottom = true,
