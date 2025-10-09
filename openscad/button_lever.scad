@@ -32,10 +32,11 @@ module button_lever(
     cantilever_height = .8,
     actuator_mount_z,
     spst_actuator_cavity_depth = 1,
-    actuator_diameter = 4,
-    registration_nub_height = 1,
-    registration_nub_diameter = 2,
-    spst_clearance = .2,
+    actuator_diameter = BUTTON_LEVER_MOUNT_DIAMETER,
+    cantilever_length = 4,
+    registration_nub_height = 2,
+    registration_nub_diameter = 2.6,
+    spst_clearance = .4,
     exposed_height = 0,
     chamfer = 0,
     part_separation = $preview ? .1 : 1
@@ -43,11 +44,10 @@ module button_lever(
     e = .0235;
 
     button_x = PCB_XY + PCB_BUTTON_POSITION.x;
-    full_width = 11; // TODO: increase, derive against battery x
+    full_width = 11; // TODO: derive against battery x
     width_to_actuator_from_screw =
         full_width + mount_diameter / 2 - actuator_diameter / 2;
     width_to_screw = button_x - screw_mount_position.x;
-    cantilever_length = actuator_diameter;
 
     arm_z = get_button_lever_arm_z(arm_height);
     battery_top_z = ENCLOSURE_FLOOR_CEILING + BATTERY_LENGTH; // yep
@@ -89,6 +89,12 @@ module button_lever(
             -height_from_battery
         ];
 
+        base_dimensions = [
+            dimensions.x + brim_xy_coverage + brim_right_extension,
+            dimensions.y + brim_xy_coverage * 2,
+            arm_height
+        ];
+
         difference() {
             translate([width_to_actuator_from_screw, 0, -height_from_battery]) {
                 _c(actuator_diameter, height_from_battery + e);
@@ -100,7 +106,7 @@ module button_lever(
                 -height_from_battery - e
             ]) {
                 cylinder(
-                    d = registration_nub_diameter + tolerance * 2,
+                    d = registration_nub_diameter + tolerance * 4, // NOTE: intentionally loose
                     h = registration_nub_height + e
                 );
             }
@@ -112,28 +118,45 @@ module button_lever(
             }
 
             translate([
-                exposure_position.x + control_clearance
-                    - brim_xy_coverage,
-                exposure_position.y + control_clearance
-                    - brim_xy_coverage,
+                exposure_position.x,
+                screw_mount_position.y + actuator_diameter / -2,
                 0
             ]) {
-                chamfered_cube([
-                    dimensions.x + brim_xy_coverage
-                        + brim_right_extension,
-                    dimensions.y + brim_xy_coverage * 2,
+                cube([
+                    e,
+                    actuator_diameter,
                     arm_height
-                ], ENCLOSURE_INNER_CHAMFER);
+                ]);
+            }
+        }
+
+        translate([
+            exposure_position.x + control_clearance
+                - brim_xy_coverage,
+            exposure_position.y + control_clearance
+                - brim_xy_coverage,
+            0
+        ]) {
+            difference() {
+                cube(base_dimensions);
+
+                translate([base_dimensions.x, -e, arm_height]) {
+                    rotate([-90, 0, 0]) cylinder(
+                        r = ENCLOSURE_INNER_CHAMFER,
+                        h = dimensions.y + brim_xy_coverage * 2 + e * 2,
+                        $fn = 4
+                    );
+                }
             }
         }
 
         // TODO: DFM w/o print supports
         translate(fulcrum_position) {
-            chamfered_xy_cube([
+            cube([
                 fulcrum_width,
                 dimensions.y + brim_xy_coverage * 2,
-                height_from_battery + ENCLOSURE_INNER_CHAMFER
-            ], ENCLOSURE_INNER_CHAMFER);
+                height_from_battery + e
+            ]);
         }
 
         translate([
@@ -159,13 +182,13 @@ module button_lever(
         }
     }
 
-    // TODO: reduce for DFM and screw height; rounded_cube
+    // TODO: reduce for DFM and screw height
     module _actuator_mount() {
         bottom_height = SPST_ACTUATOR_HEIGHT_OFF_PCB
             + spst_clearance - spst_actuator_cavity_depth;
         height_above_switch = arm_z - height_from_battery
             - (actuator_mount_z + bottom_height);
-        height_to_screw_head = 4.9; // HACK! TODO: obviate or derive if keeping
+        height_to_screw_head = arm_z - actuator_mount_z - bottom_height;
 
         module _ends(height_1, height_2, distance) {
             _c(mount_diameter, height_1);
@@ -179,19 +202,17 @@ module button_lever(
             translate([0, 0, bottom_height]) {
                 _c(mount_diameter, height_to_screw_head);
 
-                translate([0, 0, spst_actuator_cavity_depth]) {
-                    hull() {
-                        _c(cantilever_length, cantilever_height);
+                hull() {
+                    _c(cantilever_length, cantilever_height);
 
-                        translate([width_to_actuator_from_screw, 0, 0]) {
-                            _c(cantilever_length, cantilever_height);
-                        }
+                    translate([width_to_actuator_from_screw, 0, 0]) {
+                        _c(cantilever_length, cantilever_height);
                     }
                 }
 
                 hull() {
                     translate([width_to_screw, 0, 0]) {
-                        _c(mount_diameter, spst_actuator_cavity_depth + e);
+                        _c(mount_diameter, height_above_switch + e);
                     }
 
                     translate([
