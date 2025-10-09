@@ -34,6 +34,8 @@ CONTROL_LENGTH = CONTROL_WIDTH +
 
 PCB_MOUNT_POST_CEILING = 1;
 
+ARROW_SVG = "../misc/arrow.svg";
+
 module enclosure(
     show_top = true,
     show_bottom = true,
@@ -364,28 +366,26 @@ module enclosure(
         }
 
         placard_length = (switch_window_length - gutter) / 2;
-        arrow_size = control_width - switch_window_width - gutter;
+        arrow_size = control_width - switch_window_width - gutter
+            - default_gutter;
 
-        for (controlI = [0, 1], directionI = [0, 1]) {
-            translate([
-                outer_gutter + switch_window_width + gutter
-                    + controlI * (control_width + default_gutter)
-                    + arrow_size / 2,
-                outer_gutter + ENCLOSURE_ENGRAVING_LENGTH + gutter
-                    + (placard_length - arrow_size) / 2
-                    + directionI * (placard_length + gutter)
-                    + arrow_size / 2,
-                dimensions.z - ENCLOSURE_ENGRAVING_DEPTH
-            ]) {
-                rotate([0, 0, (1 - directionI) * 180]) engraving(
-                    svg = "../misc/arrow.svg",
-                    resize = [arrow_size, arrow_size],
-                    bleed = quick_preview ? 0 : ENCLOSURE_ENGRAVING_BLEED,
-                    height = ENCLOSURE_ENGRAVING_DEPTH + e,
-                    center = true,
-                    chamfer =  0
-                );
-            }
+        for (i = [0, 1]) {
+            switch_clutch_enclosure_engraving(
+                svg = ARROW_SVG, svg_rotations = [180, 0],
+                resize = [arrow_size, arrow_size],
+                width = control_width - switch_window_width - gutter,
+                length = switch_window_length,
+                label_gutter = gutter,
+                size = top_engraving_model_text_size,
+                quick_preview = quick_preview,
+                position = [
+                    outer_gutter + i * (control_width + default_gutter)
+                        + switch_window_width + gutter,
+                    outer_gutter + ENCLOSURE_ENGRAVING_LENGTH
+                        + gutter
+                ],
+                enclosure_height = dimensions.z
+            );
         }
     }
 
