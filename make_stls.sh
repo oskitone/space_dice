@@ -64,6 +64,7 @@ function export_stl() {
             -D "SHOW_BUTTON_CAP=false" \
             -D "SHOW_SWITCH_CLUTCHES=false" \
             -D "SHOW_SPEAKER=false" \
+            -D "SHOW_LED_DISPLAY=false" \
             -D "SHOW_NUTS_AND_BOLTS=false" \
             -D "SHOW_ENCLOSURE_TOP=false" \
             -D "SHOW_PRINT_TEST=false" \
