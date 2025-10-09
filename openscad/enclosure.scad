@@ -402,12 +402,12 @@ module enclosure(
         translate([
             speaker_grill_position.x,
             speaker_grill_position.y,
-            dimensions.z - ENCLOSURE_FLOOR_CEILING - e
+            dimensions.z - ENCLOSURE_ENGRAVING_DEPTH + e
         ]) {
             diagonal_grill(
                 speaker_grill_dimensions.x,
                 speaker_grill_dimensions.y,
-                ENCLOSURE_FLOOR_CEILING + e * 2
+                ENCLOSURE_ENGRAVING_DEPTH
             );
         }
     }
