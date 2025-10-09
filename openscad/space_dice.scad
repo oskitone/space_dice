@@ -37,7 +37,6 @@ module space_dice(
     top_switch_exposed_height = 4,
     button_exposed_height = 6,
     knob_exposed_height = 8,
-    led_display_exposed_height = 2,
 
     control_clearance = .6,
     control_z_clearance = .4,
@@ -410,7 +409,7 @@ module space_dice(
             led_display(
                 exposed_width = control_width,
                 exposed_length = control_length,
-                exposed_height = -LED_DISPLAY_MARK_HEIGHT,
+                exposed_height = accessory_fillet,
                 inner_height = height - ENCLOSURE_FLOOR_CEILING
                     - exposure_position.z,
                 fillet = accessory_fillet,

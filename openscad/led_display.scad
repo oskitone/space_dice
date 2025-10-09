@@ -148,14 +148,6 @@ module led_display(
                 h = 100 // ideally PCB_BIG_CAP_HEIGHT when height is taller
             );
         }
-
-        // button lever
-        translate([21.3, 25, -e]) {
-            cylinder(
-                d = 9,
-                h = 100
-            );
-        }
     }
 
     difference() {
