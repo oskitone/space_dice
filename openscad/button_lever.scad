@@ -163,9 +163,15 @@ module button_lever(
             exposure_position.y + control_clearance,
             e
         ]) {
+            rounded_cube([
+                dimensions.x,
+                dimensions.y,
+                dimensions.z - exposed_height + fillet - e
+            ], fillet);
+
             hull() {
                 rounded_cube([
-                    dimensions.x,
+                    dimensions.x / 2 + chamfer,
                     dimensions.y,
                     dimensions.z - exposed_height + fillet - e
                 ], fillet);
@@ -173,8 +179,7 @@ module button_lever(
                 translate([chamfer, chamfer, dimensions.z - fillet * 2]) {
                     rounded_cube_corners([
                         (dimensions.x - chamfer * 2) / 2,
-                        dimensions.y - chamfer * 2,
-                        fillet
+                        dimensions.y - chamfer * 2
                     ], fillet);
                 }
             }
