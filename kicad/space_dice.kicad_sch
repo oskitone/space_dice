@@ -5,8 +5,8 @@
 	(uuid "bcd0d850-a20d-42e1-b97f-b14f9222717c")
 	(paper "USLegal")
 	(title_block
-		(date "2025-09-10")
-		(rev "250910")
+		(date "2025-10-10")
+		(rev "251010")
 	)
 	(lib_symbols
 		(symbol "4xxx:4017"
@@ -6176,7 +6176,7 @@
 		(dnp no)
 		(uuid "29392ac3-4409-4e86-b98f-f24cd527b053")
 		(property "Reference" "RV3"
-			(at 130.302 101.854 90)
+			(at 135.128 99.06 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6184,8 +6184,8 @@
 				(justify right)
 			)
 		)
-		(property "Value" "100k"
-			(at 130.302 103.886 90)
+		(property "Value" "10k log"
+			(at 133.858 101.092 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6193,7 +6193,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "kicad-official/Potentiometer_THT.pretty:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical"
+		(property "Footprint" "kicad-official/Potentiometer_THT.pretty:Potentiometer_Bourns_PTV09A-1_Single_Vertical"
 			(at 137.16 107.95 0)
 			(effects
 				(font
@@ -7676,7 +7676,7 @@
 				)
 			)
 		)
-		(property "Value" "100k"
+		(property "Value" "10k log"
 			(at 77.724 110.998 0)
 			(effects
 				(font
@@ -7684,7 +7684,7 @@
 				)
 			)
 		)
-		(property "Footprint" "kicad-official/Potentiometer_THT.pretty:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical"
+		(property "Footprint" "kicad-official/Potentiometer_THT.pretty:Potentiometer_Bourns_PTV09A-1_Single_Vertical"
 			(at 86.36 109.22 0)
 			(effects
 				(font
@@ -9145,7 +9145,7 @@
 				)
 			)
 		)
-		(property "Footprint" "kicad-official/Potentiometer_THT.pretty:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical"
+		(property "Footprint" "kicad-official/Potentiometer_THT.pretty:Potentiometer_Bourns_PTV09A-1_Single_Vertical"
 			(at 132.08 162.56 0)
 			(effects
 				(font
