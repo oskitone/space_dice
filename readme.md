@@ -29,7 +29,6 @@ Work in progress!
 ## TODO
 
 - Electronics
-  - BT1 and LS1 need polarity labels.
   - Fix big cap obstructions against LED display and OCT switch clutch
   - Move tracks away from screw mounts so they can't be inadvertently stripped off.
   - White LEDs.
