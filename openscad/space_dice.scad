@@ -42,7 +42,7 @@ module space_dice(
     control_z_clearance = .4,
 
     button_lever_arm_height = 2,
-    knob_brim_coverage = -1, // HACK: for PCB_POT_Y_NUDGE
+    knob_brim_coverage = 1,
 
     control_width = CONTROL_WIDTH,
     control_length = CONTROL_LENGTH,
