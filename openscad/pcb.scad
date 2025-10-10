@@ -1,5 +1,3 @@
-// TODO: update to latest PCB rev
-
 include <../../parts_cafe/openscad/ghost_cube.scad>;
 include <../../parts_cafe/openscad/led.scad>;
 include <../../parts_cafe/openscad/pot.scad>;
@@ -30,7 +28,6 @@ PCB_HOLE_POSITIONS = [
 ];
 PCB_HOLE_DIAMETER = 3.2;
 
-// TODO: differentiate side vs top actuator, no magic values
 PCB_SWITCH_POSITIONS = [
     get_translated_xy([97.5, 100.5]),
     get_translated_xy([120.15, 113.4]),
@@ -43,10 +40,8 @@ PCB_TOP_CONTROL_SWITCH_POSITONS = [
 ];
 
 // Pot footprints on PCB are wrong. When soldered, shafts are slightly too low.
-// TODO: fix, of course
 PCB_POT_Y_NUDGE = (6.3 - 5) / 2;
 
-// TODO: confirm vertical offshoot on test print
 PCB_POT_POSITIONS = [
     get_translated_xy([101.2 + PTV09A_POT_ORIGIN.x, 96.2 + PTV09A_POT_ORIGIN.y + PCB_POT_Y_NUDGE]),
     get_translated_xy([142.8 + PTV09A_POT_ORIGIN.x, 96.2 + PTV09A_POT_ORIGIN.y + PCB_POT_Y_NUDGE]),
@@ -67,7 +62,7 @@ PCB_LED_POSITIONS = [
 
 PCB_BOTTOM_CLEARANCE = 2; // ie, trimmed leads and solder joints
 PCB_BIG_CAP_HEIGHT = 12.2;
-PCB_SOCKETED_IC_HEIGHT = 8; // TODO
+PCB_SOCKETED_IC_HEIGHT = 8.2;
 PCB_TOP_CLEARANCES = [PCB_BIG_CAP_HEIGHT, PCB_SOCKETED_IC_HEIGHT];
 PCB_TOP_CLEARANCE = max(PCB_BIG_CAP_HEIGHT, PCB_SOCKETED_IC_HEIGHT);
 

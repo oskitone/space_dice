@@ -268,7 +268,6 @@ module space_dice(
     }
 
     if (show_button_cap) {
-        // TODO: tidy, if keeping
         reduced_control_clearance = control_clearance / 2;
 
         color(control_outer_color) {
@@ -331,7 +330,6 @@ module space_dice(
         base_width = control_width / 2 + overshoot.x * 2;
         base_length = control_width + SWITCH_ACTUATOR_TRAVEL + overshoot.y * 2;
 
-        // TODO: tidy, if keeping
         reduced_control_clearance = control_clearance / 2;
 
         for (i = [0 : len(PCB_TOP_CONTROL_SWITCH_POSITONS) - 1]) {
@@ -376,7 +374,6 @@ module space_dice(
                         tolerance = tolerance
                     );
 
-                    // TODO: obviate
                     if (i == 0) {
                         translate([6.3, 8.7, -50]) {
                             color(control_cavity_color) cylinder(

@@ -26,17 +26,23 @@ Work in progress!
 | U2                | DIP-16_W7.62mm_Socket_LongPads                    | 1        | 4040        |
 | U3                | DIP-16_W7.62mm_Socket_LongPads                    | 1        | 4017        |
 
-## Electronics TODO
+## TODO
 
-- Fix pot footprints. Tab holes are too small too high.
-- BT1 and LS1 need polarity labels.
-- Reverse RV1 and RV3 rotations. Clockwise for higher pitch and for more decay.
-- Try reducing RV1 and RV3 values. 10k-50k?
-- LEDs have + on the wrong side.
-- Make LEDs sequence more compelling. Cycle like a clock from top right?
-- Move tracks away from screw mounts so they can't be inadvertently stripped off.
-- White LEDs.
-- Fix obstruction against LED display.
+- Electronics
+  - Fix pot footprints. Tab holes are too small and too high.
+  - BT1 and LS1 need polarity labels.
+  - Reverse RV1 and RV3 rotations. Clockwise for higher pitch and for more decay.
+  - LEDs have + on the wrong side.
+  - Make LEDs sequence more compelling. Cycle like a clock from top right?
+  - Fix big cap obstructions against LED display and OCT switch clutch
+  - Try reducing RV1 and RV3 values. 10k-50k?
+  - Move tracks away from screw mounts so they can't be inadvertently stripped off.
+  - White LEDs.
+- OpenSCAD
+  - DFM: button_lever arm and actuator_mount
+  - Refine control_clearance vs reduced_control_clearance?
+  - Refactor button_lever mess, derive full_width
+  - Chamfer enclosure exposures consistently
 
 ## 3D-Printing and soldering advice
 

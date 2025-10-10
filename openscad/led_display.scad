@@ -6,10 +6,6 @@ include <../../parts_cafe/openscad/flat_top_rectangular_pyramid.scad>;
 
 include <enclosure.scad>;
 
-// TODO:
-// * ceiling tests
-// * confirm top wall vs fillet
-
 LED_DISPLAY_MARK_HEIGHT = .6;
 
 module led_display(

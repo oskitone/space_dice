@@ -252,7 +252,6 @@ module enclosure(
         );
     }
 
-    // TODO: chamfer cubic holes too
     module _top_exposures() {
         // Math in here uses PCB values instead of deriving based
         // on layout. They should be the same tho!

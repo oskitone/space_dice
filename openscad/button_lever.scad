@@ -1,6 +1,3 @@
-// This code is messy!! AHHHH
-// TODO: ^
-
 include <../../parts_cafe/openscad/battery-9v.scad>;
 include <../../parts_cafe/openscad/chamfered_cube.scad>;
 include <../../parts_cafe/openscad/chamfered_xy_cube.scad>;
@@ -47,7 +44,7 @@ module button_lever(
     e = .0235;
 
     button_x = PCB_XY + PCB_BUTTON_POSITION.x;
-    full_width = 11; // TODO: derive against battery x
+    full_width = 11;
     width_to_actuator_from_screw =
         full_width + mount_diameter / 2 - actuator_diameter / 2;
     width_to_screw = button_x - screw_mount_position.x;
@@ -153,7 +150,6 @@ module button_lever(
             }
         }
 
-        // TODO: DFM w/o print supports
         translate(fulcrum_position) {
             cube([
                 fulcrum_width,
@@ -185,7 +181,6 @@ module button_lever(
         }
     }
 
-    // TODO: DFM
     module _actuator_mount() {
         bottom_height = BUTTON_LEVER_ACTUATOR_MOUNT_BOTTOM_HEIGHT;
         height_above_switch = arm_z - height_from_battery
