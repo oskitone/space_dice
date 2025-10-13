@@ -108,6 +108,7 @@ module space_dice(
     enclosure_top_height = height - enclosure_bottom_height;
 
     knob_diameter = CONTROL_WIDTH - control_clearance * 2;
+    knob_brim_diameter = CONTROL_WIDTH + knob_brim_coverage;
 
     right_panel_width = width
         - outer_gutter * 2 - default_gutter * 3
@@ -156,6 +157,7 @@ module space_dice(
             114.3 - (speaker_position.y - pcb_position.y),
         ]
     );
+    echo("Knob bottom diameter", knob_brim_diameter);
 
     minimum_height = pcb_position.z + PCB_HEIGHT + pcb_top_clearance
         + ENCLOSURE_FLOOR_CEILING;
@@ -255,7 +257,7 @@ module space_dice(
                     fillet = accessory_fillet,
                     dimple_y = knob_diameter / 2 / 2,
                     round_bottom = false,
-                    brim_diameter = CONTROL_WIDTH + knob_brim_coverage,
+                    brim_diameter = knob_brim_diameter,
                     brim_height =
                         height - ENCLOSURE_FLOOR_CEILING - knob_z - control_z_clearance,
                     color = "#FFFFFF",
