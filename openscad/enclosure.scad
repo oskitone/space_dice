@@ -44,8 +44,6 @@ module enclosure(
     bottom_height = 0,
     top_height = 0,
 
-    control_clearance = 0,
-
     pcb_position = [0,0,0],
 
     speaker_position = [0,0,0],
