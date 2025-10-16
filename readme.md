@@ -32,7 +32,6 @@ Work in progress!
   - White LEDs.
 - OpenSCAD
   - DFM: button_lever arm and actuator_mount
-  - Refactor button_lever mess, derive full_width
   - Chamfer enclosure exposures consistently
   - Split STL parts, rotate for printing
 

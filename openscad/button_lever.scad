@@ -25,6 +25,8 @@ function get_button_lever_arm_z(arm_height) = (
 
 module button_lever(
     screw_mount_position,
+    battery_position,
+    battery_clearance = .4,
     exposure_position,
     exposure_dimensions,
     control_clearance,
@@ -39,15 +41,17 @@ module button_lever(
     registration_nub_diameter = 2.6,
     exposed_height = 0,
     chamfer = 0,
+    fulcrum_width = 4,
     part_separation = $preview ? .1 : 1
 ) {
     e = .0235;
 
-    button_x = PCB_XY + PCB_BUTTON_POSITION.x;
-    full_width = 11;
     width_to_actuator_from_screw =
-        full_width + mount_diameter / 2 - actuator_diameter / 2;
-    width_to_screw = button_x - screw_mount_position.x;
+        battery_position.x - screw_mount_position.x
+        - actuator_diameter / 2
+        - tolerance - battery_clearance;
+    width_to_screw = PCB_XY + PCB_BUTTON_POSITION.x
+        - screw_mount_position.x;
 
     arm_z = get_button_lever_arm_z(arm_height);
     battery_top_z = ENCLOSURE_FLOOR_CEILING + BATTERY_LENGTH; // yep
@@ -57,10 +61,6 @@ module button_lever(
         - ENCLOSURE_WALL;
 
     brim_xy_coverage = SCOUT_DEFAULT_GUTTER / 2;
-    brim_right_extension = max_right_x
-        - exposure_position.x
-        - exposure_dimensions.x
-        + control_clearance;
 
     dimensions = [
         exposure_dimensions.x - control_clearance * 2,
@@ -81,123 +81,131 @@ module button_lever(
         }
     }
 
-    module _arm(fulcrum_width = 4) {
-        fulcrum_position = [
-            max_right_x - fulcrum_width,
-            exposure_position.y + control_clearance
-                    - brim_xy_coverage,
-            -height_from_battery
-        ];
-
-        base_dimensions = [
-            dimensions.x + brim_xy_coverage + brim_right_extension,
-            dimensions.y + brim_xy_coverage * 2,
-            arm_height
-        ];
-
-        difference() {
-            translate([width_to_actuator_from_screw, 0, -height_from_battery]) {
-                _c(actuator_diameter, height_from_battery + e);
-            }
-
-            translate([
-                screw_mount_position.x + width_to_actuator_from_screw,
-                screw_mount_position.y,
-                -height_from_battery - e
-            ]) {
-                cylinder(
-                    d = registration_nub_diameter + tolerance * 4, // NOTE: intentionally loose
-                    h = registration_nub_height + e
-                );
-            }
-        }
-
-        hull() {
-            translate([width_to_actuator_from_screw, 0, 0]) {
-                _c(actuator_diameter, arm_height);
-            }
-
-            translate([
-                exposure_position.x,
-                screw_mount_position.y + actuator_diameter / -2,
-                0
-            ]) {
-                cube([
-                    e,
-                    actuator_diameter,
-                    arm_height
-                ]);
-            }
-        }
-
-        translate([
-            exposure_position.x + control_clearance
-                - brim_xy_coverage,
-            exposure_position.y + control_clearance
-                - brim_xy_coverage,
-            0
-        ]) {
+    module _arm() {
+        module _registration_nub_ring() {
             difference() {
-                cube(base_dimensions);
+                translate([width_to_actuator_from_screw, 0, -height_from_battery]) {
+                    _c(actuator_diameter, height_from_battery + e);
+                }
 
-                translate([base_dimensions.x, -e, arm_height]) {
-                    rotate([-90, 0, 0]) cylinder(
-                        r = ENCLOSURE_INNER_CHAMFER,
-                        h = dimensions.y + brim_xy_coverage * 2 + e * 2,
-                        $fn = 4
+                translate([
+                    screw_mount_position.x + width_to_actuator_from_screw,
+                    screw_mount_position.y,
+                    -height_from_battery - e
+                ]) {
+                    cylinder(
+                        d = registration_nub_diameter + tolerance * 4, // NOTE: intentionally loose
+                        h = registration_nub_height + e
                     );
                 }
             }
         }
 
-        translate(fulcrum_position) {
-            cube([
-                fulcrum_width,
-                dimensions.y + brim_xy_coverage * 2,
-                height_from_battery + e
-            ]);
-        }
+        module _base() {
+            brim_right_extension = max_right_x
+                - exposure_position.x
+                - exposure_dimensions.x
+                + control_clearance;
 
-        translate([
-            exposure_position.x + control_clearance,
-            exposure_position.y + control_clearance,
-            e
-        ]) {
-            rounded_cube([
-                dimensions.x,
-                dimensions.y,
-                dimensions.z - exposed_height + fillet - e
-            ], fillet);
+            dimensions = [
+                dimensions.x + brim_xy_coverage + brim_right_extension,
+                dimensions.y + brim_xy_coverage * 2,
+                arm_height
+            ];
 
             hull() {
+                translate([width_to_actuator_from_screw, 0, 0]) {
+                    _c(actuator_diameter, arm_height);
+                }
+
+                translate([
+                    exposure_position.x,
+                    screw_mount_position.y + actuator_diameter / -2,
+                    0
+                ]) {
+                    cube([
+                        e,
+                        actuator_diameter,
+                        arm_height
+                    ]);
+                }
+            }
+
+            translate([
+                exposure_position.x + control_clearance
+                    - brim_xy_coverage,
+                exposure_position.y + control_clearance
+                    - brim_xy_coverage,
+                0
+            ]) {
+                difference() {
+                    cube(dimensions);
+
+                    translate([dimensions.x, -e, arm_height]) {
+                        rotate([-90, 0, 0]) cylinder(
+                            r = ENCLOSURE_INNER_CHAMFER,
+                            h = dimensions.y + brim_xy_coverage * 2 + e * 2,
+                            $fn = 4
+                        );
+                    }
+                }
+            }
+        }
+
+        module _fulcrum() {
+            translate([
+                max_right_x - fulcrum_width,
+                exposure_position.y + control_clearance
+                        - brim_xy_coverage,
+                -height_from_battery
+            ]) {
+                cube([
+                    fulcrum_width,
+                    dimensions.y + brim_xy_coverage * 2,
+                    height_from_battery + e
+                ]);
+            }
+        }
+
+        module _cap() {
+            translate([
+                exposure_position.x + control_clearance,
+                exposure_position.y + control_clearance,
+                e
+            ]) {
                 rounded_cube([
-                    dimensions.x / 2 + chamfer,
+                    dimensions.x,
                     dimensions.y,
                     dimensions.z - exposed_height + fillet - e
                 ], fillet);
 
-                translate([chamfer, chamfer, dimensions.z - fillet * 2]) {
-                    rounded_cube_corners([
-                        (dimensions.x - chamfer * 2) / 2,
-                        dimensions.y - chamfer * 2
+                hull() {
+                    rounded_cube([
+                        dimensions.x / 2 + chamfer,
+                        dimensions.y,
+                        dimensions.z - exposed_height + fillet - e
                     ], fillet);
+
+                    translate([chamfer, chamfer, dimensions.z - fillet * 2]) {
+                        rounded_cube_corners([
+                            (dimensions.x - chamfer * 2) / 2,
+                            dimensions.y - chamfer * 2
+                        ], fillet);
+                    }
                 }
             }
         }
+
+        _registration_nub_ring();
+        _base();
+        _fulcrum();
+        _cap();
     }
 
     module _actuator_mount() {
         bottom_height = BUTTON_LEVER_ACTUATOR_MOUNT_BOTTOM_HEIGHT;
         height_above_switch = arm_z - height_from_battery
             - (actuator_mount_z + bottom_height);
-
-        module _ends(height_1, height_2, distance) {
-            _c(mount_diameter, height_1);
-
-            translate([distance, 0, 0]) {
-                _c(mount_diameter, height_2);
-            }
-        }
 
         difference() {
             translate([0, 0, bottom_height]) {

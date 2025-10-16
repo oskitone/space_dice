@@ -275,6 +275,7 @@ module space_dice(
                     pcb_position.x + pcb_screw_hole_position.x,
                     pcb_position.y + pcb_screw_hole_position.y
                 ],
+                battery_position = battery_position,
                 exposure_position = button_cap_exposure_position,
                 exposure_dimensions = button_cap_exposure_dimensions,
                 control_clearance = control_clearance,
