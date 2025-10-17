@@ -1,30 +1,33 @@
 # Space Dice
 
+![Oskitone Space Dice 3D model](/misc/12-90-600.gif)
+
+Electronic dice + space laser noise machine
+
 Work in progress!
 
 ## Schematic
 
-![space dice prototype schematic](/kicad/space_dice.svg)
+![Oskitone Space Dice schematic](/misc/schematic.svg)
 
 ## BOM
 
-| Designator        | Footprint                                         | Quantity | Designation |
-| ----------------- | ------------------------------------------------- | -------- | ----------- |
-| BT1               | PinHeader_1x02_P2.54mm_Vertical                   | 1        | 9v          |
-| C1,C4             | CP_Radial_D7.5mm_P2.50mm                          | 2        | 220uF       |
-| C5,C3,C2          | C_Disc_D5.0mm_W2.5mm_P5.00mm                      | 3        | .1uF        |
-| D6,D2,D5,D4,D1,D3 | LED_D3.0mm                                        | 6        | LED         |
-| LS1               | PinHeader_1x02_P2.54mm_Vertical                   | 1        | Speaker     |
-| R1,R2             | R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal  | 2        | 1k          |
-| R3                | R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal  | 1        | 330         |
-| RV2               | Potentiometer_Alpha_RD901F-40-00D_Single_Vertical | 1        | 10k log     |
-| RV3,RV1           | Potentiometer_Alpha_RD901F-40-00D_Single_Vertical | 2        | 100k        |
-| SW2               | SW_PUSH_6mm                                       | 1        | SW_SPST     |
-| SW3               | SW_CuK_OS102011MA1QN1_SPDT_Angled                 | 1        | SW_SPDT     |
-| SW4,SW1           | SW_Slide_1P2T_CK_OS102011MS2Q                     | 2        | SW_SPDT     |
-| U1                | DIP-14_W7.62mm_Socket_LongPads                    | 1        | HEF4093B    |
-| U2                | DIP-16_W7.62mm_Socket_LongPads                    | 1        | 4040        |
-| U3                | DIP-16_W7.62mm_Socket_LongPads                    | 1        | 4017        |
+| Designator        | Footprint                                        | Quantity | Designation |
+| ----------------- | ------------------------------------------------ | -------- | ----------- |
+| BT1               | battery                                          | 1        | 9v          |
+| C1,C4             | CP_Radial_D7.5mm_P2.50mm                         | 2        | 220uF       |
+| C5,C3,C2          | C_Disc_D5.0mm_W2.5mm_P5.00mm                     | 3        | .1uF        |
+| D6,D2,D5,D4,D1,D3 | LED_D3.0mm                                       | 6        | LED         |
+| LS1               | speaker                                          | 1        | AZ40R       |
+| R1,R2             | R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal | 2        | 1k          |
+| R3                | R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal | 1        | 330         |
+| RV3,RV2,RV1       | Potentiometer_Bourns_PTV09A-1_Single_Vertical    | 3        | 10k log     |
+| SW2               | SW_PUSH_6mm                                      | 1        | SW_SPST     |
+| SW3               | SW_CuK_OS102011MA1QN1_SPDT_Angled                | 1        | SW_SPDT     |
+| SW4,SW1           | SW_Slide_1P2T_CK_OS102011MS2Q                    | 2        | SW_SPDT     |
+| U1                | DIP-14_W7.62mm_Socket_LongPads                   | 1        | 4093        |
+| U2                | DIP-16_W7.62mm_Socket_LongPads                   | 1        | 4040        |
+| U3                | DIP-16_W7.62mm_Socket_LongPads                   | 1        | 4017        |
 
 ## TODO
 
