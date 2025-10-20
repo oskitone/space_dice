@@ -38,11 +38,43 @@ Work in progress!
   - Chamfer enclosure exposures consistently
   - Split STL parts, rotate for printing
 
-## 3D-Printing and soldering advice
+### Soldering instructions
 
-- Force bridging angles to be consistent.
+General advice:
+
 - All components need to be flush against PCB but _especially_ the big caps. Clearance inside the enclosure is _tight_.
 - Similarly, trim soldered leads on the PCB's bottom as close as possible. It's easy to accidentally short connections on assembly.
+
+1. Power
+   1. 9v battery snap to BT1
+   2. Right-angled SPDT switch to SW3
+   3. 16-pin socket and CD4017 to U3
+   4. .1uF capacitor to C5
+   5. LEDs to D1 through D6
+   6. 330 ohm resistor to R3
+   7. **Test:** Connect battery and toggle SW3. One of the LEDs should light up.
+2. Count
+   1. 14-pin socket and CD4093 to U1
+   2. 16-pin socket and CD4040 to U2
+   3. .1uF capacitors to C3 and C2
+   4. 1k resistors to R1 and R2
+   5. 10k log pots to RV1 and RV3
+   6. Pushbutton SPST switch to SW2
+   7. Vertical SPDT to SW4
+   8. **Test:** Pressing SW2 should cycle the LEDs lighting up, D1 through D6 and then looping back to D1. RV3 and SW4 should control how fast it loops. RV1 doesn't do anything, yet!
+3. Sound
+   1. Vertical SPDT to SW1
+   2. 10k log pot to RV2
+   3. 220uF capacitor to C4
+   4. Wire and speaker to LS1
+   5. **Test:** Pressing SW2 should now also make a beeping sound. RV2 should control its volume. RV3 and SW1 should control pitch.
+4. Decay
+   1. 220uF capacitor to C1
+   2. **Test:** The beep from before should now sound like a little space laser. RV1 now controls its decay.
+
+### 3D-Printing
+
+- Force bridging angles to be consistent.
 
 ## 3D models
 
