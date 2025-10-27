@@ -136,16 +136,6 @@ module led_display(
         }
     }
 
-    module _HACK_deobstructions() {
-        // C1
-        translate([-2, 26.9, -e]) {
-            cylinder(
-                d = 9,
-                h = 100 // ideally PCB_BIG_CAP_HEIGHT when height is taller
-            );
-        }
-    }
-
     difference() {
         union() {
             color(cavity_color) {
@@ -153,10 +143,6 @@ module led_display(
             }
 
             _exposed_pip_cells();
-        }
-
-        color(cavity_color) {
-            _HACK_deobstructions();
         }
 
         // DEBUG x

@@ -102,12 +102,10 @@ module space_dice(
     ];
 
     switch_clutch_grip_height = height / 2;
-        // - (pcb_position.z + PCB_HEIGHT + SWITCH_ACTUATOR_Z) * 2;
 
     enclosure_bottom_height = pcb_position.z - ENCLOSURE_LIP_HEIGHT + PCB_HEIGHT;
     enclosure_top_height = height - enclosure_bottom_height;
 
-    // TODO: confirm clearance is okay
     knob_diameter = CONTROL_WIDTH - control_clearance * 2;
     knob_brim_diameter = CONTROL_WIDTH + knob_brim_coverage;
 
@@ -338,50 +336,38 @@ module space_dice(
                 pcb_position.y + xy.y,
                 z - e
             ]) {
-                difference() {
-                    switch_clutch(
-                        base_width = SWITCH_CLUTCH_MIN_BASE_WIDTH,
-                        base_length = SWITCH_CLUTCH_MIN_BASE_LENGTH,
-                        base_height = height - z - ENCLOSURE_FLOOR_CEILING
-                            - control_z_clearance,
+                switch_clutch(
+                    base_width = SWITCH_CLUTCH_MIN_BASE_WIDTH,
+                    base_length = SWITCH_CLUTCH_MIN_BASE_LENGTH,
+                    base_height = height - z - ENCLOSURE_FLOOR_CEILING
+                        - control_z_clearance,
 
-                        plate_width = base_width,
-                        plate_length = base_length,
-                        plate_height = ENCLOSURE_FLOOR_CEILING,
+                    plate_width = base_width,
+                    plate_length = base_length,
+                    plate_height = ENCLOSURE_FLOOR_CEILING,
 
-                        actuator_width = control_width / 2
-                            - control_clearance * 2,
-                        actuator_length = control_width - SWITCH_ACTUATOR_TRAVEL
-                            - control_clearance * 2,
-                        actuator_height = ENCLOSURE_FLOOR_CEILING
-                            + top_switch_exposed_height + control_z_clearance,
+                    actuator_width = control_width / 2
+                        - control_clearance * 2,
+                    actuator_length = control_width - SWITCH_ACTUATOR_TRAVEL
+                        - control_clearance * 2,
+                    actuator_height = ENCLOSURE_FLOOR_CEILING
+                        + top_switch_exposed_height + control_z_clearance,
 
-                        position = 1,
+                    position = 1,
 
-                        cavity_base_height = -e,
-                        cavity_actuator_height = SWITCH_ACTUATOR_HEIGHT + e,
+                    cavity_base_height = -e,
+                    cavity_actuator_height = SWITCH_ACTUATOR_HEIGHT + e,
 
-                        fillet = accessory_fillet,
+                    fillet = accessory_fillet,
 
-                        color = control_outer_color,
-                        cavity_color = control_cavity_color,
+                    color = control_outer_color,
+                    cavity_color = control_cavity_color,
 
-                        chamfer_cavity_top = false,
-                        chamfer_cavity_entrance = true,
+                    chamfer_cavity_top = false,
+                    chamfer_cavity_entrance = true,
 
-                        tolerance = tolerance
-                    );
-
-                    if (i == 0) {
-                        translate([6.3, 8.7, -50]) {
-                            color(control_cavity_color) cylinder(
-                                d = 9,
-                                h = 100,
-                                $fn = 24
-                            );
-                        }
-                    }
-                }
+                    tolerance = tolerance
+                );
             }
         }
     }
