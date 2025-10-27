@@ -76,6 +76,9 @@ module led_display(
         }
 
         for (columnI = [0 : columns - 1], rowI = [0 : rows - 1]) {
+            i = columnI + (rows - rowI - 1) * (rows - 1);
+            pip_counts = [6, 1, 5, 2, 4, 3];
+
             translate([
                 tolerance + cell_width * columnI + cell_width / 2,
                 tolerance + cell_length * rowI + cell_length / 2,
@@ -84,7 +87,7 @@ module led_display(
                 color(accent_color) {
                     linear_extrude(height = mark_height + e) {
                         dice_pips(
-                            count = columnI + (rows - rowI) * (rows - 1) - 1,
+                            count = pip_counts[i],
                             diameter = pip_diameter,
                             size = min(cell_width, cell_length) - wall * 2 - pip_diameter
                                 - gutter_from_fillet * 2,
