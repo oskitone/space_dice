@@ -29,14 +29,34 @@ Work in progress!
 | U2                | DIP-16_W7.62mm_Socket_LongPads                   | 1        | 4040        |
 | U3                | DIP-16_W7.62mm_Socket_LongPads                   | 1        | 4017        |
 
+Also:
+
+- A couple inches of 2-wire ribbon cables (or similar small gauge, stranded wire)
+- 3 DIP sockets
+  - 1 14 pin for U1, U2
+  - 2 14 pin for U3
+- 2 nuts and bolts
+  - 1 4/40 square nuts
+  - 1 4/40 1/2" machine screws
+
 ## TODO
 
 - Electronics
-  - White LEDs.
+  - White LEDs
+  - Obscured silkscreen labels on caps left of U1
+  - U1 obstructions
+  - Faster INCREMENT\_ oscs?
+  - Bigger clearance around pots
 - OpenSCAD
   - DFM: button_lever arm and actuator_mount
   - Chamfer enclosure exposures consistently
   - Split STL parts, rotate for printing
+  - Nicer top brand engraving
+  - Bigger, chamfered actuator cavity
+  - Fix false button triggers
+    - Account for pot tabs in PCB_BOTTOM_CLEARANCE
+  - Don't use battery for lever; height will be inconsistent
+  - STL manifold issues?
 
 ### Soldering instructions
 
