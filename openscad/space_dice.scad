@@ -495,4 +495,9 @@ space_dice(
 
 // speaker
 // translate([28.2, -1, -1]) cube([100, 100, 100]);
+
+// branding engraving
+// translate([-1, -1, -1]) cube([64, 100, 100]);
+// translate([-1, -1, -1]) cube([100, 42, 100]);
+// translate([-1, -1, -1]) cube([100, 100, 20]);
 }

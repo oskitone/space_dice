@@ -222,32 +222,19 @@ module enclosure(
     }
 
     module _top_branding_engraving(gutter = ENCLOSURE_ENGRAVING_GUTTER) {
-        wordmark_length = right_panel_width * OSKITONE_LENGTH_WIDTH_RATIO;
-        placard_length = branding_dimensions.y - wordmark_length - gutter;
-
-        enclosure_engraving(
-            size = wordmark_length,
-            position = [
-                branding_position.x +  + right_panel_width / 2,
-                branding_position.y + placard_length + gutter
-                    + wordmark_length / 2
-            ],
-            bottom = false,
-            quick_preview = quick_preview,
-            enclosure_height = dimensions.z
-        );
-
         enclosure_engraving(
             string = "SPACE DICE",
             size = top_engraving_model_text_size,
             position = [
-                branding_position.x +  + right_panel_width / 2,
-                branding_position.y + placard_length / 2
+                branding_position.x +  + branding_dimensions.x / 2,
+                branding_position.y + branding_dimensions.y / 2
             ],
             placard = [
-                right_panel_width,
-                placard_length
+                branding_dimensions.x,
+                branding_dimensions.y
             ],
+            include_wordmark = true,
+            wordmark_gutter = [ENCLOSURE_ENGRAVING_GUTTER * 2, ENCLOSURE_ENGRAVING_GUTTER],
             bottom = false,
             center = true,
             quick_preview = quick_preview,
