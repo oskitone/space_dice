@@ -38,7 +38,8 @@ module space_dice(
     button_exposed_height = 6,
     knob_exposed_height = 8,
 
-    control_clearance = .3,
+    switch_clearance = .3,
+    knob_clearance = .5,
     control_z_clearance = .4,
 
     button_lever_arm_height = 2,
@@ -106,7 +107,7 @@ module space_dice(
     enclosure_bottom_height = pcb_position.z - ENCLOSURE_LIP_HEIGHT + PCB_HEIGHT;
     enclosure_top_height = height - enclosure_bottom_height;
 
-    knob_diameter = CONTROL_WIDTH - control_clearance * 2;
+    knob_diameter = CONTROL_WIDTH - knob_clearance * 2;
     knob_brim_diameter = CONTROL_WIDTH + knob_brim_coverage;
 
     right_panel_width = width
@@ -276,7 +277,7 @@ module space_dice(
                 battery_position = battery_position,
                 exposure_position = button_cap_exposure_position,
                 exposure_dimensions = button_cap_exposure_dimensions,
-                control_clearance = control_clearance,
+                control_clearance = switch_clearance,
                 arm_height = button_lever_arm_height,
                 fillet = accessory_fillet,
                 tolerance = tolerance,
@@ -347,9 +348,9 @@ module space_dice(
                     plate_height = ENCLOSURE_FLOOR_CEILING,
 
                     actuator_width = control_width / 2
-                        - control_clearance * 2,
+                        - switch_clearance * 2,
                     actuator_length = control_width - SWITCH_ACTUATOR_TRAVEL
-                        - control_clearance * 2,
+                        - switch_clearance * 2,
                     actuator_height = ENCLOSURE_FLOOR_CEILING
                         + top_switch_exposed_height + control_z_clearance,
 

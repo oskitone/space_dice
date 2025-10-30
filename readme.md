@@ -46,7 +46,6 @@ Also:
   - Obscured silkscreen labels on caps left of U1
   - U1 obstructions
   - Faster INCREMENT\_ oscs?
-  - Bigger clearance around pots
 - OpenSCAD
   - DFM: button_lever arm and actuator_mount
   - Chamfer enclosure exposures consistently
