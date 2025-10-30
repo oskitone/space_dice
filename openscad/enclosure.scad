@@ -21,7 +21,7 @@ PCB_XY = 5;
 ALTOIDS_TIN_DIMENSIONS = [95,60,20];
 
 // NOTE: Height is a nice arbitrary number and leaves
-// room for for 9v and component clearance.
+// room for 9v and component clearance.
 ENCLOSURE_DIMENSIONS = [
     ALTOIDS_TIN_DIMENSIONS.x,
     ALTOIDS_TIN_DIMENSIONS.y,
@@ -119,14 +119,11 @@ module enclosure(
         }
     }
 
-    module _bottom_engraving(
-        wordmark_length = 8,
-        make_y = dimensions.y * .25
-    ) {
+    module _bottom_engraving() {
         render() enclosure_engraving(
-            size = wordmark_length,
-            center = true,
-            position = [dimensions.x / 2, make_y],
+            size = 8, // NOTE: eyeballed against speaker
+            center = false,
+            position = [dimensions.x - outer_gutter, outer_gutter],
             bottom = true,
             quick_preview = quick_preview,
             enclosure_height = dimensions.z
@@ -196,23 +193,31 @@ module enclosure(
         }
     }
 
-    module _speaker_fixture() {
+    module _speaker_fixture(cavity = false) {
         translate([
             speaker_position.x,
             speaker_position.y,
             speaker_position.z - e,
         ]) {
-            speaker_fixture(
-                height = SPEAKER_HEIGHT + e,
-                wall = ENCLOSURE_INNER_WALL,
+            if (cavity) {
+                cylinder(
+                    d = SPEAKER_DIAMETER + tolerance * 2,
+                    h = ENCLOSURE_FLOOR_CEILING - speaker_position.z + e * 2,
+                    $fn = quick_preview ? undef : 120
+                );
+            } else {
+                speaker_fixture(
+                    height = SPEAKER_HEIGHT + e,
+                    wall = ENCLOSURE_INNER_WALL,
 
-                // NOTE: eyeballed against pcb_mount_post
-                tab_cavity_count = 4,
-                tab_cavity_rotation = 99 - (360 / 4),
+                    // NOTE: eyeballed against pcb_mount_post
+                    tab_cavity_count = 4,
+                    tab_cavity_rotation = 99 - (360 / 4),
 
-                tolerance = tolerance,
-                quick_preview = quick_preview
-            );
+                    tolerance = tolerance,
+                    quick_preview = quick_preview
+                );
+            }
         }
     }
 
@@ -445,7 +450,7 @@ module enclosure(
                 _half(bottom_height, lip = true);
 
                 color(outer_color) {
-                    _speaker_fixture();
+                    _speaker_fixture(cavity = false);
                     _bottom_pcb_fixtures();
                     _switch_clutch_fixture();
                 }
@@ -454,6 +459,7 @@ module enclosure(
             color(cavity_color) {
                 _bottom_engraving();
                 _switch_clutch_exposure();
+                _speaker_fixture(cavity = true);
             }
         }
     }

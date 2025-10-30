@@ -83,16 +83,16 @@ module space_dice(
     available_width = width - outer_gutter * 2;
     available_length = length - outer_gutter * 2;
 
+    speaker_z = ENCLOSURE_FLOOR_CEILING - ENCLOSURE_ENGRAVING_DEPTH;
     pcb_position = [
         PCB_XY,
         PCB_XY,
-        ENCLOSURE_FLOOR_CEILING + SPEAKER_HEIGHT + pcb_bottom_clearance
+        speaker_z + SPEAKER_HEIGHT + pcb_bottom_clearance
     ];
-
     speaker_position = [
         pcb_position.x + pcb_screw_hole_position.x / 2,
         pcb_position.y + pcb_length / 2,
-        ENCLOSURE_FLOOR_CEILING
+        speaker_z
     ];
 
     battery_position = [
@@ -491,4 +491,7 @@ space_dice(
 
 // LED display
 // translate([51.2, -1, -1]) cube([100, 100, 100]);
+
+// speaker
+// translate([28.2, -1, -1]) cube([100, 100, 100]);
 }

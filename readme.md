@@ -53,8 +53,7 @@ Also:
   - Split STL parts, rotate for printing
   - Nicer top brand engraving
   - Bigger, chamfered actuator cavity
-  - Fix false button triggers
-    - Account for pot tabs in PCB_BOTTOM_CLEARANCE
+  - Prevent false button triggers
   - Don't use battery for lever; height will be inconsistent
   - STL manifold issues?
 
