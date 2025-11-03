@@ -50,7 +50,6 @@ Also:
   - DFM: button_lever arm and actuator_mount
   - Chamfer enclosure exposures consistently
   - Split STL parts, rotate for printing
-  - Nicer top brand engraving
   - Bigger, chamfered actuator cavity
   - Prevent false button triggers
   - Don't use battery for lever; height will be inconsistent

@@ -49,7 +49,7 @@ module enclosure(
     speaker_position = [0,0,0],
 
     top_engraving_model_text_size =
-        SWITCH_CLUTCH_ENCLOSURE_ENGRAVING_SECONDARY_TEXT_SIZE,
+        ENCLOSURE_ENGRAVING_TEXT_SIZE,
 
     fillet = ENCLOSURE_FILLET,
     inner_chamfer = ENCLOSURE_INNER_CHAMFER,
@@ -223,7 +223,7 @@ module enclosure(
 
     module _top_branding_engraving(gutter = ENCLOSURE_ENGRAVING_GUTTER) {
         enclosure_engraving(
-            string = "SPACE DICE",
+            string = "SPACE\nDICE",
             size = top_engraving_model_text_size,
             position = [
                 branding_position.x +  + branding_dimensions.x / 2,

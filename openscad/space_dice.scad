@@ -113,23 +113,11 @@ module space_dice(
     right_panel_width = width
         - outer_gutter * 2 - default_gutter * 3
         - control_width * 3;
-    right_panel_section_length =
-        (length - outer_gutter * 2 - default_gutter * 4) / (4 + 1);
-    branding_dimensions = [
-        right_panel_width,
-        (length - outer_gutter * 2) / 5
-    ];
-    speaker_grill_dimensions = [
-        right_panel_width,
-        (length - outer_gutter * 2) / 3
-    ];
-    button_cap_exposure_dimensions = [
-        right_panel_width,
-        (length - outer_gutter * 2)
-            - branding_dimensions.y
-            - speaker_grill_dimensions.y
-            - default_gutter * 2
-    ];
+    right_panel_third_length =
+        (length - outer_gutter * 2 - default_gutter * 2) / 3;
+    branding_dimensions = [right_panel_width, right_panel_third_length];
+    speaker_grill_dimensions = [ right_panel_width, right_panel_third_length];
+    button_cap_exposure_dimensions = [right_panel_width, right_panel_third_length];
 
     branding_position = [
         width - outer_gutter - right_panel_width,
@@ -498,6 +486,6 @@ space_dice(
 
 // branding engraving
 // translate([-1, -1, -1]) cube([64, 100, 100]);
-// translate([-1, -1, -1]) cube([100, 42, 100]);
+// translate([-1, -1, -1]) cube([100, 39, 100]);
 // translate([-1, -1, -1]) cube([100, 100, 20]);
 }
