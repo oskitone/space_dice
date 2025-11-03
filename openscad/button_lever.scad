@@ -204,9 +204,11 @@ module button_lever(
 
     spacer_height = BUTTON_LEVER_ACTUATOR_MOUNT_BOTTOM_HEIGHT;
 
-    module _actuator_top() {
+    module _actuator_top(cavity_chamfer = .4) {
         height_above_switch = arm_z - height_from_battery
             - (actuator_mount_z + spacer_height);
+        actuator_cavity_diameter = SPST_ACTUATOR_DIAMETER
+            + (tolerance + control_clearance) * 2;
 
         difference() {
             translate([0, 0, spacer_height]) {
@@ -249,11 +251,20 @@ module button_lever(
                 }
             }
 
-            translate([width_to_screw, 0, 0]) {
-                _c(
-                    SPST_ACTUATOR_DIAMETER + tolerance * 2,
-                    BUTTON_LEVER_ACTUATOR_MOUNT_CAVITY_DEPTH + e,
-                    spacer_height - e
+            translate([
+                screw_mount_position.x + width_to_screw,
+                screw_mount_position.y,
+                spacer_height - e
+            ]) {
+                cylinder(
+                    d = actuator_cavity_diameter,
+                    h = BUTTON_LEVER_ACTUATOR_MOUNT_CAVITY_DEPTH + e
+                );
+
+                cylinder(
+                    d1 = actuator_cavity_diameter + cavity_chamfer * 2,
+                    d2 = actuator_cavity_diameter,
+                    h = cavity_chamfer + e
                 );
             }
         }
