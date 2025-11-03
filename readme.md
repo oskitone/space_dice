@@ -47,11 +47,11 @@ Also:
   - U1 obstructions
   - Faster INCREMENT\_ oscs?
 - OpenSCAD
-  - DFM: button_lever arm and actuator_mount
+  - DFM: actuator_mount
+  - effort side button_lever fixture on enclosure top
   - Chamfer enclosure exposures consistently
   - Split STL parts, rotate for printing
   - Prevent false button triggers
-  - Don't use battery for lever; height will be inconsistent
   - STL manifold issues?
 
 ### Soldering instructions

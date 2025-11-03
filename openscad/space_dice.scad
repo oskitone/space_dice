@@ -190,11 +190,12 @@ module space_dice(
 
             right_panel_width = right_panel_width,
             branding_dimensions = branding_dimensions,
-            button_cap_exposure_dimensions = button_cap_exposure_dimensions,
             speaker_grill_dimensions = speaker_grill_dimensions,
             branding_position = branding_position,
             speaker_grill_position = speaker_grill_position,
+            button_cap_exposure_dimensions = button_cap_exposure_dimensions,
             button_cap_exposure_position = button_cap_exposure_position,
+            button_lever_arm_height = button_lever_arm_height,
 
             outer_gutter = outer_gutter,
             default_gutter = default_gutter,
@@ -481,7 +482,7 @@ space_dice(
 // translate([79, -1, -1]) cube([100, 100, 100]);
 
 // button lever
-// translate([-1, -1, -1]) cube([100, 35, 100]);
+// translate([-1, -1, -1]) cube([100, 31, 100]);
 
 // LED display
 // translate([51.2, -1, -1]) cube([100, 100, 100]);

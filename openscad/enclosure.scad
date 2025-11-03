@@ -73,11 +73,12 @@ module enclosure(
 
     right_panel_width = 0,
     branding_dimensions = [0,0],
-    button_cap_exposure_dimensions = [0,0],
     speaker_grill_dimensions = [0,0],
     branding_position = [0,0],
     speaker_grill_position = [0,0],
+    button_cap_exposure_dimensions = [0,0],
     button_cap_exposure_position = [0,0],
+    button_lever_arm_height = 0,
 
     tolerance = 0,
 
@@ -431,6 +432,54 @@ module enclosure(
         }
     }
 
+    module _button_lever_arm_fixture(
+        z_clearance = BUTTON_LEVER_ENCLOSURE_Z_CLEARANCE,
+        wall = 3
+    ) {
+        arm_z = get_button_lever_arm_z(button_lever_arm_height);
+        battery_top_z = ENCLOSURE_FLOOR_CEILING + BATTERY_LENGTH; // yep
+        exposure_length = button_cap_exposure_dimensions.y + tolerance * 2;
+
+        overlap = outer_gutter - ENCLOSURE_WALL;
+
+        base_y = button_cap_exposure_position.y - BUTTON_LEVER_ARM_BRIM;
+
+        base_dimensions = get_button_lever_base_dimensions(
+            get_button_lever_dimensions(
+                exposure_dimensions = button_cap_exposure_dimensions,
+                arm_height = button_lever_arm_height
+            ),
+            arm_height = button_lever_arm_height
+        );
+
+        length_beyond_base = wall + tolerance;
+        total_length = base_dimensions.y + length_beyond_base * 2;
+        height_below_base = arm_z - battery_top_z - z_clearance * 2;
+        wall_height = button_lever_arm_height + z_clearance * 2;
+
+        translate([
+            dimensions.x - ENCLOSURE_WALL - overlap,
+            base_y - length_beyond_base,
+            arm_z - height_below_base - z_clearance
+        ]) {
+            cube([
+                overlap + e,
+                total_length,
+                height_below_base
+            ]);
+
+            for (y = [0, total_length - wall]) {
+                translate([0, y, height_below_base - e]) {
+                    cube([
+                        overlap + e,
+                        wall,
+                        wall_height + e * 2
+                    ]);
+                }
+            }
+        }
+    }
+
     if (show_bottom) {
         difference() {
             union() {
@@ -458,6 +507,10 @@ module enclosure(
                     mirror([0, 0, 1]) {
                         _half(top_height, lip = false);
                     }
+                }
+
+                color(outer_color) {
+                    _button_lever_arm_fixture();
                 }
             }
 
