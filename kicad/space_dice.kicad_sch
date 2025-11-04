@@ -5,8 +5,8 @@
 	(uuid "bcd0d850-a20d-42e1-b97f-b14f9222717c")
 	(paper "USLegal")
 	(title_block
-		(date "2025-10-15")
-		(rev "251015")
+		(date "2025-11-03")
+		(rev "251103")
 	)
 	(lib_symbols
 		(symbol "4xxx:4017"
@@ -4219,7 +4219,7 @@
 		(uuid "6bdd54c5-bb2d-4627-9906-63d53cef9fd1")
 	)
 	(no_connect
-		(at 232.41 68.58)
+		(at 232.41 71.12)
 		(uuid "74b0a1ea-12bd-40f4-a47e-35b29b782537")
 	)
 	(no_connect
@@ -4239,7 +4239,7 @@
 		(uuid "dd311695-73df-40b3-882c-226354b0dd93")
 	)
 	(no_connect
-		(at 232.41 63.5)
+		(at 232.41 66.04)
 		(uuid "ea496785-cd01-4f20-bb00-f9728d6c15cf")
 	)
 	(no_connect
@@ -5326,7 +5326,7 @@
 	)
 	(global_label "INCREMENT_SLOW"
 		(shape input)
-		(at 232.41 71.12 0)
+		(at 232.41 68.58 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5336,7 +5336,7 @@
 		)
 		(uuid "8a6aa8d0-1451-48a1-bdc5-d9d0d4e58b57")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 251.9051 71.12 0)
+			(at 251.9051 68.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5414,7 +5414,7 @@
 	)
 	(global_label "INCREMENT_FAST"
 		(shape input)
-		(at 232.41 66.04 0)
+		(at 232.41 63.5 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5424,7 +5424,7 @@
 		)
 		(uuid "d1c32638-f587-45f0-936f-592f68968eb3")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 251.2399 66.04 0)
+			(at 251.2399 63.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
