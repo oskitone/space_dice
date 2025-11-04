@@ -75,7 +75,10 @@ module space_dice(
     led_display_color = "#FFFFFF",
 
     side_switch_position = round($t),
-    switch_clutch_web_length_extension = 4, // NOTE: eyeballed!
+
+    // NOTE: eyeballed!
+    switch_clutch_web_length_extension = 4,
+    switch_clutch_overshoot = [0, 1],
 
     quick_preview = true
 ) {
@@ -133,6 +136,9 @@ module space_dice(
             speaker_grill_dimensions.y + default_gutter,
     ];
 
+    switch_clutch_width = control_width / 2 + switch_clutch_overshoot.x * 2;
+    switch_clutch_length = control_width + SWITCH_ACTUATOR_TRAVEL + switch_clutch_overshoot.y * 2;
+
     echo("Enclosure", width / 25.4, length / 25.4, height / 25.4);
     echo("PCB", pcb_width / 25.4, pcb_length / 25.4);
     echo("PCB bottom clearance", pcb_position.z - ENCLOSURE_FLOOR_CEILING);
@@ -146,6 +152,8 @@ module space_dice(
         ]
     );
     echo("Knob bottom diameter", knob_brim_diameter);
+    echo("Top switch clutches", switch_clutch_width, switch_clutch_length,
+        switch_clutch_length + SWITCH_ACTUATOR_TRAVEL);
 
     minimum_height = pcb_position.z + PCB_HEIGHT + pcb_top_clearance
         + ENCLOSURE_FLOOR_CEILING;
@@ -312,10 +320,7 @@ module space_dice(
             );
         }
 
-        z = pcb_position.z + PCB_HEIGHT + SWITCH_BASE_HEIGHT;
-        overshoot = [0, 1];
-        base_width = control_width / 2 + overshoot.x * 2;
-        base_length = control_width + SWITCH_ACTUATOR_TRAVEL + overshoot.y * 2;
+        top_switch_clutch_z = pcb_position.z + PCB_HEIGHT + SWITCH_BASE_HEIGHT;
 
         for (i = [0 : len(PCB_TOP_CONTROL_SWITCH_POSITONS) - 1]) {
             xy = PCB_TOP_CONTROL_SWITCH_POSITONS[i];
@@ -323,16 +328,16 @@ module space_dice(
             translate([
                 pcb_position.x + xy.x,
                 pcb_position.y + xy.y,
-                z - e
+                top_switch_clutch_z - e
             ]) {
                 switch_clutch(
                     base_width = SWITCH_CLUTCH_MIN_BASE_WIDTH,
                     base_length = SWITCH_CLUTCH_MIN_BASE_LENGTH,
-                    base_height = height - z - ENCLOSURE_FLOOR_CEILING
-                        - control_z_clearance,
+                    base_height = height - top_switch_clutch_z
+                        - ENCLOSURE_FLOOR_CEILING - control_z_clearance,
 
-                    plate_width = base_width,
-                    plate_length = base_length,
+                    plate_width = switch_clutch_width,
+                    plate_length = switch_clutch_length,
                     plate_height = ENCLOSURE_FLOOR_CEILING,
 
                     actuator_width = control_width / 2
