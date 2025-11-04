@@ -404,8 +404,7 @@ module space_dice(
     if (show_nuts_and_bolts) {
         screw_length = 1/2 * 25.4;
         screw_z = pcb_position.z + PCB_HEIGHT
-            + BUTTON_LEVER_ACTUATOR_MOUNT_BOTTOM_HEIGHT
-            + BUTTON_LEVER_ACTUATOR_CANTILEVER_HEIGHT
+            + BUTTON_LEVER_ACTUATOR_MOUNT_HEIGHT
             - screw_length;
 
         translate([
@@ -477,6 +476,7 @@ space_dice(
 
 // pcb_mount_post
 // translate([52, -1, -1]) cube([100, 100, 100]);
+// translate([-1, -1, -1]) cube([100, 35, 100]);
 
 // right panel
 // translate([79, -1, -1]) cube([100, 100, 100]);

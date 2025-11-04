@@ -13,9 +13,10 @@ BUTTON_LEVER_SPST_ACTUATOR_CLEARANCE = .4;
 BUTTON_LEVER_ACTUATOR_MOUNT_CAVITY_DEPTH =
     SPST_ACTUATOR_HEIGHT + BUTTON_LEVER_SPST_ACTUATOR_CLEARANCE
     - SPST_CONSERVATIVE_TRAVEL;
-BUTTON_LEVER_ACTUATOR_MOUNT_BOTTOM_HEIGHT = SPST_ACTUATOR_HEIGHT_OFF_PCB
-    + BUTTON_LEVER_SPST_ACTUATOR_CLEARANCE - BUTTON_LEVER_ACTUATOR_MOUNT_CAVITY_DEPTH;
 BUTTON_LEVER_ACTUATOR_CANTILEVER_HEIGHT = .8;
+BUTTON_LEVER_ACTUATOR_MOUNT_HEIGHT =
+    SPST_BASE_DIMENSIONS.z + SPST_CONSERVATIVE_TRAVEL
+    + BUTTON_LEVER_ACTUATOR_CANTILEVER_HEIGHT;
 BUTTON_LEVER_ARM_BRIM = SCOUT_DEFAULT_GUTTER / 2;
 
 function get_button_lever_arm_z(arm_height) = (
@@ -56,9 +57,11 @@ module button_lever(
     fillet,
     tolerance = 0,
     mount_diameter = BUTTON_LEVER_MOUNT_DIAMETER,
+    mount_height = BUTTON_LEVER_ACTUATOR_MOUNT_HEIGHT,
     actuator_mount_z,
     actuator_diameter = BUTTON_LEVER_MOUNT_DIAMETER / 2,
     cantilever_length = 4,
+    cantilever_height = BUTTON_LEVER_ACTUATOR_CANTILEVER_HEIGHT,
     exposed_height = 0,
     chamfer = 0,
     part_separation = $preview ? .1 : 1
@@ -67,15 +70,15 @@ module button_lever(
 
     width_to_actuator_from_screw =
         battery_position.x - screw_mount_position.x
-        - actuator_diameter / 2
         - tolerance - battery_clearance;
     width_to_screw = PCB_XY + PCB_BUTTON_POSITION.x
         - screw_mount_position.x;
 
     arm_z = get_button_lever_arm_z(arm_height);
+    cantilever_z = actuator_mount_z + mount_height - cantilever_height;
 
-    max_right_x = ENCLOSURE_DIMENSIONS.x - tolerance * 2
-        - ENCLOSURE_WALL;
+    // TODO: increase into enclosure?
+    max_right_x = ENCLOSURE_DIMENSIONS.x - tolerance * 2 - ENCLOSURE_WALL;
 
     dimensions = get_button_lever_dimensions(
         exposure_dimensions = exposure_dimensions,
@@ -84,35 +87,33 @@ module button_lever(
         exposed_height = exposed_height
     );
 
-    module _c(diameter, height, z = 0) {
-        translate([
-            screw_mount_position.x,
-            screw_mount_position.y,
-            z
-        ]) {
-            cylinder(
-                d = diameter,
-                h = height
-            );
-        }
-    }
+    brim_right_extension = max_right_x
+        - exposure_position.x - exposure_dimensions.x
+        + control_clearance;
 
-    module _arm() {
+    base_dimensions = get_button_lever_base_dimensions(
+        dimensions,
+        brim_right_extension,
+        arm_height
+    );
+    base_position = [
+        exposure_position.x + control_clearance - BUTTON_LEVER_ARM_BRIM,
+        exposure_position.y + control_clearance - BUTTON_LEVER_ARM_BRIM,
+        0
+    ];
+
+    module _arm_and_cap() {
         module _base() {
-            brim_right_extension = max_right_x
-                - exposure_position.x
-                - exposure_dimensions.x
-                + control_clearance;
-
-            dimensions = get_button_lever_base_dimensions(
-                dimensions,
-                brim_right_extension,
-                arm_height
-            );
-
             hull() {
-                translate([width_to_actuator_from_screw, 0, 0]) {
-                    _c(actuator_diameter, arm_height);
+                translate([
+                    width_to_actuator_from_screw + screw_mount_position.x,
+                    screw_mount_position.y,
+                    0
+                ]) {
+                    cylinder(
+                        d = actuator_diameter,
+                        h = arm_height
+                    );
                 }
 
                 translate([
@@ -128,20 +129,14 @@ module button_lever(
                 }
             }
 
-            translate([
-                exposure_position.x + control_clearance
-                    - BUTTON_LEVER_ARM_BRIM,
-                exposure_position.y + control_clearance
-                    - BUTTON_LEVER_ARM_BRIM,
-                0
-            ]) {
+            translate(base_position) {
                 difference() {
-                    cube(dimensions);
+                    cube(base_dimensions);
 
-                    translate([dimensions.x, -e, arm_height]) {
+                    translate([base_dimensions.x, -e, arm_height]) {
                         rotate([-90, 0, 0]) cylinder(
                             r = ENCLOSURE_INNER_CHAMFER,
-                            h = dimensions.y + BUTTON_LEVER_ARM_BRIM * 2 + e * 2,
+                            h = base_dimensions.y + BUTTON_LEVER_ARM_BRIM * 2 + e * 2,
                             $fn = 4
                         );
                     }
@@ -182,89 +177,134 @@ module button_lever(
         _cap();
     }
 
-    spacer_height = BUTTON_LEVER_ACTUATOR_MOUNT_BOTTOM_HEIGHT;
 
-    module _actuator_top(cavity_chamfer = .4) {
-        height_above_switch = arm_z - (actuator_mount_z + spacer_height);
+    module _actuator_mount(cavity_chamfer = .4) {
         actuator_cavity_diameter = SPST_ACTUATOR_DIAMETER
             + (tolerance + control_clearance) * 2;
+        height_below_cantilever = cantilever_z - actuator_mount_z;
 
-        difference() {
-            translate([0, 0, spacer_height]) {
-                _c(mount_diameter, BUTTON_LEVER_ACTUATOR_CANTILEVER_HEIGHT);
+        module _mount() {
+            translate([screw_mount_position.x, screw_mount_position.y, 0]) {
+                difference() {
+                    rounded_cube(
+                        [mount_diameter, mount_diameter, mount_height],
+                        radius = fillet,
+                        center = true
+                    );
 
-                hull() {
-                    _c(cantilever_length, BUTTON_LEVER_ACTUATOR_CANTILEVER_HEIGHT);
-
-                    translate([width_to_screw, 0, 0]) {
-                        _c(cantilever_length, BUTTON_LEVER_ACTUATOR_CANTILEVER_HEIGHT);
+                    translate([0, 0, -e]) {
+                        cylinder(
+                            d = SCREW_DIAMETER + tolerance * 2,
+                            h = mount_height + e * 2
+                        );
                     }
                 }
+            }
+        }
 
-                hull() {
-                    translate([width_to_screw, 0, 0]) {
-                        _c(mount_diameter, height_above_switch + arm_height);
-                    }
-
+        module _cantilever() {
+            hull() {
+                for (x = [
+                    mount_diameter / 2 - fillet - e,
+                    width_to_screw - mount_diameter / 2 + fillet + e
+                ]) {
                     translate([
-                        screw_mount_position.x + width_to_actuator_from_screw - e,
-                        screw_mount_position.y - actuator_diameter / 2,
-                        0
+                        screw_mount_position.x + x,
+                        screw_mount_position.y - cantilever_length / 2,
+                        height_below_cantilever
                     ]) {
-                        cube([e, actuator_diameter, height_above_switch + arm_height]);
+                        cube([e, cantilever_length, cantilever_height]);
                     }
                 }
             }
-
-            translate([
-                screw_mount_position.x + width_to_actuator_from_screw,
-                screw_mount_position.y,
-                spacer_height + height_above_switch
-            ]) {
-                cylinder(
-                    d = actuator_diameter + control_clearance * 2,
-                    h = arm_height + e
-                );
-            }
-
-            translate([
-                screw_mount_position.x + width_to_screw,
-                screw_mount_position.y,
-                spacer_height - e
-            ]) {
-                cylinder(
-                    d = actuator_cavity_diameter,
-                    h = BUTTON_LEVER_ACTUATOR_MOUNT_CAVITY_DEPTH + e
-                );
-
-                cylinder(
-                    d1 = actuator_cavity_diameter + cavity_chamfer * 2,
-                    d2 = actuator_cavity_diameter,
-                    h = cavity_chamfer + e
-                );
-            }
-        }
-    }
-
-    module _spacer() {
-        _c(mount_diameter, spacer_height + e);
-    }
-
-    difference() {
-        union() {
-            translate([0, 0, arm_z + part_separation * 0]) {
-                _arm();
-            }
-
-            translate([0, 0, actuator_mount_z + part_separation * -1]) {
-                _actuator_top();
-            }
-
-            translate([0, 0, actuator_mount_z + part_separation * -2]) {
-                _spacer();
-            }
         }
 
-        _c(SCREW_DIAMETER + tolerance * 2, 100, -e);
+        module _top() {
+            module _arm_deobstruction() {
+                z = arm_z - actuator_mount_z;
+
+                translate([
+                    screw_mount_position.x + width_to_actuator_from_screw,
+                    screw_mount_position.y,
+                    z
+                ]) {
+                    cylinder(
+                        d = actuator_diameter + (control_clearance + tolerance) * 2,
+                        h = arm_height + e
+                    );
+                }
+
+                translate([
+                    base_position.x - (control_clearance + tolerance),
+                    screw_mount_position.y - mount_diameter / 2 - e,
+                    z
+                ]) {
+                    cube([
+                        100,
+                        mount_diameter + e * 2,
+                        arm_height + e
+                    ]);
+                }
+            }
+
+            module _spst_registration() {
+                translate([
+                    screw_mount_position.x + width_to_screw,
+                    screw_mount_position.y,
+                    height_below_cantilever - e
+                ]) {
+                    cylinder(
+                        d = actuator_cavity_diameter,
+                        h = BUTTON_LEVER_ACTUATOR_MOUNT_CAVITY_DEPTH + e
+                    );
+
+                    cylinder(
+                        d1 = actuator_cavity_diameter + cavity_chamfer * 2,
+                        d2 = actuator_cavity_diameter,
+                        h = cavity_chamfer + e
+                    );
+                }
+            }
+
+            difference() {
+                hull() {
+                    for (x = [
+                        width_to_screw - mount_diameter / 2 + fillet,
+                        width_to_actuator_from_screw - fillet
+                    ]) {
+                        translate([
+                            screw_mount_position.x + x,
+                            screw_mount_position.y,
+                            height_below_cantilever
+                        ]) {
+                            rounded_cube(
+                                [
+                                    fillet * 2,
+                                    mount_diameter,
+                                    arm_z + arm_height - cantilever_z
+                                ],
+                                radius = fillet,
+                                center = true
+                            );
+                        }
+                    }
+                }
+
+                _arm_deobstruction();
+                _spst_registration();
+            }
+        }
+
+        _mount();
+        _cantilever();
+        _top();
+    }
+
+    translate([0, 0, arm_z + part_separation * 0]) {
+        _arm_and_cap();
+    }
+
+    translate([0, 0, actuator_mount_z + part_separation * -1]) {
+        _actuator_mount();
     }
 }
