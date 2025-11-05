@@ -172,7 +172,7 @@ module enclosure(
                         rotate([0, 0, 90]) pcb_mount_post(
                             height = pcb_position.z - (ENCLOSURE_FLOOR_CEILING - e),
                             ceiling = PCB_MOUNT_POST_CEILING,
-                            pcb_bottom_clearance = PCB_BOTTOM_CLEARANCE,
+                            pcb_bottom_clearance = PCB_BOTTOM_MIN_CLEARANCE,
                             tolerance = tolerance,
                             include_sacrificial_bridge = show_dfm,
                             quick_preview = quick_preview

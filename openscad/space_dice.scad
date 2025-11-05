@@ -411,7 +411,7 @@ module space_dice(
         translate([
             pcb_position.x + pcb_screw_hole_position.x,
             pcb_position.y + pcb_screw_hole_position.y,
-            pcb_position.z - PCB_BOTTOM_CLEARANCE - PCB_MOUNT_POST_CEILING
+            pcb_position.z - PCB_BOTTOM_MIN_CLEARANCE - PCB_MOUNT_POST_CEILING
                 - NUT_HEIGHT
         ]) {
             % nut();

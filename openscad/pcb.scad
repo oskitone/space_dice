@@ -57,7 +57,9 @@ PCB_LED_POSITIONS = [
     get_translated_xy([139.675 + 2.54 / 2, 118.35]),
 ];
 
-PCB_BOTTOM_CLEARANCE = 3; // ie, trimmed leads and solder joints
+PCB_BOTTOM_MIN_CLEARANCE = 2; // ie, trimmed leads and solder joints
+PCB_BOTTOM_CLEARANCE = 3;     // ^ + pot tabs
+
 PCB_BIG_CAP_HEIGHT = 12.2;
 PCB_SOCKETED_IC_HEIGHT = 8.2;
 PCB_TOP_CLEARANCES = [PCB_BIG_CAP_HEIGHT, PCB_SOCKETED_IC_HEIGHT];
