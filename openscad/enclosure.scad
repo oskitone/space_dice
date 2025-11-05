@@ -435,49 +435,66 @@ module enclosure(
     }
 
     module _button_lever_arm_fixture(
-        z_clearance = BUTTON_LEVER_ENCLOSURE_Z_CLEARANCE,
+        cavity = false,
+
+        arm_bottom_clearance = 0,
+        battery_clearance = .2,
         wall = 3
     ) {
         arm_z = get_button_lever_arm_z(button_lever_arm_height);
         battery_top_z = ENCLOSURE_FLOOR_CEILING + BATTERY_LENGTH; // yep
-        exposure_length = button_cap_exposure_dimensions.y + tolerance * 2;
+        z = battery_top_z + battery_clearance;
 
-        overlap = outer_gutter - ENCLOSURE_WALL;
-
-        base_y = button_cap_exposure_position.y - BUTTON_LEVER_ARM_BRIM;
-
-        base_dimensions = get_button_lever_base_dimensions(
+        cavity_length = get_button_lever_base_dimensions(
             get_button_lever_dimensions(
                 exposure_dimensions = button_cap_exposure_dimensions,
                 arm_height = button_lever_arm_height
             ),
             arm_height = button_lever_arm_height
-        );
+        ).y + tolerance * 2;
+        cavity_y = button_cap_exposure_position.y - BUTTON_LEVER_ARM_BRIM
+            - tolerance;
 
-        length_beyond_base = wall + tolerance;
-        total_length = base_dimensions.y + length_beyond_base * 2;
-        height_below_base = arm_z - battery_top_z - z_clearance * 2;
-        wall_height = button_lever_arm_height + z_clearance * 2;
+        fixture_length = cavity_length + wall * 2;
+        fixture_bottom_height = arm_z - z - arm_bottom_clearance;
 
-        translate([
-            dimensions.x - ENCLOSURE_WALL - overlap,
-            base_y - length_beyond_base,
-            arm_z - height_below_base - z_clearance
-        ]) {
-            cube([
-                overlap + e,
-                total_length,
-                height_below_base
-            ]);
+        cavity_height = dimensions.z - ENCLOSURE_FLOOR_CEILING
+            - z - fixture_bottom_height;
 
-            for (y = [0, total_length - wall]) {
-                translate([0, y, height_below_base - e]) {
-                    cube([
-                        overlap + e,
-                        wall,
-                        wall_height + e * 2
-                    ]);
+        bump_from_wall = fixture_bottom_height;
+
+        if (cavity) {
+            translate([
+                dimensions.x - ENCLOSURE_WALL - bump_from_wall - e,
+                cavity_y,
+                z + fixture_bottom_height
+            ]) {
+                rotate([-90, 0, 0]) {
+                    cylinder(
+                        d = bump_from_wall * 2,
+                        h = cavity_length,
+                        $fn = 4
+                    );
                 }
+
+                cube([
+                    bump_from_wall + BUTTON_LEVER_ENCLOSURE_WALL_CAVITY_DEPTH + e,
+                    cavity_length,
+                    cavity_height
+                ]);
+            }
+        } else {
+            translate([
+                dimensions.x - ENCLOSURE_WALL - bump_from_wall,
+                button_cap_exposure_position.y - BUTTON_LEVER_ARM_BRIM
+                    - (wall + tolerance),
+                z
+            ]) {
+                cube([
+                    bump_from_wall + e,
+                    fixture_length,
+                    fixture_bottom_height + cavity_height + e
+                ]);
             }
         }
     }
@@ -512,7 +529,7 @@ module enclosure(
                 }
 
                 color(outer_color) {
-                    _button_lever_arm_fixture();
+                    _button_lever_arm_fixture(cavity = false);
                 }
             }
 
@@ -522,6 +539,7 @@ module enclosure(
                 _top_control_engraving();
                 _speaker_grill();
                 _switch_clutch_exposure();
+                render() _button_lever_arm_fixture(cavity = true);
             }
         }
     }
