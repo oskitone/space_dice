@@ -121,10 +121,12 @@ module enclosure(
     }
 
     module _bottom_engraving() {
+        xy = dimensions.y / 8;
+
         render() enclosure_engraving(
-            size = 8, // NOTE: eyeballed against speaker
+            size = 6, // NOTE: eyeballed against speaker
             center = false,
-            position = [dimensions.x - outer_gutter, outer_gutter],
+            position = [dimensions.x - xy, xy],
             bottom = true,
             quick_preview = quick_preview,
             enclosure_height = dimensions.z
