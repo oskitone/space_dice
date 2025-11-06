@@ -435,11 +435,11 @@ module enclosure(
     }
 
     module _button_lever_arm_fixture(
-        cavity = false,
-
         arm_bottom_clearance = 0,
         battery_clearance = .2,
-        wall = 3
+        wall = 3,
+        entrance_chamfer = 1,
+        width_from_wall = outer_gutter - ENCLOSURE_WALL - tolerance
     ) {
         arm_z = get_button_lever_arm_z(button_lever_arm_height);
         battery_top_z = ENCLOSURE_FLOOR_CEILING + BATTERY_LENGTH; // yep
@@ -461,40 +461,42 @@ module enclosure(
         cavity_height = dimensions.z - ENCLOSURE_FLOOR_CEILING
             - z - fixture_bottom_height;
 
-        bump_from_wall = fixture_bottom_height;
-
-        if (cavity) {
+        difference() {
             translate([
-                dimensions.x - ENCLOSURE_WALL - bump_from_wall - e,
-                cavity_y,
-                z + fixture_bottom_height
-            ]) {
-                rotate([-90, 0, 0]) {
-                    cylinder(
-                        d = bump_from_wall * 2,
-                        h = cavity_length,
-                        $fn = 4
-                    );
-                }
-
-                cube([
-                    bump_from_wall + BUTTON_LEVER_ENCLOSURE_WALL_CAVITY_DEPTH + e,
-                    cavity_length,
-                    cavity_height
-                ]);
-            }
-        } else {
-            translate([
-                dimensions.x - ENCLOSURE_WALL - bump_from_wall,
+                dimensions.x - ENCLOSURE_WALL - width_from_wall,
                 button_cap_exposure_position.y - BUTTON_LEVER_ARM_BRIM
                     - (wall + tolerance),
                 z
             ]) {
                 cube([
-                    bump_from_wall + e,
+                    width_from_wall + e,
                     fixture_length,
                     fixture_bottom_height + cavity_height + e
                 ]);
+            }
+
+            translate([
+                dimensions.x - ENCLOSURE_WALL - e,
+                cavity_y,
+                z + fixture_bottom_height
+            ]) {
+                translate([-width_from_wall, 0, 0]) {
+                    rotate([-90, 0, 0]) {
+                        cylinder(
+                            d = entrance_chamfer * 2,
+                            h = cavity_length,
+                            $fn = 4
+                        );
+                    }
+                }
+
+                translate([-width_from_wall, 0, 0]) {
+                    cube([
+                        width_from_wall + e * 3,
+                        cavity_length,
+                        cavity_height + e * 2
+                    ]);
+                }
             }
         }
     }
@@ -529,7 +531,7 @@ module enclosure(
                 }
 
                 color(outer_color) {
-                    _button_lever_arm_fixture(cavity = false);
+                    _button_lever_arm_fixture();
                 }
             }
 
@@ -539,7 +541,6 @@ module enclosure(
                 _top_control_engraving();
                 _speaker_grill();
                 _switch_clutch_exposure();
-                render() _button_lever_arm_fixture(cavity = true);
             }
         }
     }

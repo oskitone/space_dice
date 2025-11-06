@@ -18,7 +18,6 @@ BUTTON_LEVER_ACTUATOR_MOUNT_HEIGHT =
     SPST_BASE_DIMENSIONS.z + SPST_CONSERVATIVE_TRAVEL
     + BUTTON_LEVER_ACTUATOR_CANTILEVER_HEIGHT;
 BUTTON_LEVER_ARM_BRIM = SCOUT_DEFAULT_GUTTER / 2;
-BUTTON_LEVER_ENCLOSURE_WALL_CAVITY_DEPTH = 1;
 
 function get_button_lever_arm_z(arm_height) = (
     ENCLOSURE_DIMENSIONS.z - ENCLOSURE_FLOOR_CEILING
@@ -78,8 +77,7 @@ module button_lever(
     arm_z = get_button_lever_arm_z(arm_height);
     cantilever_z = actuator_mount_z + mount_height - cantilever_height;
 
-    max_right_x = ENCLOSURE_DIMENSIONS.x - tolerance * 2 - ENCLOSURE_WALL
-        + BUTTON_LEVER_ENCLOSURE_WALL_CAVITY_DEPTH;
+    max_right_x = ENCLOSURE_DIMENSIONS.x - tolerance * 2 - ENCLOSURE_WALL;
 
     dimensions = get_button_lever_dimensions(
         exposure_dimensions = exposure_dimensions,
