@@ -6,6 +6,7 @@ include <../../parts_cafe/openscad/speaker-AZ40R.scad>;
 include <../../parts_cafe/openscad/switch_clutch-angled.scad>;
 include <../../parts_cafe/openscad/switch_clutch.scad>;
 
+include <battery_cover.scad>;
 include <button_lever.scad>;
 include <enclosure.scad>;
 include <led_display.scad>;
@@ -21,6 +22,7 @@ module space_dice(
 
     show_enclosure_bottom = true,
     show_battery = true,
+    show_battery_cover = true,
     show_pcb = true,
     show_knobs = true,
     show_button_cap = true,
@@ -163,6 +165,28 @@ module space_dice(
         translate(battery_position) translate([0, 0, -e]) {
             rotate([0, 90, 0]) rotate([0, 0, 90])
             % battery();
+        }
+    }
+
+    if (show_battery_cover) {
+        battery_cover_position = [
+            battery_position.x,
+            ENCLOSURE_WALL + tolerance,
+            battery_position.z + BATTERY_LENGTH
+        ];
+
+        battery_cover_dimensions = [
+            BATTERY_HEIGHT,
+            (speaker_grill_position.y - ENCLOSURE_WALL) * 2
+                + speaker_grill_dimensions.y,
+            BATTERY_COVER_HEIGHT
+        ];
+
+        translate(battery_cover_position) {
+            battery_cover(
+                dimensions = battery_cover_dimensions,
+                outer_color = control_outer_color
+            );
         }
     }
 
@@ -432,6 +456,7 @@ module space_dice(
 
 SHOW_ENCLOSURE_BOTTOM = true;
 SHOW_BATTERY = true;
+SHOW_BATTERY_COVER = true;
 SHOW_PCB = true;
 SHOW_KNOBS = true;
 SHOW_BUTTON_CAP = true;
@@ -451,6 +476,7 @@ difference() {
 space_dice(
     show_enclosure_bottom = SHOW_ENCLOSURE_BOTTOM,
     show_battery = SHOW_BATTERY,
+    show_battery_cover = SHOW_BATTERY_COVER,
     show_pcb = SHOW_PCB,
     show_knobs = SHOW_KNOBS,
     show_button_cap = SHOW_BUTTON_CAP,

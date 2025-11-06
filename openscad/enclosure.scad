@@ -7,6 +7,7 @@ include <../../parts_cafe/openscad/pcb_mounting_columns.scad>;
 include <../../parts_cafe/openscad/ring.scad>;
 include <../../parts_cafe/openscad/switch_clutch_enclosure_engraving.scad>;
 
+include <battery_cover.scad>;
 include <pcb.scad>;
 
 SWITCH_CLUTCH_GRIP_LENGTH = 10;
@@ -436,7 +437,7 @@ module enclosure(
 
     module _button_lever_arm_fixture(
         arm_bottom_clearance = 0,
-        battery_clearance = .2,
+        battery_clearance = .2 + BATTERY_COVER_HEIGHT,
         wall = 3,
         entrance_chamfer = 1,
         width_from_wall = outer_gutter - ENCLOSURE_WALL - tolerance

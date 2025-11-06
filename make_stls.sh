@@ -59,6 +59,7 @@ function export_stl() {
             --export-format "binstl" \
             -D "SHOW_ENCLOSURE_BOTTOM=false" \
             -D "SHOW_BATTERY=false" \
+            -D "SHOW_BATTERY_COVER=false" \
             -D "SHOW_PCB=false" \
             -D "SHOW_KNOBS=false" \
             -D "SHOW_BUTTON_CAP=false" \
@@ -98,6 +99,7 @@ function run() {
     start=`date +%s`
 
     export_stl enclosure_bottom
+    export_stl battery_cover
     export_stl knobs
     export_stl button_cap
     export_stl switch_clutches
