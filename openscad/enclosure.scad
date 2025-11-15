@@ -436,11 +436,11 @@ module enclosure(
     }
 
     module _button_lever_arm_fixture(
-        arm_bottom_clearance = 0,
+        arm_bottom_clearance = .2,
         battery_clearance = .2 + BATTERY_COVER_HEIGHT,
         wall = 3,
         entrance_chamfer = 1,
-        width_from_wall = outer_gutter - ENCLOSURE_WALL - tolerance
+        width_from_wall = 2
     ) {
         arm_z = get_button_lever_arm_z(button_lever_arm_height);
         battery_top_z = ENCLOSURE_FLOOR_CEILING + BATTERY_LENGTH; // yep
