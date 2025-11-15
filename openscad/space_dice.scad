@@ -520,4 +520,10 @@ space_dice(
 // translate([-1, -1, -1]) cube([64, 100, 100]);
 // translate([-1, -1, -1]) cube([100, 39, 100]);
 // translate([-1, -1, -1]) cube([100, 100, 20]);
+
+// lever fixture subsection
+// translate([-1, -1, -1]) cube([64, 100, 100]);
+// translate([-1, -1, -1]) cube([100, 19, 100]);
+// translate([-1, 43, -1]) cube([100, 19, 100]);
+// translate([-1, -1, -1]) cube([100, 100, 19]);
 }
