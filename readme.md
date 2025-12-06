@@ -41,18 +41,18 @@ Also:
 
 ## TODO
 
-- Electronics
+- PCB rev 3
   - White LEDs
-  - Obscured silkscreen labels on caps left of U1
-  - U1 obstructions
-  - Faster INCREMENT\_ oscs?
+  - Confirm
+    - D6 LED alignment
+    - Obscured silkscreen labels on caps left of U1
+    - U1 obstructions
+    - Faster INCREMENT\_ oscs?
+  - Merge and update models
 - OpenSCAD
-  - DFM: actuator_mount
-  - effort side button_lever fixture on enclosure top
-  - Chamfer enclosure exposures consistently
   - Split STL parts, rotate for printing
-  - Prevent false button triggers
   - STL manifold issues?
+- Start documentation
 
 ### Soldering instructions
 
