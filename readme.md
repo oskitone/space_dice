@@ -38,20 +38,19 @@ Also:
 - 2 nuts and bolts
   - 1 4/40 square nuts
   - 1 4/40 1/2" machine screws
+- A small piece of double-sided tape
 
 ## TODO
 
 - PCB rev 3
-  - White LEDs
-  - Confirm
-    - D6 LED alignment
-    - Obscured silkscreen labels on caps left of U1
-    - U1 obstructions
-    - Faster INCREMENT\_ oscs?
+  - D2 failed after soldering, twice in a row and unclear why. Try to repro
+  - Try 1k for R3 w/ to tame ultra-bright LEDs (Tayda X-2412)
   - Merge and update models
 - OpenSCAD
   - Split STL parts, rotate for printing
   - STL manifold issues?
+  - Looser control clearance, just in case pots are off a bit
+  - C4 vs button lever mount
 - Start documentation
 
 ### Soldering instructions
