@@ -64,7 +64,11 @@ module button_lever(
     cantilever_height = BUTTON_LEVER_ACTUATOR_CANTILEVER_HEIGHT,
     exposed_height = 0,
     chamfer = 0,
-    part_separation = $preview ? .1 : 1
+
+    show_cap = true,
+    show_actuator_mount = true,
+
+    part_separation = $preview ? .1 : 1,
 ) {
     e = .0235;
 
@@ -101,7 +105,7 @@ module button_lever(
         0
     ];
 
-    module _arm_and_cap() {
+    module _cap() {
         module _base() {
             hull() {
                 translate([
@@ -143,7 +147,7 @@ module button_lever(
             }
         }
 
-        module _cap() {
+        module _top() {
             translate([
                 exposure_position.x + control_clearance,
                 exposure_position.y + control_clearance,
@@ -173,7 +177,7 @@ module button_lever(
         }
 
         _base();
-        _cap();
+        _top();
     }
 
 
@@ -299,11 +303,15 @@ module button_lever(
         _top();
     }
 
-    translate([0, 0, arm_z + part_separation * 0]) {
-        _arm_and_cap();
+    if (show_cap) {
+        translate([0, 0, arm_z + part_separation * 0]) {
+            _cap();
+        }
     }
 
-    translate([0, 0, actuator_mount_z + part_separation * -1]) {
-        _actuator_mount();
+    if (show_actuator_mount) {
+        translate([0, 0, actuator_mount_z + part_separation * -1]) {
+            _actuator_mount();
+        }
     }
 }

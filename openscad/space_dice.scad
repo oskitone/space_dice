@@ -25,8 +25,10 @@ module space_dice(
     show_battery_cover = true,
     show_pcb = true,
     show_knobs = true,
+    show_button_actuator_mount = true,
     show_button_cap = true,
-    show_switch_clutches = true,
+    show_side_switch_clutch = true,
+    show_top_switch_clutches = true,
     show_speaker = true,
     show_led_display = true,
     show_nuts_and_bolts = true,
@@ -288,7 +290,7 @@ module space_dice(
         }
     }
 
-    if (show_button_cap) {
+    if (show_button_actuator_mount || show_button_cap) {
         color(control_outer_color) {
             button_lever(
                 screw_mount_position = [
@@ -305,12 +307,14 @@ module space_dice(
                 actuator_mount_z = pcb_position.z + PCB_HEIGHT,
                 exposed_height = button_exposed_height,
                 chamfer = accessory_fillet,
+                show_cap = show_button_cap,
+                show_actuator_mount = show_button_actuator_mount,
                 $fn = quick_preview ? undef : 12
             );
         }
     }
 
-    if (show_switch_clutches) {
+    if (show_side_switch_clutch) {
         // HACK: lots of arbitrary values here to make Scout's clutch work.
         // Copied from higher_lower bahhhhh
         translate([
@@ -344,7 +348,9 @@ module space_dice(
                 quick_preview = 0
             );
         }
+    }
 
+    if (show_top_switch_clutches) {
         top_switch_clutch_z = pcb_position.z + PCB_HEIGHT + SWITCH_BASE_HEIGHT;
 
         for (i = [0 : len(PCB_TOP_CONTROL_SWITCH_POSITONS) - 1]) {
@@ -459,8 +465,10 @@ SHOW_BATTERY = true;
 SHOW_BATTERY_COVER = true;
 SHOW_PCB = true;
 SHOW_KNOBS = true;
+SHOW_BUTTON_ACTUATOR_MOUNT = true;
 SHOW_BUTTON_CAP = true;
-SHOW_SWITCH_CLUTCHES = true;
+SHOW_SIDE_SWITCH_CLUTCH = true;
+SHOW_TOP_SWITCH_CLUTCHES = true;
 SHOW_SPEAKER = true;
 SHOW_LED_DISPLAY = true;
 SHOW_NUTS_AND_BOLTS = true;
@@ -469,9 +477,10 @@ SHOW_PRINT_TEST = false;
 
 SHOW_CLEARANCE = false;
 DEFAULT_TOLERANCE = .1;
+X_ROTATION = 0;
 Y_ROTATION = 0;
 
-rotate([0, Y_ROTATION, 0])
+rotate([X_ROTATION, Y_ROTATION, 0])
 difference() {
 space_dice(
     show_enclosure_bottom = SHOW_ENCLOSURE_BOTTOM,
@@ -479,8 +488,10 @@ space_dice(
     show_battery_cover = SHOW_BATTERY_COVER,
     show_pcb = SHOW_PCB,
     show_knobs = SHOW_KNOBS,
+    show_button_actuator_mount = SHOW_BUTTON_ACTUATOR_MOUNT,
     show_button_cap = SHOW_BUTTON_CAP,
-    show_switch_clutches = SHOW_SWITCH_CLUTCHES,
+    show_side_switch_clutch = SHOW_SIDE_SWITCH_CLUTCH,
+    show_top_switch_clutches = SHOW_TOP_SWITCH_CLUTCHES,
     show_speaker = SHOW_SPEAKER,
     show_led_display = SHOW_LED_DISPLAY,
     show_nuts_and_bolts = SHOW_NUTS_AND_BOLTS,

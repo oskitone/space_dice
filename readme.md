@@ -47,7 +47,6 @@ Also:
   - Try 1k for R3 w/ to tame ultra-bright LEDs (Tayda X-2412)
   - Merge and update models
 - OpenSCAD
-  - Split STL parts, rotate for printing
   - STL manifold issues?
   - Looser control clearance, just in case pots are off a bit
   - C4 vs button lever mount

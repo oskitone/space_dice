@@ -46,6 +46,8 @@ Usage:
 function export_stl() {
     stub="$1"
     override=$(echo "SHOW_${stub}" | tr '[a-z]' '[A-Z]')
+    x_rotation="${2:-0}"
+    y_rotation="${3:-0}"
 
     function _run() {
         filename="$dir/$prefix-$timestamp-$commit_hash-$stub.stl"
@@ -62,13 +64,17 @@ function export_stl() {
             -D "SHOW_BATTERY_COVER=false" \
             -D "SHOW_PCB=false" \
             -D "SHOW_KNOBS=false" \
+            -D "SHOW_BUTTON_ACTUATOR_MOUNT=false" \
             -D "SHOW_BUTTON_CAP=false" \
-            -D "SHOW_SWITCH_CLUTCHES=false" \
+            -D "SHOW_SIDE_SWITCH_CLUTCH=false" \
+            -D "SHOW_TOP_SWITCH_CLUTCHES=false" \
             -D "SHOW_SPEAKER=false" \
             -D "SHOW_LED_DISPLAY=false" \
             -D "SHOW_NUTS_AND_BOLTS=false" \
             -D "SHOW_ENCLOSURE_TOP=false" \
             -D "SHOW_PRINT_TEST=false" \
+            -D "Y_ROTATION=$y_rotation " \
+            -D "X_ROTATION=$x_rotation " \
             -D "$override=true" \
             & \
     }
@@ -101,11 +107,13 @@ function run() {
     export_stl enclosure_bottom
     export_stl battery_cover
     export_stl knobs
+    export_stl button_actuator_mount 90 0
     export_stl button_cap
-    export_stl switch_clutches
+    export_stl side_switch_clutch 0 90
+    export_stl top_switch_clutches
     export_stl led_display
-    export_stl enclosure_top
-    export_stl print_test
+    export_stl enclosure_top 180 0
+    export_stl print_test 180 0
     wait
 
     end=`date +%s`
