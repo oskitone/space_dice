@@ -210,12 +210,20 @@ module enclosure(
                     $fn = quick_preview ? undef : 120
                 );
             } else {
+                // PROBLEM IS IN HERE...
+                // Params work in isolation but not together
                 speaker_fixture(
                     height = SPEAKER_HEIGHT + e,
-                    wall = ENCLOSURE_INNER_WALL,
+
+                    // good: + 1
+                    // bad: + e
+                    wall = ENCLOSURE_INNER_WALL + e,
 
                     // NOTE: eyeballed against pcb_mount_post
                     tab_cavity_count = 4,
+
+                    // good: 100, 98
+                    // bad: 99
                     tab_cavity_rotation = 99 - (360 / 4),
 
                     tolerance = tolerance,
