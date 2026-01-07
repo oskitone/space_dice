@@ -45,10 +45,6 @@ Also:
 - PCB rev 3
   - D2 failed after soldering, twice in a row and unclear why. Try to repro
   - Try 1k for R3 w/ to tame ultra-bright LEDs (Tayda X-2412)
-  - Merge and update models
-- OpenSCAD
-  - Looser control clearance, just in case pots are off a bit
-  - C4 vs button lever mount
 - Start documentation
 
 ### Soldering instructions

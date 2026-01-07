@@ -187,10 +187,12 @@ module button_lever(
         height_below_cantilever = cantilever_z - actuator_mount_z;
 
         module _mount() {
+            size = mount_diameter;
+
             translate([screw_mount_position.x, screw_mount_position.y, 0]) {
                 difference() {
-                    rounded_cube(
-                        [mount_diameter, mount_diameter, mount_height],
+                   rounded_cube(
+                        [size, size, mount_height],
                         radius = fillet,
                         center = true
                     );
@@ -199,6 +201,15 @@ module button_lever(
                         cylinder(
                             d = SCREW_DIAMETER + tolerance * 2,
                             h = mount_height + e * 2
+                        );
+                    }
+
+                    // HACK: remove obstruction against C4
+                    translate([size / -2, size / 2, -e]) {
+                        cylinder(
+                            d = size / 2,
+                            h = mount_height + e * 2,
+                            $fn = 4
                         );
                     }
                 }
