@@ -293,6 +293,7 @@ module space_dice(
     if (show_button_actuator_mount || show_button_cap) {
         color(control_outer_color) {
             button_lever(
+                pcb_position = pcb_position,
                 screw_mount_position = [
                     pcb_position.x + pcb_screw_hole_position.x,
                     pcb_position.y + pcb_screw_hole_position.y
@@ -300,6 +301,7 @@ module space_dice(
                 battery_position = battery_position,
                 exposure_position = button_cap_exposure_position,
                 exposure_dimensions = button_cap_exposure_dimensions,
+                knob_brim_diameter = knob_brim_diameter,
                 control_clearance = switch_clearance,
                 arm_height = button_lever_arm_height,
                 fillet = accessory_fillet,

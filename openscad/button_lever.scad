@@ -47,11 +47,13 @@ function get_button_lever_base_dimensions(
 ];
 
 module button_lever(
+    pcb_position,
     screw_mount_position,
     battery_position,
     battery_clearance = .4,
     exposure_position,
     exposure_dimensions,
+    knob_brim_diameter,
     control_clearance,
     arm_height,
     fillet,
@@ -234,6 +236,20 @@ module button_lever(
         }
 
         module _top() {
+            // HACK: theoretically not needed but practically helpful
+            module _knob_deobstruction(knob_i = 1) {
+                translate([
+                    pcb_position.x + PCB_POT_POSITIONS[knob_i].x,
+                    pcb_position.y + PCB_POT_POSITIONS[knob_i].y,
+                    0
+                ]) {
+                    cylinder(
+                        d = knob_brim_diameter + 1.4,
+                        h = 100
+                    );
+                }
+            }
+
             module _arm_deobstruction() {
                 z = arm_z - actuator_mount_z;
 
@@ -304,6 +320,7 @@ module button_lever(
                     }
                 }
 
+                _knob_deobstruction();
                 _arm_deobstruction();
                 _spst_registration();
             }
