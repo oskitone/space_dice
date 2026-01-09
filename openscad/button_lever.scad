@@ -50,7 +50,7 @@ module button_lever(
     pcb_position,
     screw_mount_position,
     battery_position,
-    battery_clearance = .4,
+    battery_clearance = 1,
     exposure_position,
     exposure_dimensions,
     knob_brim_diameter,
