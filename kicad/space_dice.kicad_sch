@@ -3961,7 +3961,7 @@
 		)
 		(uuid "0ae69ee7-6abf-42dc-8980-cc7973d249d4")
 	)
-	(text "Decoupling capacitors, placed near\neach IC to reduce noisebetween chips."
+	(text "Decoupling capacitors, placed near\neach IC to reduce noise between chips."
 		(exclude_from_sim no)
 		(at 144.018 49.022 0)
 		(effects
