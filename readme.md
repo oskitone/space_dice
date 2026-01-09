@@ -32,8 +32,9 @@ Work in progress!
 Also:
 
 - A couple inches of 2-wire ribbon cables (or similar small gauge, stranded wire)
+  - Or half the 9v snap's wires if they're long enough
 - 3 DIP sockets
-  - 1 14 pin for U1, U2
+  - 1 16 pin for U1, U2
   - 2 14 pin for U3
 - 2 nuts and bolts
   - 1 4/40 square nuts
@@ -43,8 +44,9 @@ Also:
 ## TODO
 
 - PCB rev 3
-  - D2 failed after soldering, twice in a row and unclear why. Try to repro
-  - Try 1k for R3 w/ to tame ultra-bright LEDs (Tayda X-2412)
+  - Try warm white LED
+- Decide on 1k for R3 + ultra-bright LEDs vs 330 and regular brightness
+- Remove "PROTO" silkscreen
 - Start documentation
 
 ### Soldering instructions
@@ -53,31 +55,41 @@ General advice:
 
 - All components need to be flush against PCB but _especially_ the big caps. Clearance inside the enclosure is _tight_.
 - Similarly, trim soldered leads on the PCB's bottom as close as possible. It's easy to accidentally short connections on assembly.
+- Components are numbered by schematic, not placement on PCB or assembly step.
 
 1. Power
    1. 9v battery snap to BT1
    2. Right-angled SPDT switch to SW3
-   3. 16-pin socket and CD4017 to U3
-   4. .1uF capacitor to C5
-   5. LEDs to D1 through D6
-   6. 330 ohm resistor to R3
-   7. **Test:** Connect battery and toggle SW3. One of the LEDs should light up.
-2. Count
+   3. **Test:** Connect a 9v battery. Use a multimeter to measure the voltage across any/all of these empty chip pins. SW3 should toggle voltage between 0v and 9v. Skip test if you don't have a multimeter.
+      - U2: 16 and 8
+      - U3: 16 and 8
+      - U1: 14 and 7
+2. Lights
+   1. 16-pin socket and CD4017 to U3
+   2. LEDs to D1 through D6
+   3. 330 ohm resistor to R3
+   4. **Test:** One of the LEDs should light up. Run a finger across the pins of U3. Do the LEDs change? It's okay if they don't or if don't change consistently.
+3. Count
    1. 14-pin socket and CD4093 to U1
    2. 16-pin socket and CD4040 to U2
-   3. .1uF capacitors to C3 and C2
-   4. 1k resistors to R1 and R2
-   5. 10k log pots to RV1 and RV3
+   3. .1uF capacitor to C2
+   4. 1k resistor to R2
+   5. 10k log pot to RV3
    6. Pushbutton SPST switch to SW2
    7. Vertical SPDT to SW4
-   8. **Test:** Pressing SW2 should cycle the LEDs lighting up, D1 through D6 and then looping back to D1. RV3 and SW4 should control how fast it loops. RV1 doesn't do anything, yet!
-3. Sound
+   8. **Test:** Pressing SW2 should cycle the LEDs lighting up, D1 through D6 and then looping back to D1. RV3 and SW4 should control how fast it loops. The LED cycle may continue past SW2's pressing.
+4. Stop
+   1. 1k resistor to R1
+   2. 10k log pot to RV1
+   3. .1uF capacitors to C3 and C5
+   4. **Test:** The LED cycle should now only occur while SW2 is pressed. RV1 is an important part of the circuit but changing its value has no effect.
+5. Sound
    1. Vertical SPDT to SW1
    2. 10k log pot to RV2
    3. 220uF capacitor to C4
    4. Wire and speaker to LS1
    5. **Test:** Pressing SW2 should now also make a beeping sound. RV2 should control its volume. RV3 and SW1 should control pitch.
-4. Decay
+6. Decay
    1. 220uF capacitor to C1
    2. **Test:** The beep from before should now sound like a little space laser. RV1 now controls its decay.
 
