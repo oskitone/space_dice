@@ -5,8 +5,8 @@
 	(uuid "bcd0d850-a20d-42e1-b97f-b14f9222717c")
 	(paper "USLegal")
 	(title_block
-		(date "2025-11-04")
-		(rev "251104")
+		(date "2026-01-09")
+		(rev "260109")
 	)
 	(lib_symbols
 		(symbol "4xxx:4017"

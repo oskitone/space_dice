@@ -46,7 +46,6 @@ Also:
 - PCB rev 3
   - Try warm white LED
 - Decide on 1k for R3 + ultra-bright LEDs vs 330 and regular brightness
-- Remove "PROTO" silkscreen
 - Start documentation
 
 ### Soldering instructions

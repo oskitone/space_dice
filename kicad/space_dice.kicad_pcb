@@ -8,8 +8,8 @@
 	)
 	(paper "USLetter")
 	(title_block
-		(date "2025-11-04")
-		(rev "251104")
+		(date "2026-01-09")
+		(rev "260109")
 	)
 	(layers
 		(0 "F.Cu" signal)
@@ -68,7 +68,6 @@
 			(psnegative no)
 			(psa4output no)
 			(plot_black_and_white yes)
-			(plotinvisibletext no)
 			(sketchpadsonfab no)
 			(plotpadnumbers no)
 			(hidednponfab no)
@@ -4708,7 +4707,7 @@
 			(at 0 -4.2 0)
 			(layer "F.SilkS")
 			(hide yes)
-			(uuid "8fdba471-c026-4b22-ad1f-fbe5111e34b7")
+			(uuid "58c0724d-a544-4665-8933-deb5f16ee9fc")
 			(effects
 				(font
 					(size 1 1)
@@ -4720,7 +4719,7 @@
 			(at 0 4.2 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "d259f4d9-0eec-498e-bce0-3158ebee115c")
+			(uuid "f8e10161-bee4-49c8-93dc-f17d65b436e4")
 			(effects
 				(font
 					(size 1 1)
@@ -4733,7 +4732,7 @@
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "7f2df09a-f937-4d2f-9ad1-efa588a7ed52")
+			(uuid "31c382c9-7cec-4631-9d1e-0fcb8b385eeb")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4746,7 +4745,7 @@
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "f47e5b60-447e-45b6-a463-352a8e5f3614")
+			(uuid "8106a677-8fc2-483f-be3b-04656d834447")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12471,8 +12470,8 @@
 			)
 		)
 	)
-	(gr_text "SPACE_DICE\n-PROTO\n${REVISION}"
-		(at 137.792953 120.904 0)
+	(gr_text "OSKITONE\nSPACE_DICE\n${REVISION}"
+		(at 131.960857 88.0364 0)
 		(layer "F.SilkS")
 		(uuid "db9be8f3-8f99-4a1a-885b-2d49b489b21a")
 		(effects
@@ -12506,7 +12505,7 @@
 			)
 		)
 	)
-	(gr_text "OSKITONE\nSPACE_DICE-PROTO ${REVISION}"
+	(gr_text "OSKITONE\nSPACE_DICE ${REVISION}"
 		(at 151.892 107.188 0)
 		(layer "B.SilkS")
 		(uuid "8cce2885-fc01-46df-8656-555f002b9a4e")
