@@ -1,6 +1,6 @@
 # Space Dice
 
-![Oskitone Space Dice 3D model](/misc/12-90-600.gif)
+![Oskitone Space Dice 3D model](/misc/12-80-960.gif)
 
 Electronic dice + space laser noise machine
 
