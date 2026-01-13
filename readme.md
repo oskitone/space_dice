@@ -1,10 +1,14 @@
 # Space Dice
 
+Space Dice is a combination space laser noise and electronic dice machine. Click the big button to roll and adjust controls for tone/speed/etc.
+
 ![Oskitone Space Dice 3D model](/misc/12-80-960.gif)
 
-Electronic dice + space laser noise machine
+Its Altoids-tin-sized enclosure and controls are 3D-printed, and its circuitry is implemented with beloved 1970's era CMOS technology. No microcontrollers here!
 
-Work in progress!
+COMING SOON: links to purchase DIY electronics kit, demo video, and assembly guide
+
+Obviously, I'd prefer you wait and buy the kit from me. But, if circumstances prohibit, I've uploaded the latest [Space Dice PCB to OSH Park](https://oshpark.com/shared_projects/y5ph1b9p); please buy it from them with my blessing.
 
 ## Schematic
 
