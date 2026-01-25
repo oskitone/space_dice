@@ -1,9 +1,9 @@
 ---
 id: pcb-troubleshooting
 title: PCB troubleshooting
-description: Common problems that come up when soldering the Higher Lower PCB
+description: Common problems that come up when soldering the Space Dice PCB
 sidebar_label: PCB troubleshooting
-image: /img/final_product_1-004.jpg
+image: /img/12-80-960.gif
 slug: /pcb-troubleshooting
 ---
 

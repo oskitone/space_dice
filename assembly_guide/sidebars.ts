@@ -16,7 +16,7 @@ const _category = (label: string, docIds: string[] = []) => ({
 const sidebars = {
   docsSidebar: [
     _category("Getting Started", ["what-youll-be-making", "inventory"]),
-    // _doc("3d-printing-parts-and-slicing"),
+    _doc("3d-printing-parts-and-slicing"),
     _category("PCB Assembly", [
       "general-tips",
       // "assemble-battery-pack",
@@ -27,13 +27,16 @@ const sidebars = {
       // "control-difficulty",
       // "prep-for-hacking",
     ]),
-    // _category("Assembly and Care", ["final-assembly", "care"]),
+    _category("Assembly and Care", [
+      // "final-assembly",
+      "care",
+    ]),
     _category("Appendix", [
-      // "bom",
+      "bom",
       "pcb-troubleshooting",
-      // "opening-the-enclosure",
-      // "schematics",
-      // "source-and-license",
+      "opening-the-enclosure",
+      "schematic",
+      "source-and-license",
     ]),
   ],
 };
