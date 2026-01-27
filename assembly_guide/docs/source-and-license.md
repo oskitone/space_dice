@@ -1,8 +1,8 @@
 ---
 id: source-and-license
-title: "Source and License"
-description: Space Dice is open-source hardware.
-image: /img/12-80-960.gif
+title: Source and License
+description: Space Dice is open-source hardware
+image: /img/overhead-short-40-4-480.gif
 sidebar_label: Source and License
 ---
 

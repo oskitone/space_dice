@@ -2,7 +2,7 @@
 
 Space Dice is a combination space laser noise and electronic dice machine. Click the big button to roll and adjust controls for tone/speed/etc.
 
-![Oskitone Space Dice 3D model](/misc/12-80-960.gif)
+![Oskitone Space Dice 3D model](/assembly_guide/static/img/overhead-short-40-4-480.gif)
 
 Its Altoids-tin-sized enclosure and controls are 3D-printed, and its circuitry is implemented with beloved 1970's era CMOS technology. No microcontrollers here!
 
@@ -14,87 +14,11 @@ Obviously, I'd prefer you wait and buy the kit from me. But, if circumstances pr
 
 ![Oskitone Space Dice schematic](/misc/schematic.svg)
 
-## BOM
-
-| Designator        | Footprint                                        | Quantity | Designation |
-| ----------------- | ------------------------------------------------ | -------- | ----------- |
-| BT1               | battery                                          | 1        | 9v          |
-| C1,C4             | CP_Radial_D7.5mm_P2.50mm                         | 2        | 220uF       |
-| C5,C3,C2          | C_Disc_D5.0mm_W2.5mm_P5.00mm                     | 3        | .1uF        |
-| D6,D2,D5,D4,D1,D3 | LED_D3.0mm                                       | 6        | LED         |
-| LS1               | speaker                                          | 1        | AZ40R       |
-| R1,R2,R3          | R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal | 3        | 1k          |
-| RV3,RV2,RV1       | Potentiometer_Bourns_PTV09A-1_Single_Vertical    | 3        | 10k log     |
-| SW2               | SW_PUSH_6mm                                      | 1        | SW_SPST     |
-| SW3               | SW_CuK_OS102011MA1QN1_SPDT_Angled                | 1        | SW_SPDT     |
-| SW4,SW1           | SW_Slide_1P2T_CK_OS102011MS2Q                    | 2        | SW_SPDT     |
-| U1                | DIP-14_W7.62mm_Socket_LongPads                   | 1        | 4093        |
-| U2                | DIP-16_W7.62mm_Socket_LongPads                   | 1        | 4040        |
-| U3                | DIP-16_W7.62mm_Socket_LongPads                   | 1        | 4017        |
-
-Also:
-
-- A couple inches of 2-wire ribbon cables (or similar small gauge, stranded wire)
-  - Or half the 9v snap's wires if they're long enough
-- 3 DIP sockets
-  - 1 16 pin for U1, U2
-  - 2 14 pin for U3
-- 2 nuts and bolts
-  - 1 4/40 square nuts
-  - 1 4/40 1/2" machine screws
-- A small piece of double-sided tape
-
 ## TODO
 
 - Start documentation
-
-### Soldering instructions
-
-General advice:
-
-- All components need to be flush against PCB but _especially_ the big caps. Clearance inside the enclosure is _tight_.
-- Similarly, trim soldered leads on the PCB's bottom as close as possible. It's easy to accidentally short connections on assembly.
-- Components are numbered by schematic, not placement on PCB or assembly step.
-
-1. Power
-   1. 9v battery snap to BT1
-   2. Right-angled SPDT switch to SW3
-   3. **Test:** Connect a 9v battery. Use a multimeter to measure the voltage across any/all of these empty chip pins. SW3 should toggle voltage between 0v and 9v. Skip test if you don't have a multimeter.
-      - U2: 16 and 8
-      - U3: 16 and 8
-      - U1: 14 and 7
-2. Lights
-   1. 16-pin socket and CD4017 to U3
-   2. LEDs to D1 through D6
-   3. 330 ohm resistor to R3
-   4. **Test:** One of the LEDs should light up. Run a finger across the pins of U3. Do the LEDs change? It's okay if they don't or if don't change consistently.
-3. Count
-   1. 14-pin socket and CD4093 to U1
-   2. 16-pin socket and CD4040 to U2
-   3. .1uF capacitor to C2
-   4. 1k resistor to R2
-   5. 10k log pot to RV3
-   6. Pushbutton SPST switch to SW2
-   7. Vertical SPDT to SW4
-   8. **Test:** Pressing SW2 should cycle the LEDs lighting up, D1 through D6 and then looping back to D1. RV3 and SW4 should control how fast it loops. The LED cycle may continue past SW2's pressing.
-4. Stop
-   1. 1k resistor to R1
-   2. 10k log pot to RV1
-   3. .1uF capacitors to C3 and C5
-   4. **Test:** The LED cycle should now only occur while SW2 is pressed. RV1 is an important part of the circuit but changing its value has no effect.
-5. Sound
-   1. Vertical SPDT to SW1
-   2. 10k log pot to RV2
-   3. 220uF capacitor to C4
-   4. Wire and speaker to LS1
-   5. **Test:** Pressing SW2 should now also make a beeping sound. RV2 should control its volume. RV3 and SW1 should control pitch.
-6. Decay
-   1. 220uF capacitor to C1
-   2. **Test:** The beep from before should now sound like a little space laser. RV1 now controls its decay.
-
-### 3D-Printing
-
-- Force bridging angles to be consistent.
+- GIFs
+  - LED soldering, LED cycle
 
 ## 3D models
 

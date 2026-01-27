@@ -3,7 +3,7 @@ id: 3d-printing-parts-and-slicing
 title: 3D-Printing
 description: How to 3D-print your Space Dice's parts
 sidebar_label: 3D-Printing
-image: /img/12-80-960.gif
+image: /img/overhead-short-40-4-480.gif
 slug: /3d-printing-parts-and-slicing
 ---
 
@@ -15,13 +15,11 @@ If you bought a kit with 3D-printed parts included, you can skip this section, b
 
 Download STLs of the models from [Printables](#TODO) or [Thingiverse](#TODO).
 
-![Space Dice](/img/12-80-960.gif)
+[![3D-printed parts](/img/slicer.png)](/img/slicer.png)
 
 ## Slicing
 
-[![3D-printed parts](https://dummyimage.com/960x540/000/fff&text=TODO+printed+parts)](https://dummyimage.com/960x540/000/fff&text=TODO+printed+parts)
-
-There are 10 files to print, but only 9 are required. They'll take about five and a half hours total.
+There are 9 STLs to print, 12 objects total. Expect 5.5 hours print time.
 
 | Part                  | Layer Height | Supports? | Estimated Time |
 | --------------------- | ------------ | --------- | -------------- |
@@ -40,13 +38,14 @@ There are 10 files to print, but only 9 are required. They'll take about five an
 The `print_test` STL isn't used in assembly but is included to verify your printer's calibration and slicer settings. It's recommended to print it first before committing to the rest of the parts.
 :::
 
-The enclosure has engravings that print on the build plate and bridge on top. Adjust your slicer's bridging angle so they run up and down with the text:
+The enclosure has engravings that print on the build plate and bridge on top. Adjust your slicer's bridging angle so they run consistently across the text:
 
-[![bridging angle set correct](https://dummyimage.com/960x540/000/fff&text=TODO+bridging+angle)](https://dummyimage.com/960x540/000/fff&text=TODO+bridging+angle)
+[![bridging angle set correct](/img/bridging_angle.png)](/img/bridging_angle.png)
 
 **Other notes:**
 
-- The knobs and top_switch_clutches STLs both have multiple objects therein. Nominal speed optimizations may be had by splitting them into discrete objects, but it is not required.
+- It's "maker's choice" for filament colors, but I think a bold color for the enclosure and something neutral for everything else is striking. You can even do a color change for the `led_display` pips so they pop out even more.
+- The `knobs` and `top_switch_clutches` STLs both have multiple objects therein. Nominal speed optimizations may be had by splitting them into discrete objects, but it is not required.
 - Models assume Fused Deposition Modeling with a standard .4mm nozzle. Using a bigger nozzle will likely result in a loss of detail.
 - The 3D-printed parts were designed using PLA. Other filament types like ABS are not recommended and will likely have fit or tolerance issues. (If you find that you need to drill or file your prints, that's a good sign there'll be other problems too.)
 - 20% infill works well across all models.

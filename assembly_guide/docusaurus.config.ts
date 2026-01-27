@@ -5,7 +5,8 @@ import type * as Preset from "@docusaurus/preset-classic";
 
 const config: Config = {
   title: "Oskitone Space Dice Assembly Guide",
-  tagline: "TODO",
+  tagline:
+    "How to solder and put together your Space Dice, laser noise and electronic dice machine",
   favicon: "img/favicon.ico",
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -62,16 +63,12 @@ const config: Config = {
   ],
 
   themeConfig: {
-    image: "img/TODO.gif",
+    image: "/img/overhead-short-40-4-480.gif",
     colorMode: {
       respectPrefersColorScheme: true,
     },
     navbar: {
       title: "Oskitone Space Dice Assembly Guide",
-    },
-    announcementBar: {
-      content: `These docs are brand new! Please <a href="https://www.oskitone.com/contact">contact me</a> if it any of it seems wrong or needs more clarification. Thanks!`,
-      isCloseable: false,
     },
     footer: {
       style: "dark",
