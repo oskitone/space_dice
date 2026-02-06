@@ -4016,6 +4016,17 @@
 		)
 		(uuid "9e005e4d-4575-4fcb-b4e0-b18dab043fcb")
 	)
+	(text "Adjust R3 for brightness."
+		(exclude_from_sim no)
+		(at 270.51 150.622 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "a89171f5-f1fc-43cb-b72e-ce4146c8ccd8")
+	)
 	(text "CD4093 is a quad NAND\nw/ Schmitt trigger. Its\npower pins are placed\nseparately from gates."
 		(exclude_from_sim no)
 		(at 98.806 52.578 0)
@@ -6894,7 +6905,7 @@
 		(dnp no)
 		(uuid "681fe495-90d7-4614-8f8e-a09dbd7114b2")
 		(property "Reference" "R3"
-			(at 290.322 134.62 0)
+			(at 279.4 136.652 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6902,8 +6913,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "330"
-			(at 290.322 137.16 0)
+		(property "Value" "330-1k"
+			(at 279.4 139.192 0)
 			(effects
 				(font
 					(size 1.27 1.27)

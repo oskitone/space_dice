@@ -23,8 +23,7 @@ Obviously, I'd prefer you wait and buy the kit from me. But, if circumstances pr
 | C5,C3,C2          | C_Disc_D5.0mm_W2.5mm_P5.00mm                     | 3        | .1uF        |
 | D6,D2,D5,D4,D1,D3 | LED_D3.0mm                                       | 6        | LED         |
 | LS1               | speaker                                          | 1        | AZ40R       |
-| R1,R2             | R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal | 2        | 1k          |
-| R3                | R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal | 1        | 330         |
+| R1,R2,R3          | R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal | 3        | 1k          |
 | RV3,RV2,RV1       | Potentiometer_Bourns_PTV09A-1_Single_Vertical    | 3        | 10k log     |
 | SW2               | SW_PUSH_6mm                                      | 1        | SW_SPST     |
 | SW3               | SW_CuK_OS102011MA1QN1_SPDT_Angled                | 1        | SW_SPDT     |
@@ -47,9 +46,6 @@ Also:
 
 ## TODO
 
-- PCB rev 3
-  - Try warm white LED
-- Decide on 1k for R3 + ultra-bright LEDs vs 330 and regular brightness
 - Start documentation
 
 ### Soldering instructions
