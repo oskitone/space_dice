@@ -100,7 +100,7 @@ General advice:
 
 3D-printed models are written in OpenSCAD.
 
-### Updating pcb.scad
+<!-- ### Updating pcb.scad
 
 Documenting here because I always forget what I last did.
 
@@ -109,7 +109,7 @@ Documenting here because I always forget what I last did.
 3. For both SVGs, in Inkscape
    1. Path -> Stroke to Path
 
-The `kicad-cli` commands apparently are deprecated so they'll have to change soon. Also the edge_cuts one isn't even totally right. Ideally, this is all automated!
+The `kicad-cli` commands apparently are deprecated so they'll have to change soon. Also the edge_cuts one isn't even totally right. Ideally, this is all automated! -->
 
 ### Dependencies
 
