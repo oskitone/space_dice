@@ -13,7 +13,9 @@ If you bought a kit with 3D-printed parts included, you can skip this section, b
 
 ## Download
 
-Download STLs of the models from [Printables](#TODO) or [Thingiverse](#TODO).
+:::note TODO
+Download STLs of the models from Printables or Thingiverse.
+:::
 
 [![3D-printed parts](/img/slicer.png)](/img/slicer.png)
 

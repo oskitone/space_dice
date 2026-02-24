@@ -11,7 +11,9 @@ slug: /inventory
 
 <!-- [![Space Dice DIY Electronics Kit parts](/img/overhead-short-40-4-480.gif)](/img/overhead-short-40-4-480.gif) -->
 
-- [Space Dice DIY Electronics Kit](TODO), 31 parts total
+<!-- TODO: link to kit -->
+
+- Space Dice DIY Electronics Kit, 31 parts total
   - 1 9v battery snap
   - 2 electrolytic capacitors
   - 3 ceramic capacitors
