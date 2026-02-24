@@ -7,7 +7,7 @@ image: /img/overhead-short-40-4-480.gif
 slug: /sound-on
 ---
 
-:::info
+:::note
 Speaker terminals do have +/- sides but, for the way this one's being used, it won't matter how they're connected. Feel free to honor the "red is positive, black is negative" convention like the battery, or not! You'd be hard pressed to hear any difference.
 :::
 
@@ -39,8 +39,8 @@ Not working as expected? Check the [PCB troubleshooting](pcb-troubleshooting.md)
 [![Sound on schematic](/img/schematic/5-sound.svg)](/img/schematic/5-sound.svg)
 
 - Each 4040 output pin creates a square waves at half the frequency of its predecessor. In musical terms, when a note is half the frequency of another, it's an octave down. Twice the frequency, it's an octave up. The 4040 is an octave generator!
-- But how can we listen to it? If we were to connect any single output pin up to a speaker, there wouldn't be enough current to audibly drive the speaker. We need an amplifier...
-- A NAND with its inputs tied together becomes a NOT or inverter. If you connect multiple NOTs in parallel, their output current multiplies. Thus, the three remaining 4093 NAND gates make a crude inverting amplifier. _This is a hack!_
+- But how can we listen to it? If we were to connect any single output pin up to a speaker, there wouldn't be enough current to audibly drive the speaker. We need an amplifier or some way to boost the signal...
+- A NAND with its inputs tied together becomes a NOT. If you connect multiple NOTs in parallel, their output current multiplies. Thus, the three remaining 4093 NAND gates make a crude inverting square wave booster. _This is a hack!_ PCB software warns against connecting logic gate outputs; in practice, it is fine.
 - Three of these octaves (two switchable through **SW1**) connect to the input to our amp, and its output goes through a potentiometer wired as [voltage divider](https://en.wikipedia.org/wiki/Voltage_divider) for volume control and then to a speaker.
 - **C4** is a [coupling capacitor](https://en.wikipedia.org/wiki/Capacitive_coupling). Its job is to connect the amplified audio's alternating current (AC) to the speaker but block direct current (DC; for example, a sustained 9v). Without it, the speaker would draw more current than the 4093 could provide, eventually damaging it.
 - The lines out of Q0 and Q2 are drawn crossed, but they don't connect electronically. Schematics will usually explicitly denote line/wire connections with dots, like the ones flanking the NAND gates.

@@ -17,6 +17,10 @@ And match socket and chip dimples to make sure they're in the correct orientatio
 It's crucial that all sockets, potentiometers, and switches are perfectly flat against the PCB. Make sure they're fully in there before soldering all their pins.
 :::
 
+:::tip Remember
+Chips are labeled differently depending on their manufacturer and series. For example, the 4093 may say CD4093, HEF4093, or HCF4093BE, etc... What's important is the "4093" in the middle there.
+:::
+
 ## Steps
 
 1. Connect **4093**

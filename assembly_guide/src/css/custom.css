@@ -49,3 +49,11 @@ li a + a img,
 li a:has(+ a) img {
   width: calc(50% - var(--ifm-list-left-padding));
 }
+
+video {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 60rem;
+  margin: 0 auto;
+}

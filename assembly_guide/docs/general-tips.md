@@ -14,7 +14,7 @@ Take your time and be patient! If you run into a problem, try to keep a cool hea
 ## General tips
 
 - **Alternate chip names**  
-  This kit uses three IC (Integrated Circuit) chips: 4017, 4040, and 4093. Each will be labelled from the factory with its type, but the label's text format will differ based on their manufacturer and series. For example, the 4040 chip could be marked `4040BE`, `SN74HC4040`, or `MC14040BCP`; all have "4040" somewhere in there. Because those full names are a mouthful and their technical differences don't matter for our usage, this guide refers to all chips by their short names.
+  This kit uses three IC (Integrated Circuit) chips: 4017, 4040, and 4093. Each will be labelled from the factory with its type, but the label's text format will differ based on their manufacturer and series. For example, the 4040 chip could be marked `4040BE`, `SN74HC4040`, or `MC14040BCP`; all have "4040" somewhere in there. They are all pin-for-pin compatible with each other. Because those full names are a mouthful and their technical differences don't matter for our usage, this guide refers to all chips by their short names.
 - **Component colors**  
   This guide's components' brands and body colors (and even the PCB color itself) may look different from yours, and that's okay! What's important is that the part types and values are in the right spots.
 - **Component numbers/IDs will seem arbitrary**<br />

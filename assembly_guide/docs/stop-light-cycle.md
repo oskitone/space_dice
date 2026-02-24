@@ -35,9 +35,12 @@ Not working as expected? Check the [PCB troubleshooting](pcb-troubleshooting.md)
 - **C3** and **C5** are bypass/decoupling capacitors. Their job is to prevent spurious noise in the supply voltage from affecting the circuit's performance.
 - **RV1** indeed does nothing, yet!
 
+You've made a kind of random number generator! Depending on how fast the oscillator is running and how long you have it cycle, which LED it lights can be effectively impossible to predict. This is similar to how mechanical game spinners work.
+
 Consider:
 
 - A potentiometer is also called a variable resistor. Its resistance is anywhere between 0 and its prescribed value, based on how it's set.
 - When resistors are connected one after the other, this is called "serial." Their total resistance is the sum of their values.
 - Knowing this, why doesn't turning **RV1** have any effect?
 - **R2** and **RV3** are also wired serially, and turning **RV3** does indeed have an effect. What's different? And how would it behave if **R2** weren't there?
+- When would you consider the output to not be random?
