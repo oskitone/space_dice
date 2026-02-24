@@ -9,7 +9,7 @@ slug: /
 
 [![Space Dice 3D model](/img/12-80-960.gif)](/img/12-80-960.gif)
 
-**Purchase:** [Space Dice DIY Electronics Kit](TODO)
+**Purchase a kit:** COMING SOON
 
 ## What you'll be making
 
