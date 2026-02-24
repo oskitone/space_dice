@@ -6,19 +6,21 @@ Space Dice is a combination space laser noise and electronic dice machine. Click
 
 Its Altoids-tin-sized enclosure and controls are 3D-printed, and its circuitry is implemented with beloved 1970's era CMOS technology. No microcontrollers here!
 
-COMING SOON: links to purchase DIY electronics kit, demo video, and assembly guide
+**Demo:** COMING SOON
+**Purchase a kit:** COMING SOON
+**Assembly guide:** https://oskitone.github.io/space_dice/
+**Blog post:** COMING SOON
 
-Obviously, I'd prefer you wait and buy the kit from me. But, if circumstances prohibit, I've uploaded the latest [Space Dice PCB to OSH Park](https://oshpark.com/shared_projects/y5ph1b9p); please buy it from them with my blessing.
+Obviously, I'd prefer you buy the kit from me. But, if circumstances prohibit, I've uploaded the latest [Space Dice PCB to OSH Park](https://oshpark.com/shared_projects/y5ph1b9p); please buy it from them with my blessing.
 
 ## Schematic
 
 ![Oskitone Space Dice schematic](/misc/schematic.svg)
 
-## TODO
+## TODO/Consider for next rev
 
-- Start documentation
-- GIFs
-  - LED soldering, LED cycle
+- Pull-down on 4017 reset so D1 lights consistently before 4093?
+- Pull-up/down between 4093 CLOCK output and 4017 CLK input to drive counter before 4040 prescaler?
 
 ## 3D models
 
