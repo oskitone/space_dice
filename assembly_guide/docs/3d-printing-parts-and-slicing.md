@@ -40,7 +40,7 @@ There are 9 STLs to print, 12 objects total. Expect 5.5 hours print time.
 The `print_test` STL isn't used in assembly but is included to verify your printer's calibration and slicer settings. It's recommended to print it first before committing to the rest of the parts.
 :::
 
-The enclosure has engravings that print on the build plate and bridge on top. Adjust your slicer's bridging angle so they run consistently across the text:
+The enclosure has engravings that print on the build plate and bridge on top. Adjust your slicer's bridging angle so they run consistently across the text, one way or the other:
 
 [![bridging angle set correct](/img/bridging_angle.png)](/img/bridging_angle.png)
 
