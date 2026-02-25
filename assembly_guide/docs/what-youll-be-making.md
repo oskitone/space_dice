@@ -9,7 +9,7 @@ slug: /
 
 [![Space Dice 3D model](/img/12-80-960.gif)](/img/12-80-960.gif)
 
-**Purchase a kit:** COMING SOON
+**Purchase a kit:** [https://www.oskitone.com/product/space-dice-diy-electronics-kit](https://www.oskitone.com/product/space-dice-diy-electronics-kit)
 
 ## What you'll be making
 

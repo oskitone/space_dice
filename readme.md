@@ -7,7 +7,7 @@ Space Dice is a combination space laser noise and electronic dice machine.
 Its Altoids-tin-sized enclosure and controls are 3D-printed, and its circuitry is implemented with beloved 1970's era CMOS technology. No microcontrollers here!
 
 **Demo:** COMING SOON  
-**Purchase a kit:** COMING SOON  
+**Purchase a kit:** https://www.oskitone.com/product/space-dice-diy-electronics-kit  
 **Assembly guide:** https://oskitone.github.io/space_dice/  
 **Blog post:** COMING SOON
 
