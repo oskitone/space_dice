@@ -13,6 +13,8 @@ Take your time and be patient! If you run into a problem, try to keep a cool hea
 
 ## General tips
 
+- **IC chips are static-sensitive**  
+  The included IC chips can be damaged by static electricity. Leave them in their packaging until ready to install. Before handling, discharge any static electricity on your body by touching a large piece of metal. You can even use an anti-static mat and/or wrist strap for extra caution.
 - **Alternate chip names**  
   This kit uses three IC (Integrated Circuit) chips: 4017, 4040, and 4093. Each will be labelled from the factory with its type, but the label's text format will differ based on their manufacturer and series. For example, the 4040 chip could be marked `4040BE`, `SN74HC4040`, or `MC14040BCP`; all have "4040" somewhere in there. They are all pin-for-pin compatible with each other. Because those full names are a mouthful and their technical differences don't matter for our usage, this guide refers to all chips by their short names.
 - **Component colors**  
