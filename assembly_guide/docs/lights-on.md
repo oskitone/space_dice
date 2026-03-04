@@ -58,4 +58,4 @@ Not working as expected? It's probably a polarity issue. Confirm that the chip a
 ### Consider
 
 - Sometimes, when powering up the board, no LEDs are lit. Why?
-- Why does touching the chip's pins with your finger change its output?
+- Why do you think touching the chip's pins with your finger changes its output?

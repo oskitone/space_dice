@@ -53,23 +53,27 @@ Not working as expected? Check the [PCB troubleshooting](pcb-troubleshooting.md)
 ## How it works
 
 :::info
-As you solder, the schematic will grow with all the new parts you've added. It's a humble start. See if you can follow along!
+As you build, the presented schematic will grow with each new addition you've soldered. See if you can follow along!
 :::
 
-Schematic symbols rarely match their physical components. You can think of them as shorthand "source of truth" for a circuit, like what sheet music is to a musical performance. Schematics tell us how to make the circuit, not what it will look like. The more schematics you read, the more they'll make sense.
+Schematic symbols rarely match their physical components. You can think of them as shorthand "source of truth" for a circuit, like what sheet music is to a musical performance. Schematics tell us conceptually how to make the circuit, not what it will look like or even which specific parts to use.
 
-Here's what you just made:
+The more schematics you read, the more they'll make sense.
+
+Anyway, here's what you just made:
 
 [![Power up schematic](/img/schematic/1-power.svg)](/img/schematic/1-power.svg)
 
 - **BT1** is the 9v battery. Its negative terminal connects to GND (ground).
 - **SW2** is a Single Pole Double Throw (SPDT) switch. Its pole is the diagonal line in the middle that moves between pins 1 and 2 (the throws) as the switch slides. Its pin 2 is fixed and connects to the battery's positive terminal.
 - In switch parlance, "open" means unconnected and "closed" means connected.
-- You'll see VCC and GND labels throughout the schematic, and they'll all refer to the same common connections: GND will always connect to the 9v's negative terminal, but VCC will only be the 9v's positive terminal when **SW3** is closed.
+- You'll see VCC and GND labels throughout the schematic, and they'll all refer to the same common connections: GND will always connect to the 9v's negative terminal, but VCC and will only connect to the 9v's positive terminal when **SW3** is closed.
+- GND is shorthand for "ground." Think of a bolt of lightning crashing down from the sky. For better or worse, that idea of an earthly ground as a destination for electrical charge is common in all electronics work. "Ground" is also much easier to say than "the negative terminal of your battery."
+- What do you think VCC stands for? Technically, it means "Voltage at Common Collector". There are handful of voltage-related acronyms that are technically different but practically synonymous, like VCC/VDD and VSS/VEE. Thankfully, in this circuit, it's only VCC and GND.
 - The "x" on **SW3**'s pin 3 means it's unconnected.
 
 Consider:
 
 - If you were to explain this step to someone else, what would you say? How would it differ what you read?
-- If you drew a picture, what would it look like? Would it be more like the soldered PCB or the schematic?
+- If you drew a picture, what would it look like? Would your picture be closer to the physical, soldered PCB or the conceptual schematic?
 - What would you prefer as the receiver of this information?
