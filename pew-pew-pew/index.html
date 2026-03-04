@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.9.2">
 <title data-rh="true">Pew pew pew | Oskitone Space Dice Assembly Guide</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://oskitone.github.io/space_dice/pew-pew-pew"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Pew pew pew | Oskitone Space Dice Assembly Guide"><meta data-rh="true" name="description" content="Make a space laser sound"><meta data-rh="true" property="og:description" content="Make a space laser sound"><meta data-rh="true" property="og:image" content="https://oskitone.github.io/space_dice/img/overhead-short-40-4-480.gif"><meta data-rh="true" name="twitter:image" content="https://oskitone.github.io/space_dice/img/overhead-short-40-4-480.gif"><link data-rh="true" rel="icon" href="/space_dice/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://oskitone.github.io/space_dice/pew-pew-pew"><link data-rh="true" rel="alternate" href="https://oskitone.github.io/space_dice/pew-pew-pew" hreflang="en"><link data-rh="true" rel="alternate" href="https://oskitone.github.io/space_dice/pew-pew-pew" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"6. Pew pew pew","item":"https://oskitone.github.io/space_dice/pew-pew-pew"}]}</script><link rel="stylesheet" href="/space_dice/assets/css/styles.9393e9d2.css">
-<script src="/space_dice/assets/js/runtime~main.99cfe752.js" defer="defer"></script>
+<script src="/space_dice/assets/js/runtime~main.22a6d6d2.js" defer="defer"></script>
 <script src="/space_dice/assets/js/main.6635d9d9.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -26,7 +26,7 @@
 <ul>
 <li class=""><strong>C1</strong> stores voltage from VCC to the oscillator&#x27;s control input, extending how long the oscillator runs beyond <strong>SW2</strong>&#x27;s closure.</li>
 <li class="">However, we still have the <strong>R1</strong>+<strong>RV1</strong> pull-down from before. It now drains the cap&#x27;s voltage to GND, so the oscillator can&#x27;t run forever.</li>
-<li class="">The previously unused pot now controls the speed of that voltage drain.</li>
+<li class="">The previously useless <strong>RV1</strong> pot is now very useful. It controls the speed of that voltage drain.</li>
 <li class="">Surprisingly, when the input voltage drops low, the oscillator frequency goes low too. The result is a distinct &quot;laser&quot; sound that starts at a high frequency and then drops low before ending. <em>This is a hack!</em>
 <ul>
 <li class="">Logic gates are digital machines. Their inputs and outputs are binary, either high or low. When treated this way, their behavior is as expected. They are in specification, in-spec.</li>
@@ -34,6 +34,7 @@
 <li class="">Is it good for the chip to be run out-of-spec? Probably not! But it doesn&#x27;t seem to do it any harm in these short bursts.</li>
 </ul>
 </li>
+<li class="">The enclosure labels <strong>RV1</strong> &quot;DROP.&quot; Like time to drop? &quot;DECAY&quot; would have been preferable but didn&#x27;t fit!</li>
 </ul>
 <p>Consider:</p>
 <ul>
