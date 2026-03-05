@@ -3961,9 +3961,9 @@
 		)
 		(uuid "0ae69ee7-6abf-42dc-8980-cc7973d249d4")
 	)
-	(text "Decoupling capacitors, placed near\neach IC to reduce noise between chips."
+	(text "Decoupling capacitors, phyically placed\nnear each IC to reduce noise between chips."
 		(exclude_from_sim no)
-		(at 144.018 49.022 0)
+		(at 139.954 49.276 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3994,7 +3994,7 @@
 		)
 		(uuid "5e5b1502-dff5-46d5-8603-3d0882fe9141")
 	)
-	(text "Relaxation oscillator.\n\nFrequency is set by C2 and R2+RV3.\nHigher values = slower.\n\nThe other input pin controls on/off."
+	(text "Relaxation oscillator.\n\nFrequency is set by C2 and R2+RV3.\nHigher values = slower.\n\nInput on pin 1 controls on/off."
 		(exclude_from_sim no)
 		(at 140.716 76.454 0)
 		(effects
@@ -4027,9 +4027,9 @@
 		)
 		(uuid "a89171f5-f1fc-43cb-b72e-ce4146c8ccd8")
 	)
-	(text "CD4093 is a quad NAND\nw/ Schmitt trigger. Its\npower pins are placed\nseparately from gates."
+	(text "CD4093 is a quad NAND\nw/ Schmitt trigger. Its\npower pin symbols are\nplaced separately from\nits gates."
 		(exclude_from_sim no)
-		(at 98.806 52.578 0)
+		(at 102.87 52.07 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4060,7 +4060,7 @@
 		)
 		(uuid "d2ce7124-6d94-4c47-9f6a-d22405227c65")
 	)
-	(text "CD4017 normally counts from Q0 to Q9,\nbut here we reset at Q6 so it goes\nQ0 to Q5 then resets to Q0 and so on.\nEach Q pin lights one LED, and they\ncan all share a resistor.\n\nBefore CLK is available, the first\nLED will probably be light, though\nit could be any of them."
+	(text "CD4017 normally counts from Q0 to Q9,\nbut here we reset at Q6 so it goes\nQ0 to Q5 then resets to Q0 and so on.\nEach Q pin lights just one LED, and\nthey can all share a resistor.\n\nBefore CLK is available, the first\nLED will probably be lit, though\nit could be any of them because of\ntransient noise."
 		(exclude_from_sim no)
 		(at 202.184 135.89 0)
 		(effects
@@ -4082,7 +4082,7 @@
 		)
 		(uuid "e2a32e47-c131-41e3-9a8d-9dc7517703a3")
 	)
-	(text "Switching SW1 activates oscillator. The resistors pull it down\nto GND when the switch is open.\n\nThe C1 cap, however, stores that voltage so the oscillator is active\nbeyond the switch's press. R1+RV2 then act as drains into GND.\nHigher values = tigher pipes = longer drain time."
+	(text "Closing SW2 activates oscillator. The R1+RV1 pull it down\nto GND when the switch is open.\n\nThe C1 cap, however, stores voltage so the oscillator is active\nbeyond the switch's press. R1+RV2 then act as a drain into GND.\nHigher values = tigher pipes = longer drain time."
 		(exclude_from_sim no)
 		(at 115.062 114.3 0)
 		(effects
