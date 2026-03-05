@@ -4084,7 +4084,7 @@
 	)
 	(text "Closing SW2 activates oscillator. The R1+RV1 pull it down\nto GND when the switch is open.\n\nThe C1 cap, however, stores voltage so the oscillator is active\nbeyond the switch's press. R1+RV2 then act as a drain into GND.\nHigher values = tigher pipes = longer drain time."
 		(exclude_from_sim no)
-		(at 115.062 114.3 0)
+		(at 115.824 112.014 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4118,7 +4118,7 @@
 		(uuid "445a1ecf-8b6a-43da-85e9-189c24363193")
 	)
 	(junction
-		(at 92.71 92.71)
+		(at 92.71 90.17)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "56ea8ee6-b664-4dfb-baaf-ec9718209c50")
@@ -4148,37 +4148,37 @@
 		(uuid "a40c5493-76f7-47ce-ab6f-fe95f8c17e03")
 	)
 	(junction
-		(at 142.24 107.95)
+		(at 142.24 105.41)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "a9f19522-c244-4bb6-80a9-9dbcaaf39e3c")
 	)
 	(junction
-		(at 86.36 116.84)
+		(at 86.36 114.3)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "bcbe1919-e875-4933-a000-7465701cc77a")
 	)
 	(junction
-		(at 86.36 104.14)
+		(at 86.36 101.6)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "bfb088b5-28a9-499f-8efc-3ca89316d8b2")
 	)
 	(junction
-		(at 86.36 92.71)
+		(at 86.36 90.17)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "d488c0e0-6ea8-4598-b4ae-850c1e0c85c4")
 	)
 	(junction
-		(at 148.59 95.25)
+		(at 148.59 92.71)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "d86c9042-7421-4f4a-bb69-13bab7b66f78")
 	)
 	(junction
-		(at 105.41 107.95)
+		(at 105.41 105.41)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "e21c8eed-5e55-460b-a037-07530462e2dd")
@@ -4323,7 +4323,7 @@
 	)
 	(wire
 		(pts
-			(xy 86.36 104.14) (xy 86.36 100.33)
+			(xy 86.36 101.6) (xy 86.36 97.79)
 		)
 		(stroke
 			(width 0)
@@ -4343,7 +4343,7 @@
 	)
 	(wire
 		(pts
-			(xy 92.71 92.71) (xy 111.76 92.71)
+			(xy 92.71 90.17) (xy 111.76 90.17)
 		)
 		(stroke
 			(width 0)
@@ -4353,7 +4353,7 @@
 	)
 	(wire
 		(pts
-			(xy 69.85 92.71) (xy 62.23 92.71)
+			(xy 69.85 90.17) (xy 62.23 90.17)
 		)
 		(stroke
 			(width 0)
@@ -4393,7 +4393,7 @@
 	)
 	(wire
 		(pts
-			(xy 148.59 95.25) (xy 154.94 95.25)
+			(xy 148.59 92.71) (xy 154.94 92.71)
 		)
 		(stroke
 			(width 0)
@@ -4413,7 +4413,7 @@
 	)
 	(wire
 		(pts
-			(xy 86.36 113.03) (xy 86.36 116.84)
+			(xy 86.36 110.49) (xy 86.36 114.3)
 		)
 		(stroke
 			(width 0)
@@ -4433,7 +4433,7 @@
 	)
 	(wire
 		(pts
-			(xy 92.71 92.71) (xy 92.71 102.87)
+			(xy 92.71 90.17) (xy 92.71 100.33)
 		)
 		(stroke
 			(width 0)
@@ -4453,7 +4453,7 @@
 	)
 	(wire
 		(pts
-			(xy 127 95.25) (xy 148.59 95.25)
+			(xy 127 92.71) (xy 148.59 92.71)
 		)
 		(stroke
 			(width 0)
@@ -4493,7 +4493,7 @@
 	)
 	(wire
 		(pts
-			(xy 81.28 104.14) (xy 86.36 104.14)
+			(xy 81.28 101.6) (xy 86.36 101.6)
 		)
 		(stroke
 			(width 0)
@@ -4533,7 +4533,7 @@
 	)
 	(wire
 		(pts
-			(xy 148.59 95.25) (xy 148.59 107.95)
+			(xy 148.59 92.71) (xy 148.59 105.41)
 		)
 		(stroke
 			(width 0)
@@ -4543,7 +4543,7 @@
 	)
 	(wire
 		(pts
-			(xy 140.97 107.95) (xy 142.24 107.95)
+			(xy 140.97 105.41) (xy 142.24 105.41)
 		)
 		(stroke
 			(width 0)
@@ -4573,7 +4573,7 @@
 	)
 	(wire
 		(pts
-			(xy 105.41 107.95) (xy 124.46 107.95)
+			(xy 105.41 105.41) (xy 124.46 105.41)
 		)
 		(stroke
 			(width 0)
@@ -4593,7 +4593,7 @@
 	)
 	(wire
 		(pts
-			(xy 137.16 102.87) (xy 142.24 102.87)
+			(xy 137.16 100.33) (xy 142.24 100.33)
 		)
 		(stroke
 			(width 0)
@@ -4613,7 +4613,7 @@
 	)
 	(wire
 		(pts
-			(xy 86.36 95.25) (xy 86.36 92.71)
+			(xy 86.36 92.71) (xy 86.36 90.17)
 		)
 		(stroke
 			(width 0)
@@ -4623,7 +4623,7 @@
 	)
 	(wire
 		(pts
-			(xy 81.28 109.22) (xy 81.28 104.14)
+			(xy 81.28 106.68) (xy 81.28 101.6)
 		)
 		(stroke
 			(width 0)
@@ -4643,7 +4643,7 @@
 	)
 	(wire
 		(pts
-			(xy 80.01 92.71) (xy 86.36 92.71)
+			(xy 80.01 90.17) (xy 86.36 90.17)
 		)
 		(stroke
 			(width 0)
@@ -4673,7 +4673,7 @@
 	)
 	(wire
 		(pts
-			(xy 137.16 102.87) (xy 137.16 104.14)
+			(xy 137.16 100.33) (xy 137.16 101.6)
 		)
 		(stroke
 			(width 0)
@@ -4683,7 +4683,7 @@
 	)
 	(wire
 		(pts
-			(xy 86.36 116.84) (xy 86.36 124.46)
+			(xy 86.36 114.3) (xy 86.36 124.46)
 		)
 		(stroke
 			(width 0)
@@ -4693,7 +4693,7 @@
 	)
 	(wire
 		(pts
-			(xy 62.23 92.71) (xy 62.23 91.44)
+			(xy 62.23 90.17) (xy 62.23 88.9)
 		)
 		(stroke
 			(width 0)
@@ -4753,7 +4753,7 @@
 	)
 	(wire
 		(pts
-			(xy 105.41 97.79) (xy 105.41 107.95)
+			(xy 105.41 95.25) (xy 105.41 105.41)
 		)
 		(stroke
 			(width 0)
@@ -4763,7 +4763,7 @@
 	)
 	(wire
 		(pts
-			(xy 105.41 107.95) (xy 105.41 111.76)
+			(xy 105.41 105.41) (xy 105.41 109.22)
 		)
 		(stroke
 			(width 0)
@@ -4793,7 +4793,7 @@
 	)
 	(wire
 		(pts
-			(xy 82.55 109.22) (xy 81.28 109.22)
+			(xy 82.55 106.68) (xy 81.28 106.68)
 		)
 		(stroke
 			(width 0)
@@ -4873,7 +4873,7 @@
 	)
 	(wire
 		(pts
-			(xy 142.24 102.87) (xy 142.24 107.95)
+			(xy 142.24 100.33) (xy 142.24 105.41)
 		)
 		(stroke
 			(width 0)
@@ -4903,7 +4903,7 @@
 	)
 	(wire
 		(pts
-			(xy 105.41 116.84) (xy 105.41 118.11)
+			(xy 105.41 114.3) (xy 105.41 118.11)
 		)
 		(stroke
 			(width 0)
@@ -4933,7 +4933,7 @@
 	)
 	(wire
 		(pts
-			(xy 92.71 116.84) (xy 86.36 116.84)
+			(xy 92.71 114.3) (xy 86.36 114.3)
 		)
 		(stroke
 			(width 0)
@@ -4973,7 +4973,7 @@
 	)
 	(wire
 		(pts
-			(xy 86.36 92.71) (xy 92.71 92.71)
+			(xy 86.36 90.17) (xy 92.71 90.17)
 		)
 		(stroke
 			(width 0)
@@ -4993,7 +4993,7 @@
 	)
 	(wire
 		(pts
-			(xy 129.54 107.95) (xy 133.35 107.95)
+			(xy 129.54 105.41) (xy 133.35 105.41)
 		)
 		(stroke
 			(width 0)
@@ -5043,7 +5043,7 @@
 	)
 	(wire
 		(pts
-			(xy 86.36 105.41) (xy 86.36 104.14)
+			(xy 86.36 102.87) (xy 86.36 101.6)
 		)
 		(stroke
 			(width 0)
@@ -5083,7 +5083,7 @@
 	)
 	(wire
 		(pts
-			(xy 142.24 107.95) (xy 148.59 107.95)
+			(xy 142.24 105.41) (xy 148.59 105.41)
 		)
 		(stroke
 			(width 0)
@@ -5103,7 +5103,7 @@
 	)
 	(wire
 		(pts
-			(xy 92.71 110.49) (xy 92.71 116.84)
+			(xy 92.71 107.95) (xy 92.71 114.3)
 		)
 		(stroke
 			(width 0)
@@ -5133,7 +5133,7 @@
 	)
 	(wire
 		(pts
-			(xy 105.41 97.79) (xy 111.76 97.79)
+			(xy 105.41 95.25) (xy 111.76 95.25)
 		)
 		(stroke
 			(width 0)
@@ -5447,7 +5447,7 @@
 	)
 	(global_label "CLOCK"
 		(shape input)
-		(at 154.94 95.25 0)
+		(at 154.94 92.71 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5457,7 +5457,7 @@
 		)
 		(uuid "f1688f5f-3f64-4186-9ab1-0d8316e4ac4c")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 164.0938 95.25 0)
+			(at 164.0938 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6179,7 +6179,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_Potentiometer_US")
-		(at 137.16 107.95 90)
+		(at 137.16 105.41 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6187,7 +6187,7 @@
 		(dnp no)
 		(uuid "29392ac3-4409-4e86-b98f-f24cd527b053")
 		(property "Reference" "RV3"
-			(at 135.128 99.06 90)
+			(at 135.128 96.52 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6196,7 +6196,7 @@
 			)
 		)
 		(property "Value" "10k log"
-			(at 133.858 101.092 90)
+			(at 133.858 98.552 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6205,7 +6205,7 @@
 			)
 		)
 		(property "Footprint" "kicad-official/Potentiometer_THT.pretty:Potentiometer_Bourns_PTV09A-1_Single_Vertical"
-			(at 137.16 107.95 0)
+			(at 137.16 105.41 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6214,7 +6214,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 137.16 107.95 0)
+			(at 137.16 105.41 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6223,7 +6223,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 137.16 107.95 0)
+			(at 137.16 105.41 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6354,7 +6354,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small_US")
-		(at 86.36 97.79 0)
+		(at 86.36 95.25 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -6363,7 +6363,7 @@
 		(dnp no)
 		(uuid "372e05ab-e262-45e8-874c-d1ecb2cd1aa7")
 		(property "Reference" "R1"
-			(at 84.328 96.52 0)
+			(at 84.328 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6372,7 +6372,7 @@
 			)
 		)
 		(property "Value" "1k"
-			(at 84.328 99.06 0)
+			(at 84.328 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6381,7 +6381,7 @@
 			)
 		)
 		(property "Footprint" "kicad-official/Resistor_THT.pretty:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
-			(at 86.36 97.79 0)
+			(at 86.36 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6390,7 +6390,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 86.36 97.79 0)
+			(at 86.36 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6399,7 +6399,7 @@
 			)
 		)
 		(property "Description" "Resistor, small US symbol"
-			(at 86.36 97.79 0)
+			(at 86.36 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6634,7 +6634,7 @@
 	(symbol
 		(lib_name "VCC_2")
 		(lib_id "power:VCC")
-		(at 62.23 91.44 0)
+		(at 62.23 88.9 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6642,7 +6642,7 @@
 		(dnp no)
 		(uuid "50afdfe7-6464-43f3-b0e0-2933668887e5")
 		(property "Reference" "#PWR01"
-			(at 62.23 95.25 0)
+			(at 62.23 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6651,7 +6651,7 @@
 			)
 		)
 		(property "Value" "VCC"
-			(at 62.23 87.376 0)
+			(at 62.23 84.836 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6659,7 +6659,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 62.23 91.44 0)
+			(at 62.23 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6668,7 +6668,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 62.23 91.44 0)
+			(at 62.23 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6677,7 +6677,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"VCC\""
-			(at 62.23 91.44 0)
+			(at 62.23 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7109,7 +7109,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Polarized")
-		(at 92.71 106.68 0)
+		(at 92.71 104.14 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7117,7 +7117,7 @@
 		(dnp no)
 		(uuid "71d03464-672f-40b9-bedc-060ec0cc39f5")
 		(property "Reference" "C1"
-			(at 98.044 107.95 0)
+			(at 98.044 105.41 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7125,7 +7125,7 @@
 			)
 		)
 		(property "Value" "220uF"
-			(at 98.298 110.49 0)
+			(at 98.298 107.95 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7133,7 +7133,7 @@
 			)
 		)
 		(property "Footprint" "kicad-official/Capacitor_THT.pretty:CP_Radial_D7.5mm_P2.50mm"
-			(at 93.6752 110.49 0)
+			(at 93.6752 107.95 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7142,7 +7142,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 92.71 106.68 0)
+			(at 92.71 104.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7151,7 +7151,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 92.71 106.68 0)
+			(at 92.71 104.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7378,7 +7378,7 @@
 	)
 	(symbol
 		(lib_id "4xxx:HEF4093B")
-		(at 119.38 95.25 0)
+		(at 119.38 92.71 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7387,7 +7387,7 @@
 		(fields_autoplaced yes)
 		(uuid "887857e9-69d2-4488-96cd-3eae2d8032cc")
 		(property "Reference" "U1"
-			(at 119.3717 86.36 0)
+			(at 119.3717 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7395,7 +7395,7 @@
 			)
 		)
 		(property "Value" "HEF4093B"
-			(at 119.3717 88.9 0)
+			(at 119.3717 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7403,7 +7403,7 @@
 			)
 		)
 		(property "Footprint" "kicad-official/Package_DIP.pretty:DIP-14_W7.62mm_Socket_LongPads"
-			(at 119.38 95.25 0)
+			(at 119.38 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7412,7 +7412,7 @@
 			)
 		)
 		(property "Datasheet" "https://assets.nexperia.com/documents/data-sheet/HEF4093B.pdf"
-			(at 119.38 95.25 0)
+			(at 119.38 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7421,7 +7421,7 @@
 			)
 		)
 		(property "Description" "Quad 2-Input NAND Schmitt Trigger, SOIC-14"
-			(at 119.38 95.25 0)
+			(at 119.38 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7671,7 +7671,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_Potentiometer_US")
-		(at 86.36 109.22 0)
+		(at 86.36 106.68 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -7680,7 +7680,7 @@
 		(dnp no)
 		(uuid "949199d3-28c3-443c-98ef-c6032b6d98b0")
 		(property "Reference" "RV1"
-			(at 77.978 108.712 0)
+			(at 77.978 106.172 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7688,7 +7688,7 @@
 			)
 		)
 		(property "Value" "10k log"
-			(at 77.724 110.998 0)
+			(at 77.724 108.458 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7696,7 +7696,7 @@
 			)
 		)
 		(property "Footprint" "kicad-official/Potentiometer_THT.pretty:Potentiometer_Bourns_PTV09A-1_Single_Vertical"
-			(at 86.36 109.22 0)
+			(at 86.36 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7705,7 +7705,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 86.36 109.22 0)
+			(at 86.36 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7714,7 +7714,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 86.36 109.22 0)
+			(at 86.36 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8138,7 +8138,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small_US")
-		(at 127 107.95 90)
+		(at 127 105.41 90)
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
@@ -8147,7 +8147,7 @@
 		(dnp no)
 		(uuid "ab088e0f-2454-4c30-b407-0fb2b10c94fc")
 		(property "Reference" "R2"
-			(at 127.254 102.87 90)
+			(at 127.254 100.33 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8156,7 +8156,7 @@
 			)
 		)
 		(property "Value" "1k"
-			(at 127.254 104.902 90)
+			(at 127.254 102.362 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8165,7 +8165,7 @@
 			)
 		)
 		(property "Footprint" "kicad-official/Resistor_THT.pretty:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
-			(at 127 107.95 0)
+			(at 127 105.41 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8174,7 +8174,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 127 107.95 0)
+			(at 127 105.41 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8183,7 +8183,7 @@
 			)
 		)
 		(property "Description" "Resistor, small US symbol"
-			(at 127 107.95 0)
+			(at 127 105.41 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8418,7 +8418,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 105.41 114.3 0)
+		(at 105.41 111.76 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8427,7 +8427,7 @@
 		(fields_autoplaced yes)
 		(uuid "b27c3d3c-2be5-44be-a7c6-668796fe42b9")
 		(property "Reference" "C2"
-			(at 107.95 113.0362 0)
+			(at 107.95 110.4962 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8436,7 +8436,7 @@
 			)
 		)
 		(property "Value" ".1uF"
-			(at 107.95 115.5762 0)
+			(at 107.95 113.0362 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8445,7 +8445,7 @@
 			)
 		)
 		(property "Footprint" "kicad-official/Capacitor_THT.pretty:C_Disc_D5.0mm_W2.5mm_P5.00mm"
-			(at 105.41 114.3 0)
+			(at 105.41 111.76 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8454,7 +8454,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 105.41 114.3 0)
+			(at 105.41 111.76 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8463,7 +8463,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 105.41 114.3 0)
+			(at 105.41 111.76 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8930,7 +8930,7 @@
 	)
 	(symbol
 		(lib_id "Switch:SW_SPST")
-		(at 74.93 92.71 0)
+		(at 74.93 90.17 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8938,7 +8938,7 @@
 		(dnp no)
 		(uuid "d6ea2e11-66e3-49b6-a3dd-01cfdd63b84f")
 		(property "Reference" "SW2"
-			(at 74.93 86.36 0)
+			(at 74.93 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8946,7 +8946,7 @@
 			)
 		)
 		(property "Value" "SW_SPST"
-			(at 74.93 88.9 0)
+			(at 74.93 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8954,7 +8954,7 @@
 			)
 		)
 		(property "Footprint" "kicad-official/Button_Switch_THT.pretty:SW_PUSH_6mm"
-			(at 74.93 92.71 0)
+			(at 74.93 90.17 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8963,7 +8963,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 74.93 92.71 0)
+			(at 74.93 90.17 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8972,7 +8972,7 @@
 			)
 		)
 		(property "Description" "Single Pole Single Throw (SPST) switch"
-			(at 74.93 92.71 0)
+			(at 74.93 90.17 0)
 			(effects
 				(font
 					(size 1.27 1.27)
