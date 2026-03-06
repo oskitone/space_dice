@@ -8,8 +8,11 @@
 	)
 	(paper "USLetter")
 	(title_block
+		(title "Space Dice")
 		(date "2026-01-09")
 		(rev "260109")
+		(company "Oskitone")
+		(comment 1 "@oskitone")
 	)
 	(layers
 		(0 "F.Cu" signal)
