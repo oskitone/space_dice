@@ -15,7 +15,7 @@ Obviously, I'd prefer you buy the kit from me. But, if circumstances prohibit, I
 
 ## Schematic
 
-![Oskitone Space Dice schematic](/misc/schematic.svg)
+![Oskitone Space Dice schematic](/misc/schematic-bg.svg)
 
 ## TODO/Consider for next rev
 
