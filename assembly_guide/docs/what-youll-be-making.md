@@ -21,6 +21,8 @@ Electronics hobbyists have been cutting their teeth on [electronic dice](https:/
 
 Space Dice extends on that with unnecessary sound effects, 3D printing, and knob/switch controls for tone frequency, drain time, octave, counting time, and volume. It is as much fun as I could fit in an enclosure the size of an Altoids tin.
 
+<div style={{padding:"56.25% 0 0 0",position:"relative"}}><iframe src="https://player.vimeo.com/video/1172325294?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" style={{position:"absolute",top:0,left:0,width:"100%",height:"100%"}} allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"  title="Higher Lower game demo"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+
 This guide walks you through how to solder and assemble it, step by step. It will take 30 minutes or so, not counting 3D-printing time.
 
 <!-- ## What you'll learn
