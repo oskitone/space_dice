@@ -13,15 +13,13 @@ If you bought a kit with 3D-printed parts included, you can skip this section, b
 
 ## Download
 
-:::note TODO
-Download STLs of the models from Printables or Thingiverse.
-:::
+Download STLs of the models from [Printables](https://www.printables.com/model/1640137-space-dice-electronic-dice-noise-machine) or [Thingiverse](https://www.thingiverse.com/thing:7316686).
 
 [![3D-printed parts](/img/slicer.png)](/img/slicer.png)
 
 ## Slicing
 
-There are 9 STLs to print, 12 objects total. Expect 5.5 hours print time.
+There are 10 STLs included, 9 STLs required to print, for 12 required objects total. Expect 5.5 hours of print time.
 
 | Part                  | Layer Height | Supports? | Estimated Time |
 | --------------------- | ------------ | --------- | -------------- |

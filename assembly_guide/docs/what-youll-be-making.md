@@ -7,7 +7,7 @@ image: /img/overhead-short-40-4-480.gif
 slug: /
 ---
 
-[![Space Dice 3D model](/img/12-80-960.gif)](/img/12-80-960.gif)
+[![Fully assembled Space Dice](/img/completed_space_dice.jpg)](/img/completed_space_dice.jpg)
 
 **Purchase a kit:** [https://www.oskitone.com/product/space-dice-diy-electronics-kit](https://www.oskitone.com/product/space-dice-diy-electronics-kit)
 
@@ -15,13 +15,11 @@ slug: /
 
 Space Dice is a combination space laser noise and electronic dice machine.
 
-[![Fully assembled Space Dice](/img/completed_space_dice.jpg)](/img/completed_space_dice.jpg)
-
 Electronics hobbyists have been cutting their teeth on [electronic dice](https://www.google.com/search?q=electronic+dice+soldering+kit) circuits for years. In them, you press a button and get a random number, usually between one and six like a six-side die (1D6).
 
 Space Dice extends on that with unnecessary sound effects, 3D printing, and knob/switch controls for tone frequency, drain time, octave, counting time, and volume. It is as much fun as I could fit in an enclosure the size of an Altoids tin.
 
-<div style={{padding:"56.25% 0 0 0",position:"relative"}}><iframe src="https://player.vimeo.com/video/1172325294?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" style={{position:"absolute",top:0,left:0,width:"100%",height:"100%"}} allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"  title="Higher Lower game demo"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+<p style={{padding:"56.25% 0 0 0",position:"relative"}}><iframe src="https://player.vimeo.com/video/1172325294?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" style={{position:"absolute",top:0,left:0,width:"100%",height:"100%"}} allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"  title="Higher Lower game demo"></iframe></p><script src="https://player.vimeo.com/api/player.js"></script>
 
 This guide walks you through how to solder and assemble it, step by step. It will take 30 minutes or so, not counting 3D-printing time.
 
@@ -36,6 +34,8 @@ This guide walks you through how to solder and assemble it, step by step. It wil
 <!-- TODO: demo video -->
 
 ### Background
+
+[![Space Dice 3D model](/img/12-80-960.gif)](/img/12-80-960.gif)
 
 I used to teach a virtual [DIY synth/electronics](https://blog.tommy.sh/posts/shopdocs/) workshop, building noisy glitch machines on breadboards for a couple months then having a big show-and-tell at the end. It was lovely.
 
@@ -53,21 +53,23 @@ Here's where I'll link to a blog post with lots more background info and design 
 
 There's no code in this kit. No Arduino, no Raspberry Pi, no microcontroller. (Not that there's anything wrong with that!)
 
-Instead, Space Dice is implemented entirely in [4000-series CMOS chips](https://en.wikipedia.org/wiki/4000-series_integrated_circuits), a 50+ year old grab bag of integrated circuits that's persisted well beyond any other tech from the same era. This series of chips has logic gates, shift registers, switches, latches, timers, counters, LED/LCD drivers, you name it. Each chip is like a single function, except instead of a line of code it's a physical block of microscopic transistors etched in silicon. Said another way, you don't program these chips, you program _with_ them.
+Instead, Space Dice is implemented entirely in [4000-series CMOS chips](https://en.wikipedia.org/wiki/4000-series_integrated_circuits), a 50+ year old grab bag of integrated circuits that's persisted well beyond any other tech from the same era. This series of chips has logic gates, shift registers, switches, latches, timers, counters, LED/LCD drivers, you name it.
 
-<!-- So, why would you anyone use these old CMOS chips instead of anything newer? Take your pick: technical challenge, education, soldering practice, or maybe just for fun! -->
+Each chip is like a single function, except instead of a line of code it's a physical block of microscopic transistors etched in silicon. Said another way, you don't program these chips themselves, you program _with_ them.
 
-<!-- Space Dice's functionality is accomplished with just three of them:
+And Space Dice's functionality uses these three:
 
 | Chip       | Purpose                                   | Usage                        |
 | ---------- | ----------------------------------------- | ---------------------------- |
 | **CD4017** | Decade counter with 10 sequential outputs | LED cycler                   |
 | **CD4040** | Binary counter with 12 bit outputs        | Prescaler, octave generation |
-| **CD4093** | Quad NAND logic gate                      | Oscillator, audio booster    | -->
+| **CD4093** | Quad NAND logic gate                      | Oscillator, audio booster    |
 
-<video controls>
-  <source src="video/assembly-4-1920.mp4" type="video/mp4" />
-</video>
+[![Space Dice 3D model](/img/enclosure_open.jpg)](/img/enclosure_open.jpg)
+
+A very good question would be _"how is this any better than using, say, an Arduino or a Raspberry Pi or ESP32 or any other thing that's come out in the intervening **fifty years** since these chips first came out?"_.
+
+The answer to that hypothetical I will leave as an exercise to the reader.
 
 ### Disclaimers
 
@@ -82,6 +84,10 @@ Not a toy. Choking hazard. Small parts. Not for children under 3 years.
 :::
 
 ## About this guide
+
+<p><video controls poster="img/laser_sound_test.jpg">
+  <source src="video/assembly-4-1920.mp4" type="video/mp4" />
+</video></p>
 
 To save cost, trees, and frustration from outdated information, printed instructions are not included by default with Oskitone kits. This online guide will always be up to date and the best source of information for how to assemble your new toy.
 

@@ -57,3 +57,9 @@ video {
   max-width: 60rem;
   margin: 0 auto;
 }
+
+p,
+li,
+td {
+  text-wrap: pretty;
+}
