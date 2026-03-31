@@ -19,6 +19,8 @@ Obviously, I'd prefer you buy the kit from me. But, if circumstances prohibit, I
 
 ## TODO/Consider for next rev
 
+- Fix CD4040 typo in schematic
+- Explain why volume pot doesn't seem to work well
 - Pull-down on 4017 reset so D1 lights consistently before 4093?
 - Pull-up/down between 4093 CLOCK output and 4017 CLK input to drive counter before 4040 prescaler?
 
