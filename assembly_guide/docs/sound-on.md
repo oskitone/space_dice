@@ -28,7 +28,7 @@ Speaker terminals do have +/- sides but, for the way this one's being used, it w
 
 ## Test
 
-Pressing **SW2** should now also make a beeping sound. **RV2** should control its volume. **RV3** and **SW1** should control pitch.
+Pressing **SW2** should now also make a beeping sound. **RV3** and **SW1** should control pitch. **RV2** should _kind of_ control its volume (see notes below).
 
 [![speaker test with multimeter](/img/speaker_test_with_multimeter.jpg)](/img/speaker_test_with_multimeter.jpg)
 
@@ -41,10 +41,11 @@ Not working as expected? Check the [PCB troubleshooting](pcb-troubleshooting.md)
 - Each 4040 output pin creates a square waves at half the frequency of its predecessor. In musical terms, when a note is half the frequency of another, it's an octave down. Twice the frequency, it's an octave up. The 4040 is an octave generator!
 - But how can we listen to it? If we were to connect any single output pin up to a speaker, there wouldn't be enough current to audibly drive the speaker. We need an amplifier or some way to boost the signal...
 - A NAND with its inputs tied together becomes a NOT. If you connect multiple NOTs in parallel, their output current multiplies. Thus, the three remaining 4093 NAND gates make a crude inverting square wave booster. _This is a hack!_ PCB software warns against connecting logic gate outputs; in practice, it is fine.
-- Three of these octaves (two switchable through **SW1**) connect to the input to our amp, and its output goes through the **RV2** potentiometer wired as [voltage divider](https://en.wikipedia.org/wiki/Voltage_divider) for volume control and then to a speaker.
+- Three of these octaves (two switchable through **SW1**) connect to the input to our booster, and its output goes through the **RV2** potentiometer wired as [voltage divider](https://en.wikipedia.org/wiki/Voltage_divider) for volume control and then to a speaker.
 - The enclosure labels **RV2** as "VOL" for "volume" and **SW1** as "OCT" for "octave."
 - **C4** is a [coupling capacitor](https://en.wikipedia.org/wiki/Capacitive_coupling). Its job is to connect the amplified audio's alternating current (AC) to the speaker but block direct current (DC; for example, a sustained 9v). Without it, the speaker would draw more current than the 4093 could provide, eventually damaging it.
 - The lines out of Q0 and Q2 are drawn crossed, but they don't connect electronically. Schematics will usually explicitly denote line/wire connections with dots, like the ones flanking the NAND gates.
+- You've probably noticed that **RV2** does indeed control volume, but it seems to have a wide deadband in the middle where there's no discernible change. The reason for that is that the booster hack works well enough to audibly drive a speaker but is _not_ a proper amplifier. So we're kind of stuck with an odd compromise where the volume control works more like a switch than a pot. S'okay!
 
 Consider:
 
